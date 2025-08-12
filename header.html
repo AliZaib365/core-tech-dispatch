@@ -6,16 +6,18 @@
     <title>CoreTech Dispatch - Logistics Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="assets/css/header.css"> -->
-     <style>
-                :root {
+    <style>
+        :root {
             --primary-red: #e63946;
             --dark-red: #d00000;
             --light-red: #ff686b;
             --white: #ffffff;
             --off-white: #f8f9fa;
             --dark-gray: #101214;
+            --medium-gray: #2a2e33;
             --light-gray: #6c757d;
+            --nav-bg: #1e2025;
+            --nav-border: #34383e;
         }
 
         * {
@@ -32,14 +34,14 @@
 
         /* Navbar Styles */
         .navbar {
-
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 2rem;
-            background-color: var(--white);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            background-color: var(--nav-bg);
+            border-bottom: 1px solid var(--nav-border);
             position: sticky;
+            top: 0;
             z-index: 1000;
         }
 
@@ -65,7 +67,7 @@
         .logo-text span {
             display: block;
             font-size: 0.9rem;
-            color: var(--dark-gray);
+            color: var(--off-white);
             font-weight: 600;
             letter-spacing: 1.5px;
         }
@@ -82,7 +84,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--dark-gray);
+            color: var(--off-white);
             font-weight: 600;
             font-size: 16px;
             line-height: 22px;
@@ -117,9 +119,9 @@
             position: absolute;
             top: 100%;
             left: 0;
-            background-color: var(--white);
+            background-color: var(--medium-gray);
             width: 420px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
             border-radius: 0.5rem;
             opacity: 0;
             visibility: hidden;
@@ -127,6 +129,7 @@
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             z-index: 100;
             padding: 0.5rem 0;
+            border: 1px solid var(--nav-border);
         }
 
         .nav-links li:hover .dropdown {
@@ -164,20 +167,20 @@
             font-weight: 600;
             transition: all 0.3s;
             text-decoration: none;
-            box-shadow: 0 4px 12px rgba(230, 57, 70, 0.2);
+            box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
         }
 
         .contact-number:hover {
             background-color: var(--dark-red);
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(230, 57, 70, 0.3);
+            box-shadow: 0 6px 16px rgba(230, 57, 70, 0.4);
         }
 
         .hamburger {
             display: none;
             cursor: pointer;
             font-size: 1.5rem;
-            color: var(--dark-gray);
+            color: var(--off-white);
             background: none;
             border: none;
             padding: 0.5rem;
@@ -186,6 +189,7 @@
 
         .hamburger:hover {
             transform: scale(1.1);
+            color: var(--primary-red);
         }
 
         /* Mobile Sidebar */
@@ -195,12 +199,13 @@
             right: -320px;
             width: 320px;
             height: 100vh;
-            background-color: var(--white);
-            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+            background-color: var(--nav-bg);
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.2);
             transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
             z-index: 1001;
             padding: 2rem 1.5rem;
             overflow-y: auto;
+            border-left: 1px solid var(--nav-border);
         }
 
         .mobile-sidebar.active {
@@ -250,7 +255,7 @@
         .mobile-logo-text span {
             display: block;
             font-size: 0.8rem;
-            color: var(--dark-gray);
+            color: var(--off-white);
             font-weight: 600;
             letter-spacing: 1.2px;
         }
@@ -261,12 +266,12 @@
 
         .mobile-nav-links li {
             margin-bottom: 0.5rem;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .mobile-nav-links a {
             text-decoration: none;
-            color: var(--dark-gray);
+            color: var(--off-white);
             font-weight: 600;
             display: block;
             padding: 1rem 0;
@@ -283,13 +288,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 200%;
+            width: 100%;
             background: none;
             border: none;
             cursor: pointer;
             padding: 1rem 0;
             font-weight: 600;
-            color: var(--dark-gray);
+            color: var(--off-white);
             font-size: 16px;
             line-height: 22px;
             transition: color 0.3s;
@@ -325,7 +330,7 @@
         .mobile-contact {
             margin-top: 2rem;
             padding-top: 1.5rem;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .mobile-contact-number {
@@ -339,13 +344,13 @@
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s;
-            box-shadow: 0 4px 12px rgba(230, 57, 70, 0.2);
+            box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
         }
 
         .mobile-contact-number:hover {
             background-color: var(--dark-red);
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(230, 57, 70, 0.3);
+            box-shadow: 0 6px 16px rgba(230, 57, 70, 0.4);
         }
 
         .overlay {
@@ -354,12 +359,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.7);
             z-index: 1000;
             opacity: 0;
             visibility: hidden;
             transition: all 0.4s;
-            backdrop-filter: blur(3px);
+            backdrop-filter: blur(5px);
         }
 
         .overlay.active {
@@ -382,7 +387,6 @@
         }
 
         @media (max-width: 992px) {
-
             .nav-links,
             .contact-number {
                 display: none;
@@ -406,13 +410,12 @@
                 display: none;
             }
         }
-     </style>
+    </style>
 </head>
 <body>
     <!-- Desktop Navbar -->
     <nav class="navbar">
         <a href="#" class="logo-container">
-            <!-- <img src="https://via.placeholder.com/40x40/e63946/ffffff?text=CT" alt="CoreTech Dispatch Logo" class="logo-img"> -->
             <div class="logo-text">
                 CORETECH <span>DISPATCH</span>
             </div>
@@ -468,7 +471,6 @@
         
         <div class="mobile-nav-container">
             <div class="mobile-logo-container">
-                <!-- <img src="https://via.placeholder.com/36x36/e63946/ffffff?text=CT" alt="CoreTech Dispatch Logo" class="mobile-logo-img"> -->
                 <div class="mobile-logo-text">
                     CORETECH <span>DISPATCH</span>
                 </div>
@@ -524,7 +526,50 @@
     <!-- Overlay -->
     <div class="overlay" id="overlay"></div>
     
-  
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileSidebar = document.getElementById('mobileSidebar');
+        const closeBtn = document.getElementById('closeBtn');
+        const overlay = document.getElementById('overlay');
+        
+        hamburger.addEventListener('click', () => {
+            mobileSidebar.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeBtn.addEventListener('click', () => {
+            mobileSidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        overlay.addEventListener('click', () => {
+            mobileSidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Mobile Dropdown Toggle
+        const dropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
+        
+        dropdownBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const dropdown = btn.nextElementSibling;
+                const icon = btn.querySelector('i');
+                
+                dropdown.classList.toggle('active');
+                
+                if (dropdown.classList.contains('active')) {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                } else {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
+            });
+        });
+    </script>
 </body>
-<script src="assets/js/header.js"></script>
 </html>
