@@ -15,3 +15,14 @@
                 }, index * 200);
             });
         });
+ document.addEventListener('DOMContentLoaded', () => {
+        const track = document.querySelector('.broker-track');
+        const items = document.querySelectorAll('.broker-item');
+        const totalWidth = Array.from(items).reduce((acc, item) => acc + item.offsetWidth, 0);
+        
+        // Duplicate items for continuous scrolling effect
+        track.innerHTML += track.innerHTML;
+        
+        // Set the width of the track to accommodate the duplicated items
+        track.style.width = `${totalWidth * 2}px`;
+    });

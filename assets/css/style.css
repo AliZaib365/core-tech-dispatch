@@ -21,7 +21,7 @@
 
         .hero-section {
             position: relative;
-            height: 100vh;
+            height: 85vh;
             min-height: 800px;
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgb(0 0 0)),
                 url('/assets/images/AdobeStock_713854283_Preview-3.webp');
@@ -421,3 +421,117 @@
                 height: 25px;
             }
         }
+
+    
+    .broker-section {
+        /* margin-bottom: 185px; */
+        background-color: #020101;
+        padding: 4rem 0;
+        text-align: center;
+        overflow: hidden;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .broker-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        color: #6e6b6b;
+        letter-spacing: 1px;
+        margin-bottom: 2rem;
+        text-transform: uppercase;
+        opacity: 0.85;
+    }
+    
+    .broker-slider {
+        overflow: hidden;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+    }
+    
+    .broker-track {
+        display: flex;
+        animation: scroll 45s linear infinite;
+        gap: 2rem;
+        align-items: center;
+        justify-content: center;
+        will-change: transform;
+    }
+    
+    @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+    }
+    
+    .broker-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 2rem;
+        position: relative;
+    }
+    
+    .broker-item:not(:last-child)::after {
+        content: "";
+        display: block;
+        position: absolute;
+        right: 0;
+        width: 1px;
+        height: 50%;
+        background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .broker-logo {
+        height: 36px;
+        max-width: 140px;
+        object-fit: contain;
+        opacity: 0.85;
+        transition: all 0.3s ease;
+    }
+    
+    .broker-logo:hover {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+    
+    /* Specific logo tweaks */
+    .logo-tql { height: 60px; }
+    .logo-rxo { height: 60px; }
+    .logo-coyote { height: 60px; }
+    
+    /* Tablet view */
+    @media (max-width: 768px) {
+        .broker-section { padding: 3rem 0; }
+        .broker-item { padding: 0 1.5rem; }
+        .broker-title { font-size: 1rem; }
+        
+        .broker-logo {
+            height: 28px;
+            max-width: 100px;
+        }
+        .logo-tql { height: 25px; }
+        .logo-rxo { height: 26px; }
+        .logo-coyote { height: 28px; }
+    }
+    
+    /* Mobile view */
+    @media (max-width: 480px) {
+        .broker-title {
+            font-size: 10px;
+            margin-bottom: 1.5rem;
+        }
+        .broker-track {
+animation: scroll 5s linear infinite;
+        }
+        .broker-item { padding: 0 1rem; }
+        .broker-logo {
+            height: 22px;
+            max-width: 80px;
+        }
+        .logo-tql { height: 40px; }
+        .logo-rxo { height: 40px; }
+        .logo-coyote { height: 40px; }
+    }
