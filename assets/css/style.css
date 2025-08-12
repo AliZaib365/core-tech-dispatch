@@ -24,7 +24,7 @@
             height: 100vh;
             min-height: 800px;
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgb(0 0 0)), 
-                        url('assets/AdobeStock_713854283_Preview-3.webp');
+                        url('/assets/images/AdobeStock_713854283_Preview-3.webp');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
