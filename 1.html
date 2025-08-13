@@ -1,284 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Choose Your Truck Type | Premium Trucking Solutions</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: #0a0a0a;
-      color: #ffffff;
-      font-family: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-    }
-
-    .main-wrapper {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-
-    .truck-content-flex {
-      display: flex;
-      flex: 1;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .truck-info-col {
-      flex: 1;
-      max-width: 500px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .truck-info-col h1 {
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 800;
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
-      background: linear-gradient(90deg, #ffffff 60%, #ff1212 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .truck-info-col h1 span {
-      display: inline-block;
-    }
-
-    .truck-info-col p {
-      font-size: clamp(1rem, 2vw, 1.1rem);
-      color: #b0b0b0;
-      margin: 2rem 0;
-      font-weight: 400;
-      line-height: 1.7;
-    }
-
-    .setup-btn {
-      align-self: flex-start;
-      background: linear-gradient(135deg, #ff1212 0%, #d70d0d 100%);
-      color: #fff;
-      border: none;
-      font-size: 1rem;
-      font-weight: 600;
-      padding: 1rem 2.5rem;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(255, 18, 18, 0.3);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .setup-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: 0.5s;
-    }
-
-    .setup-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(255, 18, 18, 0.4);
-    }
-
-    .setup-btn:hover::before {
-      left: 100%;
-    }
-
-    .truck-types-grid {
-      flex: 1.5;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .truck-type-card {
-      height: 180px;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      border-radius: 12px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-start;
-      cursor: pointer;
-      overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-      z-index: 1;
-      opacity: 0;
-      animation: fadeIn 0.8s ease-out forwards;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .truck-type-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.2) 100%);
-      transition: all 0.4s ease;
-      z-index: 1;
-    }
-
-    .truck-type-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(255, 18, 18, 0);
-      transition: all 0.4s ease;
-      z-index: 1;
-    }
-
-    .truck-type-card:hover::before {
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.1) 100%);
-    }
-
-    .truck-type-card:hover::after {
-      background: rgba(255, 18, 18, 0.15);
-    }
-
-    .truck-type-card span {
-      position: relative;
-      z-index: 2;
-      color: #fff;
-      font-size: 1.25rem;
-      font-weight: 700;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-      padding: 1.5rem;
-      pointer-events: none;
-      transform: translateY(10px);
-      transition: transform 0.3s ease;
-    }
-
-    .truck-type-card:hover span {
-      transform: translateY(0);
-    }
-
-    .truck-type-card:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
-      border-color: rgba(255,18,18,0.2);
-    }
-
-    /* Animation for fade-in effect */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px);}
-      to { opacity: 1; transform: translateY(0);}
-    }
-
-    .truck-type-card:nth-child(1) { animation-delay: 0.1s; }
-    .truck-type-card:nth-child(2) { animation-delay: 0.2s; }
-    .truck-type-card:nth-child(3) { animation-delay: 0.3s; }
-    .truck-type-card:nth-child(4) { animation-delay: 0.4s; }
-    .truck-type-card:nth-child(5) { animation-delay: 0.5s; }
-    .truck-type-card:nth-child(6) { animation-delay: 0.6s; }
-    .truck-type-card:nth-child(7) { animation-delay: 0.7s; }
-    .truck-type-card:nth-child(8) { animation-delay: 0.8s; }
-
-    /* Responsive adjustments */
-    @media (max-width: 1024px) {
-      .truck-content-flex {
-        flex-direction: column;
-        gap: 3rem;
-      }
-
-      .truck-info-col {
-        max-width: 100%;
-        text-align: center;
-        align-items: center;
-      }
-
-      .setup-btn {
-        align-self: center;
-      }
-
-      .truck-types-grid {
-        width: 100%;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .truck-types-grid {
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      }
-
-      .truck-type-card {
-        height: 160px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .main-wrapper {
-        padding: 1.5rem;
-      }
-
-      .truck-types-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .truck-type-card {
-        height: 140px;
-      }
-    }
-
-    /* Animation for left content */
-    .truck-info-col h1, .truck-info-col p, .setup-btn {
-      animation: fadeIn 0.8s ease-out forwards;
-    }
-  </style>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .about-section {
+  background: #fff;
+  padding: 60px 0;
+}
+.about-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.about-row {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+  justify-content: center;
+}
+.about-left {
+  flex: 1;
+  max-width: 600px;
+}
+.about-title {
+  font-size: 54px;
+  font-family: Arial Black, Arial, sans-serif;
+  color: #111;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.about-title-red {
+  color: #ff1212;
+}
+.about-subtitle {
+  color: #b0b0b0;
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+  margin-bottom: 28px;
+}
+.about-desc {
+  font-size: 18px;
+  color: #222;
+  font-family: Arial, sans-serif;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+.about-highlight {
+  color: #ff1212;
+  font-weight: bold;
+}
+.about-highlight-blue {
+  color: #1976d2;
+}
+.about-btn {
+  display: inline-block;
+  margin-top: 8px;
+  background: #ff1212;
+  color: #fff;
+  font-size: 18px;
+  font-family: Arial Black, Arial, sans-serif;
+  font-weight: bold;
+  padding: 18px 36px;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: background 0.2s;
+  box-shadow: none;
+}
+.about-btn:hover {
+  background: #d70d0d;
+}
+.about-btn-arrow {
+  display: inline-block;
+  margin-left: 12px;
+  font-size: 20px;
+}
+.about-right {
+  flex: 1;
+  max-width: 560px;
+  min-width: 320px;
+  position: relative;
+}
+.about-video-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.about-video-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.about-play-btn {
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+  width: 48px;
+  height: 48px;
+  background: #ff1212;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.about-stats-row {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 56px;
+  flex-wrap: wrap;
+}
+.about-stat-box {
+  background: #f7f8fa;
+  border-radius: 8px;
+  padding: 36px 48px;
+  min-width: 220px;
+  text-align: left;
+  margin-bottom: 16px;
+}
+.about-stat-label {
+  color: #b0b0b0;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  font-family: Arial;
+}
+.about-stat-value {
+  font-size: 56px;
+  font-weight: bold;
+  color: #111;
+  font-family: Arial Black, Arial, sans-serif;
+}
+.about-stat-red {
+  color: #ff1212;
+}
+.about-stat-value-red {
+  color: #ff1212;
+}
+@media (max-width: 1100px) {
+  .about-row {
+    flex-direction: column;
+    gap: 32px;
+    align-items: stretch;
+  }
+  .about-right {
+    max-width: 100%;
+  }
+}
+@media (max-width: 900px) {
+  .about-stats-row {
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+  }
+  .about-stat-box {
+    width: 100%;
+    min-width: 0;
+    text-align: center;
+  }
+}
+@media (max-width: 600px) {
+  .about-container {
+    padding: 0 12px;
+  }
+  .about-title {
+    font-size: 38px;
+  }
+  .about-video-thumb {
+    aspect-ratio: 16/10;
+  }
+  .about-stat-box {
+    padding: 28px 12px;
+  }
+}
+    </style>
 </head>
 <body>
-  <div class="main-wrapper">
-    <div class="truck-content-flex">
-      <div class="truck-info-col">
-        <h1>Choose Your<br><span>Truck Type</span></h1>
-        <p>Your trucks will stay loaded, your routes optimized, and your paperwork handled — so you can focus on what matters most: the road ahead.</p>
-        <button class="setup-btn">Get a Free Setup</button>
+    <section class="about-section">
+  <div class="about-container">
+    <div class="about-row">
+      <!-- Left Column -->
+      <div class="about-left">
+        <h1 class="about-title">
+          About <span class="about-title-red">us</span>
+        </h1>
+        <div class="about-subtitle">Our Impact in Numbers</div>
+        <div class="about-desc">
+          <span class="about-highlight">Logity <span class="about-highlight-blue">Dispatch</span></span>
+          is dedicated to supporting truck drivers, owner-operators, and small fleets with professional dispatch services. Our team works as an extension of your business, so you can focus on the road.
+        </div>
+        <div class="about-desc" style="margin-bottom: 32px;">
+          What sets us apart is our personalized approach. We don’t believe in one-size-fits-all solutions. Instead, we tailor our services to fit your unique needs, truck type, and goals. Whether you’re just starting out or scaling your fleet,
+          <span class="about-highlight">Logity <span class="about-highlight-blue">Dispatch</span></span>
+          is here to help you grow.
+        </div>
+        <a href="#" class="about-btn">
+          Learn more about us
+          <span class="about-btn-arrow">&#8594;</span>
+        </a>
       </div>
-      <div class="truck-types-grid">
-        <div class="truck-type-card" style="background-image: url('assets/images/frame_1984077351-2-1-300x86.webp')">
-          <span>Box Truck</span>
-        </div>
-        <div class="truck-type-card" style="background-image: url('assets/images/frame_1984077351-4-300x64.webp')">
-          <span>Hotshot</span>
-        </div>
-        <div class="truck-type-card" style="background-image: url('assets/images/frame_1984077560-1-300x87.webp')">
-          <span>Box Truck </span>
-        </div>
-        <div class="truck-type-card" style="background-image: url('assets/images/frame_1984077561-300x87.webp')">
-          <span>Flatbed</span>
-        </div>
-        <div class="truck-type-card" style="background-image: url('assets/images/frame_1984077562-300x87.webp')">
-          <span>Reefer</span>
-        </div>
-        <div class="truck-type-card" style="background-image: url('assets/images/frame_1984077563-300x87.webp')">
-          <span>Step Deck</span>
-        </div>
-        <div class="truck-type-card" style="background-image: url('assets/images/freepik__the-style-is-candid-image-photography-with-natural__6497-1-300x113.webp')">
-          <span>Dry Van</span>
-        </div>
-        <div class="truck-type-card" style="background-image: url('assets/images/photo_2025-05-20_14-10-15-300x87.webp')">
-          <span>Conestoga Trailer</span>
+      <!-- Right Column (Video/Image) -->
+      <div class="about-right">
+        <div class="about-video-thumb">
+          <img src="assets/images/about-video-thumb.webp" alt="About Logity Dispatch">
+          <a href="#" class="about-play-btn" tabindex="0">
+            <svg width="28" height="28" viewBox="0 0 28 28">
+              <polygon points="8,6 22,14 8,22" fill="#fff"/>
+            </svg>
+          </a>
         </div>
       </div>
     </div>
+    <!-- Stats Row -->
+    <div class="about-stats-row">
+      <div class="about-stat-box">
+        <div class="about-stat-label">YEARS<br>OF EXPERIENCE</div>
+        <div class="about-stat-value">10<span class="about-stat-red">+</span></div>
+      </div>
+      <div class="about-stat-box">
+        <div class="about-stat-label">LBS<br>DISPATCHED</div>
+        <div class="about-stat-value">1<span class="about-stat-red">b+</span></div>
+      </div>
+      <div class="about-stat-box">
+        <div class="about-stat-label">AVERAGE<br>GROSS REVENUE</div>
+        <div class="about-stat-value about-stat-value-red">$7.5k</div>
+      </div>
+      <div class="about-stat-box">
+        <div class="about-stat-label">LOADS<br>BOOKED</div>
+        <div class="about-stat-value">3<span class="about-stat-red">b+</span></div>
+      </div>
+    </div>
   </div>
+</section>
 </body>
 </html>
