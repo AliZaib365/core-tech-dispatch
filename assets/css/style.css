@@ -554,7 +554,7 @@
             }
 
             .broker-track {
-                animation: scroll 5s linear infinite;
+                animation: scroll 25s linear infinite;
             }
 
             .broker-item {
