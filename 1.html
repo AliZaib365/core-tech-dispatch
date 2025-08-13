@@ -3,160 +3,524 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoreTech Dispatch - Partner Brokers</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-    :root {
-        --primary: #e63946;
-        --dark: #101214;
-        --white: #ffffff;
-        --light-gray: #f1f3f4;
-    }
-    
-    .broker-section {
-        background-color: var(--dark);
-        padding: 4rem 0;
-        text-align: center;
-        overflow: hidden;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .broker-title {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: var(--white);
-        letter-spacing: 1px;
-        margin-bottom: 2rem;
-        text-transform: uppercase;
-        opacity: 0.85;
-    }
-    
-    .broker-slider {
-        overflow: hidden;
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        position: relative;
-    }
-    
-    .broker-track {
-        display: flex;
-        animation: scroll 25s linear infinite;
-        gap: 2rem;
-        align-items: center;
-        justify-content: center;
-        will-change: transform;
-    }
-    
-    @keyframes scroll {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-    }
-    
-    .broker-item {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0 2rem;
-        position: relative;
-    }
-    
-    .broker-item:not(:last-child)::after {
-        content: "";
-        display: block;
-        position: absolute;
-        right: 0;
-        width: 1px;
-        height: 50%;
-        background: rgba(255, 255, 255, 0.2);
-    }
-    
-    .broker-logo {
-        height: 36px;
-        max-width: 140px;
-        object-fit: contain;
-        opacity: 0.85;
-        transition: all 0.3s ease;
-    }
-    
-    .broker-logo:hover {
-        opacity: 1;
-        transform: scale(1.08);
-    }
-    
-    /* Specific logo tweaks */
-    .logo-tql { height: 30px; }
-    .logo-rxo { height: 32px; }
-    .logo-coyote { height: 34px; }
-    
-    /* Tablet view */
-    @media (max-width: 768px) {
-        .broker-section { padding: 3rem 0; }
-        .broker-item { padding: 0 1.5rem; }
-        .broker-title { font-size: 1rem; }
+    <title>CoreTech Dispatch - Premium Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
         
-        .broker-logo {
-            height: 28px;
-            max-width: 100px;
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            -webkit-font-smoothing: antialiased;
         }
-        .logo-tql { height: 25px; }
-        .logo-rxo { height: 26px; }
-        .logo-coyote { height: 28px; }
-    }
-    
-    /* Mobile view */
-    @media (max-width: 480px) {
-        .broker-title {
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
+        
+        .services-section {
+            padding: 100px 40px;
+            background-color: #0a0a0a;
+            position: relative;
+            overflow: hidden;
         }
-        .broker-item { padding: 0 1rem; }
-        .broker-logo {
-            height: 22px;
-            max-width: 80px;
+        
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
-        .logo-tql { height: 20px; }
-        .logo-rxo { height: 21px; }
-        .logo-coyote { height: 22px; }
-    }
-</style>
-
-<section class="broker-section">
-    <div class="broker-title">Partnerships with Major Brokers</div>
-    <div class="broker-slider">
-        <div class="broker-track">
-            <div class="broker-item">
-                <img src="assets/images/CHR_Logo_Horz_2C_RGB-1-2.svg" alt="C.H. Robinson" class="broker-logo">
+        
+        .services-header {
+            margin-bottom: 80px;
+            text-align: center;
+        }
+        
+        .services-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+            letter-spacing: -0.5px;
+        }
+        
+        .services-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #eb2525, #f63b3b);
+            border-radius: 2px;
+        }
+        
+        .services-description {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #a3a3a3;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+        }
+        
+        .services-stats {
+            background-color: rgba(30, 30, 30, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto 80px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-text {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #e5e5e5;
+            text-align: center;
+            position: relative;
+            font-weight: 400;
+            font-style: italic;
+        }
+        
+        .stat-text::before,
+        .stat-text::after {
+            content: '"';
+            font-size: 60px;
+            color: #e63946;
+            opacity: 0.2;
+            position: absolute;
+            font-family: serif;
+            line-height: 1;
+        }
+        
+        .stat-text::before {
+            top: -20px;
+            left: -20px;
+        }
+        
+        .stat-text::after {
+            bottom: -40px;
+            right: -20px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(235, 37, 37, 0.15);
+            border-color: rgba(246, 59, 59, 0.3);
+        }
+        
+        .service-image-container {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .service-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .service-card:hover .service-image {
+            transform: scale(1.08);
+        }
+        
+        .service-image-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to top, rgba(26, 26, 26, 0.9), transparent);
+        }
+        
+        .service-content {
+            padding: 28px;
+            position: relative;
+        }
+        
+        .service-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #ffffff;
+            line-height: 1.4;
+        }
+        
+        .service-category {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            color: #e63946;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 6px 12px;
+            background-color: rgba(246, 59, 59, 0.15);
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+        
+        .service-description {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #a3a3a3;
+            margin-bottom: 20px;
+        }
+        
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 500;
+            color: #e63946;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .service-link i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+            font-size: 12px;
+        }
+        
+        .service-link:hover {
+            color: #ffffff;
+        }
+        
+        .service-link:hover i {
+            transform: translateX(4px);
+        }
+        
+        .all-services-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 80px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 16px 36px;
+            border-radius: 50px;
+            background: linear-gradient(90deg, #eb2525, #f63b3b);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            overflow: hidden;
+        }
+        
+        .all-services-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .all-services-link:hover::before {
+            left: 100%;
+        }
+        
+        .all-services-link:hover {
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+            transform: translateX(-50%) translateY(-2px);
+        }
+        
+        .all-services-link i {
+            margin-left: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .all-services-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Modern decorative elements */
+        .services-section::before {
+            content: '';
+            position: absolute;
+            top: -300px;
+            right: -300px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .services-section::after {
+            content: '';
+            position: absolute;
+            bottom: -400px;
+            left: -400px;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        @media (max-width: 1024px) {
+            .services-section {
+                padding: 80px 30px;
+            }
+            
+            .services-title {
+                font-size: 42px;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 25px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .services-section {
+                padding: 70px 20px;
+            }
+            
+            .services-title {
+                font-size: 36px;
+            }
+            
+            .services-description {
+                font-size: 16px;
+            }
+            
+            .stat-text {
+                font-size: 18px;
+            }
+            
+            .services-stats {
+                padding: 30px;
+            }
+            
+            .service-image-container {
+                height: 180px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .services-section {
+                padding: 60px 15px;
+            }
+            
+            .services-title {
+                font-size: 32px;
+            }
+            
+            .services-stats {
+                padding: 24px;
+            }
+            
+            .all-services-link {
+                padding: 14px 28px;
+                font-size: 15px;
+                width: 100%;
+                max-width: 280px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="services-section">
+        <div class="services-container">
+            <div class="services-header">
+                <h2 class="services-title">Premium Dispatch Solutions</h2>
+                <p class="services-description">
+                    Streamline your logistics operations with our comprehensive suite of services designed 
+                    to optimize efficiency, ensure compliance, and maximize profitability for your trucking business.
+                </p>
             </div>
-            <div class="broker-item">
-                <img src="assets/images/Frame-1984077419-1.svg" alt="Coyote Logistics" class="broker-logo logo-coyote">
+            
+            <div class="services-stats">
+                <p class="stat-text">
+                    Our clients experience an average 36% improvement in operational efficiency 
+                    within the first 90 days of implementing our dispatch solutions.
+                </p>
             </div>
-            <div class="broker-item">
-                <img src="assets/images/Frame-1984077419.svg" alt="TQL" class="broker-logo logo-tql">
+            
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-image-container">
+                        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Truck dispatching" class="service-image">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-category">Logistics</div>
+                        <h3 class="service-title">Professional Truck Dispatching</h3>
+                        <p class="service-description">
+                            Comprehensive dispatch services that optimize routes, manage loads, and ensure timely deliveries.
+                        </p>
+                        <a href="#" class="service-link">
+                            Learn more <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-image-container">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Compliance services" class="service-image">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-category">Compliance</div>
+                        <h3 class="service-title">DST Compliance Management</h3>
+                        <p class="service-description">
+                            Stay compliant with all regulations through our expert documentation and reporting services.
+                        </p>
+                        <a href="#" class="service-link">
+                            Learn more <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-image-container">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Trucking service" class="service-image">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-category">Operations</div>
+                        <h3 class="service-title">Fleet Management Solutions</h3>
+                        <p class="service-description">
+                            End-to-end management of your trucking operations with real-time tracking and analytics.
+                        </p>
+                        <a href="#" class="service-link">
+                            Learn more <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-image-container">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="FTA reporting" class="service-image">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-category">Reporting</div>
+                        <h3 class="service-title">Automated FTA Reporting</h3>
+                        <p class="service-description">
+                            Accurate and timely Federal Transit Administration reporting to keep your business compliant.
+                        </p>
+                        <a href="#" class="service-link">
+                            Learn more <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-image-container">
+                        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Document dispatch" class="service-image">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-category">Documentation</div>
+                        <h3 class="service-title">Digital Document Management</h3>
+                        <p class="service-description">
+                            Secure, cloud-based document handling for all your bills of lading, invoices, and records.
+                        </p>
+                        <a href="#" class="service-link">
+                            Learn more <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="service-image-container">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Trucking accounting" class="service-image">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-category">Finance</div>
+                        <h3 class="service-title">Trucking-Specific Accounting</h3>
+                        <p class="service-description">
+                            Specialized financial services tailored to the unique needs of transportation businesses.
+                        </p>
+                        <a href="#" class="service-link">
+                            Learn more <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 7 -->
+                <div class="service-card">
+                    <div class="service-image-container">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Paperwork services" class="service-image">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-category">Administration</div>
+                        <h3 class="service-title">Paperwork Processing</h3>
+                        <p class="service-description">
+                            Hassle-free handling of all permits, licenses, and regulatory paperwork.
+                        </p>
+                        <a href="#" class="service-link">
+                            Learn more <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 8 -->
+                <div class="service-card">
+                    <div class="service-image-container">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Promotions services" class="service-image">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-category">Marketing</div>
+                        <h3 class="service-title">Digital Promotion Services</h3>
+                        <p class="service-description">
+                            Boost your online presence and attract more clients with our targeted marketing solutions.
+                        </p>
+                        <a href="#" class="service-link">
+                            Learn more <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="broker-item">
-                <img src="assets/images/image-9.svg" alt="RXO" class="broker-logo logo-rxo">
-            </div>
-            <div class="broker-item">
-                <img src="assets/images/pngegg-1-1.svg" alt="RXO" class="broker-logo logo-rxo">
-            </div>
+            
+            <a href="#" class="all-services-link">
+                Explore All Services <i class="fas fa-arrow-right"></i>
+            </a>
         </div>
-    </div>
-</section>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const track = document.querySelector('.broker-track');
-        const items = document.querySelectorAll('.broker-item');
-        const totalWidth = Array.from(items).reduce((acc, item) => acc + item.offsetWidth, 0);
-        
-        // Duplicate items for continuous scrolling effect
-        track.innerHTML += track.innerHTML;
-        
-        // Set the width of the track to accommodate the duplicated items
-        track.style.width = `${totalWidth * 2}px`;
-    });
-    </script> 
+    </section>
 </body>
 </html>

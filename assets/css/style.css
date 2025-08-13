@@ -23,8 +23,7 @@
             position: relative;
             height: 85vh;
             min-height: 800px;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgb(0 0 0)),
-                url('/assets/images/AdobeStock_713854283_Preview-3.webp');
+            background: linear-gradient(rgb(0 0 0 / 30%), rgb(0 0 0)), url(/assets/images/AdobeStock_713854283_Preview-3.webp);
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -422,116 +421,517 @@
             }
         }
 
-    
-    .broker-section {
-        /* margin-bottom: 185px; */
-        background-color: #020101;
-        padding: 4rem 0;
-        text-align: center;
-        overflow: hidden;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .broker-title {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 16px;
-        font-weight: 600;
-        color: #6e6b6b;
-        letter-spacing: 1px;
-        margin-bottom: 2rem;
-        text-transform: uppercase;
-        opacity: 0.85;
-    }
-    
-    .broker-slider {
-        overflow: hidden;
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        position: relative;
-    }
-    
-    .broker-track {
-        display: flex;
-        animation: scroll 45s linear infinite;
-        gap: 2rem;
-        align-items: center;
-        justify-content: center;
-        will-change: transform;
-    }
-    
-    @keyframes scroll {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-    }
-    
-    .broker-item {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0 2rem;
-        position: relative;
-    }
-    
-    .broker-item:not(:last-child)::after {
-        content: "";
-        display: block;
-        position: absolute;
-        right: 0;
-        width: 1px;
-        height: 50%;
-        background: rgba(255, 255, 255, 0.2);
-    }
-    
-    .broker-logo {
-        height: 36px;
-        max-width: 140px;
-        object-fit: contain;
-        opacity: 0.85;
-        transition: all 0.3s ease;
-    }
-    
-    .broker-logo:hover {
-        opacity: 1;
-        transform: scale(1.08);
-    }
-    
-    /* Specific logo tweaks */
-    .logo-tql { height: 60px; }
-    .logo-rxo { height: 60px; }
-    .logo-coyote { height: 60px; }
-    
-    /* Tablet view */
-    @media (max-width: 768px) {
-        .broker-section { padding: 3rem 0; }
-        .broker-item { padding: 0 1.5rem; }
-        .broker-title { font-size: 1rem; }
-        
-        .broker-logo {
-            height: 28px;
-            max-width: 100px;
+
+        .broker-section {
+            /* margin-bottom: 185px; */
+            background-color: #020101;
+            padding: 4rem 0;
+            text-align: center;
+            overflow: hidden;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .logo-tql { height: 25px; }
-        .logo-rxo { height: 26px; }
-        .logo-coyote { height: 28px; }
-    }
-    
-    /* Mobile view */
-    @media (max-width: 480px) {
+
         .broker-title {
-            font-size: 10px;
-            margin-bottom: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #6e6b6b;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            opacity: 0.85;
         }
+
+        .broker-slider {
+            overflow: hidden;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
         .broker-track {
-animation: scroll 5s linear infinite;
+            display: flex;
+            animation: scroll 15s linear infinite;
+            gap: 2rem;
+            align-items: center;
+            justify-content: center;
+            will-change: transform;
         }
-        .broker-item { padding: 0 1rem; }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .broker-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        .broker-item:not(:last-child)::after {
+            content: "";
+            display: block;
+            position: absolute;
+            right: 0;
+            width: 1px;
+            height: 50%;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
         .broker-logo {
-            height: 22px;
-            max-width: 80px;
+            height: 36px;
+            max-width: 140px;
+            object-fit: contain;
+            opacity: 0.85;
+            transition: all 0.3s ease;
         }
-        .logo-tql { height: 40px; }
-        .logo-rxo { height: 40px; }
-        .logo-coyote { height: 40px; }
-    }
+
+        .broker-logo:hover {
+            opacity: 1;
+            transform: scale(1.08);
+        }
+
+        /* Specific logo tweaks */
+        .logo-tql {
+            height: 60px;
+        }
+
+        .logo-rxo {
+            height: 60px;
+        }
+
+        .logo-coyote {
+            height: 60px;
+        }
+
+        /* Tablet view */
+        @media (max-width: 768px) {
+            .broker-section {
+                padding: 3rem 0;
+            }
+
+            .broker-item {
+                padding: 0 1.5rem;
+            }
+
+            .broker-title {
+                font-size: 1rem;
+            }
+
+            .broker-logo {
+                height: 28px;
+                max-width: 100px;
+            }
+
+            .logo-tql {
+                height: 25px;
+            }
+
+            .logo-rxo {
+                height: 26px;
+            }
+
+            .logo-coyote {
+                height: 28px;
+            }
+        }
+
+        /* Mobile view */
+        @media (max-width: 480px) {
+            .broker-title {
+                font-size: 10px;
+                margin-bottom: 1.5rem;
+            }
+
+            .broker-track {
+                animation: scroll 5s linear infinite;
+            }
+
+            .broker-item {
+                padding: 0 1rem;
+            }
+
+            .broker-logo {
+                height: 22px;
+                max-width: 80px;
+            }
+
+            .logo-tql {
+                height: 40px;
+            }
+
+            .logo-rxo {
+                height: 40px;
+            }
+
+            .logo-coyote {
+                height: 40px;
+            }
+        }
+
+        .services-section {
+            padding: 100px 40px;
+            background-color: #0a0a0a;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .services-header {
+            margin-bottom: 80px;
+            text-align: center;
+        }
+
+        .services-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #ffffff;
+            position: relative;
+            display: inline-block;
+            letter-spacing: -0.5px;
+        }
+
+        .services-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #eb2525, #f63b3b);
+            border-radius: 2px;
+        }
+
+        .services-description {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #a3a3a3;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-weight: 400;
+        }
+
+        .services-stats {
+            background-color: rgba(30, 30, 30, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto 80px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-text {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #e5e5e5;
+            text-align: center;
+            position: relative;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .stat-text::before,
+        .stat-text::after {
+            content: '"';
+            font-size: 60px;
+            color: #e63946;
+            opacity: 0.2;
+            position: absolute;
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .stat-text::before {
+            top: -20px;
+            left: -20px;
+        }
+
+        .stat-text::after {
+            bottom: -40px;
+            right: -20px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(235, 37, 37, 0.15);
+            border-color: rgba(246, 59, 59, 0.3);
+        }
+
+        .service-image-container {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .service-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .service-card:hover .service-image {
+            transform: scale(1.08);
+        }
+
+        .service-image-container::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to top, rgba(26, 26, 26, 0.9), transparent);
+        }
+
+        .service-content {
+            padding: 28px;
+            position: relative;
+        }
+
+        .service-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #ffffff;
+            line-height: 1.4;
+        }
+
+        .service-category {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            color: #e63946;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 6px 12px;
+            background-color: rgba(246, 59, 59, 0.15);
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .service-description {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #a3a3a3;
+            margin-bottom: 20px;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 500;
+            color: #e63946;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .service-link i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+            font-size: 12px;
+        }
+
+        .service-link:hover {
+            color: #ffffff;
+        }
+
+        .service-link:hover i {
+            transform: translateX(4px);
+        }
+
+        .all-services-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 80px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 16px 36px;
+            border-radius: 50px;
+            background: linear-gradient(90deg, #eb2525, #f63b3b);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            overflow: hidden;
+        }
+
+        .all-services-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .all-services-link:hover::before {
+            left: 100%;
+        }
+
+        .all-services-link:hover {
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+            transform: translateX(-50%) translateY(-2px);
+        }
+
+        .all-services-link i {
+            margin-left: 10px;
+            transition: transform 0.3s;
+        }
+
+        .all-services-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Modern decorative elements */
+        .services-section::before {
+            content: '';
+            position: absolute;
+            top: -300px;
+            right: -300px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .services-section::after {
+            content: '';
+            position: absolute;
+            bottom: -400px;
+            left: -400px;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .services-section {
+                padding: 80px 30px;
+            }
+
+            .services-title {
+                font-size: 42px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-section {
+                padding: 70px 20px;
+            }
+
+            .services-title {
+                font-size: 36px;
+            }
+
+            .services-description {
+                font-size: 16px;
+            }
+
+            .stat-text {
+                font-size: 18px;
+            }
+
+            .services-stats {
+                padding: 30px;
+            }
+
+            .service-image-container {
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-section {
+                padding: 60px 15px;
+            }
+
+            .services-title {
+                font-size: 32px;
+            }
+
+            .services-stats {
+                padding: 24px;
+            }
+
+            .all-services-link {
+                padding: 14px 28px;
+                font-size: 15px;
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .image-dark {
+            position: relative;
+            /* display: inline-block; */
+        }
+
+        .image-dark::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            /* darkness level */
+            pointer-events: none;
+        }
