@@ -453,7 +453,7 @@
 
         .broker-track {
             display: flex;
-            animation: scroll 15s linear infinite;
+            animation: scroll 45s linear infinite;
             gap: 2rem;
             align-items: center;
             justify-content: center;
@@ -580,7 +580,7 @@
         }
 
         .services-section {
-            padding: 100px 40px;
+            padding: 50px 40px;
             background-color: #0a0a0a;
             position: relative;
             overflow: hidden;
@@ -934,4 +934,225 @@
             background: rgba(0, 0, 0, 0.4);
             /* darkness level */
             pointer-events: none;
+        }
+
+        .truck-section {
+            background-color: #0a0a0a;
+        }
+
+        .main-wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .truck-content-flex {
+            display: flex;
+            flex: 1;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .truck-info-col {
+            flex: 1;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .truck-info-col h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .truck-info-col h1 span {
+            color: #ff1212;
+            display: inline-block;
+        }
+
+        .truck-info-col p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: #e0e0e0;
+            margin: 2rem 0;
+            font-weight: 400;
+        }
+
+        .setup-btn {
+            align-self: flex-start;
+            background: #ff1212;
+            color: #fff;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 1rem 2.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            box-shadow: 0 4px 15px rgba(255, 18, 18, 0.3);
+        }
+
+        .setup-btn:hover {
+            background: #d70d0d;
+            transform: translateY(-2px);
+        }
+
+        .truck-types-grid {
+            flex: 1.5;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .truck-type-card {
+            height: 100px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            cursor: pointer;
+            overflow: hidden;
+            transition: box-shadow 0.3s, transform 0.3s;
+            z-index: 0;
+            object-fit: contain;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .truck-type-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.3) 100%);
+            transition: background 0.3s;
+            z-index: 1;
+        }
+
+        .truck-type-card:hover::before {
+            background: linear-gradient(to top, rgba(255, 18, 18, 0.7) 0%, rgba(255, 18, 18, 0.3) 100%);
+        }
+
+        .truck-type-card span {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            font-size: clamp(1.25rem, 2vw, 1.5rem);
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            padding: 1.5rem;
+            pointer-events: none;
+        }
+
+        .truck-type-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Animation for fade-in effect */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .truck-type-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .truck-type-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .truck-type-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .truck-type-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .truck-type-card:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .truck-type-card:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        .truck-type-card:nth-child(7) {
+            animation-delay: 0.7s;
+        }
+
+        .truck-type-card:nth-child(8) {
+            animation-delay: 0.8s;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .truck-content-flex {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .truck-info-col {
+                max-width: 100%;
+                text-align: center;
+                align-items: center;
+            }
+
+            .setup-btn {
+                align-self: center;
+            }
+
+            .truck-types-grid {
+                width: 100%;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .truck-types-grid {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            }
+
+            .truck-type-card {
+                height: 140px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .main-wrapper {
+                padding: 1.5rem;
+            }
+
+            .truck-types-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .truck-type-card {
+                height: 120px;
+            }
+        }
+
+        /* Animation for left content */
+        .truck-info-col h1,
+        .truck-info-col p,
+        .setup-btn {
+            animation: fadeIn 0.8s ease-out forwards;
         }
