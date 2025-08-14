@@ -162,3 +162,74 @@ document.addEventListener('DOMContentLoaded', () => {
             updateItemWidth();
             updateCarousel();
         });
+        document.getElementById('setupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Reset error messages
+            document.querySelectorAll('.error-message').forEach(el => {
+                el.style.display = 'none';
+            });
+            
+            // Validate form
+            let isValid = true;
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const termsChecked = document.querySelector('input[name="sms-updates"]').checked;
+            
+            if (name === '') {
+                document.getElementById('nameError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (phone === '' || phone.length < 10) {
+                document.getElementById('phoneError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (!termsChecked) {
+                document.getElementById('termsError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Simulate form submission
+                const successMessage = document.getElementById('successMessage');
+                successMessage.style.display = 'flex';
+                successMessage.classList.add('animate-fade-in');
+                
+                // Reset form
+                this.reset();
+                
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                    successMessage.classList.remove('animate-fade-in');
+                }, 5000);
+            }
+        });
+        
+        // Phone number formatting
+        document.getElementById('phone').addEventListener('input', function(e) {
+            const x = e.target.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,4})/);
+            e.target.value = !x[2] ? x[1] : '+1 (' + x[2] + ') ' + x[3] + (x[4] ? '-' + x[4] : '');
+        });
+        
+        // Add animation to form elements on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const formElements = document.querySelectorAll('.form-group, .checkbox-group, .btn');
+            formElements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.animationDelay = `${index * 0.1}s`;
+                el.classList.add('animate-fade-in');
+            });
+        });
