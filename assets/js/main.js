@@ -80,3 +80,85 @@ document.addEventListener('DOMContentLoaded', () => {
                 observer.observe(el);
             });
         });
+                document.addEventListener('DOMContentLoaded', function() {
+            const track = document.querySelector('.reviews-track');
+            const items = document.querySelectorAll('.review-item');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const prevBtn = document.querySelector('.carousel-arrow.prev');
+            const nextBtn = document.querySelector('.carousel-arrow.next');
+            
+            let currentIndex = 0;
+            let itemWidth = items[0].offsetWidth;
+            let visibleItems = window.innerWidth < 768 ? 1 : (window.innerWidth < 1200 ? 2 : 3);
+
+            function updateItemWidth() {
+                itemWidth = items[0].offsetWidth;
+                visibleItems = window.innerWidth < 768 ? 1 : (window.innerWidth < 1200 ? 2 : 3);
+            }
+
+            function updateCarousel() {
+                const offset = -currentIndex * itemWidth;
+                track.style.transform = `translateX(${offset}px)`;
+                // Update dots
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+                // Show/hide arrows
+                prevBtn.style.display = currentIndex === 0 ? 'none' : 'flex';
+                nextBtn.style.display = currentIndex >= items.length - visibleItems ? 'none' : 'flex';
+            }
+
+            function nextSlide() {
+                if (currentIndex < items.length - visibleItems) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0; // Loop back to start
+                }
+                updateCarousel();
+            }
+
+            function prevSlide() {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                } else {
+                    currentIndex = items.length - visibleItems; // Loop to end
+                }
+                updateCarousel();
+            }
+
+            // Button events
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            // Dot navigation
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel();
+                });
+            });
+
+            // Auto-advance
+            let autoSlide = setInterval(nextSlide, 5000);
+
+            // Pause on hover
+            track.addEventListener('mouseenter', () => {
+                clearInterval(autoSlide);
+            });
+            track.addEventListener('mouseleave', () => {
+                autoSlide = setInterval(nextSlide, 5000);
+            });
+
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                updateItemWidth();
+                if (currentIndex > items.length - visibleItems) {
+                    currentIndex = items.length - visibleItems;
+                }
+                updateCarousel();
+            });
+
+            // Initialize
+            updateItemWidth();
+            updateCarousel();
+        });

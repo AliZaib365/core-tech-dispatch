@@ -3,221 +3,556 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Customer Reviews - Core-Tech Dispatch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-.advantage-section.blue-theme {
-  background: #f7faff;
-  font-family: 'Montserrat', sans-serif;
-  padding: 56px 0 56px 0;
-}
+        /* Base Styles */
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+        }
 
-.advantage-container {
-  max-width: 1650px;
-  margin: 0 auto;
-  padding: 0 24px;
-  display: flex;
-  gap: 56px;
-  align-items: flex-start;
-  justify-content: center;
-}
+        .reviews-section {
+            background: #fff;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
 
-.advantage-features {
-  width: 58%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 28px 22px;
-}
+        .reviews-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+        }
 
-.advantage-feature-card {
-  background: #f7faff;
-  border: 1.5px solid #e0eafc;
-  border-radius: 8px;
-  padding: 32px 22px 22px 26px;
-  display: flex;
-  align-items: flex-start;
-  gap: 18px;
-  min-height: 135px;
-  transition: box-shadow 0.16s, border-color 0.18s, background 0.2s;
-}
+        .reviews-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
 
-.advantage-feature-card:hover {
-  border-color: #4f8cff;
-  box-shadow: 0 4px 20px 0 rgba(79,140,255,0.10);
-  background: #e9f3ff;
-}
+        .reviews-header h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #16213e;
+            line-height: 1.2;
+            margin: 0;
+        }
 
-.advantage-feature-icon {
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
+        .reviews-header .blue-accent {
+            color: #4f8cff;
+            font-weight: 900;
+            display: inline-block;
+        }
 
-.advantage-feature-icon img {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-  filter: invert(39%) sepia(88%) saturate(1703%) hue-rotate(184deg) brightness(96%) contrast(94%);
-  /* This filter makes feather icons blue (#4f8cff) */
-}
+        .reviews-carousel {
+            position: relative;
+            padding: 20px 0;
+            margin: 0 -15px;
+        }
 
-.advantage-feature-title {
-  color: #16213e;
-  font-weight: 700;
-  font-size: 1.10rem;
-  margin-bottom: 4px;
-}
+        .reviews-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(.55,.24,.18,1.01);
+            will-change: transform;
+        }
 
-.advantage-feature-desc {
-  color: #23335a;
-  font-size: 0.99rem;
-  font-weight: 500;
-  letter-spacing: .01em;
-}
+        .review-item {
+            padding: 0 15px;
+            flex: 0 0 33.333%;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
 
-.advantage-info {
-  width: 39%;
-  min-width: 320px;
-  max-width: 600px;
-  color: #1f2536;
-  font-size: 1.14rem;
-  font-weight: 600;
-  line-height: 1.62;
-  padding-left: 32px;
-}
+        .review-summary-card {
+            background: #f7faff;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(79,140,255,0.08);
+            border: 1.5px solid #e0eafc;
+            padding: 30px 25px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-.advantage-info h2 {
-  font-size: 2.6rem;
-  font-weight: 800;
-  color: #16213e;
-  line-height: 1.13;
-  margin-bottom: 7px;
-}
+        .review-summary-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(79,140,255,0.15);
+        }
 
-.advantage-info .blue-accent {
-  color: #4f8cff;
-  font-weight: 900;
-}
+        .review-summary-logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #e9f3ff;
+            padding: 10px;
+            object-fit: contain;
+        }
 
-.advantage-subtitle {
-  color: #6b789a;
-  font-size: 1.07rem;
-  font-weight: 600;
-  margin-bottom: 17px;
-}
+        .review-summary-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
 
-.advantage-brand {
-  color: #16213e;
-  font-weight: 700;
-}
+        .review-summary-title {
+            font-weight: 700;
+            color: #16213e;
+            font-size: 1.2rem;
+        }
 
-.advantage-info p {
-  margin-bottom: 14px;
-  color: #23335a;
-}
+        .review-summary-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-@media (max-width: 1200px) {
-  .advantage-container { gap: 24px; }
-  .advantage-info h2 { font-size: 2.1rem; }
-  .advantage-features { gap: 16px 12px; }
-}
+        .review-summary-score {
+            color: #4f8cff;
+            font-weight: 800;
+            font-size: 1.3rem;
+        }
 
-@media (max-width: 1020px) {
-  .advantage-container { flex-direction: column; gap: 36px; padding: 0 7px; }
-  .advantage-features, .advantage-info { width: 100%; max-width: 100%; min-width: 0; }
-  .advantage-info { padding-left: 0; }
-  .advantage-feature-card { min-height: 100px; padding: 18px 12px 14px 12px; }
-  .advantage-info h2 { font-size: 1.45rem; }
-}
+        .review-summary-stars {
+            color: #4f8cff;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+        }
 
-@media (max-width: 700px) {
-  .advantage-features {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-  .advantage-feature-card { min-height: 62px; }
-}
+        .review-summary-reviews {
+            font-size: 0.95rem;
+            color: #6b789a;
+            margin-top: 5px;
+        }
 
-@media (max-width: 480px) {
-  .advantage-section.blue-theme { padding: 20px 0 20px 0; }
-  .advantage-feature-card { padding: 10px 5px; }
-  .advantage-info h2 { font-size: 38px; text-align: center; }
-}
+        .review-summary-powered {
+            font-size: 0.9rem;
+            color: #a3afd9;
+            margin: 10px 0;
+        }
+
+        .review-summary-powered span {
+            color: #4f8cff;
+            font-weight: 700;
+        }
+
+        .review-summary-btn {
+            margin-top: 15px;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #4f8cff 0%, #2940a8 100%);
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+            border: none;
+            box-shadow: 0 4px 15px rgba(79,140,255,0.2);
+            transition: all 0.3s ease;
+            width: fit-content;
+        }
+
+        .review-summary-btn img {
+            width: 18px;
+            height: 18px;
+        }
+
+        .review-summary-btn:hover {
+            background: linear-gradient(90deg, #2940a8 0%, #4f8cff 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(79,140,255,0.3);
+        }
+
+        .review-card {
+            background: #f7faff;
+            border-radius: 16px;
+            border: 1.5px solid #e0eafc;
+            padding: 30px;
+            height: 100%;
+            box-shadow: 0 8px 30px rgba(79,140,255,0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(79,140,255,0.15);
+        }
+
+        .review-user {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .review-avatar {
+            width: 45px;
+            height: 45px;
+            background: #2940a8;
+            color: #fff;
+            border-radius: 50%;
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(79,140,255,0.15);
+        }
+
+        .review-user-details {
+            flex: 1;
+        }
+
+        .review-user-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #16213e;
+            margin-bottom: 3px;
+        }
+
+        .review-time {
+            font-size: 0.9rem;
+            color: #6b789a;
+            font-weight: 500;
+        }
+
+        .review-g-icon {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+            filter: invert(39%) sepia(88%) saturate(1703%) hue-rotate(184deg) brightness(96%) contrast(94%);
+        }
+
+        .review-stars {
+            font-size: 1.2rem;
+            color: #4f8cff;
+            letter-spacing: 3px;
+            margin: 5px 0;
+        }
+
+        .review-text {
+            color: #23335a;
+            font-size: 1.05rem;
+            font-weight: 500;
+            line-height: 1.6;
+            margin-top: 10px;
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 10px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            background: #dbe6fa;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: #4f8cff;
+            transform: scale(1.2);
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .carousel-arrow:hover {
+            background: #4f8cff;
+            color: white;
+        }
+
+        .carousel-arrow.prev {
+            left: 0;
+        }
+
+        .carousel-arrow.next {
+            right: 0;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .review-item {
+                flex: 0 0 50%;
+            }
+            
+            .reviews-header h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .reviews-section {
+                padding: 60px 0;
+            }
+            
+            .reviews-header {
+                margin-bottom: 40px;
+            }
+            
+            .reviews-header h2 {
+                font-size: 2rem;
+            }
+            
+            .review-item {
+                flex: 0 0 100%;
+            }
+            
+            .reviews-container {
+                padding: 0 20px;
+            }
+            
+            .carousel-arrow {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .reviews-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .review-summary-card,
+            .review-card {
+                padding: 25px 20px;
+            }
+        }
     </style>
 </head>
 <body>
-    <section class="advantage-section blue-theme">
-  <div class="advantage-container">
-    <div class="advantage-features">
-      <div class="advantage-feature-card">
-        <div class="advantage-feature-icon">
-          <!-- Replace with your blue svg icon -->
-          <img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/map-pin.svg" alt="" />
+    <section class="reviews-section">
+        <div class="reviews-container">
+            <div class="reviews-header">
+                <h2>
+                    Trusted by our <span class="blue-accent">customers</span>
+                </h2>
+            </div>
+            
+            <div class="reviews-carousel">
+                <button class="carousel-arrow prev">❮</button>
+                <button class="carousel-arrow next">❯</button>
+                
+                <div class="reviews-track">
+                    <!-- Review summary card -->
+                    <div class="review-item">
+                        <div class="review-summary-card">
+                            <div class="review-summary-logo">
+                                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg" alt="Google">
+                            </div>
+                            <div class="review-summary-details">
+                                <div class="review-summary-title">Dispatch Service</div>
+                                <div class="review-summary-rating">
+                                    <span class="review-summary-score">4.8</span>
+                                    <span class="review-summary-stars">★★★★★</span>
+                                </div>
+                                <div class="review-summary-reviews">Based on 23 reviews</div>
+                                <div class="review-summary-powered">
+                                    powered by <span>Google</span>
+                                </div>
+                                <a href="#" class="review-summary-btn">
+                                    Review us on 
+                                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg" alt="Google">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Review Cards -->
+                    <div class="review-item">
+                        <div class="review-card">
+                            <div class="review-user">
+                                <span class="review-avatar" style="background: #4f8cff;">E</span>
+                                <div class="review-user-details">
+                                    <div class="review-user-name">Eddie Cole</div>
+                                    <div class="review-time">7 months ago</div>
+                                </div>
+                                <img class="review-g-icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg" alt="Google">
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                            <div class="review-text">
+                                Colin Faber is Toni Kukoc & I'm Scottie Pipen. Together he is the very best teammate when it comes to dispatching loads. He knows the journey that I've been on and helps me navigate through it.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="review-item">
+                        <div class="review-card">
+                            <div class="review-user">
+                                <span class="review-avatar" style="background: #2940a8;">H</span>
+                                <div class="review-user-details">
+                                    <div class="review-user-name">Harjot Kaur</div>
+                                    <div class="review-time">8 months ago</div>
+                                </div>
+                                <img class="review-g-icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg" alt="Google">
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                            <div class="review-text">
+                                I have been with this dispatch for more than 3 years, they have been very good, my dispatcher Max Roche is amazing, he goes above and beyond to get me good loads and keeps me moving.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="review-item">
+                        <div class="review-card">
+                            <div class="review-user">
+                                <span class="review-avatar" style="background: #6cbaff;">C</span>
+                                <div class="review-user-details">
+                                    <div class="review-user-name">C T</div>
+                                    <div class="review-time">10 months ago</div>
+                                </div>
+                                <img class="review-g-icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg" alt="Google">
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                            <div class="review-text">
+                                Onyachik LLC Dispatch is hands down 5 stars!! Have only been working with Colin for 2 days and never dreamed my owner operator business could be this profitable so quickly.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="review-item">
+                        <div class="review-card">
+                            <div class="review-user">
+                                <span class="review-avatar" style="background: #ff6b6b;">J</span>
+                                <div class="review-user-details">
+                                    <div class="review-user-name">John D.</div>
+                                    <div class="review-time">3 months ago</div>
+                                </div>
+                                <img class="review-g-icon" src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg" alt="Google">
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                            <div class="review-text">
+                                The team at Core-Tech Dispatch has transformed my business. Their attention to detail and commitment to finding the best loads is unmatched in the industry.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-nav">
+                <div class="carousel-dot active"></div>
+                <div class="carousel-dot"></div>
+                <div class="carousel-dot"></div>
+                <div class="carousel-dot"></div>
+            </div>
         </div>
-        <div>
-          <div class="advantage-feature-title">Efficient Route Planning</div>
-          <div class="advantage-feature-desc">We optimize dispatching to cut empty miles, reduce fuel costs, and boost your profit.</div>
-        </div>
-      </div>
-      <div class="advantage-feature-card">
-        <div class="advantage-feature-icon">
-          <img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/users.svg" alt="" />
-        </div>
-        <div>
-          <div class="advantage-feature-title">Dedicated Runs and Partnerships with Major Brokers</div>
-          <div class="advantage-feature-desc">Access high-volume freight from the most trusted brokers in the industry.</div>
-        </div>
-      </div>
-      <div class="advantage-feature-card">
-        <div class="advantage-feature-icon">
-          <img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/cpu.svg" alt="" />
-        </div>
-        <div>
-          <div class="advantage-feature-title">Automation & Exclusive AI-Driven Tools</div>
-          <div class="advantage-feature-desc">Faster dispatching. Less downtime. Smarter work.</div>
-        </div>
-      </div>
-      <div class="advantage-feature-card">
-        <div class="advantage-feature-icon">
-          <img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/bar-chart-2.svg" alt="" />
-        </div>
-        <div>
-          <div class="advantage-feature-title">Freight Rate Forecasting & Market Insights</div>
-          <div class="advantage-feature-desc">Stay ahead with real-time rate trends and predictive analytics.</div>
-        </div>
-      </div>
-      <div class="advantage-feature-card">
-        <div class="advantage-feature-icon">
-          <img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/user-check.svg" alt="" />
-        </div>
-        <div>
-          <div class="advantage-feature-title">End-to-End Personalized Support</div>
-          <div class="advantage-feature-desc">Access high-volume freight from the most trusted brokers in the industry.</div>
-        </div>
-      </div>
-      <div class="advantage-feature-card">
-        <div class="advantage-feature-icon">
-          <img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/truck.svg" alt="" />
-        </div>
-        <div>
-          <div class="advantage-feature-title">Freight Rate Forecasting & Market Insights</div>
-          <div class="advantage-feature-desc">Stay ahead with real-time rate trends and predictive analytics.</div>
-        </div>
-      </div>
-    </div>
-    <div class="advantage-info">
-      <h2>
-        The Core-Tech <span class="blue-accent">advantage</span>
-      </h2>
-      <div class="advantage-subtitle">Discover what sets us apart</div>
-      <p>
-        <span class="advantage-brand">Core-Tech <span class="blue-accent">Dispatch</span></span> goes beyond dispatching. From negotiating rates to handling paperwork, our team is dedicated to helping owner-operators and small fleets grow with confidence and ease.
-      </p>
-      <p>
-        Full Loads, Both Ways: Don’t waste miles driving empty! We arrange return freight to keep your truck loaded, ensuring higher profits and lower costs on every trip
-      </p>
-    </div>
-  </div>
-</section>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.querySelector('.reviews-track');
+            const items = document.querySelectorAll('.review-item');
+            const dots = document.querySelectorAll('.carousel-dot');
+            const prevBtn = document.querySelector('.carousel-arrow.prev');
+            const nextBtn = document.querySelector('.carousel-arrow.next');
+            
+            let currentIndex = 0;
+            let itemWidth = items[0].offsetWidth;
+            let visibleItems = window.innerWidth < 768 ? 1 : (window.innerWidth < 1200 ? 2 : 3);
+
+            function updateItemWidth() {
+                itemWidth = items[0].offsetWidth;
+                visibleItems = window.innerWidth < 768 ? 1 : (window.innerWidth < 1200 ? 2 : 3);
+            }
+
+            function updateCarousel() {
+                const offset = -currentIndex * itemWidth;
+                track.style.transform = `translateX(${offset}px)`;
+                // Update dots
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                });
+                // Show/hide arrows
+                prevBtn.style.display = currentIndex === 0 ? 'none' : 'flex';
+                nextBtn.style.display = currentIndex >= items.length - visibleItems ? 'none' : 'flex';
+            }
+
+            function nextSlide() {
+                if (currentIndex < items.length - visibleItems) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0; // Loop back to start
+                }
+                updateCarousel();
+            }
+
+            function prevSlide() {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                } else {
+                    currentIndex = items.length - visibleItems; // Loop to end
+                }
+                updateCarousel();
+            }
+
+            // Button events
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+
+            // Dot navigation
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel();
+                });
+            });
+
+            // Auto-advance
+            let autoSlide = setInterval(nextSlide, 5000);
+
+            // Pause on hover
+            track.addEventListener('mouseenter', () => {
+                clearInterval(autoSlide);
+            });
+            track.addEventListener('mouseleave', () => {
+                autoSlide = setInterval(nextSlide, 5000);
+            });
+
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                updateItemWidth();
+                if (currentIndex > items.length - visibleItems) {
+                    currentIndex = items.length - visibleItems;
+                }
+                updateCarousel();
+            });
+
+            // Initialize
+            updateItemWidth();
+            updateCarousel();
+        });
+    </script>
 </body>
 </html>
