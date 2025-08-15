@@ -2739,3 +2739,35 @@ body {
         padding: 0 0 17px 17px;
     }
 }
+/* Custom Blue Themed Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  background: #181e2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #4f8cff 0%, #2940a8 100%);
+  border-radius: 8px;
+  border: 2.5px solid #181e2e;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #2940a8 0%, #4f8cff 100%);
+}
+
+::-webkit-scrollbar-track {
+  background: #101528;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-corner {
+  background: #0b1023;
+}
+
+/* For Firefox */
+* {
+  scrollbar-color: #4f8cff #181e2e;
+  scrollbar-width: thin;
+}
+
+/* services page */
