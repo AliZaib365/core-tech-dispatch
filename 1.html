@@ -1,160 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-.faq-section.blue-theme {
-    background: #0b1023;
-    color: #e9e9f8;
-    padding: 90px 0 100px 0;
-    min-height: 560px;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .coretech-hero-section {
+  position: relative;
+  width: 100vw;
+  min-height: 430px;
+  height: 55vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0b1023;
+  overflow: hidden;
 }
-.faq-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 38px;
+
+.coretech-hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(22,33,62, 0.42) 0%, #0b1023 90%),
+    url('/assets/images/cta-bg.webp');
+  /* swap for your preferred bg: scenic road, truck, etc */
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  opacity: 0.88;
 }
-.faq-header h2 {
-    font-size: 3.2rem;
-    font-weight: 800;
-    color: #e9e9f8;
-    margin-bottom: 42px;
-    line-height: 1.1;
+
+.coretech-hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
 }
-.faq-header h2 span {
-    display: block;
-    color: #e9e9f8;
-    font-weight: 800;
+
+.coretech-hero-content h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.9rem;
+  line-height: 1.14;
+  font-weight: 800;
+  margin: 0 0 28px 0;
+  letter-spacing: -1.5px;
 }
-.faq-list {
-    max-width: 100%;
-    margin: 0 auto;
+
+.coretech-blue-accent {
+  color: #4f8cff;
+  font-weight: 900;
+  letter-spacing: -.5px;
 }
-.faq-item {
-    border-bottom: 1px solid #22316a;
-    transition: background 0.3s;
+
+.coretech-hero-content p {
+  color: #e9e9f8;
+  font-size: 1.23rem;
+  font-weight: 500;
+  margin-bottom: 36px;
+  margin-top: 4px;
 }
-.faq-question {
-    width: 100%;
-    text-align: left;
-    background: none;
-    border: none;
-    outline: none;
-    color: #e9e9f8;
-    font-size: 1.23rem;
-    font-weight: 600;
-    padding: 28px 0 28px 0;
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    cursor: pointer;
-    transition: color 0.2s;
+.coretech-less-stress {
+  color: #8aa8e8;
+  font-weight: 600;
 }
-.faq-question:hover,
-.faq-item.open .faq-question {
-    color: #4f8cff;
+
+.coretech-hero-btn {
+  display: inline-block;
+  padding: 16px 38px;
+  background: linear-gradient(90deg, #4f8cff 0%, #2940a8 100%);
+  color: #fff;
+  border-radius: 7px;
+  font-size: 1.08rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  letter-spacing: .01em;
+  text-decoration: none;
+  transition: background 0.18s, box-shadow 0.18s, transform 0.18s;
+  box-shadow: 0 4px 24px rgba(79,140,255,0.13);
 }
-.faq-plus {
-    font-size: 1.7rem;
-    color: #4f8cff;
-    font-weight: 900;
-    margin-right: 13px;
-    transition: color 0.2s, transform 0.28s;
+.coretech-hero-btn:hover,
+.coretech-hero-btn:focus {
+  background: linear-gradient(90deg, #2940a8 0%, #4f8cff 100%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 30px rgba(79,140,255,0.19);
 }
-.faq-item.open .faq-plus {
-    color: #fff;
-    transform: rotate(45deg);
-}
-.faq-answer {
-    display: none;
-    color: #b8c1e2;
-    font-size: 1.09rem;
-    font-weight: 500;
-    padding: 0 0 30px 40px;
-    max-width: 900px;
-    line-height: 1.7;
-    animation: faqShow 0.37s cubic-bezier(.77,0,.18,1.01);
-}
-@keyframes faqShow {
-    from { opacity: 0; transform: translateY(-16px);}
-    to { opacity: 1; transform: translateY(0);}
-}
-.faq-item.open .faq-answer {
-    display: block;
-}
+
 @media (max-width: 800px) {
-    .faq-header h2 { font-size: 2.1rem; }
-    .faq-container { padding: 0 14px; }
-    .faq-question { font-size: 1rem; padding: 19px 0; }
+  .coretech-hero-content h1 { font-size: 2rem; }
+  .coretech-hero-content p { font-size: 1.07rem; }
+  .coretech-hero-content { max-width: 94vw; }
+  .coretech-hero-section { height: 50vh; min-height: 270px; }
 }
 @media (max-width: 480px) {
-    .faq-header h2 { font-size: 1.3rem; }
-    .faq-question { font-size: 0.99rem; }
-    .faq-answer { font-size: 0.98rem; padding: 0 0 17px 17px; }
+  .coretech-hero-content h1 { font-size: 1.15rem; }
+  .coretech-hero-btn { font-size: 0.97rem; padding: 12px 20px; }
+  .coretech-hero-section { height: 39vh; min-height: 180px; }
 }
-    </style>
+  </style>
 </head>
 <body>
-    <section class="faq-section blue-theme">
-  <div class="faq-container">
-    <div class="faq-header">
-      <h2>
-        Questions?<br>
-        <span>We have answers</span>
-      </h2>
-    </div>
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-question">
-          <span class="faq-plus">+</span>
-          How does Core-Tech Dispatch help streamline my trucking business?
-        </button>
-        <div class="faq-answer">
-          Our dispatch experts handle route planning, paperwork, and negotiations, so you can focus on driving and growing your business—saving you valuable time.
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">
-          <span class="faq-plus">+</span>
-          What types of freight can Core-Tech Dispatch manage for me?
-        </button>
-        <div class="faq-answer">
-          We support a wide range of freight, including dry vans, reefers, flatbeds, box trucks, and hot shots—no matter your equipment, we've got you covered.
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">
-          <span class="faq-plus">+</span>
-          What are the fees for using Core-Tech Dispatch services?
-        </button>
-        <div class="faq-answer">
-          Our pricing is transparent and competitive, with no hidden costs. You only pay for loads we book for you—reach out for a custom quote!
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">
-          <span class="faq-plus">+</span>
-          Can Core-Tech Dispatch help me earn more as a truck driver?
-        </button>
-        <div class="faq-answer">
-          Absolutely! We work to secure top-paying loads, minimize empty miles, and optimize your schedule—helping maximize your revenue and efficiency.
-        </div>
-      </div>
-    </div>
+  <section class="coretech-hero-section">
+  <div class="coretech-hero-bg"></div>
+  <div class="coretech-hero-content">
+    <h1>
+      Don’t drive empty<br>
+      Drive with <span class="coretech-blue-accent">Core-Tech</span>
+    </h1>
+    <p>We’ll help you earn more — <span class="coretech-less-stress">and stress less</span></p>
+    <a href="#free-setup" class="coretech-hero-btn">Get your free setup</a>
   </div>
 </section>
-<script>
-  // Simple accordion FAQ interaction
-  document.querySelectorAll('.faq-question').forEach(btn => {
-    btn.addEventListener('click', function() {
-      const item = btn.parentElement;
-      const open = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
-      if (!open) item.classList.add('open');
-    });
-  });
-</script>
 </body>
 </html>

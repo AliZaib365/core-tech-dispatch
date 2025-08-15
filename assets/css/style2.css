@@ -617,7 +617,7 @@ body {
     bottom: -12px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
+    width: 180px;
     height: 4px;
     background: linear-gradient(90deg, #4f8cff, #2940a8);
     border-radius: 2px;
@@ -2281,6 +2281,7 @@ body {
 }
 
 .blue-setup-main {
+    margin-bottom: 60px;
     width: 100%;
     max-width: 1200px;
     display: flex;
@@ -2769,5 +2770,102 @@ body {
   scrollbar-color: #4f8cff #181e2e;
   scrollbar-width: thin;
 }
+   .coretech-hero-section {
+  position: relative;
+  width: 100vw;
+  min-height: 430px;
+  height: 55vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0b1023;
+  overflow: hidden;
+}
 
+.coretech-hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.151) 0%, #0b1023 90%),
+    url('/assets/images/cta-bg.webp');
+  /* swap for your preferred bg: scenic road, truck, etc */
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  opacity: 0.88;
+}
+
+.coretech-hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.coretech-hero-content h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.9rem;
+  line-height: 1.14;
+  font-weight: 800;
+  margin: 0 0 28px 0;
+  letter-spacing: -1.5px;
+}
+
+.coretech-blue-accent {
+  color: #4f8cff;
+  font-weight: 900;
+  letter-spacing: -.5px;
+}
+
+.coretech-hero-content p {
+  color: #e9e9f8;
+  font-size: 1.23rem;
+  font-weight: 500;
+  margin-bottom: 36px;
+  margin-top: 4px;
+}
+.coretech-less-stress {
+  color: #8aa8e8;
+  font-weight: 600;
+}
+
+.coretech-hero-btn {
+  display: inline-block;
+  padding: 16px 38px;
+  background: linear-gradient(90deg, #4f8cff 0%, #2940a8 100%);
+  color: #fff;
+  border-radius: 7px;
+  font-size: 1.08rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  letter-spacing: .01em;
+  text-decoration: none;
+  transition: background 0.18s, box-shadow 0.18s, transform 0.18s;
+  box-shadow: 0 4px 24px rgba(79,140,255,0.13);
+}
+.coretech-hero-btn:hover,
+.coretech-hero-btn:focus {
+  background: linear-gradient(90deg, #2940a8 0%, #4f8cff 100%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 30px rgba(79,140,255,0.19);
+}
+
+@media (max-width: 800px) {
+  .coretech-hero-content h1 { font-size: 2rem; }
+  .coretech-hero-content p { font-size: 1.07rem; }
+  .coretech-hero-content { max-width: 94vw; }
+  .coretech-hero-section { height: 50vh; min-height: 270px; }
+}
+@media (max-width: 480px) {
+  .coretech-hero-content h1 { font-size: 1.15rem; }
+  .coretech-hero-btn { font-size: 0.97rem; padding: 12px 20px; }
+  .coretech-hero-section { height: 39vh; min-height: 180px; }
+}
 /* services page */
