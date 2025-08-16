@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>CoreTech Dispatch - Logistics Solutions</title>
+    <title>CoreTech Dispatch - Logistics Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/header1.css">
     <link rel="stylesheet" href="assets/css/style2.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
-</head>
+    <link rel="stylesheet" href="assets/css/footer.css"></head>
 <body>
-        <nav class="navbar">
-        <a href="index.html" class="logo-container">
+     <nav class="navbar">
+        <a href="#" class="logo-container">
             <!-- <img src="assets/images/logo1.png" alt="CoreTech Dispatch Logo" class="logo-img"> -->
             <div class="logo-text">
                 CORETECH <span>DISPATCH</span>
@@ -37,13 +36,14 @@
                 </ul>
             </li>
             <li>
-                <a href="#">Trucks <i class="fas fa-chevron-down"></i></a>
+                <a href="truck.html">Trucks <i class="fas fa-chevron-down"></i></a>
                 <ul class="dropdown">
                     <li><a href="#">Our Fleet</a></li>
                     <li><a href="#">Truck Specifications</a></li>
                     <li><a href="#">Maintenance</a></li>
                 </ul>
             </li>
+           
             <li><a href="#">FAQ</a></li>
             <li>
                 <a href="#">Company <i class="fas fa-chevron-down"></i></a>
@@ -104,8 +104,11 @@
                     </ul>
                 </li>
                 <li>
-                    <button class="mobile-dropdown-btn">
-                        Trucks <i class="fas fa-chevron-down"></i>
+                   <button class="mobile-dropdown-btn" aria-label="Show Services Menu" tabindex="0">
+                        <a href="/truck.html" class="mobile-dropdown-link">
+                        Trucks
+                    </a>
+                        <i class="fas fa-chevron-down"></i>
                     </button>
                     <ul class="mobile-dropdown">
                         <li><a href="#">Our Fleet</a></li>
@@ -138,172 +141,96 @@
 
     <!-- Overlay -->
     <div class="overlay" id="overlay"></div>
-    <section class="services-section">
-        <div class="services-container">
-            <div class="services-header">
-                <h2 class="services-title">Our Services</h2>
-                <p class="services-description">
-                    Streamline your logistics operations with our comprehensive suite of services designed
-                    to optimize efficiency, ensure compliance, and maximize profitability for your trucking business.
-                </p>
-            </div>
-
-            <div class="services-stats">
-                <p class="stat-text">
-                    Our clients experience an average 36% improvement in operational efficiency
-                    within the first 90 days of implementing our dispatch solutions.
-                </p>
-            </div>
-
-            <div class="services-grid">
-                <!-- Service 1 -->
-                <div class="service-card">
-                    <div class="service-image-container image-dark">
-                        <img src="https://logitydispatch.com/wp-content/uploads/2025/03/image_22.webp"
-                            alt="Truck dispatching" class="service-image">
-                    </div>
-                    <div class="service-content">
-                        <div class="service-category">Logistics</div>
-                        <h3 class="service-title">Professional Truck Dispatching</h3>
-                        <p class="service-description">
-                            Comprehensive dispatch services that optimize routes, manage loads, and ensure timely
-                            deliveries.
-                        </p>
-                        <a href="#" class="service-link">
-                            Learn more <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="service-card">
-                    <div class="service-image-container image-dark">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                            alt="Compliance services" class="service-image">
-                    </div>
-                    <div class="service-content">
-                        <div class="service-category">Compliance</div>
-                        <h3 class="service-title">DOT Compliance Management</h3>
-                        <p class="service-description">
-                            Stay compliant with all regulations through our expert documentation and reporting services.
-                        </p>
-                        <a href="#" class="service-link">
-                            Learn more <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="service-card">
-                    <div class="service-image-container image-dark">
-                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                            alt="Trucking service" class="service-image">
-                    </div>
-                    <div class="service-content">
-                        <div class="service-category">Operations</div>
-                        <h3 class="service-title">Fleet Management Solutions</h3>
-                        <p class="service-description">
-                            End-to-end management of your trucking operations with real-time tracking and analytics.
-                        </p>
-                        <a href="#" class="service-link">
-                            Learn more <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="service-card">
-                    <div class="service-image-container image-dark">
-                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                            alt="FTA reporting" class="service-image">
-                    </div>
-                    <div class="service-content">
-                        <div class="service-category">Reporting</div>
-                        <h3 class="service-title">Automated FTA Reporting</h3>
-                        <p class="service-description">
-                            Accurate and timely Federal Transit Administration reporting to keep your business
-                            compliant.
-                        </p>
-                        <a href="#" class="service-link">
-                            Learn more <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Service 5 -->
-                <div class="service-card">
-                    <div class="service-image-container image-dark">
-                        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                            alt="Document dispatch" class="service-image">
-                    </div>
-                    <div class="service-content">
-                        <div class="service-category">Documentation</div>
-                        <h3 class="service-title">Digital Document Management</h3>
-                        <p class="service-description">
-                            Secure, cloud-based document handling for all your bills of lading, invoices, and records.
-                        </p>
-                        <a href="#" class="service-link">
-                            Learn more <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Service 6 -->
-                <div class="service-card">
-                    <div class="service-image-container image-dark">
-                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                            alt="Trucking accounting" class="service-image">
-                    </div>
-                    <div class="service-content">
-                        <div class="service-category">Finance</div>
-                        <h3 class="service-title">Trucking-Specific Accounting</h3>
-                        <p class="service-description">
-                            Specialized financial services tailored to the unique needs of transportation businesses.
-                        </p>
-                        <a href="#" class="service-link">
-                            Learn more <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Service 7 -->
-                <div class="service-card">
-                    <div class="service-image-container image-dark">
-                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                            alt="Paperwork services" class="service-image">
-                    </div>
-                    <div class="service-content">
-                        <div class="service-category">Administration</div>
-                        <h3 class="service-title">Paperwork Processing</h3>
-                        <p class="service-description">
-                            Hassle-free handling of all permits, licenses, and regulatory paperwork.
-                        </p>
-                        <a href="#" class="service-link">
-                            Learn more <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Service 8 -->
-                <div class="service-card">
-                    <div class="service-image-container image-dark">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                            alt="Promotions services" class="service-image">
-                    </div>
-                    <div class="service-content">
-                        <div class="service-category">Marketing</div>
-                        <h3 class="service-title">Digital Promotion Services</h3>
-                        <p class="service-description">
-                            Boost your online presence and attract more clients with our targeted marketing solutions.
-                        </p>
-                        <a href="#" class="service-link">
-                            Learn more <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+      <section class="coretech-trucks-section">
+    <div class="coretech-trucks-header">
+      <h2>
+        <span>Our Truck </span>
+      </h2>
+      <hr class="coretech-trucks-divider" />
+    </div>
+    <div class="coretech-trucks-grid">
+      <div class="coretech-truck-card" style="background-image: url('assets/images/frame_1984077560-1-300x87.webp');">
+        <div class="coretech-truck-info">
+          <span class="coretech-truck-name">Box Truck</span>
+          <a href="#" class="coretech-truck-btn">View Details 
+            <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
+              <path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12l6-6m0 0V4m0 2h-2"/>
+            </svg>
+          </a>
         </div>
-    </section>
+      </div>
+      <div class="coretech-truck-card" style="background-image: url('assets/images/frame_1984077563-300x87.webp');">
+        <div class="coretech-truck-info">
+          <span class="coretech-truck-name">Hotshot Truck</span>
+          <a href="#" class="coretech-truck-btn">View Details 
+            <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
+              <path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12l6-6m0 0V4m0 2h-2"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="coretech-truck-card" style="background-image: url('assets/images/frame_1984077562-300x87.webp');">
+        <div class="coretech-truck-info">
+          <span class="coretech-truck-name">Power Only</span>
+          <a href="#" class="coretech-truck-btn">View Details 
+            <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
+              <path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12l6-6m0 0V4m0 2h-2"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="coretech-truck-card" style="background-image: url('assets/images/photo_2025-05-20_14-10-15-300x87.webp');">
+        <div class="coretech-truck-info">
+          <span class="coretech-truck-name">Flatbed Truck</span>
+          <a href="#" class="coretech-truck-btn">View Details 
+            <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
+              <path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12l6-6m0 0V4m0 2h-2"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="coretech-truck-card" style="background-image: url('assets/images/frame_1984077561-300x87.webp');">
+        <div class="coretech-truck-info">
+          <span class="coretech-truck-name">Reefer Truck</span>
+          <a href="#" class="coretech-truck-btn">View Details 
+            <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
+              <path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12l6-6m0 0V4m0 2h-2"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="coretech-truck-card" style="background-image: url('assets/images/frame_1984077351-2-1-300x86.webp');">
+        <div class="coretech-truck-info">
+          <span class="coretech-truck-name">Step Deck</span>
+          <a href="#" class="coretech-truck-btn">View Details 
+            <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
+              <path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12l6-6m0 0V4m0 2h-2"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="coretech-truck-card" style="background-image: url('assets/images/frame_1984077351-4-300x64.webp');">
+        <div class="coretech-truck-info">
+          <span class="coretech-truck-name">Dry Van</span>
+          <a href="#" class="coretech-truck-btn">View Details 
+            <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
+              <path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12l6-6m0 0V4m0 2h-2"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="coretech-truck-card" style="background-image: url('assets/images/freepik__the-style-is-candid-image-photography-with-natural__6497-1-300x113.webp');">
+        <div class="coretech-truck-info">
+          <span class="coretech-truck-name">Conestoga Trailer</span>
+          <a href="#" class="coretech-truck-btn">View Details 
+            <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
+              <path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12l6-6m0 0V4m0 2h-2"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
      <section class="blue-setup-section">
         <div class="blue-setup-main">
             <div class="blue-setup-left">
@@ -502,7 +429,7 @@
                         <a href="#" class="footer-link">Locations</a>
                     </div>
                     <div class="footer-links-group">
-                        <a href="services.html"><div  class="footer-links-title">Services</div></a>
+                        <div class="footer-links-title">Services</div>
                         <a href="#" class="footer-link">Truck Dispatching</a>
                         <a href="#" class="footer-link">Document Management</a>
                         <a href="#" class="footer-link">Freight Negotiation</a>
