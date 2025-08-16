@@ -3,478 +3,436 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Core-Tech Dispatch - FAQ</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>Contact Us | Modern Design</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: 'Montserrat', sans-serif;
-  line-height: 1.6;
-  color: #16213e;
-  background-color: #f9fafc;
-}
-
-.coretech-faq-content-wrap {
-  background: #fff;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
+.contact-section {
+  background: #ffffff;
+  padding: 80px 0;
   width: 100%;
-  min-height: 100vh;
-  padding: 38px 24px 60px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
 }
 
-.coretech-faq-sidebar {
-  width: 340px;
-  min-width: 220px;
-  max-width: 340px;
-  margin-right: 48px;
-  padding-left: 12px;
-  position: sticky;
-  top: 20px;
-}
-
-.coretech-faq-toc-title {
-  font-size: 2rem;
-  font-weight: 800;
-  color: #16213e;
-  margin-bottom: 18px;
-  letter-spacing: -1px;
-}
-
-.coretech-faq-toc-list {
-  list-style: none;
-  margin: 0 0 46px 0;
-  padding: 0;
-}
-
-.coretech-faq-toc-list li {
-  font-size: 1.08rem;
-  color: #16213e;
-  padding: 10px 0;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  opacity: 0.7;
-  cursor: pointer;
-  transition: color 0.17s, opacity 0.17s;
-  border-radius: 6px;
-  padding-left: 10px;
-}
-
-.coretech-faq-toc-list li:hover {
-  opacity: 0.9;
-  background-color: rgba(79, 140, 255, 0.05);
-}
-
-.coretech-faq-toc-list li.active {
-  color: #4f8cff;
-  font-weight: 800;
-  opacity: 1;
-  background-color: rgba(79, 140, 255, 0.1);
-}
-
-.coretech-toc-dot {
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  margin-right: 12px;
-  background: #4f8cff;
-  opacity: 0.7;
-}
-
-.coretech-faq-toc-list li:not(.active) .coretech-toc-dot {
-  background: #8aa8e8;
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  z-index: 0;
   opacity: 0.5;
 }
 
-.coretech-faq-contact-box {
-  background: #f5f8ff;
-  border-radius: 9px;
-  padding: 22px 18px;
-  margin-top: 60px;
-  box-shadow: 0 2px 17px rgba(79,140,255,.08);
-  border: 1px solid rgba(79, 140, 255, 0.1);
+.contact-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-.coretech-faq-contact-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #16213e;
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 18px;
-}
-
-.coretech-faq-contact-icon {
-  flex-shrink: 0;
-  margin-right: 2px;
-}
-
-.coretech-faq-contact-label {
-  color: #16213e;
-  font-weight: 700;
-}
-
-.coretech-blue {
-  color: #4f8cff;
-  font-weight: 800;
-}
-
-.coretech-faq-contact-btn {
-  display: block;
-  width: 100%;
+.contact-title {
   text-align: center;
-  margin-top: 3px;
-  padding: 16px 0;
-  background: linear-gradient(90deg, #4f8cff 0%, #2940a8 100%);
-  color: #fff;
-  border-radius: 4px;
-  font-size: 1.09rem;
+  font-size: 3.5rem;
   font-weight: 800;
-  text-decoration: none;
-  letter-spacing: 0;
-  border: none;
-  outline: none;
-  box-shadow: 0 3px 13px rgba(79,140,255,.11);
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.coretech-faq-contact-btn:hover,
-.coretech-faq-contact-btn:focus {
-  background: linear-gradient(90deg, #2940a8 0%, #4f8cff 100%);
-  color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(79,140,255,.2);
-}
-
-.coretech-faq-main {
-  flex: 1 1 0%;
-  min-width: 350px;
-  max-width: 850px;
-}
-
-.coretech-faq-group {
-  margin-bottom: 46px;
-  scroll-margin-top: 20px;
-}
-
-.coretech-faq-group-title {
-  font-size: 2.1rem;
-  font-weight: 800;
-  color: #16213e;
+  color: #14213d;
   margin: 0 0 15px 0;
-  letter-spacing: -1px;
+  letter-spacing: -1.5px;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.coretech-faq-item {
-  font-size: 1.09rem;
-  color: #16213e;
-  border-bottom: 1px solid #e5e9f2;
-  cursor: pointer;
-  transition: all 0.2s ease;
+.contact-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #4361ee, #f72585);
+  border-radius: 2px;
 }
 
-.coretech-faq-question {
+.contact-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #6c757d;
+  margin-bottom: 60px;
+  font-weight: 400;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.contact-content {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.contact-hours {
+  flex: 1;
+  min-width: 300px;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e9ecef;
+}
+
+.contact-hours-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #14213d;
   display: flex;
   align-items: center;
+}
+
+.contact-hours-title i {
+  margin-right: 10px;
+  color: #4361ee;
+}
+
+.contact-hours-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+  font-size: 1.05rem;
+}
+
+.contact-hours-table tr {
+  transition: all 0.3s ease;
+}
+
+.contact-hours-table tr:hover {
+  transform: translateY(-2px);
+}
+
+.contact-hours-table td {
+  padding: 15px 20px;
+  font-weight: 500;
+  color: #495057;
+  background: #f8f9fa;
+  border-radius: 8px 0 0 8px;
+  transition: all 0.3s ease;
+}
+
+.contact-hours-table tr:hover td {
+  background: #e9ecef;
+}
+
+.contact-hours-table td:last-child {
+  text-align: right;
+  border-radius: 0 8px 8px 0;
   font-weight: 600;
-  padding: 17px 0;
-  transition: background 0.2s;
+  letter-spacing: 0.5px;
 }
 
-.coretech-faq-item:hover .coretech-faq-question {
-  background: #f5f8ff;
+.contact-hours-on {
+  color: #4361ee;
 }
 
-.coretech-faq-plus {
-  color: #4f8cff;
-  font-size: 1.6rem;
-  font-weight: 900;
-  margin-right: 19px;
-  flex-shrink: 0;
-  line-height: 1;
+.contact-hours-off {
+  color: #f72585;
+}
+
+.contact-details {
+  flex: 2;
+  min-width: 300px;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e9ecef;
+}
+
+.contact-list {
+  list-style: none;
+  margin: 0 0 40px 0;
+  padding: 0;
+}
+
+.contact-list li {
+  font-size: 1.1rem;
+  color: #495057;
+  margin-bottom: 25px;
+  position: relative;
+  padding-left: 40px;
+  line-height: 1.6;
+}
+
+.contact-bullet {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #4361ee, #4cc9f0);
   display: inline-block;
-  transition: transform 0.3s ease;
+  border-radius: 50%;
+  position: absolute;
+  left: 0;
+  top: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.coretech-faq-item.active .coretech-faq-plus {
-  transform: rotate(45deg);
+.contact-bullet i {
+  color: white;
+  font-size: 0.7rem;
 }
 
-.coretech-faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
+.contact-list b {
+  color: #14213d;
+  font-weight: 600;
+}
+
+.contact-social-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #6c757d;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.contact-social-title i {
+  margin-right: 10px;
+  color: #4361ee;
+}
+
+.contact-social-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.contact-social-btn {
+  background: #4361ee;
+  color: #ffffff;
+  font-weight: 600;
   font-size: 1rem;
-  color: #4a5568;
-  line-height: 1.7;
+  border-radius: 8px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(67, 97, 238, 0.15);
 }
 
-.coretech-faq-item.active .coretech-faq-answer {
-  max-height: 500px;
-  padding-bottom: 20px;
+.contact-social-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(67, 97, 238, 0.25);
 }
 
-.coretech-faq-answer-content {
-  padding-right: 40px;
+.contact-social-btn.facebook {
+  background: #3b5998;
+  box-shadow: 0 4px 12px rgba(59, 89, 152, 0.15);
 }
 
-@media (max-width: 1000px) {
-  .coretech-faq-content-wrap {
+.contact-social-btn.facebook:hover {
+  box-shadow: 0 8px 20px rgba(59, 89, 152, 0.25);
+}
+
+.contact-social-btn.twitter {
+  background: #1da1f2;
+  box-shadow: 0 4px 12px rgba(29, 161, 242, 0.15);
+}
+
+.contact-social-btn.twitter:hover {
+  box-shadow: 0 8px 20px rgba(29, 161, 242, 0.25);
+}
+
+.contact-social-btn.linkedin {
+  background: #0077b5;
+  box-shadow: 0 4px 12px rgba(0, 119, 181, 0.15);
+}
+
+.contact-social-btn.linkedin:hover {
+  box-shadow: 0 8px 20px rgba(0, 119, 181, 0.25);
+}
+
+.contact-social-btn.instagram {
+  background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+  box-shadow: 0 4px 12px rgba(64, 93, 230, 0.15);
+}
+
+.contact-social-btn.instagram:hover {
+  box-shadow: 0 8px 20px rgba(64, 93, 230, 0.25);
+}
+
+.contact-social-btn.youtube {
+  background: #ff0000;
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.15);
+}
+
+.contact-social-btn.youtube:hover {
+  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.25);
+}
+
+@media (max-width: 992px) {
+  .contact-content {
     flex-direction: column;
-    padding: 28px 24px 40px;
+    gap: 40px;
+    align-items: stretch;
   }
-  .coretech-faq-sidebar {
+  
+  .contact-hours, .contact-details {
     width: 100%;
     max-width: 100%;
-    margin-right: 0;
-    margin-bottom: 36px;
-    padding-left: 0;
-    position: static;
-  }
-  .coretech-faq-main {
-    max-width: 100%;
-    min-width: 0;
-    width: 100%;
   }
 }
 
-@media (max-width: 600px) {
-  .coretech-faq-content-wrap {
-    padding: 20px 16px 30px;
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 60px 0;
   }
-  .coretech-faq-toc-title { 
-    font-size: 1.6rem; 
-    margin-bottom: 12px;
+  
+  .contact-title {
+    font-size: 2.5rem;
   }
-  .coretech-faq-group-title { 
-    font-size: 1.5rem; 
-    margin-bottom: 10px;
+  
+  .contact-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
   }
-  .coretech-faq-question { 
-    font-size: 1rem; 
-    padding: 14px 0;
+  
+  .contact-list li {
+    font-size: 1rem;
+    padding-left: 35px;
   }
-  .coretech-faq-plus {
-    font-size: 1.4rem;
-    margin-right: 15px;
+}
+
+@media (max-width: 576px) {
+  .contact-title {
+    font-size: 2rem;
   }
-  .coretech-faq-answer {
+  
+  .contact-subtitle {
+    font-size: 1rem;
+  }
+  
+  .contact-hours, .contact-details {
+    padding: 25px 20px;
+  }
+  
+  .contact-hours-table td {
+    padding: 12px 15px;
     font-size: 0.95rem;
   }
-  .coretech-faq-answer-content {
-    padding-right: 20px;
+  
+  .contact-list li {
+    font-size: 0.95rem;
+    padding-left: 30px;
+    margin-bottom: 20px;
   }
-  .coretech-faq-contact-box {
-    margin-top: 40px;
+  
+  .contact-bullet {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .contact-social-buttons {
+    flex-wrap: wrap;
   }
 }
   </style>
 </head>
 <body>
- <section class="coretech-faq-content-wrap">
-  <div class="coretech-faq-sidebar">
-    <h2 class="coretech-faq-toc-title">Table of Content</h2>
-    <ul class="coretech-faq-toc-list">
-      <li class="active" data-section="advantages"><span class="coretech-toc-dot"></span>Advantages</li>
-      <li data-section="process"><span class="coretech-toc-dot"></span>Process</li>
-      <li data-section="general"><span class="coretech-toc-dot"></span>General</li>
-    </ul>
-    <div class="coretech-faq-contact-box">
-      <div class="coretech-faq-contact-row">
-        <svg class="coretech-faq-contact-icon" width="26" height="26" viewBox="0 0 20 20" fill="none">
-          <circle cx="10" cy="6" r="4" fill="#4f8cff"/>
-          <rect x="3" y="13" width="14" height="6" rx="3" fill="#2940a8"/>
-        </svg>
-        <div>
-          <span class="coretech-faq-contact-label">Have any <span class="coretech-blue">questions</span>?</span><br>
-          Feel free to contact us
-        </div>
-      </div>
-      <a href="#" class="coretech-faq-contact-btn">Ask a question</a>
+<section class="contact-section">
+  <div class="contact-container">
+    <h1 class="contact-title">Contact Us</h1>
+    <div class="contact-subtitle">
+      If you have any questions or you'd like to find out more about our services, please get in touch. Our team is ready to assist you with any inquiries.
     </div>
-  </div>
-  <div class="coretech-faq-main">
-    <div class="coretech-faq-group" id="advantages">
-      <h3 class="coretech-faq-group-title">Advantages</h3>
-      <div class="coretech-faq-item">
-        <div class="coretech-faq-question">
-          <span class="coretech-faq-plus">+</span>
-          What will Core-Tech Dispatch services do for my business?
+    <div class="contact-content">
+      <div class="contact-hours">
+        <div class="contact-hours-title">
+          <i class="fas fa-clock"></i> Operational Hours (EST Time)
         </div>
-        <div class="coretech-faq-answer">
-          <div class="coretech-faq-answer-content">
-            <p>Our dispatch services will streamline your operations by handling load booking, route optimization, customer communication, and paperwork. We'll help you maximize profits by finding the best rates, reducing empty miles, and ensuring on-time deliveries. Our team acts as an extension of your business, providing professional dispatch support 24/7.</p>
-          </div>
-        </div>
+        <table class="contact-hours-table">
+          <tbody>
+            <tr>
+              <td>Monday</td>
+              <td class="contact-hours-on">7:00 AM – 5:00 PM</td>
+            </tr>
+            <tr>
+              <td>Tuesday</td>
+              <td class="contact-hours-on">7:00 AM – 5:00 PM</td>
+            </tr>
+            <tr>
+              <td>Wednesday</td>
+              <td class="contact-hours-on">7:00 AM – 5:00 PM</td>
+            </tr>
+            <tr>
+              <td>Thursday</td>
+              <td class="contact-hours-on">7:00 AM – 5:00 PM</td>
+            </tr>
+            <tr>
+              <td>Friday</td>
+              <td class="contact-hours-on">7:00 AM – 5:00 PM</td>
+            </tr>
+            <tr>
+              <td>Saturday</td>
+              <td class="contact-hours-off">Closed</td>
+            </tr>
+            <tr>
+              <td>Sunday</td>
+              <td class="contact-hours-off">Closed</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="coretech-faq-item">
-        <div class="coretech-faq-question">
-          <span class="coretech-faq-plus">+</span>
-          Isn't it always easier and cheaper to hire an in-house dispatcher?
+      <div class="contact-details">
+        <ul class="contact-list">
+          <li>
+            <span class="contact-bullet"><i class="fas fa-check"></i></span>
+            <b>Ask your question:</b> Our specialists will dispel any doubts and provide all the necessary information for the best solution to your needs.
+          </li>
+          <li>
+            <span class="contact-bullet"><i class="fas fa-check"></i></span>
+            Fill out the short form below, and we will prepare a personalized load plan tailored to your specific requirements.
+          </li>
+          <li>
+            <span class="contact-bullet"><i class="fas fa-check"></i></span>
+            <b>Quick response:</b> Expect a call from our logistician soon. We will ensure clear communication at all stages of cooperation.
+          </li>
+        </ul>
+        <div class="contact-social-title">
+          <i class="fas fa-share-alt"></i> Connect With Us
         </div>
-        <div class="coretech-faq-answer">
-          <div class="coretech-faq-answer-content">
-            <p>Not necessarily. Hiring an in-house dispatcher comes with significant overhead costs including salary, benefits, training, and equipment. With Core-Tech Dispatch, you get an entire team of experienced professionals at a fraction of the cost. We also provide coverage during nights, weekends, and holidays without additional fees.</p>
-          </div>
-        </div>
-      </div>
-      <div class="coretech-faq-item">
-        <div class="coretech-faq-question">
-          <span class="coretech-faq-plus">+</span>
-          Do I have to enter into a long-term contract with Core-Tech Dispatch?
-        </div>
-        <div class="coretech-faq-answer">
-          <div class="coretech-faq-answer-content">
-            <p>No, we don't believe in locking our clients into long-term contracts. We offer flexible month-to-month service agreements. You can start or stop our services at any time with a 30-day notice. Our goal is to earn your business every month by providing exceptional service.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="coretech-faq-group" id="process">
-      <h3 class="coretech-faq-group-title">Process</h3>
-      <div class="coretech-faq-item">
-        <div class="coretech-faq-question">
-          <span class="coretech-faq-plus">+</span>
-          How do I sign up with you, and what do I need?
-        </div>
-        <div class="coretech-faq-answer">
-          <div class="coretech-faq-answer-content">
-            <p>Signing up is simple. Just contact us through our website or by phone, and we'll guide you through the quick onboarding process. You'll need to provide your MC number, insurance information, and any specific requirements for your operations. We can typically get you set up and dispatching within 1-2 business days.</p>
-          </div>
-        </div>
-      </div>
-      <div class="coretech-faq-item">
-        <div class="coretech-faq-question">
-          <span class="coretech-faq-plus">+</span>
-          Do I have to be working under my own MC authority to hire Core-Tech Dispatch?
-        </div>
-        <div class="coretech-faq-answer">
-          <div class="coretech-faq-answer-content">
-            <p>No, we work with both owner-operators under their own authority and those leased to carriers. If you're leased to a carrier, we'll coordinate with them as needed while ensuring your specific needs and preferences are prioritized in the dispatch process.</p>
-          </div>
-        </div>
-      </div>
-      <div class="coretech-faq-item">
-        <div class="coretech-faq-question">
-          <span class="coretech-faq-plus">+</span>
-          Do I have to request insurance certificates every time?
-        </div>
-        <div class="coretech-faq-answer">
-          <div class="coretech-faq-answer-content">
-            <p>No, once we have your current insurance certificate on file, we'll handle all the necessary insurance verifications with brokers and shippers. We only need you to update us when your insurance is renewed or changed. Our system automatically tracks expiration dates and will remind you when updates are needed.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="coretech-faq-group" id="general">
-      <h3 class="coretech-faq-group-title">General</h3>
-      <div class="coretech-faq-item">
-        <div class="coretech-faq-question">
-          <span class="coretech-faq-plus">+</span>
-          Will you work with me if I'm new to the business?
-        </div>
-        <div class="coretech-faq-answer">
-          <div class="coretech-faq-answer-content">
-            <p>Absolutely! We specialize in helping new owner-operators navigate the complexities of the trucking industry. We'll guide you through load selection, rate negotiation, and all the paperwork requirements. Many of our most successful clients started with us when they were brand new to the business.</p>
-          </div>
-        </div>
-      </div>
-      <div class="coretech-faq-item">
-        <div class="coretech-faq-question">
-          <span class="coretech-faq-plus">+</span>
-          Can I choose which Core-Tech Dispatch services I want?
-        </div>
-        <div class="coretech-faq-answer">
-          <div class="coretech-faq-answer-content">
-            <p>Yes, we offer customizable service packages. You can choose full dispatch services where we handle everything, or select specific services like load booking, paperwork processing, or after-hours coverage. During your consultation, we'll help design a service package that matches your specific needs and budget.</p>
-          </div>
+        <div class="contact-social-buttons">
+          <a href="#" class="contact-social-btn facebook" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="contact-social-btn twitter" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="contact-social-btn linkedin" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="#" class="contact-social-btn instagram" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="contact-social-btn youtube" aria-label="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Accordion functionality
-  const faqItems = document.querySelectorAll('.coretech-faq-item');
-  
-  faqItems.forEach(item => {
-    const question = item.querySelector('.coretech-faq-question');
-    
-    question.addEventListener('click', () => {
-      const currentlyActive = document.querySelector('.coretech-faq-item.active');
-      
-      // If this item is already active, close it
-      if (item.classList.contains('active')) {
-        item.classList.remove('active');
-        return;
-      }
-      
-      // Close any other open items
-      if (currentlyActive) {
-        currentlyActive.classList.remove('active');
-      }
-      
-      // Open this item
-      item.classList.add('active');
-    });
-  });
-  
-  // Table of content navigation
-  const tocItems = document.querySelectorAll('.coretech-faq-toc-list li');
-  const faqGroups = document.querySelectorAll('.coretech-faq-group');
-  
-  tocItems.forEach(item => {
-    item.addEventListener('click', () => {
-      // Update active state in TOC
-      tocItems.forEach(i => i.classList.remove('active'));
-      item.classList.add('active');
-      
-      // Scroll to corresponding section
-      const sectionId = item.getAttribute('data-section');
-      const section = document.getElementById(sectionId);
-      
-      if (section) {
-        section.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    });
-  });
-  
-  // Highlight TOC item based on scroll position
-  window.addEventListener('scroll', () => {
-    let currentSection = '';
-    
-    faqGroups.forEach(section => {
-      const sectionTop = section.offsetTop - 100;
-      
-      if (window.scrollY >= sectionTop) {
-        currentSection = section.getAttribute('id');
-      }
-    });
-    
-    tocItems.forEach(item => {
-      item.classList.remove('active');
-      if (item.getAttribute('data-section') === currentSection) {
-        item.classList.add('active');
-      }
-    });
-  });
-});
-</script>
 </body>
 </html>
