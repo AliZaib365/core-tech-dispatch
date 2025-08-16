@@ -3,321 +3,371 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Truck Fleet Showcase</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+  <title>Core-Tech Dispatch - FAQ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  body {
+    margin: 0;
+    background-color: #0a0f1f;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .coretech-faq-section {
+    background: #10162a;
+    color: #e9e9f8;
+    padding: 4rem 0 2rem 0;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .coretech-faq-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(79, 140, 255, 0.1) 0%, rgba(41, 64, 168, 0) 70%);
+    z-index: 0;
+  }
+
+  .coretech-breadcrumb {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 1.5rem auto;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #e9e9f8;
+    letter-spacing: 0.01em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .coretech-breadcrumb a {
+    color: #4f8cff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .coretech-breadcrumb a:hover {
+    color: #8aa8e8;
+    text-decoration: none;
+    transform: translateX(2px);
+  }
+
+  .coretech-breadcrumb a:hover .coretech-breadcrumb-icon {
+    transform: translateX(-2px);
+  }
+
+  .coretech-breadcrumb-icon {
+    transition: transform 0.3s ease;
+    font-size: 0.9rem;
+  }
+
+  .coretech-breadcrumb-sep {
+    color: #8aa8e8;
+    margin: 0 0.5rem;
+    font-weight: 300;
+    opacity: 0.7;
+  }
+
+  .coretech-faq-header-row {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
+  }
+
+  .coretech-faq-header-left {
+    flex: 1;
+    min-width: 280px;
+    max-width: 380px;
+    position: relative;
+    padding-right: 2rem;
+  }
+
+  .coretech-faq-header-left::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: rgba(34, 49, 106, 0.5);
+  }
+
+  .coretech-faq-star {
+    color: #4f8cff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: -0.5rem;
+    margin-left: 0.2rem;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+    100% { opacity: 0.7; transform: scale(1); }
+  }
+
+  .coretech-faq-title {
+    display: block;
+    font-size: 3.5rem;
+    color: #ffffff;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #4f8cff 0%, #2940a8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    position: relative;
+  }
+
+  .coretech-faq-subtitle {
+    color: #8aa8e8;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-left: 0.2rem;
+    margin-top: 0.5rem;
+    opacity: 0.9;
+    position: relative;
+    display: inline-block;
+  }
+
+  .coretech-faq-subtitle::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 3rem;
+    height: 2px;
+    background: #4f8cff;
+    opacity: 0.5;
+  }
+
+  .coretech-faq-header-right {
+    flex: 2;
+    min-width: 300px;
+    max-width: 680px;
+    color: #b5bfe6;
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    margin-top: 1rem;
+    padding: 1.5rem;
+    background: rgba(16, 22, 42, 0.7);
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(34, 49, 106, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .coretech-faq-header-right:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  }
+
+  .coretech-faq-header-right p {
+    margin-bottom: 1.5rem;
+  }
+
+  .coretech-faq-header-right p:last-child {
+    margin-bottom: 0;
+  }
+
+  .coretech-red {
+    color: #4f8cff;
+    font-weight: 700;
+  }
+
+  .coretech-blue {
+    color: #8aa8e8;
+    font-weight: 700;
+  }
+
+  .coretech-faq-link {
+    color: #4f8cff;
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .coretech-faq-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #4f8cff;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+
+  .coretech-faq-link:hover {
+    color: #8aa8e8;
+  }
+
+  .coretech-faq-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  .coretech-faq-link i {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+  }
+
+  .coretech-faq-link:hover i {
+    transform: translateX(3px);
+  }
+
+  .coretech-faq-divider {
+    width: 90%;
+    max-width: 1200px;
+    margin: 3rem auto 0 auto;
+    border: none;
+    border-top: 1px solid rgba(34, 49, 106, 0.5);
+    position: relative;
+  }
+
+  .coretech-faq-divider::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 20%;
+    height: 2px;
+    background: linear-gradient(135deg, #4f8cff 0%, #2940a8 100%);
+  }
+
+  @media (max-width: 1024px) {
+    .coretech-faq-header-left {
+      max-width: 100%;
+      padding-right: 0;
+      margin-bottom: 1.5rem;
     }
     
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: #ffffff;
-      color: #0b1023;
-      line-height: 1.6;
+    .coretech-faq-header-left::after {
+      display: none;
     }
     
-    .coretech-trucks-section {
-      background: #ffffff;
-      padding: 4rem 0 5rem;
-      width: 100%;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .coretech-faq-title {
+      font-size: 3rem;
     }
     
-    .coretech-trucks-header {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto 2rem;
-      text-align: left;
+    .coretech-faq-header-right {
+      padding: 1.2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .coretech-faq-section {
+      padding: 3rem 0 1.5rem 0;
     }
     
-    .coretech-trucks-header h2 {
-      font-weight: 900;
-      font-size: clamp(1.8rem, 5vw, 3.5rem);
-      color: #0b1023;
-      letter-spacing: -1.5px;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      line-height: 1.2;
+    .coretech-faq-title {
+      font-size: 2.5rem;
     }
     
-    .coretech-trucks-divider {
-      border: none;
-      border-top: 2px solid #e0e0e0;
-      margin: 1.5rem 0 0;
-      width: 100%;
+    .coretech-faq-subtitle {
+      font-size: 1.1rem;
     }
     
-    .coretech-trucks-grid {
-      margin: 2rem auto 0;
-      width: 90%;
-      max-width: 1200px;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.25rem;
+    .coretech-faq-header-right {
+      font-size: 1rem;
     }
     
-    .coretech-truck-card {
-      position: relative;
-      background-size: cover;
-      background-position: center;
-      border-radius: 10px;
-      overflow: hidden;
-      min-width: 0;
-      min-height: 0;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      display: flex;
-      align-items: flex-end;
-      aspect-ratio: 16/9;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .coretech-breadcrumb {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .coretech-faq-section {
+      padding: 2.5rem 0 1rem 0;
     }
     
-    .coretech-truck-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(0deg, #16213e 40%, rgba(22, 33, 62, 0.1) 100%);
-      opacity: 0.85;
-      z-index: 1;
-      transition: opacity 0.3s ease;
+    .coretech-faq-title {
+      font-size: 2rem;
     }
     
-    .coretech-truck-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(79, 140, 255, 0.3);
+    .coretech-faq-subtitle {
+      font-size: 1rem;
     }
     
-    .coretech-truck-card:hover::before {
-      opacity: 0.7;
+    .coretech-faq-header-right {
+      padding: 1rem;
+      min-width: 100%;
     }
     
-    .coretech-truck-info {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      flex-direction: row;
-      align-items: flex-end;
-      justify-content: space-between;
-      width: 100%;
-      padding: 1.5rem;
-      gap: 0.5rem;
-      transition: transform 0.3s ease;
+    .coretech-breadcrumb {
+      font-size: 0.9rem;
     }
     
-    .coretech-truck-card:hover .coretech-truck-info {
-      transform: translateY(-5px);
+    .coretech-faq-star {
+      font-size: 2rem;
     }
-    
-    .coretech-truck-name {
-      color: #fff;
-      font-size: clamp(1rem, 1.5vw, 1.3rem);
-      font-weight: 800;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-      letter-spacing: -0.5px;
-      margin-right: 0.5rem;
-    }
-    
-    .coretech-truck-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      background: linear-gradient(90deg, #4f8cff 0%, #2940a8 100%);
-      color: #fff !important;
-      border-radius: 6px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      padding: 0.6rem 1.2rem;
-      text-decoration: none;
-      letter-spacing: -0.2px;
-      box-shadow: 0 2px 10px rgba(79, 140, 255, 0.2);
-      border: none;
-      outline: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      flex-shrink: 0;
-    }
-    
-    .coretech-truck-btn svg {
-      width: 14px;
-      height: 14px;
-      margin-left: 0.2rem;
-      transition: transform 0.3s ease;
-    }
-    
-    .coretech-truck-btn:hover,
-    .coretech-truck-btn:focus {
-      background: linear-gradient(90deg, #2940a8 0%, #4f8cff 100%);
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(79, 140, 255, 0.3);
-    }
-    
-    .coretech-truck-btn:hover svg {
-      transform: translateX(3px);
-    }
-    
-    /* Loading animation for cards */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .coretech-truck-card {
-      animation: fadeIn 0.5s ease forwards;
-      opacity: 0;
-    }
-    
-    .coretech-truck-card:nth-child(1) { animation-delay: 0.1s; }
-    .coretech-truck-card:nth-child(2) { animation-delay: 0.2s; }
-    .coretech-truck-card:nth-child(3) { animation-delay: 0.3s; }
-    .coretech-truck-card:nth-child(4) { animation-delay: 0.4s; }
-    .coretech-truck-card:nth-child(5) { animation-delay: 0.5s; }
-    .coretech-truck-card:nth-child(6) { animation-delay: 0.6s; }
-    .coretech-truck-card:nth-child(7) { animation-delay: 0.7s; }
-    .coretech-truck-card:nth-child(8) { animation-delay: 0.8s; }
-    
-    /* Responsive adjustments */
-    @media (max-width: 1024px) {
-      .coretech-trucks-grid {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      }
-    }
-    
-    @media (max-width: 768px) {
-      .coretech-trucks-section {
-        padding: 3rem 0 4rem;
-      }
-      
-      .coretech-trucks-header {
-        width: 95%;
-      }
-      
-      .coretech-trucks-grid {
-        width: 95%;
-        gap: 1rem;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .coretech-trucks-header h2 {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.2rem;
-      }
-      
-      .coretech-trucks-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .coretech-truck-info {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      
-      .coretech-truck-btn {
-        margin-top: 0.5rem;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <section class="coretech-trucks-section">
-    <div class="coretech-trucks-header">
-      <h2>
-        <span>Our Truck </span>
-      </h2>
-      <hr class="coretech-trucks-divider" />
+
+<section class="coretech-faq-section">
+  <nav class="coretech-breadcrumb">
+    <a href="/">
+      <i class="fas fa-home coretech-breadcrumb-icon"></i>
+      Home
+    </a> 
+    <span class="coretech-breadcrumb-sep">/</span> 
+    <span>FAQ</span>
+  </nav>
+  <div class="coretech-faq-header-row">
+    <div class="coretech-faq-header-left">
+      <span class="coretech-faq-star">*</span>
+      <span class="coretech-faq-title">FAQ</span>
+      <div class="coretech-faq-subtitle">Frequently Asked Questions</div>
     </div>
-    <div class="coretech-trucks-grid">
-      <div class="coretech-truck-card" style="background-image: url('assets/images/frame_1984077560-1-300x87.webp');">
-        <div class="coretech-truck-info">
-          <span class="coretech-truck-name">Box Truck</span>
-          <a href="#" class="coretech-truck-btn">View Details 
-            <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
-              <path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12l6-6m0 0V4m0 2h-2"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-      <div class="coretech-truck-card" style="background-image: url('assets/images/frame_1984077563-300x87.webp');">
-        <div class="coretech-truck-info">
-          <span class="coretech-truck-name">Hotshot Truck</span>
-          <a href="#" class="coretech-truck-btn">View Details 
-            <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
-              <path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12l6-6m0 0V4m0 2h-2"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-      <div class="coretech-truck-card" style="background-image: url('assets/images/frame_1984077562-300x87.webp');">
-        <div class="coretech-truck-info">
-          <span class="coretech-truck-name">Power Only</span>
-          <a href="#" class="coretech-truck-btn">View Details 
-            <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
-              <path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12l6-6m0 0V4m0 2h-2"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-      <div class="coretech-truck-card" style="background-image: url('assets/images/photo_2025-05-20_14-10-15-300x87.webp');">
-        <div class="coretech-truck-info">
-          <span class="coretech-truck-name">Flatbed Truck</span>
-          <a href="#" class="coretech-truck-btn">View Details 
-            <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
-              <path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12l6-6m0 0V4m0 2h-2"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-      <div class="coretech-truck-card" style="background-image: url('assets/images/frame_1984077561-300x87.webp');">
-        <div class="coretech-truck-info">
-          <span class="coretech-truck-name">Reefer Truck</span>
-          <a href="#" class="coretech-truck-btn">View Details 
-            <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
-              <path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12l6-6m0 0V4m0 2h-2"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-      <div class="coretech-truck-card" style="background-image: url('assets/images/frame_1984077351-2-1-300x86.webp');">
-        <div class="coretech-truck-info">
-          <span class="coretech-truck-name">Step Deck</span>
-          <a href="#" class="coretech-truck-btn">View Details 
-            <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
-              <path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12l6-6m0 0V4m0 2h-2"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-      <div class="coretech-truck-card" style="background-image: url('assets/images/frame_1984077351-4-300x64.webp');">
-        <div class="coretech-truck-info">
-          <span class="coretech-truck-name">Dry Van</span>
-          <a href="#" class="coretech-truck-btn">View Details 
-            <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
-              <path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12l6-6m0 0V4m0 2h-2"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-      <div class="coretech-truck-card" style="background-image: url('assets/images/freepik__the-style-is-candid-image-photography-with-natural__6497-1-300x113.webp');">
-        <div class="coretech-truck-info">
-          <span class="coretech-truck-name">Conestoga Trailer</span>
-          <a href="#" class="coretech-truck-btn">View Details 
-            <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
-              <path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12l6-6m0 0V4m0 2h-2"/>
-            </svg>
-          </a>
-        </div>
-      </div>
+    <div class="coretech-faq-header-right">
+      <p>
+        At <span class="coretech-red">Core-Tech</span> <span class="coretech-blue">Dispatch</span>, we
+        welcome your questions. It's part of our commitment to excellence in customer care and our
+        dedication to honesty and transparency.
+      </p>
+      <p>
+        Feel free to <a href="#" class="coretech-faq-link"><b>contact us</b> <i class="fas fa-arrow-right"></i></a>, or see if your question is
+        one we are frequently asked.
+      </p>
     </div>
-  </section>
+  </div>
+  <hr class="coretech-faq-divider" />
+</section>
+
 </body>
 </html>
