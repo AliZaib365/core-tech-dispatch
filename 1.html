@@ -4,370 +4,477 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Core-Tech Dispatch - FAQ</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-  body {
-    margin: 0;
-    background-color: #0a0f1f;
-    font-family: 'Montserrat', sans-serif;
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  color: #16213e;
+  background-color: #f9fafc;
+}
+
+.coretech-faq-content-wrap {
+  background: #fff;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 38px 24px 60px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.coretech-faq-sidebar {
+  width: 340px;
+  min-width: 220px;
+  max-width: 340px;
+  margin-right: 48px;
+  padding-left: 12px;
+  position: sticky;
+  top: 20px;
+}
+
+.coretech-faq-toc-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #16213e;
+  margin-bottom: 18px;
+  letter-spacing: -1px;
+}
+
+.coretech-faq-toc-list {
+  list-style: none;
+  margin: 0 0 46px 0;
+  padding: 0;
+}
+
+.coretech-faq-toc-list li {
+  font-size: 1.08rem;
+  color: #16213e;
+  padding: 10px 0;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: color 0.17s, opacity 0.17s;
+  border-radius: 6px;
+  padding-left: 10px;
+}
+
+.coretech-faq-toc-list li:hover {
+  opacity: 0.9;
+  background-color: rgba(79, 140, 255, 0.05);
+}
+
+.coretech-faq-toc-list li.active {
+  color: #4f8cff;
+  font-weight: 800;
+  opacity: 1;
+  background-color: rgba(79, 140, 255, 0.1);
+}
+
+.coretech-toc-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  margin-right: 12px;
+  background: #4f8cff;
+  opacity: 0.7;
+}
+
+.coretech-faq-toc-list li:not(.active) .coretech-toc-dot {
+  background: #8aa8e8;
+  opacity: 0.5;
+}
+
+.coretech-faq-contact-box {
+  background: #f5f8ff;
+  border-radius: 9px;
+  padding: 22px 18px;
+  margin-top: 60px;
+  box-shadow: 0 2px 17px rgba(79,140,255,.08);
+  border: 1px solid rgba(79, 140, 255, 0.1);
+}
+
+.coretech-faq-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #16213e;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.coretech-faq-contact-icon {
+  flex-shrink: 0;
+  margin-right: 2px;
+}
+
+.coretech-faq-contact-label {
+  color: #16213e;
+  font-weight: 700;
+}
+
+.coretech-blue {
+  color: #4f8cff;
+  font-weight: 800;
+}
+
+.coretech-faq-contact-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 3px;
+  padding: 16px 0;
+  background: linear-gradient(90deg, #4f8cff 0%, #2940a8 100%);
+  color: #fff;
+  border-radius: 4px;
+  font-size: 1.09rem;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: 0;
+  border: none;
+  outline: none;
+  box-shadow: 0 3px 13px rgba(79,140,255,.11);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.coretech-faq-contact-btn:hover,
+.coretech-faq-contact-btn:focus {
+  background: linear-gradient(90deg, #2940a8 0%, #4f8cff 100%);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(79,140,255,.2);
+}
+
+.coretech-faq-main {
+  flex: 1 1 0%;
+  min-width: 350px;
+  max-width: 850px;
+}
+
+.coretech-faq-group {
+  margin-bottom: 46px;
+  scroll-margin-top: 20px;
+}
+
+.coretech-faq-group-title {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #16213e;
+  margin: 0 0 15px 0;
+  letter-spacing: -1px;
+}
+
+.coretech-faq-item {
+  font-size: 1.09rem;
+  color: #16213e;
+  border-bottom: 1px solid #e5e9f2;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.coretech-faq-question {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  padding: 17px 0;
+  transition: background 0.2s;
+}
+
+.coretech-faq-item:hover .coretech-faq-question {
+  background: #f5f8ff;
+}
+
+.coretech-faq-plus {
+  color: #4f8cff;
+  font-size: 1.6rem;
+  font-weight: 900;
+  margin-right: 19px;
+  flex-shrink: 0;
+  line-height: 1;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.coretech-faq-item.active .coretech-faq-plus {
+  transform: rotate(45deg);
+}
+
+.coretech-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  font-size: 1rem;
+  color: #4a5568;
+  line-height: 1.7;
+}
+
+.coretech-faq-item.active .coretech-faq-answer {
+  max-height: 500px;
+  padding-bottom: 20px;
+}
+
+.coretech-faq-answer-content {
+  padding-right: 40px;
+}
+
+@media (max-width: 1000px) {
+  .coretech-faq-content-wrap {
+    flex-direction: column;
+    padding: 28px 24px 40px;
   }
-  
-  .coretech-faq-section {
-    background: #10162a;
-    color: #e9e9f8;
-    padding: 4rem 0 2rem 0;
+  .coretech-faq-sidebar {
     width: 100%;
-    font-family: 'Montserrat', sans-serif;
-    position: relative;
-    overflow: hidden;
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 36px;
+    padding-left: 0;
+    position: static;
   }
-  
-  .coretech-faq-section::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -10%;
-    width: 60%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(79, 140, 255, 0.1) 0%, rgba(41, 64, 168, 0) 70%);
-    z-index: 0;
-  }
-
-  .coretech-breadcrumb {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto 1.5rem auto;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #e9e9f8;
-    letter-spacing: 0.01em;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    position: relative;
-    z-index: 1;
-  }
-
-  .coretech-breadcrumb a {
-    color: #4f8cff;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-  }
-
-  .coretech-breadcrumb a:hover {
-    color: #8aa8e8;
-    text-decoration: none;
-    transform: translateX(2px);
-  }
-
-  .coretech-breadcrumb a:hover .coretech-breadcrumb-icon {
-    transform: translateX(-2px);
-  }
-
-  .coretech-breadcrumb-icon {
-    transition: transform 0.3s ease;
-    font-size: 0.9rem;
-  }
-
-  .coretech-breadcrumb-sep {
-    color: #8aa8e8;
-    margin: 0 0.5rem;
-    font-weight: 300;
-    opacity: 0.7;
-  }
-
-  .coretech-faq-header-row {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    align-items: flex-start;
-    justify-content: space-between;
-    position: relative;
-    z-index: 1;
-  }
-
-  .coretech-faq-header-left {
-    flex: 1;
-    min-width: 280px;
-    max-width: 380px;
-    position: relative;
-    padding-right: 2rem;
-  }
-
-  .coretech-faq-header-left::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    width: 2px;
-    background: rgba(34, 49, 106, 0.5);
-  }
-
-  .coretech-faq-star {
-    color: #4f8cff;
-    font-size: 2.5rem;
-    font-weight: bold;
-    display: inline-block;
-    margin-bottom: -0.5rem;
-    margin-left: 0.2rem;
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0% { opacity: 0.7; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.1); }
-    100% { opacity: 0.7; transform: scale(1); }
-  }
-
-  .coretech-faq-title {
-    display: block;
-    font-size: 3.5rem;
-    color: #ffffff;
-    font-weight: 800;
-    letter-spacing: -0.05em;
-    margin: 0 0 0.5rem 0;
-    line-height: 1.1;
-    background: linear-gradient(135deg, #4f8cff 0%, #2940a8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-    position: relative;
-  }
-
-  .coretech-faq-subtitle {
-    color: #8aa8e8;
-    font-size: 1.2rem;
-    font-weight: 500;
-    margin-left: 0.2rem;
-    margin-top: 0.5rem;
-    opacity: 0.9;
-    position: relative;
-    display: inline-block;
-  }
-
-  .coretech-faq-subtitle::after {
-    content: '';
-    position: absolute;
-    bottom: -0.5rem;
-    left: 0;
-    width: 3rem;
-    height: 2px;
-    background: #4f8cff;
-    opacity: 0.5;
-  }
-
-  .coretech-faq-header-right {
-    flex: 2;
-    min-width: 300px;
-    max-width: 680px;
-    color: #b5bfe6;
-    font-size: 1.1rem;
-    font-weight: 400;
-    line-height: 1.6;
-    margin-top: 1rem;
-    padding: 1.5rem;
-    background: rgba(16, 22, 42, 0.7);
-    border-radius: 12px;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(34, 49, 106, 0.5);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .coretech-faq-header-right:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-  }
-
-  .coretech-faq-header-right p {
-    margin-bottom: 1.5rem;
-  }
-
-  .coretech-faq-header-right p:last-child {
-    margin-bottom: 0;
-  }
-
-  .coretech-red {
-    color: #4f8cff;
-    font-weight: 700;
-  }
-
-  .coretech-blue {
-    color: #8aa8e8;
-    font-weight: 700;
-  }
-
-  .coretech-faq-link {
-    color: #4f8cff;
-    font-weight: 600;
-    text-decoration: none;
-    position: relative;
-    transition: color 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.3rem;
-  }
-
-  .coretech-faq-link::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
+  .coretech-faq-main {
+    max-width: 100%;
+    min-width: 0;
     width: 100%;
-    height: 2px;
-    background: #4f8cff;
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.3s ease;
   }
+}
 
-  .coretech-faq-link:hover {
-    color: #8aa8e8;
+@media (max-width: 600px) {
+  .coretech-faq-content-wrap {
+    padding: 20px 16px 30px;
   }
-
-  .coretech-faq-link:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
+  .coretech-faq-toc-title { 
+    font-size: 1.6rem; 
+    margin-bottom: 12px;
   }
-
-  .coretech-faq-link i {
-    font-size: 0.8rem;
-    transition: transform 0.3s ease;
+  .coretech-faq-group-title { 
+    font-size: 1.5rem; 
+    margin-bottom: 10px;
   }
-
-  .coretech-faq-link:hover i {
-    transform: translateX(3px);
+  .coretech-faq-question { 
+    font-size: 1rem; 
+    padding: 14px 0;
   }
-
-  .coretech-faq-divider {
-    width: 90%;
-    max-width: 1200px;
-    margin: 3rem auto 0 auto;
-    border: none;
-    border-top: 1px solid rgba(34, 49, 106, 0.5);
-    position: relative;
+  .coretech-faq-plus {
+    font-size: 1.4rem;
+    margin-right: 15px;
   }
-
-  .coretech-faq-divider::after {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: 0;
-    width: 20%;
-    height: 2px;
-    background: linear-gradient(135deg, #4f8cff 0%, #2940a8 100%);
+  .coretech-faq-answer {
+    font-size: 0.95rem;
   }
-
-  @media (max-width: 1024px) {
-    .coretech-faq-header-left {
-      max-width: 100%;
-      padding-right: 0;
-      margin-bottom: 1.5rem;
-    }
-    
-    .coretech-faq-header-left::after {
-      display: none;
-    }
-    
-    .coretech-faq-title {
-      font-size: 3rem;
-    }
-    
-    .coretech-faq-header-right {
-      padding: 1.2rem;
-    }
+  .coretech-faq-answer-content {
+    padding-right: 20px;
   }
-
-  @media (max-width: 768px) {
-    .coretech-faq-section {
-      padding: 3rem 0 1.5rem 0;
-    }
-    
-    .coretech-faq-title {
-      font-size: 2.5rem;
-    }
-    
-    .coretech-faq-subtitle {
-      font-size: 1.1rem;
-    }
-    
-    .coretech-faq-header-right {
-      font-size: 1rem;
-    }
-    
-    .coretech-breadcrumb {
-      font-size: 1rem;
-    }
+  .coretech-faq-contact-box {
+    margin-top: 40px;
   }
-
-  @media (max-width: 480px) {
-    .coretech-faq-section {
-      padding: 2.5rem 0 1rem 0;
-    }
-    
-    .coretech-faq-title {
-      font-size: 2rem;
-    }
-    
-    .coretech-faq-subtitle {
-      font-size: 1rem;
-    }
-    
-    .coretech-faq-header-right {
-      padding: 1rem;
-      min-width: 100%;
-    }
-    
-    .coretech-breadcrumb {
-      font-size: 0.9rem;
-    }
-    
-    .coretech-faq-star {
-      font-size: 2rem;
-    }
-  }
-</style>
+}
+  </style>
 </head>
 <body>
-
-<section class="coretech-faq-section">
-  <nav class="coretech-breadcrumb">
-    <a href="/">
-      <i class="fas fa-home coretech-breadcrumb-icon"></i>
-      Home
-    </a> 
-    <span class="coretech-breadcrumb-sep">/</span> 
-    <span>FAQ</span>
-  </nav>
-  <div class="coretech-faq-header-row">
-    <div class="coretech-faq-header-left">
-      <span class="coretech-faq-star">*</span>
-      <span class="coretech-faq-title">FAQ</span>
-      <div class="coretech-faq-subtitle">Frequently Asked Questions</div>
-    </div>
-    <div class="coretech-faq-header-right">
-      <p>
-        At <span class="coretech-red">Core-Tech</span> <span class="coretech-blue">Dispatch</span>, we
-        welcome your questions. It's part of our commitment to excellence in customer care and our
-        dedication to honesty and transparency.
-      </p>
-      <p>
-        Feel free to <a href="#" class="coretech-faq-link"><b>contact us</b> <i class="fas fa-arrow-right"></i></a>, or see if your question is
-        one we are frequently asked.
-      </p>
+ <section class="coretech-faq-content-wrap">
+  <div class="coretech-faq-sidebar">
+    <h2 class="coretech-faq-toc-title">Table of Content</h2>
+    <ul class="coretech-faq-toc-list">
+      <li class="active" data-section="advantages"><span class="coretech-toc-dot"></span>Advantages</li>
+      <li data-section="process"><span class="coretech-toc-dot"></span>Process</li>
+      <li data-section="general"><span class="coretech-toc-dot"></span>General</li>
+    </ul>
+    <div class="coretech-faq-contact-box">
+      <div class="coretech-faq-contact-row">
+        <svg class="coretech-faq-contact-icon" width="26" height="26" viewBox="0 0 20 20" fill="none">
+          <circle cx="10" cy="6" r="4" fill="#4f8cff"/>
+          <rect x="3" y="13" width="14" height="6" rx="3" fill="#2940a8"/>
+        </svg>
+        <div>
+          <span class="coretech-faq-contact-label">Have any <span class="coretech-blue">questions</span>?</span><br>
+          Feel free to contact us
+        </div>
+      </div>
+      <a href="#" class="coretech-faq-contact-btn">Ask a question</a>
     </div>
   </div>
-  <hr class="coretech-faq-divider" />
+  <div class="coretech-faq-main">
+    <div class="coretech-faq-group" id="advantages">
+      <h3 class="coretech-faq-group-title">Advantages</h3>
+      <div class="coretech-faq-item">
+        <div class="coretech-faq-question">
+          <span class="coretech-faq-plus">+</span>
+          What will Core-Tech Dispatch services do for my business?
+        </div>
+        <div class="coretech-faq-answer">
+          <div class="coretech-faq-answer-content">
+            <p>Our dispatch services will streamline your operations by handling load booking, route optimization, customer communication, and paperwork. We'll help you maximize profits by finding the best rates, reducing empty miles, and ensuring on-time deliveries. Our team acts as an extension of your business, providing professional dispatch support 24/7.</p>
+          </div>
+        </div>
+      </div>
+      <div class="coretech-faq-item">
+        <div class="coretech-faq-question">
+          <span class="coretech-faq-plus">+</span>
+          Isn't it always easier and cheaper to hire an in-house dispatcher?
+        </div>
+        <div class="coretech-faq-answer">
+          <div class="coretech-faq-answer-content">
+            <p>Not necessarily. Hiring an in-house dispatcher comes with significant overhead costs including salary, benefits, training, and equipment. With Core-Tech Dispatch, you get an entire team of experienced professionals at a fraction of the cost. We also provide coverage during nights, weekends, and holidays without additional fees.</p>
+          </div>
+        </div>
+      </div>
+      <div class="coretech-faq-item">
+        <div class="coretech-faq-question">
+          <span class="coretech-faq-plus">+</span>
+          Do I have to enter into a long-term contract with Core-Tech Dispatch?
+        </div>
+        <div class="coretech-faq-answer">
+          <div class="coretech-faq-answer-content">
+            <p>No, we don't believe in locking our clients into long-term contracts. We offer flexible month-to-month service agreements. You can start or stop our services at any time with a 30-day notice. Our goal is to earn your business every month by providing exceptional service.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="coretech-faq-group" id="process">
+      <h3 class="coretech-faq-group-title">Process</h3>
+      <div class="coretech-faq-item">
+        <div class="coretech-faq-question">
+          <span class="coretech-faq-plus">+</span>
+          How do I sign up with you, and what do I need?
+        </div>
+        <div class="coretech-faq-answer">
+          <div class="coretech-faq-answer-content">
+            <p>Signing up is simple. Just contact us through our website or by phone, and we'll guide you through the quick onboarding process. You'll need to provide your MC number, insurance information, and any specific requirements for your operations. We can typically get you set up and dispatching within 1-2 business days.</p>
+          </div>
+        </div>
+      </div>
+      <div class="coretech-faq-item">
+        <div class="coretech-faq-question">
+          <span class="coretech-faq-plus">+</span>
+          Do I have to be working under my own MC authority to hire Core-Tech Dispatch?
+        </div>
+        <div class="coretech-faq-answer">
+          <div class="coretech-faq-answer-content">
+            <p>No, we work with both owner-operators under their own authority and those leased to carriers. If you're leased to a carrier, we'll coordinate with them as needed while ensuring your specific needs and preferences are prioritized in the dispatch process.</p>
+          </div>
+        </div>
+      </div>
+      <div class="coretech-faq-item">
+        <div class="coretech-faq-question">
+          <span class="coretech-faq-plus">+</span>
+          Do I have to request insurance certificates every time?
+        </div>
+        <div class="coretech-faq-answer">
+          <div class="coretech-faq-answer-content">
+            <p>No, once we have your current insurance certificate on file, we'll handle all the necessary insurance verifications with brokers and shippers. We only need you to update us when your insurance is renewed or changed. Our system automatically tracks expiration dates and will remind you when updates are needed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="coretech-faq-group" id="general">
+      <h3 class="coretech-faq-group-title">General</h3>
+      <div class="coretech-faq-item">
+        <div class="coretech-faq-question">
+          <span class="coretech-faq-plus">+</span>
+          Will you work with me if I'm new to the business?
+        </div>
+        <div class="coretech-faq-answer">
+          <div class="coretech-faq-answer-content">
+            <p>Absolutely! We specialize in helping new owner-operators navigate the complexities of the trucking industry. We'll guide you through load selection, rate negotiation, and all the paperwork requirements. Many of our most successful clients started with us when they were brand new to the business.</p>
+          </div>
+        </div>
+      </div>
+      <div class="coretech-faq-item">
+        <div class="coretech-faq-question">
+          <span class="coretech-faq-plus">+</span>
+          Can I choose which Core-Tech Dispatch services I want?
+        </div>
+        <div class="coretech-faq-answer">
+          <div class="coretech-faq-answer-content">
+            <p>Yes, we offer customizable service packages. You can choose full dispatch services where we handle everything, or select specific services like load booking, paperwork processing, or after-hours coverage. During your consultation, we'll help design a service package that matches your specific needs and budget.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Accordion functionality
+  const faqItems = document.querySelectorAll('.coretech-faq-item');
+  
+  faqItems.forEach(item => {
+    const question = item.querySelector('.coretech-faq-question');
+    
+    question.addEventListener('click', () => {
+      const currentlyActive = document.querySelector('.coretech-faq-item.active');
+      
+      // If this item is already active, close it
+      if (item.classList.contains('active')) {
+        item.classList.remove('active');
+        return;
+      }
+      
+      // Close any other open items
+      if (currentlyActive) {
+        currentlyActive.classList.remove('active');
+      }
+      
+      // Open this item
+      item.classList.add('active');
+    });
+  });
+  
+  // Table of content navigation
+  const tocItems = document.querySelectorAll('.coretech-faq-toc-list li');
+  const faqGroups = document.querySelectorAll('.coretech-faq-group');
+  
+  tocItems.forEach(item => {
+    item.addEventListener('click', () => {
+      // Update active state in TOC
+      tocItems.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+      
+      // Scroll to corresponding section
+      const sectionId = item.getAttribute('data-section');
+      const section = document.getElementById(sectionId);
+      
+      if (section) {
+        section.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+  
+  // Highlight TOC item based on scroll position
+  window.addEventListener('scroll', () => {
+    let currentSection = '';
+    
+    faqGroups.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      
+      if (window.scrollY >= sectionTop) {
+        currentSection = section.getAttribute('id');
+      }
+    });
+    
+    tocItems.forEach(item => {
+      item.classList.remove('active');
+      if (item.getAttribute('data-section') === currentSection) {
+        item.classList.add('active');
+      }
+    });
+  });
+});
+</script>
 </body>
 </html>

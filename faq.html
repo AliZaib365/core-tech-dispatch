@@ -177,7 +177,7 @@
   </div>
   <hr class="coretech-faq-divider" />
 </section>
-     <section class="coretech-faq-content-wrap">
+      <section class="coretech-faq-content-wrap">
   <div class="coretech-faq-sidebar">
     <h2 class="coretech-faq-toc-title">Table of Content</h2>
     <ul class="coretech-faq-toc-list">
@@ -400,5 +400,75 @@
 </body>
 <script src="assets/js/header.js"></script>
 <script src="assets/js/main.js"></script>
-
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Accordion functionality
+  const faqItems = document.querySelectorAll('.coretech-faq-item');
+  
+  faqItems.forEach(item => {
+    const question = item.querySelector('.coretech-faq-question');
+    
+    question.addEventListener('click', () => {
+      const currentlyActive = document.querySelector('.coretech-faq-item.active');
+      
+      // If this item is already active, close it
+      if (item.classList.contains('active')) {
+        item.classList.remove('active');
+        return;
+      }
+      
+      // Close any other open items
+      if (currentlyActive) {
+        currentlyActive.classList.remove('active');
+      }
+      
+      // Open this item
+      item.classList.add('active');
+    });
+  });
+  
+  // Table of content navigation
+  const tocItems = document.querySelectorAll('.coretech-faq-toc-list li');
+  const faqGroups = document.querySelectorAll('.coretech-faq-group');
+  
+  tocItems.forEach(item => {
+    item.addEventListener('click', () => {
+      // Update active state in TOC
+      tocItems.forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+      
+      // Scroll to corresponding section
+      const sectionId = item.getAttribute('data-section');
+      const section = document.getElementById(sectionId);
+      
+      if (section) {
+        section.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+  
+  // Highlight TOC item based on scroll position
+  window.addEventListener('scroll', () => {
+    let currentSection = '';
+    
+    faqGroups.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      
+      if (window.scrollY >= sectionTop) {
+        currentSection = section.getAttribute('id');
+      }
+    });
+    
+    tocItems.forEach(item => {
+      item.classList.remove('active');
+      if (item.getAttribute('data-section') === currentSection) {
+        item.classList.add('active');
+      }
+    });
+  });
+});
+</script>
 </html>
