@@ -3,435 +3,445 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us | Modern Design</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Document</title>
   <style>
-.contact-section {
-  background: #ffffff;
-  padding: 80px 0;
-  width: 100%;
-  font-family: 'Poppins', sans-serif;
-  position: relative;
-  overflow: hidden;
+    .ct-company-section {
+  background: #fff;
+  color: #16213e;
+  font-family: 'Montserrat', sans-serif;
+  padding: 0 0 64px 0;
 }
 
-.contact-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  z-index: 0;
-  opacity: 0.5;
-}
-
-.contact-container {
-  position: relative;
-  z-index: 1;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.contact-title {
-  text-align: center;
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: #14213d;
-  margin: 0 0 15px 0;
-  letter-spacing: -1.5px;
-  position: relative;
-  display: inline-block;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.contact-title::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, #4361ee, #f72585);
-  border-radius: 2px;
-}
-
-.contact-subtitle {
-  text-align: center;
-  font-size: 1.2rem;
-  color: #6c757d;
-  margin-bottom: 60px;
-  font-weight: 400;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
-}
-
-.contact-content {
+.ct-company-hero {
   display: flex;
-  gap: 60px;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-.contact-hours {
-  flex: 1;
-  min-width: 300px;
-  background: #ffffff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  border: 1px solid #e9ecef;
-}
-
-.contact-hours-title {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 25px;
-  color: #14213d;
-  display: flex;
+  gap: 46px;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto 60px auto;
+  padding: 60px 0 30px 0;
+  flex-wrap: wrap;
 }
-
-.contact-hours-title i {
-  margin-right: 10px;
-  color: #4361ee;
+.ct-company-hero-text {
+  flex: 2 1 390px;
+  min-width: 320px;
 }
-
-.contact-hours-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 12px;
+.ct-company-hero-text h2 {
+  font-size: 2.7rem;
+  font-weight: 900;
+  color: #4f8cff;
+  margin-bottom: 10px;
+  letter-spacing: -1px;
+}
+.ct-company-motto {
+  color: #2940a8;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+.ct-company-desc {
+  color: #16213e;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  max-width: 600px;
+}
+.ct-company-values {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: #2940a8;
   font-size: 1.05rem;
 }
-
-.contact-hours-table tr {
-  transition: all 0.3s ease;
+.ct-company-values li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
-
-.contact-hours-table tr:hover {
-  transform: translateY(-2px);
-}
-
-.contact-hours-table td {
-  padding: 15px 20px;
-  font-weight: 500;
-  color: #495057;
-  background: #f8f9fa;
-  border-radius: 8px 0 0 8px;
-  transition: all 0.3s ease;
-}
-
-.contact-hours-table tr:hover td {
-  background: #e9ecef;
-}
-
-.contact-hours-table td:last-child {
-  text-align: right;
-  border-radius: 0 8px 8px 0;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-.contact-hours-on {
-  color: #4361ee;
-}
-
-.contact-hours-off {
-  color: #f72585;
-}
-
-.contact-details {
-  flex: 2;
-  min-width: 300px;
-  background: #ffffff;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  border: 1px solid #e9ecef;
-}
-
-.contact-list {
-  list-style: none;
-  margin: 0 0 40px 0;
-  padding: 0;
-}
-
-.contact-list li {
-  font-size: 1.1rem;
-  color: #495057;
-  margin-bottom: 25px;
-  position: relative;
-  padding-left: 40px;
-  line-height: 1.6;
-}
-
-.contact-bullet {
-  width: 20px;
-  height: 20px;
-  background: linear-gradient(135deg, #4361ee, #4cc9f0);
+.ct-blue-dot {
+  width: 12px;
+  height: 12px;
+  background: #4f8cff;
   display: inline-block;
   border-radius: 50%;
-  position: absolute;
-  left: 0;
-  top: 4px;
+  margin-right: 7px;
+}
+.ct-company-hero-image {
+  flex: 1 1 260px;
+  min-width: 240px;
+  max-width: 340px;
+  text-align: right;
+}
+.ct-company-hero-image img {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 16px;
+  box-shadow: 0 6px 32px rgba(79,140,255,0.09);
+  object-fit: cover;
+}
+
+/* Facts */
+.ct-company-facts {
+  display: flex;
+  gap: 44px;
+  justify-content: center;
+  margin: 0 auto 56px auto;
+  flex-wrap: wrap;
+}
+.ct-company-fact {
+  background: #f5f8ff;
+  border-radius: 13px;
+  padding: 32px 34px;
+  text-align: center;
+  min-width: 140px;
+  box-shadow: 0 1px 7px rgba(79,140,255,0.04);
+}
+.ct-company-fact-num {
+  font-size: 2.7rem;
+  color: #4f8cff;
+  font-weight: 900;
+  display: block;
+  margin-bottom: 7px;
+  letter-spacing: -2px;
+}
+.ct-company-fact-label {
+  font-size: 1.08rem;
+  color: #2940a8;
+  font-weight: 600;
+}
+
+/* Services */
+.ct-company-services {
+  max-width: 1200px;
+  margin: 0 auto 52px auto;
+  padding: 0 0 14px 0;
+}
+.ct-company-services h3 {
+  color: #16213e;
+  font-size: 2.1rem;
+  font-weight: 800;
+  margin-bottom: 32px;
+  letter-spacing: -1px;
+}
+.ct-company-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 32px;
+}
+.ct-company-service-card {
+  background: #eaf3ff;
+  border-radius: 12px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 28px 24px;
+  box-shadow: 0 2px 12px rgba(79,140,255,0.08);
+  min-height: 180px;
+}
+.ct-company-service-icon {
+  width: 48px;
+  height: 48px;
+  margin-top: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-.contact-bullet i {
-  color: white;
-  font-size: 0.7rem;
+.ct-svc-blue svg { }
+.ct-svc-navy svg { }
+.ct-svc-light svg { }
+.ct-company-service-card h4 {
+  color: #2940a8;
+  font-weight: 800;
+  font-size: 1.18rem;
+  margin: 0 0 5px 0;
+}
+.ct-company-service-card p {
+  color: #16213e;
+  font-size: 1.02rem;
+  margin: 0;
 }
 
-.contact-list b {
-  color: #14213d;
-  font-weight: 600;
+/* Testimonials */
+.ct-company-testimonials {
+  max-width: 1200px;
+  margin: 0 auto 60px auto;
+  padding: 0 0 12px 0;
 }
-
-.contact-social-title {
+.ct-company-testimonials h3 {
+  color: #16213e;
+  font-size: 2.1rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+  letter-spacing: -1px;
+}
+.ct-company-testimonials-grid {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+.ct-company-testimonial {
+  background: #f5f8ff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(79,140,255,0.06);
+  flex: 1 1 270px;
+  min-width: 230px;
+  max-width: 380px;
+  padding: 24px 24px 18px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ct-company-testimonial-quote {
+  color: #2940a8;
   font-size: 1.1rem;
-  font-weight: 500;
-  color: #6c757d;
+  font-style: italic;
   margin-bottom: 15px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  gap: 8px;
+}
+.ct-company-testimonial-author {
+  color: #16213e;
+  font-size: 1.03rem;
+  font-weight: 700;
+  margin-left: 32px;
 }
 
-.contact-social-title i {
-  margin-right: 10px;
-  color: #4361ee;
+/* Timeline */
+.ct-company-timeline {
+  max-width: 900px;
+  margin: 0 auto 58px auto;
+  padding: 0 0 20px 0;
 }
-
-.contact-social-buttons {
-  display: flex;
-  gap: 12px;
+.ct-company-timeline h3 {
+  color: #16213e;
+  font-size: 2.1rem;
+  font-weight: 800;
+  margin-bottom: 26px;
+  letter-spacing: -1px;
 }
-
-.contact-social-btn {
-  background: #4361ee;
-  color: #ffffff;
+.ct-company-timeline-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-left: 3.5px solid #4f8cff;
+}
+.ct-company-timeline-list li {
+  margin-bottom: 26px;
+  position: relative;
+  padding-left: 28px;
+  min-height: 36px;
+}
+.ct-company-timeline-year {
+  position: absolute;
+  left: -48px;
+  top: 0;
+  font-size: 1.22rem;
+  font-weight: 800;
+}
+.ct-blue { color: #4f8cff; }
+.ct-blue-light { color: #8aa8e8; }
+.ct-navy { color: #2940a8; }
+.ct-company-timeline-event {
+  color: #2940a8;
+  font-size: 1.08rem;
   font-weight: 600;
-  font-size: 1rem;
-  border-radius: 8px;
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+}
+
+/* CTA */
+.ct-company-cta {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 620px;
+  margin-top: 38px;
+}
+.ct-company-cta h3 {
+  color: #16213e;
+  font-size: 2.1rem;
+  font-weight: 800;
+  margin-bottom: 22px;
+  letter-spacing: -1px;
+}
+.ct-company-btn {
+  display: inline-block;
+  padding: 18px 44px;
+  background: linear-gradient(90deg, #4f8cff 0%, #2940a8 100%);
+  color: #fff;
+  border-radius: 6px;
+  font-size: 1.19rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  letter-spacing: .01em;
   text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(67, 97, 238, 0.15);
+  transition: background 0.18s, box-shadow 0.18s, transform 0.18s;
+  box-shadow: 0 4px 24px rgba(79,140,255,0.17);
+}
+.ct-company-btn:hover,
+.ct-company-btn:focus {
+  background: linear-gradient(90deg, #2940a8 0%, #4f8cff 100%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 30px rgba(79,140,255,0.19);
 }
 
-.contact-social-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(67, 97, 238, 0.25);
-}
-
-.contact-social-btn.facebook {
-  background: #3b5998;
-  box-shadow: 0 4px 12px rgba(59, 89, 152, 0.15);
-}
-
-.contact-social-btn.facebook:hover {
-  box-shadow: 0 8px 20px rgba(59, 89, 152, 0.25);
-}
-
-.contact-social-btn.twitter {
-  background: #1da1f2;
-  box-shadow: 0 4px 12px rgba(29, 161, 242, 0.15);
-}
-
-.contact-social-btn.twitter:hover {
-  box-shadow: 0 8px 20px rgba(29, 161, 242, 0.25);
-}
-
-.contact-social-btn.linkedin {
-  background: #0077b5;
-  box-shadow: 0 4px 12px rgba(0, 119, 181, 0.15);
-}
-
-.contact-social-btn.linkedin:hover {
-  box-shadow: 0 8px 20px rgba(0, 119, 181, 0.25);
-}
-
-.contact-social-btn.instagram {
-  background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
-  box-shadow: 0 4px 12px rgba(64, 93, 230, 0.15);
-}
-
-.contact-social-btn.instagram:hover {
-  box-shadow: 0 8px 20px rgba(64, 93, 230, 0.25);
-}
-
-.contact-social-btn.youtube {
-  background: #ff0000;
-  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.15);
-}
-
-.contact-social-btn.youtube:hover {
-  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.25);
-}
-
-@media (max-width: 992px) {
-  .contact-content {
+@media (max-width: 1100px) {
+  .ct-company-hero {
     flex-direction: column;
-    gap: 40px;
-    align-items: stretch;
+    align-items: flex-start;
+    padding-left: 6vw;
+    padding-right: 6vw;
+    gap: 22px;
   }
-  
-  .contact-hours, .contact-details {
-    width: 100%;
-    max-width: 100%;
-  }
+  .ct-company-facts { gap: 22px; }
+  .ct-company-services, .ct-company-testimonials, .ct-company-timeline { padding-left: 6vw; padding-right: 6vw; }
 }
-
-@media (max-width: 768px) {
-  .contact-section {
-    padding: 60px 0;
-  }
-  
-  .contact-title {
-    font-size: 2.5rem;
-  }
-  
-  .contact-subtitle {
-    font-size: 1.1rem;
-    margin-bottom: 40px;
-  }
-  
-  .contact-list li {
-    font-size: 1rem;
-    padding-left: 35px;
-  }
-}
-
-@media (max-width: 576px) {
-  .contact-title {
-    font-size: 2rem;
-  }
-  
-  .contact-subtitle {
-    font-size: 1rem;
-  }
-  
-  .contact-hours, .contact-details {
-    padding: 25px 20px;
-  }
-  
-  .contact-hours-table td {
-    padding: 12px 15px;
-    font-size: 0.95rem;
-  }
-  
-  .contact-list li {
-    font-size: 0.95rem;
-    padding-left: 30px;
-    margin-bottom: 20px;
-  }
-  
-  .contact-bullet {
-    width: 18px;
-    height: 18px;
-  }
-  
-  .contact-social-buttons {
-    flex-wrap: wrap;
-  }
+@media (max-width: 700px) {
+  .ct-company-section { padding-bottom: 20px; }
+  .ct-company-hero-image { text-align: left; }
+  .ct-company-hero-text h2 { font-size: 1.6rem; }
+  .ct-company-hero { padding: 36px 0 15px 0; }
+  .ct-company-facts { gap: 13px; }
+  .ct-company-fact { padding: 16px 12px; font-size: 0.9rem; min-width: 90px;}
+  .ct-company-fact-num { font-size: 1.2rem; }
+  .ct-company-services h3, .ct-company-testimonials h3, .ct-company-timeline h3, .ct-company-cta h3 { font-size: 1.21rem; }
+  .ct-company-testimonial { padding: 13px 10px 10px 10px; }
+  .ct-company-timeline-list li { font-size: .97rem; }
+  .ct-company-btn { font-size: 0.95rem; padding: 12px 22px; }
 }
   </style>
 </head>
 <body>
-<section class="contact-section">
-  <div class="contact-container">
-    <h1 class="contact-title">Contact Us</h1>
-    <div class="contact-subtitle">
-      If you have any questions or you'd like to find out more about our services, please get in touch. Our team is ready to assist you with any inquiries.
+  <section class="ct-company-section">
+  <!-- About / Mission -->
+  <div class="ct-company-hero">
+    <div class="ct-company-hero-text">
+      <h2>Core-Tech Dispatch</h2>
+      <p class="ct-company-motto">Driving Excellence in Logistics</p>
+      <p class="ct-company-desc">
+        Core-Tech Dispatch is your trusted partner in modern logistics and dispatch solutions. With a passion for efficiency, transparency, and innovation, we empower carriers and owner-operators to succeed in the fast-evolving world of freight. Backed by years of experience and a dedicated team, we simplify operations, maximize earnings, and keep your business moving forward—every mile, every day.
+      </p>
+      <ul class="ct-company-values">
+        <li><span class="ct-blue-dot"></span> <b>Customer-First:</b> Service built around your needs, 24/7 support, and honest communication.</li>
+        <li><span class="ct-blue-dot"></span> <b>Innovation:</b> Harnessing technology to deliver smarter, faster, and more reliable dispatch solutions.</li>
+        <li><span class="ct-blue-dot"></span> <b>Integrity:</b> Transparent pricing, no hidden fees, and a commitment to ethical business practices.</li>
+        <li><span class="ct-blue-dot"></span> <b>Growth:</b> We grow with you, offering guidance and expertise at every stage of your journey.</li>
+      </ul>
     </div>
-    <div class="contact-content">
-      <div class="contact-hours">
-        <div class="contact-hours-title">
-          <i class="fas fa-clock"></i> Operational Hours (EST Time)
+    <div class="ct-company-hero-image">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Core-Tech Dispatch Team and Trucks" />
+    </div>
+  </div>
+
+  <!-- Fast Facts -->
+  <div class="ct-company-facts">
+    <div class="ct-company-fact">
+      <span class="ct-company-fact-num">8+</span>
+      <span class="ct-company-fact-label">Years in Dispatch</span>
+    </div>
+    <div class="ct-company-fact">
+      <span class="ct-company-fact-num">500+</span>
+      <span class="ct-company-fact-label">Drivers Supported</span>
+    </div>
+    <div class="ct-company-fact">
+      <span class="ct-company-fact-num">24/7</span>
+      <span class="ct-company-fact-label">Live Support</span>
+    </div>
+    <div class="ct-company-fact">
+      <span class="ct-company-fact-num">99.8%</span>
+      <span class="ct-company-fact-label">On-Time Rate</span>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <div class="ct-company-services">
+    <h3>Our Services</h3>
+    <div class="ct-company-services-grid">
+      <div class="ct-company-service-card">
+        <div class="ct-company-service-icon ct-svc-blue"><svg width="32" height="32" fill="none"><circle cx="16" cy="16" r="15" stroke="#4f8cff" stroke-width="2"/><path d="M9 18l5-5 5 5" stroke="#4f8cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div>
+          <h4>Full Dispatch</h4>
+          <p>End-to-end management: load booking, negotiation, paperwork, route optimization, and broker communication.</p>
         </div>
-        <table class="contact-hours-table">
-          <tbody>
-            <tr>
-              <td>Monday</td>
-              <td class="contact-hours-on">7:00 AM – 5:00 PM</td>
-            </tr>
-            <tr>
-              <td>Tuesday</td>
-              <td class="contact-hours-on">7:00 AM – 5:00 PM</td>
-            </tr>
-            <tr>
-              <td>Wednesday</td>
-              <td class="contact-hours-on">7:00 AM – 5:00 PM</td>
-            </tr>
-            <tr>
-              <td>Thursday</td>
-              <td class="contact-hours-on">7:00 AM – 5:00 PM</td>
-            </tr>
-            <tr>
-              <td>Friday</td>
-              <td class="contact-hours-on">7:00 AM – 5:00 PM</td>
-            </tr>
-            <tr>
-              <td>Saturday</td>
-              <td class="contact-hours-off">Closed</td>
-            </tr>
-            <tr>
-              <td>Sunday</td>
-              <td class="contact-hours-off">Closed</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
-      <div class="contact-details">
-        <ul class="contact-list">
-          <li>
-            <span class="contact-bullet"><i class="fas fa-check"></i></span>
-            <b>Ask your question:</b> Our specialists will dispel any doubts and provide all the necessary information for the best solution to your needs.
-          </li>
-          <li>
-            <span class="contact-bullet"><i class="fas fa-check"></i></span>
-            Fill out the short form below, and we will prepare a personalized load plan tailored to your specific requirements.
-          </li>
-          <li>
-            <span class="contact-bullet"><i class="fas fa-check"></i></span>
-            <b>Quick response:</b> Expect a call from our logistician soon. We will ensure clear communication at all stages of cooperation.
-          </li>
-        </ul>
-        <div class="contact-social-title">
-          <i class="fas fa-share-alt"></i> Connect With Us
+      <div class="ct-company-service-card">
+        <div class="ct-company-service-icon ct-svc-navy"><svg width="32" height="32" fill="none"><rect x="4" y="10" width="24" height="12" rx="4" fill="#2940a8"/><rect x="10" y="15" width="12" height="3" rx="1.5" fill="#fff"/></svg></div>
+        <div>
+          <h4>Load Planning</h4>
+          <p>Personalized load plans to maximize revenue and minimize empty miles, tailored to your needs and preferences.</p>
         </div>
-        <div class="contact-social-buttons">
-          <a href="#" class="contact-social-btn facebook" aria-label="Facebook">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="#" class="contact-social-btn twitter" aria-label="Twitter">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="#" class="contact-social-btn linkedin" aria-label="LinkedIn">
-            <i class="fab fa-linkedin-in"></i>
-          </a>
-          <a href="#" class="contact-social-btn instagram" aria-label="Instagram">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="#" class="contact-social-btn youtube" aria-label="YouTube">
-            <i class="fab fa-youtube"></i>
-          </a>
+      </div>
+      <div class="ct-company-service-card">
+        <div class="ct-company-service-icon ct-svc-light"><svg width="32" height="32" fill="none"><rect x="8" y="8" width="16" height="16" rx="4" fill="#8aa8e8"/><path d="M12 16h8" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <div>
+          <h4>Paperwork & Compliance</h4>
+          <p>We handle all compliance, insurance certificates, and paperwork—so you can focus on the road.</p>
+        </div>
+      </div>
+      <div class="ct-company-service-card">
+        <div class="ct-company-service-icon ct-svc-blue"><svg width="32" height="32" fill="none"><circle cx="16" cy="16" r="16" fill="#4f8cff"/><path d="M11 16h10M16 11v10" stroke="#fff" stroke-width="2"/></svg></div>
+        <div>
+          <h4>After-Hours Support</h4>
+          <p>Live dispatchers available day and night to solve problems and keep your trucks moving.</p>
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Testimonials / Reviews -->
+  <div class="ct-company-testimonials">
+    <h3>What Our Partners Say</h3>
+    <div class="ct-company-testimonials-grid">
+      <div class="ct-company-testimonial">
+        <div class="ct-company-testimonial-quote">
+          <svg width="24" height="24" fill="none"><path d="M7 13c-2 0-3-1.5-3-3 0-3.5 3-7 4-7s2 3.5 2 7c0 2-1 3-3 3z" fill="#4f8cff"/></svg>
+          Core-Tech Dispatch changed my business. They’re always available, always honest, and always find the best loads.
+        </div>
+        <div class="ct-company-testimonial-author">— J. Williams, Owner-Operator</div>
+      </div>
+      <div class="ct-company-testimonial">
+        <div class="ct-company-testimonial-quote">
+          <svg width="24" height="24" fill="none"><path d="M7 13c-2 0-3-1.5-3-3 0-3.5 3-7 4-7s2 3.5 2 7c0 2-1 3-3 3z" fill="#4f8cff"/></svg>
+          Their team helped us scale from one truck to seven. The dispatchers treat us like family. Highly recommend!
+        </div>
+        <div class="ct-company-testimonial-author">— L. Chen, Fleet Manager</div>
+      </div>
+      <div class="ct-company-testimonial">
+        <div class="ct-company-testimonial-quote">
+          <svg width="24" height="24" fill="none"><path d="M7 13c-2 0-3-1.5-3-3 0-3.5 3-7 4-7s2 3.5 2 7c0 2-1 3-3 3z" fill="#4f8cff"/></svg>
+          Transparent, professional, and always on time. They handle everything, so I can focus on driving.
+        </div>
+        <div class="ct-company-testimonial-author">— D. Ivanov, CDL Driver</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Company Timeline / History -->
+  <div class="ct-company-timeline">
+    <h3>Our Journey</h3>
+    <ol class="ct-company-timeline-list">
+      <li>
+        <span class="ct-company-timeline-year ct-blue">2016</span>
+        <span class="ct-company-timeline-event">Founded in Dallas, TX with a vision to serve owner-operators nationwide.</span>
+      </li>
+      <li>
+        <span class="ct-company-timeline-year ct-blue-light">2018</span>
+        <span class="ct-company-timeline-event">Launched 24/7 support and expanded service to the Midwest and East Coast.</span>
+      </li>
+      <li>
+        <span class="ct-company-timeline-year ct-navy">2021</span>
+        <span class="ct-company-timeline-event">Surpassed 500 active drivers; introduced digital paperwork and compliance tools.</span>
+      </li>
+      <li>
+        <span class="ct-company-timeline-year ct-blue">2024</span>
+        <span class="ct-company-timeline-event">Recognized as a top-rated dispatch service by our partners and clients.</span>
+      </li>
+    </ol>
+  </div>
+
+  <!-- CTA -->
+  <div class="ct-company-cta">
+    <h3>Ready to Drive Your Success?</h3>
+    <a href="#contact" class="ct-company-btn">Get Started with Core-Tech Dispatch</a>
   </div>
 </section>
 </body>
