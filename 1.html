@@ -2,447 +2,189 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Optimize Your 26ft Box Truck Operations with CoreTech Dispatch</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;500;400&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    .ct-company-section {
-  background: #fff;
-  color: #16213e;
-  font-family: 'Montserrat', sans-serif;
-  padding: 0 0 64px 0;
-}
-
-.ct-company-hero {
-  display: flex;
-  gap: 46px;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto 60px auto;
-  padding: 60px 0 30px 0;
-  flex-wrap: wrap;
-}
-.ct-company-hero-text {
-  flex: 2 1 390px;
-  min-width: 320px;
-}
-.ct-company-hero-text h2 {
-  font-size: 2.7rem;
-  font-weight: 900;
-  color: #4f8cff;
-  margin-bottom: 10px;
-  letter-spacing: -1px;
-}
-.ct-company-motto {
-  color: #2940a8;
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 24px;
-}
-.ct-company-desc {
-  color: #16213e;
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  max-width: 600px;
-}
-.ct-company-values {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  color: #2940a8;
-  font-size: 1.05rem;
-}
-.ct-company-values li {
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.ct-blue-dot {
-  width: 12px;
-  height: 12px;
-  background: #4f8cff;
-  display: inline-block;
-  border-radius: 50%;
-  margin-right: 7px;
-}
-.ct-company-hero-image {
-  flex: 1 1 260px;
-  min-width: 240px;
-  max-width: 340px;
-  text-align: right;
-}
-.ct-company-hero-image img {
-  width: 100%;
-  max-width: 320px;
-  border-radius: 16px;
-  box-shadow: 0 6px 32px rgba(79,140,255,0.09);
-  object-fit: cover;
-}
-
-/* Facts */
-.ct-company-facts {
-  display: flex;
-  gap: 44px;
-  justify-content: center;
-  margin: 0 auto 56px auto;
-  flex-wrap: wrap;
-}
-.ct-company-fact {
-  background: #f5f8ff;
-  border-radius: 13px;
-  padding: 32px 34px;
-  text-align: center;
-  min-width: 140px;
-  box-shadow: 0 1px 7px rgba(79,140,255,0.04);
-}
-.ct-company-fact-num {
-  font-size: 2.7rem;
-  color: #4f8cff;
-  font-weight: 900;
-  display: block;
-  margin-bottom: 7px;
-  letter-spacing: -2px;
-}
-.ct-company-fact-label {
-  font-size: 1.08rem;
-  color: #2940a8;
-  font-weight: 600;
-}
-
-/* Services */
-.ct-company-services {
-  max-width: 1200px;
-  margin: 0 auto 52px auto;
-  padding: 0 0 14px 0;
-}
-.ct-company-services h3 {
-  color: #16213e;
-  font-size: 2.1rem;
-  font-weight: 800;
-  margin-bottom: 32px;
-  letter-spacing: -1px;
-}
-.ct-company-services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-  gap: 32px;
-}
-.ct-company-service-card {
-  background: #eaf3ff;
-  border-radius: 12px;
-  display: flex;
-  gap: 18px;
-  align-items: flex-start;
-  padding: 28px 24px;
-  box-shadow: 0 2px 12px rgba(79,140,255,0.08);
-  min-height: 180px;
-}
-.ct-company-service-icon {
-  width: 48px;
-  height: 48px;
-  margin-top: 2px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.ct-svc-blue svg { }
-.ct-svc-navy svg { }
-.ct-svc-light svg { }
-.ct-company-service-card h4 {
-  color: #2940a8;
-  font-weight: 800;
-  font-size: 1.18rem;
-  margin: 0 0 5px 0;
-}
-.ct-company-service-card p {
-  color: #16213e;
-  font-size: 1.02rem;
-  margin: 0;
-}
-
-/* Testimonials */
-.ct-company-testimonials {
-  max-width: 1200px;
-  margin: 0 auto 60px auto;
-  padding: 0 0 12px 0;
-}
-.ct-company-testimonials h3 {
-  color: #16213e;
-  font-size: 2.1rem;
-  font-weight: 800;
-  margin-bottom: 30px;
-  letter-spacing: -1px;
-}
-.ct-company-testimonials-grid {
-  display: flex;
-  gap: 28px;
-  flex-wrap: wrap;
-  align-items: stretch;
-}
-.ct-company-testimonial {
-  background: #f5f8ff;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(79,140,255,0.06);
-  flex: 1 1 270px;
-  min-width: 230px;
-  max-width: 380px;
-  padding: 24px 24px 18px 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.ct-company-testimonial-quote {
-  color: #2940a8;
-  font-size: 1.1rem;
-  font-style: italic;
-  margin-bottom: 15px;
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-}
-.ct-company-testimonial-author {
-  color: #16213e;
-  font-size: 1.03rem;
-  font-weight: 700;
-  margin-left: 32px;
-}
-
-/* Timeline */
-.ct-company-timeline {
-  max-width: 900px;
-  margin: 0 auto 58px auto;
-  padding: 0 0 20px 0;
-}
-.ct-company-timeline h3 {
-  color: #16213e;
-  font-size: 2.1rem;
-  font-weight: 800;
-  margin-bottom: 26px;
-  letter-spacing: -1px;
-}
-.ct-company-timeline-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  border-left: 3.5px solid #4f8cff;
-}
-.ct-company-timeline-list li {
-  margin-bottom: 26px;
-  position: relative;
-  padding-left: 28px;
-  min-height: 36px;
-}
-.ct-company-timeline-year {
-  position: absolute;
-  left: -48px;
-  top: 0;
-  font-size: 1.22rem;
-  font-weight: 800;
-}
-.ct-blue { color: #4f8cff; }
-.ct-blue-light { color: #8aa8e8; }
-.ct-navy { color: #2940a8; }
-.ct-company-timeline-event {
-  color: #2940a8;
-  font-size: 1.08rem;
-  font-weight: 600;
-}
-
-/* CTA */
-.ct-company-cta {
-  text-align: center;
-  margin: 0 auto;
-  max-width: 620px;
-  margin-top: 38px;
-}
-.ct-company-cta h3 {
-  color: #16213e;
-  font-size: 2.1rem;
-  font-weight: 800;
-  margin-bottom: 22px;
-  letter-spacing: -1px;
-}
-.ct-company-btn {
-  display: inline-block;
-  padding: 18px 44px;
-  background: linear-gradient(90deg, #4f8cff 0%, #2940a8 100%);
-  color: #fff;
-  border-radius: 6px;
-  font-size: 1.19rem;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  letter-spacing: .01em;
-  text-decoration: none;
-  transition: background 0.18s, box-shadow 0.18s, transform 0.18s;
-  box-shadow: 0 4px 24px rgba(79,140,255,0.17);
-}
-.ct-company-btn:hover,
-.ct-company-btn:focus {
-  background: linear-gradient(90deg, #2940a8 0%, #4f8cff 100%);
-  color: #fff;
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 8px 30px rgba(79,140,255,0.19);
-}
-
-@media (max-width: 1100px) {
-  .ct-company-hero {
-    flex-direction: column;
-    align-items: flex-start;
-    padding-left: 6vw;
-    padding-right: 6vw;
-    gap: 22px;
-  }
-  .ct-company-facts { gap: 22px; }
-  .ct-company-services, .ct-company-testimonials, .ct-company-timeline { padding-left: 6vw; padding-right: 6vw; }
-}
-@media (max-width: 700px) {
-  .ct-company-section { padding-bottom: 20px; }
-  .ct-company-hero-image { text-align: left; }
-  .ct-company-hero-text h2 { font-size: 1.6rem; }
-  .ct-company-hero { padding: 36px 0 15px 0; }
-  .ct-company-facts { gap: 13px; }
-  .ct-company-fact { padding: 16px 12px; font-size: 0.9rem; min-width: 90px;}
-  .ct-company-fact-num { font-size: 1.2rem; }
-  .ct-company-services h3, .ct-company-testimonials h3, .ct-company-timeline h3, .ct-company-cta h3 { font-size: 1.21rem; }
-  .ct-company-testimonial { padding: 13px 10px 10px 10px; }
-  .ct-company-timeline-list li { font-size: .97rem; }
-  .ct-company-btn { font-size: 0.95rem; padding: 12px 22px; }
-}
+    body {
+      background: #f8fafc;
+      font-family: 'Open Sans', Arial, sans-serif;
+      margin: 0;
+      color: #2d3748;
+      line-height: 1.6;
+    }
+    
+    .optimize-section {
+      max-width: 1300px;
+      margin: 60px auto;
+      padding: 0 30px;
+    }
+    
+    .optimize-title {
+      font-size: 2.5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      text-align: center;
+      color: #1a365d;
+      margin-bottom: 50px;
+      line-height: 1.2;
+      position: relative;
+      padding-bottom: 20px;
+    }
+    
+    .optimize-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: #4299e1;
+      border-radius: 2px;
+    }
+    
+    .optimize-title .highlight {
+      color: #4299e1;
+      font-weight: 700;
+    }
+    
+    .optimize-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    
+    .optimize-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-top: 5px solid #4299e1;
+      border-radius: 10px;
+      padding: 32px 24px;
+      box-shadow: 0 4px 6px rgba(50, 50, 93, 0.05);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .optimize-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(50, 50, 93, 0.1);
+      border-color: #bee3f8;
+    }
+    
+    .optimize-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0 0 16px 0;
+      color: #2b6cb0;
+      position: relative;
+      padding-left: 36px;
+    }
+    
+    .optimize-card h3::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 24px;
+      height: 24px;
+      background-color: #ebf8ff;
+      border-radius: 6px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234299e1'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 14px;
+    }
+    
+    .optimize-card p {
+      font-size: 1rem;
+      color: #4a5568;
+      margin: 0;
+      padding-left: 36px;
+      line-height: 1.7;
+    }
+    
+    .optimize-card .logo {
+      font-weight: 600;
+      color: #2b6cb0;
+    }
+    
+    @media (max-width: 768px) {
+      .optimize-section {
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+      
+      .optimize-title {
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+      }
+      
+      .optimize-grid {
+        gap: 20px;
+      }
+      
+      .optimize-card {
+        padding: 24px 20px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .optimize-title {
+        font-size: 1.5rem;
+        padding-bottom: 15px;
+      }
+      
+      .optimize-title::after {
+        width: 60px;
+        height: 3px;
+      }
+      
+      .optimize-card h3 {
+        font-size: 1.1rem;
+        padding-left: 30px;
+      }
+      
+      .optimize-card h3::before {
+        width: 20px;
+        height: 20px;
+        background-size: 12px;
+      }
+      
+      .optimize-card p {
+        padding-left: 30px;
+        font-size: 0.95rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <section class="ct-company-section">
-  <!-- About / Mission -->
-  <div class="ct-company-hero">
-    <div class="ct-company-hero-text">
-      <h2>Core-Tech Dispatch</h2>
-      <p class="ct-company-motto">Driving Excellence in Logistics</p>
-      <p class="ct-company-desc">
-        Core-Tech Dispatch is your trusted partner in modern logistics and dispatch solutions. With a passion for efficiency, transparency, and innovation, we empower carriers and owner-operators to succeed in the fast-evolving world of freight. Backed by years of experience and a dedicated team, we simplify operations, maximize earnings, and keep your business moving forward—every mile, every day.
-      </p>
-      <ul class="ct-company-values">
-        <li><span class="ct-blue-dot"></span> <b>Customer-First:</b> Service built around your needs, 24/7 support, and honest communication.</li>
-        <li><span class="ct-blue-dot"></span> <b>Innovation:</b> Harnessing technology to deliver smarter, faster, and more reliable dispatch solutions.</li>
-        <li><span class="ct-blue-dot"></span> <b>Integrity:</b> Transparent pricing, no hidden fees, and a commitment to ethical business practices.</li>
-        <li><span class="ct-blue-dot"></span> <b>Growth:</b> We grow with you, offering guidance and expertise at every stage of your journey.</li>
-      </ul>
+  <section class="optimize-section">
+    <div class="optimize-title">
+      Optimize Your 26ft Box Truck Operations with <span class="highlight">CoreTech Dispatch</span>
     </div>
-    <div class="ct-company-hero-image">
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Core-Tech Dispatch Team and Trucks" />
-    </div>
-  </div>
-
-  <!-- Fast Facts -->
-  <div class="ct-company-facts">
-    <div class="ct-company-fact">
-      <span class="ct-company-fact-num">8+</span>
-      <span class="ct-company-fact-label">Years in Dispatch</span>
-    </div>
-    <div class="ct-company-fact">
-      <span class="ct-company-fact-num">500+</span>
-      <span class="ct-company-fact-label">Drivers Supported</span>
-    </div>
-    <div class="ct-company-fact">
-      <span class="ct-company-fact-num">24/7</span>
-      <span class="ct-company-fact-label">Live Support</span>
-    </div>
-    <div class="ct-company-fact">
-      <span class="ct-company-fact-num">99.8%</span>
-      <span class="ct-company-fact-label">On-Time Rate</span>
-    </div>
-  </div>
-
-  <!-- Services -->
-  <div class="ct-company-services">
-    <h3>Our Services</h3>
-    <div class="ct-company-services-grid">
-      <div class="ct-company-service-card">
-        <div class="ct-company-service-icon ct-svc-blue"><svg width="32" height="32" fill="none"><circle cx="16" cy="16" r="15" stroke="#4f8cff" stroke-width="2"/><path d="M9 18l5-5 5 5" stroke="#4f8cff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div>
-          <h4>Full Dispatch</h4>
-          <p>End-to-end management: load booking, negotiation, paperwork, route optimization, and broker communication.</p>
-        </div>
+    <div class="optimize-grid">
+      <div class="optimize-card">
+        <h3>Verify your eligibility</h3>
+        <p>Validate the compatibility of your equipment and MC authority number with the <span class="logo">CoreTech Dispatch</span> services.</p>
       </div>
-      <div class="ct-company-service-card">
-        <div class="ct-company-service-icon ct-svc-navy"><svg width="32" height="32" fill="none"><rect x="4" y="10" width="24" height="12" rx="4" fill="#2940a8"/><rect x="10" y="15" width="12" height="3" rx="1.5" fill="#fff"/></svg></div>
-        <div>
-          <h4>Load Planning</h4>
-          <p>Personalized load plans to maximize revenue and minimize empty miles, tailored to your needs and preferences.</p>
-        </div>
+      <div class="optimize-card">
+        <h3>Sign the dispatch agreement</h3>
+        <p>Review and sign our simple dispatch agreement to get started with our premium services.</p>
       </div>
-      <div class="ct-company-service-card">
-        <div class="ct-company-service-icon ct-svc-light"><svg width="32" height="32" fill="none"><rect x="8" y="8" width="16" height="16" rx="4" fill="#8aa8e8"/><path d="M12 16h8" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>
-        <div>
-          <h4>Paperwork & Compliance</h4>
-          <p>We handle all compliance, insurance certificates, and paperwork—so you can focus on the road.</p>
-        </div>
+      <div class="optimize-card">
+        <h3>Start driving immediately</h3>
+        <p>Begin delivering high-paying loads from day one — no upfront payments, pay only after load completion.</p>
       </div>
-      <div class="ct-company-service-card">
-        <div class="ct-company-service-icon ct-svc-blue"><svg width="32" height="32" fill="none"><circle cx="16" cy="16" r="16" fill="#4f8cff"/><path d="M11 16h10M16 11v10" stroke="#fff" stroke-width="2"/></svg></div>
-        <div>
-          <h4>After-Hours Support</h4>
-          <p>Live dispatchers available day and night to solve problems and keep your trucks moving.</p>
-        </div>
+      <div class="optimize-card">
+        <h3>Drive &amp; maximize earnings</h3>
+        <p>Focus on the road while we handle the logistics, dispatching, and paperwork for optimal efficiency.</p>
       </div>
     </div>
-  </div>
-
-  <!-- Testimonials / Reviews -->
-  <div class="ct-company-testimonials">
-    <h3>What Our Partners Say</h3>
-    <div class="ct-company-testimonials-grid">
-      <div class="ct-company-testimonial">
-        <div class="ct-company-testimonial-quote">
-          <svg width="24" height="24" fill="none"><path d="M7 13c-2 0-3-1.5-3-3 0-3.5 3-7 4-7s2 3.5 2 7c0 2-1 3-3 3z" fill="#4f8cff"/></svg>
-          Core-Tech Dispatch changed my business. They’re always available, always honest, and always find the best loads.
-        </div>
-        <div class="ct-company-testimonial-author">— J. Williams, Owner-Operator</div>
-      </div>
-      <div class="ct-company-testimonial">
-        <div class="ct-company-testimonial-quote">
-          <svg width="24" height="24" fill="none"><path d="M7 13c-2 0-3-1.5-3-3 0-3.5 3-7 4-7s2 3.5 2 7c0 2-1 3-3 3z" fill="#4f8cff"/></svg>
-          Their team helped us scale from one truck to seven. The dispatchers treat us like family. Highly recommend!
-        </div>
-        <div class="ct-company-testimonial-author">— L. Chen, Fleet Manager</div>
-      </div>
-      <div class="ct-company-testimonial">
-        <div class="ct-company-testimonial-quote">
-          <svg width="24" height="24" fill="none"><path d="M7 13c-2 0-3-1.5-3-3 0-3.5 3-7 4-7s2 3.5 2 7c0 2-1 3-3 3z" fill="#4f8cff"/></svg>
-          Transparent, professional, and always on time. They handle everything, so I can focus on driving.
-        </div>
-        <div class="ct-company-testimonial-author">— D. Ivanov, CDL Driver</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Company Timeline / History -->
-  <div class="ct-company-timeline">
-    <h3>Our Journey</h3>
-    <ol class="ct-company-timeline-list">
-      <li>
-        <span class="ct-company-timeline-year ct-blue">2016</span>
-        <span class="ct-company-timeline-event">Founded in Dallas, TX with a vision to serve owner-operators nationwide.</span>
-      </li>
-      <li>
-        <span class="ct-company-timeline-year ct-blue-light">2018</span>
-        <span class="ct-company-timeline-event">Launched 24/7 support and expanded service to the Midwest and East Coast.</span>
-      </li>
-      <li>
-        <span class="ct-company-timeline-year ct-navy">2021</span>
-        <span class="ct-company-timeline-event">Surpassed 500 active drivers; introduced digital paperwork and compliance tools.</span>
-      </li>
-      <li>
-        <span class="ct-company-timeline-year ct-blue">2024</span>
-        <span class="ct-company-timeline-event">Recognized as a top-rated dispatch service by our partners and clients.</span>
-      </li>
-    </ol>
-  </div>
-
-  <!-- CTA -->
-  <div class="ct-company-cta">
-    <h3>Ready to Drive Your Success?</h3>
-    <a href="#contact" class="ct-company-btn">Get Started with Core-Tech Dispatch</a>
-  </div>
-</section>
+  </section>
 </body>
 </html>
