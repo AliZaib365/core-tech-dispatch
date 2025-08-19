@@ -459,5 +459,13 @@
         box.style.boxShadow = '0 10px 30px rgba(56, 139, 255, 0.15)';
       });
     });
+    document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', function () {
+        const item = btn.parentElement;
+        const open = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+        if (!open) item.classList.add('open');
+    });
+});
 </script>
 </html>
