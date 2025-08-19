@@ -2,187 +2,244 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Optimize Your 26ft Box Truck Operations with CoreTech Dispatch</title>
+  <title>Transparency | CoreTech Dispatch</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;500;400&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     body {
-      background: #f8fafc;
-      font-family: 'Open Sans', Arial, sans-serif;
+      background: #ffffff;
+      font-family: 'Montserrat', Arial, sans-serif;
       margin: 0;
-      color: #2d3748;
-      line-height: 1.6;
+      color: #181F34;
+      line-height: 1.5;
     }
-    
-    .optimize-section {
-      max-width: 1300px;
-      margin: 60px auto;
-      padding: 0 30px;
+
+    .transparency-container {
+      max-width: 1400px;
+      margin: 80px auto;
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      padding: 0 40px;
     }
-    
-    .optimize-title {
-      font-size: 2.5rem;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      text-align: center;
-      color: #1a365d;
-      margin-bottom: 50px;
-      line-height: 1.2;
+
+    .transparency-img-col {
+      flex: 1;
       position: relative;
-      padding-bottom: 20px;
+      min-width: 300px;
     }
-    
-    .optimize-title::after {
+
+    .transparency-img {
+      width: 100%;
+      max-width: 580px;
+      height: 380px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 10px 25px rgba(56, 139, 255, 0.15);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .transparency-img-col:hover .transparency-img {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(56, 139, 255, 0.2);
+    }
+
+    .transparency-text-col {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .transparency-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #181F34;
+      margin-bottom: 25px;
+      line-height: 1.2;
+    }
+
+    .transparency-title span {
+      position: relative;
+      display: inline-block;
+    }
+
+    .transparency-title span::after {
       content: '';
       position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
+      bottom: -8px;
+      left: 0;
+      width: 100%;
       height: 4px;
-      background: #4299e1;
+      background: #388BFF;
       border-radius: 2px;
     }
-    
-    .optimize-title .highlight {
-      color: #4299e1;
-      font-weight: 700;
-    }
-    
-    .optimize-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-    
-    .optimize-card {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-top: 5px solid #4299e1;
-      border-radius: 10px;
-      padding: 32px 24px;
-      box-shadow: 0 4px 6px rgba(50, 50, 93, 0.05);
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-    
-    .optimize-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(50, 50, 93, 0.1);
-      border-color: #bee3f8;
-    }
-    
-    .optimize-card h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin: 0 0 16px 0;
-      color: #2b6cb0;
-      position: relative;
-      padding-left: 36px;
-    }
-    
-    .optimize-card h3::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 24px;
-      height: 24px;
-      background-color: #ebf8ff;
-      border-radius: 6px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234299e1'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: 14px;
-    }
-    
-    .optimize-card p {
-      font-size: 1rem;
-      color: #4a5568;
-      margin: 0;
-      padding-left: 36px;
+
+    .transparency-desc {
+      font-size: 1.1rem;
+      color: #232b44;
+      margin-bottom: 30px;
       line-height: 1.7;
     }
-    
-    .optimize-card .logo {
+
+    .transparency-list-container {
+      background: #f5f9ff;
+      padding: 25px;
+      border-radius: 12px;
+      border-left: 4px solid #388BFF;
+    }
+
+    .transparency-list-title {
+      font-size: 1rem;
+      color: #388BFF;
+      margin-bottom: 15px;
       font-weight: 600;
-      color: #2b6cb0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
-    
+
+    .transparency-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 10px;
+    }
+
+    .transparency-list li {
+      font-size: 1.05rem;
+      color: #181F34;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      padding: 10px 15px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .transparency-list li:hover {
+      background: #ffffff;
+      transform: translateX(5px);
+      box-shadow: 0 5px 15px rgba(56, 139, 255, 0.1);
+    }
+
+    .transparency-list li .dot {
+      width: 10px;
+      height: 10px;
+      background: #388BFF;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 15px;
+      box-shadow: 0 0 0 3px rgba(56, 139, 255, 0.2);
+      transition: all 0.2s ease;
+    }
+
+    .transparency-list li:hover .dot {
+      transform: scale(1.3);
+      box-shadow: 0 0 0 5px rgba(56, 139, 255, 0.15);
+    }
+
+    @media (max-width: 1200px) {
+      .transparency-container {
+        gap: 40px;
+      }
+      
+      .transparency-title {
+        font-size: 2.1rem;
+      }
+      
+      .transparency-img {
+        height: 340px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .transparency-container {
+        flex-direction: column;
+        gap: 35px;
+        margin: 60px auto;
+      }
+      
+      .transparency-img-col, 
+      .transparency-text-col {
+        width: 100%;
+        max-width: 650px;
+      }
+      
+      .transparency-img {
+        height: auto;
+        max-height: 400px;
+      }
+      
+      .transparency-list {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+    }
+
     @media (max-width: 768px) {
-      .optimize-section {
-        margin: 40px auto;
-        padding: 0 20px;
+      .transparency-container {
+        padding: 0 30px;
+        margin: 50px auto;
       }
       
-      .optimize-title {
+      .transparency-title {
         font-size: 1.8rem;
-        margin-bottom: 40px;
       }
       
-      .optimize-grid {
-        gap: 20px;
+      .transparency-desc {
+        font-size: 1rem;
       }
       
-      .optimize-card {
-        padding: 24px 20px;
+      .transparency-list-container {
+        padding: 20px;
       }
     }
-    
-    @media (max-width: 480px) {
-      .optimize-title {
-        font-size: 1.5rem;
-        padding-bottom: 15px;
+
+    @media (max-width: 576px) {
+      .transparency-container {
+        padding: 0 20px;
+        margin: 40px auto;
+        gap: 30px;
       }
       
-      .optimize-title::after {
-        width: 60px;
-        height: 3px;
+      .transparency-title {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
       }
       
-      .optimize-card h3 {
-        font-size: 1.1rem;
-        padding-left: 30px;
+      .transparency-list {
+        grid-template-columns: 1fr;
       }
       
-      .optimize-card h3::before {
-        width: 20px;
-        height: 20px;
-        background-size: 12px;
-      }
-      
-      .optimize-card p {
-        padding-left: 30px;
-        font-size: 0.95rem;
+      .transparency-list li {
+        padding: 8px 12px;
       }
     }
   </style>
 </head>
 <body>
-  <section class="optimize-section">
-    <div class="optimize-title">
-      Optimize Your 26ft Box Truck Operations with <span class="highlight">CoreTech Dispatch</span>
+  <section class="transparency-container">
+    <div class="transparency-img-col">
+      <img class="transparency-img" src="assets/images/rectangle_1763.webp" alt="CoreTech Dispatch Office">
     </div>
-    <div class="optimize-grid">
-      <div class="optimize-card">
-        <h3>Verify your eligibility</h3>
-        <p>Validate the compatibility of your equipment and MC authority number with the <span class="logo">CoreTech Dispatch</span> services.</p>
-      </div>
-      <div class="optimize-card">
-        <h3>Sign the dispatch agreement</h3>
-        <p>Review and sign our simple dispatch agreement to get started with our premium services.</p>
-      </div>
-      <div class="optimize-card">
-        <h3>Start driving immediately</h3>
-        <p>Begin delivering high-paying loads from day one — no upfront payments, pay only after load completion.</p>
-      </div>
-      <div class="optimize-card">
-        <h3>Drive &amp; maximize earnings</h3>
-        <p>Focus on the road while we handle the logistics, dispatching, and paperwork for optimal efficiency.</p>
+    <div class="transparency-text-col">
+      <h2 class="transparency-title">
+        <span>Uncompromising Transparency</span>
+      </h2>
+      <p class="transparency-desc">
+        At CoreTech Dispatch, we believe in complete openness with our partners. Our pricing structure is straightforward with absolutely no hidden fees or unexpected termination charges.
+      </p>
+      <div class="transparency-list-container">
+        <div class="transparency-list-title">Our Commission Structure</div>
+        <ul class="transparency-list">
+          <li><span class="dot"></span>Dry van (5-7%)</li>
+          <li><span class="dot"></span>Step deck (6-8%)</li>
+          <li><span class="dot"></span>Reefer (7-9%)</li>
+          <li><span class="dot"></span>Flatbed (6-8%)</li>
+          <li><span class="dot"></span>Hotshot (5-10% - 40' trailers & CDL only)</li>
+        </ul>
       </div>
     </div>
   </section>

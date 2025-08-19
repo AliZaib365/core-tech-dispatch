@@ -241,3 +241,30 @@ document.querySelectorAll('.faq-question').forEach(btn => {
         if (!open) item.classList.add('open');
     });
 });
+   document.addEventListener('DOMContentLoaded', function() {
+      const videoImg1 = document.querySelector('.about-video-img1');
+      
+      if ('IntersectionObserver' in window) {
+        const observer1 = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img1 = entry.target;
+              if (img1.dataset.src) {
+                img1.src = img1.dataset.src;
+              }
+              observer1.unobserve(img1);
+            }
+          });
+        }, {
+          rootMargin: '200px'
+        });
+        
+        observer1.observe(videoImg1);
+      }
+      
+      // Play button functionality (placeholder)
+      document.querySelector('.about-video-play1').addEventListener('click', function() {
+        alert('Video player would launch here in a real implementation');
+      });
+    });
+    
