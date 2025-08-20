@@ -6,19 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CoreTech Dispatch - Logistics Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/header1.css">
     <link rel="stylesheet" href="assets/css/style2.css">
     <link rel="stylesheet" href="assets/css/footer.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 
 </head>
 
 <body>
-   <nav class="navbar">
+    <nav class="navbar">
         <a href="index.html" class="logo-container">
             <!-- <img src="assets/images/logo.webp.jpg" alt="CoreTech Dispatch Logo" class="logo-img"> -->
             <div class="logo-text">
@@ -105,17 +102,17 @@
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <ul class="mobile-dropdown">
-                       <li><a href="services-detail.html">Dispatching Services</a></li>
-                    <li><a href="services-detail.html">Rate Negotiation</a></li>
-                    <li><a href="services-detail.html">Freight Factoring</a></li>
-                    <li><a href="services-detail.html">Document Dispatch Services</a></li>
-                    <li><a href="services-detail.html">Trucking Documents & Management</a></li>
-                    <li><a href="services-detail.html">Trucking Accounting</a></li>
-                    <li><a href="services-detail.html">IFTA Reporting</a></li>
-                    <li><a href="services-detail.html">DOT Compliance & Safety Services</a></li>
-                    <li><a href="services-detail.html">Company Formation Services</a></li>
-                    <li><a href="services-detail.html">MC Lease Assistance </a></li>
-                    <li><a href="services-detail.html">Equipment-Specific Dispatch</a></li>
+                        <li><a href="services-detail.html">Dispatching Services</a></li>
+                        <li><a href="services-detail.html">Rate Negotiation</a></li>
+                        <li><a href="services-detail.html">Freight Factoring</a></li>
+                        <li><a href="services-detail.html">Document Dispatch Services</a></li>
+                        <li><a href="services-detail.html">Trucking Documents & Management</a></li>
+                        <li><a href="services-detail.html">Trucking Accounting</a></li>
+                        <li><a href="services-detail.html">IFTA Reporting</a></li>
+                        <li><a href="services-detail.html">DOT Compliance & Safety Services</a></li>
+                        <li><a href="services-detail.html">Company Formation Services</a></li>
+                        <li><a href="services-detail.html">MC Lease Assistance </a></li>
+                        <li><a href="services-detail.html">Equipment-Specific Dispatch</a></li>
                     </ul>
                 </li>
                 <li>
@@ -182,8 +179,20 @@
                 <!-- Service 1 -->
                 <div class="service-card">
                     <div class="service-image-container image-dark">
-                        <img src="https://logitydispatch.com/wp-content/uploads/2025/03/image_22.webp"
-                            alt="Truck dispatching" class="service-image">
+                        <picture>
+                            <!-- Modern browsers (WebP) -->
+                            <source srcset="https://logitydispatch.com/wp-content/uploads/2025/03/image_22.webp"
+                                type="image/webp">
+
+                            <!-- Fallback for older browsers -->
+                            <source srcset="https://logitydispatch.com/wp-content/uploads/2025/03/image_22.jpg"
+                                type="image/jpeg">
+
+                            <!-- Default fallback -->
+                            <img src="https://logitydispatch.com/wp-content/uploads/2025/03/image_22.jpg"
+                                alt="Truck dispatching" class="service-image" loading="lazy">
+                        </picture>
+
                     </div>
                     <div class="service-content">
                         <div class="service-category">Logistics</div>
@@ -201,8 +210,22 @@
                 <!-- Service 2 -->
                 <div class="service-card">
                     <div class="service-image-container image-dark">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                            alt="Compliance services" class="service-image">
+                        <picture>
+                            <!-- Modern browsers (WebP) -->
+                            <source
+                                srcset="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80&fm=webp"
+                                type="image/webp">
+
+                            <!-- Fallback for browsers without WebP -->
+                            <source
+                                srcset="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80&fm=jpg"
+                                type="image/jpeg">
+
+                            <!-- Default fallback -->
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                                alt="Compliance services" class="service-image" loading="lazy">
+                        </picture>
+
                     </div>
                     <div class="service-content">
                         <div class="service-category">Compliance</div>
@@ -219,8 +242,22 @@
                 <!-- Service 3 -->
                 <div class="service-card">
                     <div class="service-image-container image-dark">
-                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                            alt="Trucking service" class="service-image">
+                        <picture>
+                            <!-- Modern browsers (WebP) -->
+                            <source
+                                srcset="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80&fm=webp"
+                                type="image/webp">
+
+                            <!-- Fallback for browsers without WebP -->
+                            <source
+                                srcset="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80&fm=jpg"
+                                type="image/jpeg">
+
+                            <!-- Default fallback -->
+                            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                                alt="Trucking service" class="service-image" loading="lazy">
+                        </picture>
+
                     </div>
                     <div class="service-content">
                         <div class="service-category">Operations</div>
@@ -237,8 +274,22 @@
                 <!-- Service 4 -->
                 <div class="service-card">
                     <div class="service-image-container image-dark">
-                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                            alt="FTA reporting" class="service-image">
+                        <picture>
+                            <!-- Modern browsers (WebP) -->
+                            <source
+                                srcset="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80&fm=webp"
+                                type="image/webp">
+
+                            <!-- Fallback for browsers without WebP -->
+                            <source
+                                srcset="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80&fm=jpg"
+                                type="image/jpeg">
+
+                            <!-- Default fallback -->
+                            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                                alt="FTA reporting" class="service-image" loading="lazy">
+                        </picture>
+
                     </div>
                     <div class="service-content">
                         <div class="service-category">Reporting</div>
@@ -256,8 +307,22 @@
                 <!-- Service 5 -->
                 <div class="service-card">
                     <div class="service-image-container image-dark">
-                        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                            alt="Document dispatch" class="service-image">
+                        <picture>
+                            <!-- Modern browsers (WebP) -->
+                            <source
+                                srcset="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80&fm=webp"
+                                type="image/webp">
+
+                            <!-- Fallback for browsers without WebP -->
+                            <source
+                                srcset="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80&fm=jpg"
+                                type="image/jpeg">
+
+                            <!-- Default fallback -->
+                            <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                                alt="Document dispatch" class="service-image" loading="lazy">
+                        </picture>
+
                     </div>
                     <div class="service-content">
                         <div class="service-category">Documentation</div>
@@ -274,8 +339,22 @@
                 <!-- Service 6 -->
                 <div class="service-card">
                     <div class="service-image-container image-dark">
-                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                            alt="Trucking accounting" class="service-image">
+                        <picture>
+                            <!-- Modern browsers (WebP) -->
+                            <source
+                                srcset="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80&fm=webp"
+                                type="image/webp">
+
+                            <!-- Fallback for browsers without WebP -->
+                            <source
+                                srcset="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80&fm=jpg"
+                                type="image/jpeg">
+
+                            <!-- Default fallback -->
+                            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                                alt="Trucking accounting" class="service-image" loading="lazy">
+                        </picture>
+
                     </div>
                     <div class="service-content">
                         <div class="service-category">Finance</div>
@@ -292,8 +371,22 @@
                 <!-- Service 7 -->
                 <div class="service-card">
                     <div class="service-image-container image-dark">
-                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                            alt="Paperwork services" class="service-image">
+                        <picture>
+                            <!-- Modern browsers (WebP) -->
+                            <source
+                                srcset="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80&fm=webp"
+                                type="image/webp">
+
+                            <!-- Fallback for browsers without WebP -->
+                            <source
+                                srcset="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80&fm=jpg"
+                                type="image/jpeg">
+
+                            <!-- Default fallback -->
+                            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                                alt="Paperwork services" class="service-image" loading="lazy">
+                        </picture>
+
                     </div>
                     <div class="service-content">
                         <div class="service-category">Administration</div>
@@ -310,8 +403,22 @@
                 <!-- Service 8 -->
                 <div class="service-card">
                     <div class="service-image-container image-dark">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
-                            alt="Promotions services" class="service-image">
+                        <picture>
+                            <!-- Modern browsers (WebP) -->
+                            <source
+                                srcset="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80&fm=webp"
+                                type="image/webp">
+
+                            <!-- Fallback for browsers without WebP -->
+                            <source
+                                srcset="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80&fm=jpg"
+                                type="image/jpeg">
+
+                            <!-- Default fallback -->
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80"
+                                alt="Promotions services" class="service-image" loading="lazy">
+                        </picture>
+
                     </div>
                     <div class="service-content">
                         <div class="service-category">Marketing</div>

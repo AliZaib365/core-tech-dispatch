@@ -19,7 +19,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
+   font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -32,7 +32,7 @@ body {
     position: relative;
     height: 85vh;
     min-height: 800px;
-    background: linear-gradient(rgb(10 16 29 / 70%), rgb(10 16 29)), url(/assets/images/AdobeStock_713854283_Preview-3.webp);
+    background: linear-gradient(rgb(10 16 29 / 70%), rgb(10 16 29)), url(/assets/images/Compressed/AdobeStock_713854283_Preview-3_11zon.webp);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -1458,7 +1458,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('/assets/images/cta_4x-scaled.webp');
+    background: url('/assets/images/Compressed/cta_4x-scaled_11zon.webp');
     /* Replace with your handshake bg */
     background-size: cover;
     background-position: center;
@@ -2304,7 +2304,7 @@ body {
     padding: 2rem;
     background:
         linear-gradient(135deg, rgba(37, 99, 235, 0.9) 0%, rgba(30, 64, 175, 0.9) 100%),
-        url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1500&q=80');
+        url('/assets/images/Compressed/photo-1517245386807-bb43f82c33c4_11zon.webp');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -2794,8 +2794,8 @@ body {
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.151) 0%, #0b1023 90%),
-        url('/assets/images/cta-bg.webp');
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.349) 0%, #0b1023 90%),
+        url('/assets/images/Compressed/cta-bg_11zon.webp');
     /* swap for your preferred bg: scenic road, truck, etc */
     background-size: cover;
     background-position: center;
