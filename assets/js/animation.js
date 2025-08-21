@@ -439,3 +439,209 @@
         updateItemWidth();
         updateCarousel();
     });
+      // Form validation function
+        document.getElementById('setupForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Reset error messages
+            document.querySelectorAll('.error-message').forEach(el => {
+                el.style.display = 'none';
+            });
+
+            // Validate form
+            let isValid = true;
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const termsChecked = document.querySelector('input[name="sms-updates"]').checked;
+
+            if (name === '') {
+                document.getElementById('nameError').style.display = 'block';
+                isValid = false;
+            }
+
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                document.getElementById('emailError').style.display = 'block';
+                isValid = false;
+            }
+
+            if (phone === '' || phone.length < 10) {
+                document.getElementById('phoneError').style.display = 'block';
+                isValid = false;
+            }
+
+            if (!termsChecked) {
+                document.getElementById('termsError').style.display = 'block';
+                isValid = false;
+            }
+
+            if (isValid) {
+                // Simulate form submission
+                const successMessage = document.getElementById('successMessage');
+                successMessage.style.display = 'flex';
+                successMessage.classList.add('animate-fade-in');
+
+                // Reset form
+                this.reset();
+
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                    successMessage.classList.remove('animate-fade-in');
+                }, 5000);
+            }
+        });
+
+        // Intersection Observer for scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // If it's the main section, animate the container too
+                        if (entry.target.id === 'mainSection') {
+                            setTimeout(() => {
+                                document.getElementById('mainContainer').classList.add('animate');
+                            }, 300);
+                        }
+                        
+                        // If it's the left panel, animate its children with delays
+                        if (entry.target.id === 'leftPanel') {
+                            setTimeout(() => {
+                                document.getElementById('mainHeading').classList.add('visible');
+                            }, 200);
+                            setTimeout(() => {
+                                document.getElementById('subtitle').classList.add('visible');
+                            }, 400);
+                            setTimeout(() => {
+                                document.getElementById('subHeading').classList.add('visible');
+                            }, 600);
+                            setTimeout(() => {
+                                document.getElementById('description').classList.add('visible');
+                            }, 800);
+                            
+                            // Animate benefits list items with staggered delay
+                            const benefits = ['benefit1', 'benefit2', 'benefit3', 'benefit4'];
+                            benefits.forEach((benefit, index) => {
+                                setTimeout(() => {
+                                    document.getElementById(benefit).classList.add('visible');
+                                }, 1000 + (index * 150));
+                            });
+                        }
+                        
+                        // If it's the right panel, animate its children with delays
+                        if (entry.target.id === 'rightPanel') {
+                            setTimeout(() => {
+                                document.getElementById('formTitle').classList.add('visible');
+                            }, 200);
+                            
+                            const formGroups = ['nameGroup', 'emailGroup', 'phoneGroup', 'emailCheckGroup', 'termsCheckGroup'];
+                            formGroups.forEach((group, index) => {
+                                setTimeout(() => {
+                                    document.getElementById(group).classList.add('visible');
+                                }, 400 + (index * 100));
+                            });
+                            
+                            setTimeout(() => {
+                                document.getElementById('submitBtn').classList.add('visible');
+                            }, 1000);
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for animation
+            const elementsToObserve = [
+                document.getElementById('mainSection'),
+                document.getElementById('leftPanel'),
+                document.getElementById('rightPanel')
+            ];
+            
+            elementsToObserve.forEach(el => {
+                if (el) observer.observe(el);
+            });
+            
+            // Add floating animation to some elements after a delay
+            setTimeout(() => {
+                const floatingEls = document.querySelectorAll('.blue-star, .benefits-list i');
+                floatingEls.forEach(el => {
+                    el.classList.add('floating');
+                });
+            }, 2000);
+        });
+          document.addEventListener('DOMContentLoaded', function() {
+            // Background image load simulation
+            const heroBg = document.getElementById('heroBg');
+            setTimeout(() => {
+                heroBg.classList.add('loaded');
+            }, 100);
+            
+            // Create floating particles
+            const particlesContainer = document.getElementById('particlesContainer');
+            const particleCount = 20;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random properties
+                const size = Math.random() * 8 + 2;
+                const posX = Math.random() * 100;
+                const delay = Math.random() * 15;
+                const duration = Math.random() * 10 + 15;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+            
+            // Intersection Observer for animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.2
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Animate content container
+                        document.getElementById('heroContent').classList.add('visible');
+                        
+                        // Animate elements with staggered delays
+                        setTimeout(() => {
+                            document.getElementById('heroTitle').classList.add('visible');
+                        }, 300);
+                        
+                        setTimeout(() => {
+                            document.getElementById('blueAccent').classList.add('visible');
+                        }, 800);
+                        
+                        setTimeout(() => {
+                            document.getElementById('heroText').classList.add('visible');
+                        }, 500);
+                        
+                        setTimeout(() => {
+                            document.getElementById('heroBtn').classList.add('visible');
+                        }, 700);
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe the hero section
+            observer.observe(document.querySelector('.coretech-hero-section'));
+        });

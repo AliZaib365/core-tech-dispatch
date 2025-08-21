@@ -4,515 +4,386 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Premium Dispatch Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
         }
 
         body {
+            font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
-            font-weight: 600;
-            background: white;
-            color: var(--white);
+            background: #f8fafc;
         }
 
-        .blue-setup-section {
+        .coretech-hero-section {
+            position: relative;
             width: 100%;
-            min-height: 100vh;
+            min-height: 430px;
+            height: 65vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem 1rem;
-            position: relative;
-            background-color: #fff;
-        }
-
-        .blue-setup-main {
-            margin-bottom: 60px;
-            width: 100%;
-            max-width: 1200px;
-            display: flex;
-            flex-direction: row;
-            border-radius: 1rem;
+            background: #0b1023;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            position: relative;
-            background-color: white;
         }
 
-        .blue-setup-left {
-            flex: 1;
-            padding: 2rem;
+        .coretech-hero-bg {
+            position: absolute;
+            inset: 0;
             background:
-                linear-gradient(135deg, rgba(37, 99, 235, 0.9) 0%, rgba(30, 64, 175, 0.9) 100%),
-                url('/assets/images/Compressed/photo-1517245386807-bb43f82c33c4_11zon.webp');
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, #0b1023 90%),
+                url('https://images.unsplash.com/photo-1501594907352-04cda38ebc29?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80');
             background-size: cover;
             background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            color: white;
-            position: relative;
             z-index: 1;
+            opacity: 0;
+            transform: scale(1.1);
+            transition: opacity 1.2s ease-out, transform 1.5s ease-out;
         }
 
-        .blue-setup-left::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
-            z-index: -1;
+        .coretech-hero-bg.loaded {
+            opacity: 0.88;
+            transform: scale(1);
         }
 
-        .blue-setup-info {
-            padding: 2rem;
-            max-width: 600px;
-        }
-
-        .blue-setup-info h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            letter-spacing: -0.05em;
-        }
-
-        .blue-setup-info .subtitle {
-            display: block;
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .blue-setup-info h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: white;
-        }
-
-        .blue-setup-info p {
-            margin-bottom: 1rem;
-            font-size: 1.05rem;
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 500;
-        }
-
-        .blue-setup-info strong {
-            color: #93c5fd;
-            font-weight: 700;
-        }
-
-        .benefits-list {
-            margin-top: 2rem;
-            list-style: none;
-        }
-
-        .benefits-list li {
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-        }
-
-        .benefits-list i {
-            color: #3b82f6;
-            margin-top: 0.2rem;
-            flex-shrink: 0;
-        }
-
-        .blue-setup-right {
-            flex: 1;
-            padding: 3rem 2rem;
+        .coretech-hero-content {
+            position: relative;
+            z-index: 2;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            background-color: white;
-        }
-
-        .blue-setup-form-wrap {
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .blue-setup-form-title {
-            font-size: 1.75rem;
-            font-weight: 800;
-            color: #1e40af;
-            margin-bottom: 2rem;
-            display: flex;
             align-items: center;
-            gap: 0.5rem;
-        }
-
-        .blue-star {
-            color: #3b82f6;
-            font-size: 1.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: #1e293b;
-            margin-bottom: 0.5rem;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 0.875rem 1rem;
-            font-size: 1rem;
-            font-family: inherit;
-            line-height: 1.5;
-            color: #1e293b;
-            background-color: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 0.5rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-            background-color: white;
-        }
-
-        .form-control::placeholder {
-            color: #94a3b8;
-        }
-
-        .checkbox-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .checkbox-label {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            font-size: 0.9rem;
-            color: #334155;
-            cursor: pointer;
-            margin-bottom: 0.75rem;
-        }
-
-        .checkbox-label input[type="checkbox"] {
-            flex-shrink: 0;
-            width: 1.1rem;
-            height: 1.1rem;
-            margin-top: 0.2rem;
-            accent-color: #2563eb;
-            cursor: pointer;
-        }
-
-        .checkbox-label a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .checkbox-label a:hover {
-            text-decoration: underline;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            font-weight: 700;
-            line-height: 1.5;
-            color: white;
             text-align: center;
-            text-decoration: none;
-            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
-            border: none;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            color: #fff;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out 0.3s, transform 1s ease-out 0.3s;
         }
 
-        .btn:hover {
-            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
-            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.25);
-            transform: translateY(-2px);
-        }
-
-        .btn:active {
+        .coretech-hero-content.visible {
+            opacity: 1;
             transform: translateY(0);
         }
 
-        .btn i {
-            margin-right: 0.5rem;
+        .coretech-hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.14;
+            font-weight: 800;
+            margin: 0 0 28px 0;
+            letter-spacing: -1.5px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out 0.5s, transform 0.8s ease-out 0.5s;
         }
 
-        .success-message {
-            display: none;
-            align-items: center;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            background-color: #f0fdf4;
-            color: #166534;
-            border-radius: 0.5rem;
-            font-size: 0.95rem;
+        .coretech-hero-content h1.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .coretech-blue-accent {
+            color: #4f8cff;
+            font-weight: 900;
+            letter-spacing: -.5px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .coretech-blue-accent::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent 0%, #4f8cff 50%, transparent 100%);
+            opacity: 0;
+            transform: scaleX(0);
+            transition: opacity 0.6s ease-out 1.2s, transform 0.6s ease-out 1.2s;
+        }
+
+        .coretech-blue-accent.visible::after {
+            opacity: 0.7;
+            transform: scaleX(1);
+        }
+
+        .coretech-hero-content p {
+            color: #e9e9f8;
+            font-size: 1.35rem;
+            font-weight: 500;
+            margin-bottom: 36px;
+            margin-top: 4px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out 0.7s, transform 0.8s ease-out 0.7s;
+        }
+
+        .coretech-hero-content p.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .coretech-less-stress {
+            color: #8aa8e8;
             font-weight: 600;
         }
 
-        .success-message i {
-            margin-right: 0.5rem;
-            color: #22c55e;
+        .coretech-hero-btn {
+            display: inline-block;
+            padding: 18px 42px;
+            background: linear-gradient(90deg, #4f8cff 0%, #2940a8 100%);
+            color: #fff;
+            border-radius: 8px;
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: .02em;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 0 4px 24px rgba(79, 140, 255, 0.13);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out 0.9s, transform 0.8s ease-out 0.9s, box-shadow 0.3s ease;
         }
 
-        .error-message {
-            color: #dc2626;
-            font-size: 0.85rem;
-            margin-top: 0.25rem;
-            display: none;
+        .coretech-hero-btn.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        .input-icon {
+        .coretech-hero-btn::before {
+            content: '';
             position: absolute;
-            right: 1rem;
-            top: 70%;
-            transform: translateY(-50%);
-            color: #94a3b8;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .coretech-hero-btn:hover,
+        .coretech-hero-btn:focus {
+            background: linear-gradient(90deg, #2940a8 0%, #4f8cff 100%);
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 30px rgba(79, 140, 255, 0.25);
+        }
+
+        .coretech-hero-btn:hover::before {
+            left: 100%;
+        }
+
+        .coretech-hero-btn:active {
+            transform: translateY(1px);
+        }
+
+        /* Floating particles animation */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(79, 140, 255, 0.5);
+            border-radius: 50%;
+            opacity: 0;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.4;
+            }
+            90% {
+                opacity: 0.2;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
         }
 
         /* Responsive adjustments */
         @media (max-width: 992px) {
-            .blue-setup-main {
-                flex-direction: column;
-                max-width: 600px;
+            .coretech-hero-content h1 {
+                font-size: 2.8rem;
             }
 
-            .blue-setup-left {
-                border-radius: 0.5rem 0.5rem 0 0;
+            .coretech-hero-content p {
+                font-size: 1.2rem;
             }
 
-            .blue-setup-right {
-                border-radius: 0 0 0.5rem 0.5rem;
+            .coretech-hero-section {
+                height: 55vh;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .coretech-hero-content h1 {
+                font-size: 2.4rem;
             }
 
-            .blue-setup-info {
-                padding: 1.5rem;
+            .coretech-hero-content p {
+                font-size: 1.1rem;
+                margin-bottom: 28px;
             }
 
-            .blue-setup-info h1 {
-                font-size: 2rem;
+            .coretech-hero-btn {
+                padding: 16px 32px;
+                font-size: 1.05rem;
+            }
+
+            .coretech-hero-section {
+                height: 50vh;
+                min-height: 350px;
             }
         }
 
         @media (max-width: 576px) {
-            .blue-setup-section {
-                padding: 1rem;
+            .coretech-hero-content h1 {
+                font-size: 2rem;
+                margin-bottom: 20px;
             }
 
-            .blue-setup-info h1 {
-                font-size: 1.75rem;
+            .coretech-hero-content p {
+                font-size: 1rem;
+                margin-bottom: 24px;
             }
 
-            .blue-setup-info .subtitle {
-                font-size: 0.9rem;
-            }
-
-            .blue-setup-form-title {
-                font-size: 1.5rem;
-            }
-
-            .btn {
-                padding: 0.875rem 1rem;
+            .coretech-hero-btn {
+                padding: 14px 28px;
                 font-size: 1rem;
             }
-        }
 
-        /* Animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            .coretech-hero-section {
+                height: 45vh;
+                min-height: 300px;
             }
         }
 
-        .animate-fade-in {
-            animation: fadeIn 0.5s ease-out forwards;
+        @media (max-width: 400px) {
+            .coretech-hero-content h1 {
+                font-size: 1.7rem;
+            }
+
+            .coretech-hero-content p {
+                font-size: 0.95rem;
+            }
+
+            .coretech-hero-btn {
+                padding: 12px 24px;
+                font-size: 0.95rem;
+            }
+
+            .coretech-hero-section {
+                height: 40vh;
+                min-height: 250px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <section class="blue-setup-section">
-        <div class="blue-setup-main">
-            <div class="blue-setup-left">
-                <div class="blue-setup-info">
-                    <h1>Get Your Free Setup Today</h1>
-                    <span class="subtitle">Premium Dispatch Services</span>
-                    <h3>Expert Setup Assistance at No Cost</h3>
-                    <p>
-                        <strong>Dispatch Service</strong> is committed to connecting drivers with the highest-paying
-                        loads in the industry, regardless of location or experience level.
-                    </p>
-
-                    <ul class="benefits-list">
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <span>24/7 access to premium loads in your area</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <span>Dedicated support team for all your needs</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <span>No hidden fees or long-term contracts</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <span>Customized load matching based on your preferences</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="blue-setup-right">
-                <form class="blue-setup-form-wrap" id="setupForm" autocomplete="off">
-                    <div id="successMessage" class="success-message" style="display: none;">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Thank you! Your request has been submitted successfully.</span>
-                    </div>
-
-                    <h2 class="blue-setup-form-title">
-                        <span class="blue-star">★</span> Free Setup Request
-                    </h2>
-
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" class="form-control" placeholder="John Smith" required>
-                        <i class="fas fa-user input-icon"></i>
-                        <div class="error-message" id="nameError">Please enter your full name</div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" class="form-control" placeholder="your@email.com"
-                            required>
-                        <i class="fas fa-envelope input-icon"></i>
-                        <div class="error-message" id="emailError">Please enter a valid email address</div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="+1 (___) ___-____"
-                            required>
-                        <i class="fas fa-phone input-icon"></i>
-                        <div class="error-message" id="phoneError">Please enter a valid phone number</div>
-                    </div>
-
-                    <div class="checkbox-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="email-updates" checked>
-                            <span>I agree to receive email updates, offers, and notifications from Dispatch
-                                Service.</span>
-                        </label>
-                    </div>
-
-                    <div class="checkbox-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="sms-updates" required>
-                            <span>I agree to receive text messages for conversational purposes at the phone number
-                                provided. Message frequency varies. Reply STOP to opt-out. <a href="#"
-                                    target="_blank">Privacy Policy</a> and <a href="#" target="_blank">Terms of
-                                    Service</a> apply.</span>
-                        </label>
-                        <div class="error-message" id="termsError">You must agree to the terms to continue</div>
-                    </div>
-
-                    <button type="submit" class="btn">
-                        <i class="fas fa-paper-plane"></i> Get Started Now
-                    </button>
-                </form>
-            </div>
+    <section class="coretech-hero-section">
+        <div class="coretech-hero-bg" id="heroBg"></div>
+        <div class="particles" id="particlesContainer"></div>
+        <div class="coretech-hero-content" id="heroContent">
+            <h1 id="heroTitle">
+                Don't drive empty<br>
+                Drive with <span class="coretech-blue-accent" id="blueAccent">CoreTech</span>
+            </h1>
+            <p id="heroText">We'll help you earn more — <span class="coretech-less-stress">and stress less</span></p>
+            <a href="contact-us.html" class="coretech-hero-btn" id="heroBtn">Get your free setup</a>
         </div>
     </section>
-</body>
-<script>
-    document.getElementById('setupForm').addEventListener('submit', function (e) {
-        e.preventDefault();
 
-        // Reset error messages
-        document.querySelectorAll('.error-message').forEach(el => {
-            el.style.display = 'none';
-        });
-
-        // Validate form
-        let isValid = true;
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-        const termsChecked = document.querySelector('input[name="sms-updates"]').checked;
-
-        if (name === '') {
-            document.getElementById('nameError').style.display = 'block';
-            isValid = false;
-        }
-
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            document.getElementById('emailError').style.display = 'block';
-            isValid = false;
-        }
-
-        if (phone === '' || phone.length < 10) {
-            document.getElementById('phoneError').style.display = 'block';
-            isValid = false;
-        }
-
-        if (!termsChecked) {
-            document.getElementById('termsError').style.display = 'block';
-            isValid = false;
-        }
-
-        if (isValid) {
-            // Simulate form submission
-            const successMessage = document.getElementById('successMessage');
-            successMessage.style.display = 'flex';
-            successMessage.classList.add('animate-fade-in');
-
-            // Reset form
-            this.reset();
-
-            // Scroll to success message
-            successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
-            // Hide success message after 5 seconds
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Background image load simulation
+            const heroBg = document.getElementById('heroBg');
             setTimeout(() => {
-                successMessage.style.display = 'none';
-                successMessage.classList.remove('animate-fade-in');
-            }, 5000);
-        }
-    });
-</script>
+                heroBg.classList.add('loaded');
+            }, 100);
+            
+            // Create floating particles
+            const particlesContainer = document.getElementById('particlesContainer');
+            const particleCount = 20;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random properties
+                const size = Math.random() * 8 + 2;
+                const posX = Math.random() * 100;
+                const delay = Math.random() * 15;
+                const duration = Math.random() * 10 + 15;
+                
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+            
+            // Intersection Observer for animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.2
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Animate content container
+                        document.getElementById('heroContent').classList.add('visible');
+                        
+                        // Animate elements with staggered delays
+                        setTimeout(() => {
+                            document.getElementById('heroTitle').classList.add('visible');
+                        }, 300);
+                        
+                        setTimeout(() => {
+                            document.getElementById('blueAccent').classList.add('visible');
+                        }, 800);
+                        
+                        setTimeout(() => {
+                            document.getElementById('heroText').classList.add('visible');
+                        }, 500);
+                        
+                        setTimeout(() => {
+                            document.getElementById('heroBtn').classList.add('visible');
+                        }, 700);
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe the hero section
+            observer.observe(document.querySelector('.coretech-hero-section'));
+        });
+    </script>
+</body>
 
 </html>
