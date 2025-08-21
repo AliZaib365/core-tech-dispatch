@@ -1,730 +1,955 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Join Our Team | CoreTech Dispatch</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-        * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
-    body {
-      background: #f8f9ff;
-      font-family: 'Montserrat', Arial, sans-serif;
-      color: #181F34;
-      line-height: 1.6;
-      padding: 20px;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .container33 {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 15px;
-      width: 100%;
-    }
-    
-    .page-header {
-      text-align: center;
-      margin-bottom: 50px;
-      position: relative;
-    }
-    
-    .page-title {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: #181F34;
-      margin-bottom: 15px;
-      position: relative;
-      display: inline-block;
-    }
-    
-    .page-title:after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: #388BFF;
-      border-radius: 2px;
-    }
-    
-    .page-subtitle {
-      font-size: 1.2rem;
-      color: #7a82a0;
-      max-width: 700px;
-      margin: 30px auto 0;
-    }
-    
-    .steps-main {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 25px;
-    }
-    
-    .step-card {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 32px;
-      box-shadow: 0 4px 12px rgba(24, 31, 52, 0.05);
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      height: 100%;
-      border-top: 5px solid #388BFF;
-    }
-    
-    .step-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 24px rgba(56, 139, 255, 0.12);
-    }
-    
-    .step-number {
-      position: absolute;
-      top: 0;
-      right: 0;
-      background: #388BFF;
-      color: white;
-      font-size: 1rem;
-      font-weight: 700;
-      padding: 6px 14px;
-      border-radius: 0 0 0 16px;
-    }
-    
-    .step-icon {
-      background: rgba(56, 139, 255, 0.1);
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 22px;
-    }
-    
-    .step-icon i {
-      font-size: 24px;
-      color: #388BFF;
-    }
-    
-    .step-title {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #388BFF;
-      margin-bottom: 18px;
-      line-height: 1.2;
-    }
-    
-    .step-divider {
-      border: none;
-      height: 2px;
-      background: linear-gradient(to right, #388BFF 30%, #e4eafd 70%);
-      margin: 18px 0;
-      opacity: 0.6;
-    }
-    
-    .step-content {
-      font-size: 14px;
-      color: #181F34;
-      margin-bottom: 15px;
-      line-height: 1.7;
-    }
-    
-    .step-list {
-      margin: 0 0 20px 0;
-      padding: 0;
-      list-style: none;
-    }
-    
-    .step-list li {
-      font-size: 14px;
-      color: #181F34;
-      margin-bottom: 14px;
-      display: flex;
-      align-items: flex-start;
-    }
-    
-    .step-list li .list-icon {
-      color: #388BFF;
-      margin-right: 12px;
-      font-size: 0.8rem;
-      margin-top: 6px;
-    }
-    
-    .step-list li strong {
-      font-weight: 700;
-      color: #1a6de3;
-    }
-    
-    .step-bold {
-      font-weight: 700;
-      color: #388BFF;
-    }
-    
-    .step-note {
-      font-size: 12px;
-      color: #7a82a0;
-      margin-top: 15px;
-      padding: 15px;
-      background: rgba(122, 130, 160, 0.08);
-      border-radius: 10px;
-    }
-    
-    .step-note span {
-      color: #388BFF;
-      font-weight: 600;
-    }
-    
-    /* Form Styles */
-    .form-group {
-      margin-bottom: 18px;
-      position: relative;
-    }
-    
-    .form-input {
-      width: 100%;
-      padding: 14px 16px;
-      border: 1.5px solid #e4eafd;
-      border-radius: 10px;
-      font-family: 'Montserrat', sans-serif;
-      transition: all 0.3s ease;
-    }
-    
-    .form-input:focus {
-      outline: none;
-      border-color: #388BFF;
-      box-shadow: 0 0 0 3px rgba(56, 139, 255, 0.2);
-    }
-    
-    .form-input.error {
-      border-color: #f44336;
-    }
-    
-    .error-message {
-      color: #f44336;
-      font-size: 0.8rem;
-      margin-top: 5px;
-      display: none;
-    }
-    
-    .error-message.show {
-      display: block;
-    }
-    
-    .checkbox-group {
-      display: flex;
-      margin-bottom: 16px;
-    }
-    
-    .checkbox-group input {
-      margin-top: 4px;
-      margin-right: 12px;
-      flex-shrink: 0;
-    }
-    
-    .checkbox-label {
-      font-size: 12px;
-      color: #181F34;
-      line-height: 1.5;
-    }
-    
-    .checkbox-label a {
-      color: #388BFF;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-    
-    .checkbox-label a:hover {
-      text-decoration: underline;
-    }
-    
-    /* Success Box */
-    .step-success-box {
-      font-size: 10px;
-      background: #eaf7eb;
-      color: #4caf50;
-      border-radius: 10px;
-      padding: 14px 18px;
-      margin: 20px 0 10px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      border: 1px solid #4caf50;
-      display: none;
-    }
-    
-    .step-success-box.show {
-      display: flex;
-    }
-    
-    .step-success-check {
-      font-size: 1.4rem;
-    }
-    
-    .step-links {
-      font-size: 0.9rem;
-      color: #7a82a0;
-      margin: 8px 0 20px;
-    }
-    
-    .step-links a {
-      color: #388BFF;
-      text-decoration: none;
-      font-weight: 600;
-      margin-right: 12px;
-      transition: all 0.3s ease;
-    }
-    
-    .step-links a:hover {
-      text-decoration: underline;
-    }
-    
-    /* Button Styles */
-    .step-btn {
-      background: #388BFF;
-      color: white;
-      font-weight: 600;
-      font-size: 12px;
-      border: none;
-      border-radius: 10px;
-      padding: 16px 32px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      box-shadow: 0 4px 12px rgba(56, 139, 255, 0.3);
-    }
-    
-    .step-btn:hover {
-      background: #1a6de3;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(56, 139, 255, 0.4);
-    }
-    
-    .step-btn:disabled {
-      background: #7a82a0;
-      cursor: not-allowed;
-      transform: none;
-      box-shadow: none;
-    }
-    
-    .step-btn i {
-      margin-left: 8px;
-      font-size: 0.9rem;
-    }
-    
-    /* Phone Row */
-    .step-phone-row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 22px;
-      font-size: 1.05rem;
-      color: #181F34;
-      padding: 12px;
-      background: rgba(56, 139, 255, 0.06);
-      border-radius: 10px;
-    }
-    
-    .step-phone-icon {
-      background: #388BFF;
-      color: white;
-      border-radius: 50%;
-      width: 36px;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      margin-right: 12px;
-      box-shadow: 0 2px 8px rgba(56, 139, 255, 0.3);
-    }
-    
-    .step-phone-link {
-      font-size: 12px;
-      color: #388BFF;
-      text-decoration: none;
-      font-weight: 600;
-      margin-left: 4px;
-      transition: all 0.3s ease;
-    }
-    
-    .step-phone-link:hover {
-      color: #1a6de3;
-      text-decoration: underline;
-    }
-    
-    /* Ready Section */
-    .step-ready {
-      margin-top: 30px;
-      font-weight: 700;
-      color: #388BFF;
-      font-size: 12px;
-      text-align: center;
-      padding: 16px;
-      background: rgba(56, 139, 255, 0.1);
-      border-radius: 10px;
-    }
-    
-    /* Progress Bar */
-    .progress-container {
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto 40px;
-      background: #e4eafd;
-      height: 8px;
-      border-radius: 4px;
-      overflow: hidden;
-    }
-    
-    .progress-bar {
-      height: 100%;
-      width: 0%;
-      background: #388BFF;
-      border-radius: 4px;
-      transition: width 0.5s ease;
-    }
-    
-    /* Responsive Design */
-    @media (max-width: 1100px) {
-      .steps-main {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-      }
-      
-      .page-title {
-        font-size: 2.2rem;
-      }
-    }
-    
-    @media (max-width: 768px) {
-      .steps-main {
-        grid-template-columns: 1fr;
-        max-width: 600px;
-        margin: 0 auto;
-      }
-      
-      .step-card {
-        padding: 25px;
-      }
-      
-      .page-title {
-        font-size: 2rem;
-      }
-      
-      .page-subtitle {
-        font-size: 1.1rem;
-      }
-      
-      body {
-        padding: 15px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .container33 {
-        padding: 0 10px;
-      }
-      
-      .page-header {
-        margin-bottom: 30px;
-      }
-      
-      .page-title {
-        font-size: 1.8rem;
-      }
-      
-      .step-title {
-        font-size: 1.4rem;
-      }
-      
-      .step-card {
-        padding: 20px 18px;
-      }
-      
-      .step-icon {
-        width: 50px;
-        height: 50px;
-        margin-bottom: 18px;
-      }
-      
-      .step-icon i {
-        font-size: 20px;
-      }
-      
-      .step-btn {
-        padding: 14px 20px;
-        font-size: 1rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <section class="container33">
-    <header class="page-header">
-      <h1 class="page-title">Join Our Team in 4 Simple Steps</h1>
-      <p class="page-subtitle">Follow our streamlined process to become a partner with CoreTech Dispatch and start growing your business today</p>
-    </header>
-    
-    <div class="progress-container">
-      <div class="progress-bar" id="form-progress"></div>
-    </div>
-    
-    <section class="steps-main">
-      <!-- Step 1 -->
-      <div class="step-card">
-        <div class="step-number">1</div>
-        <div class="step-icon">
-          <i class="fas fa-clipboard-check"></i>
-        </div>
-        <h2 class="step-title">Check Your Eligibility</h2>
-        <div class="step-divider"></div>
-        <div class="step-content">To work with us, make sure you meet these requirements:</div>
-        <ul class="step-list">
-          <li><span class="list-icon"><i class="fas fa-circle"></i></span>Active MC number for at least 3 months</li>
-          <li><span class="list-icon"><i class="fas fa-circle"></i></span>Properly insured equipment we work with</li>
-          <li><span class="list-icon"><i class="fas fa-circle"></i></span>Willing to travel interstate regularly</li>
-        </ul>
-        <div class="step-content">If you meet all criteria, proceed to <span class="step-bold">Step 2!</span></div>
-        <div class="step-divider"></div>
-        <div class="step-note">
-          <strong>Note:</strong> If you don't currently meet these requirements, we'd be happy to connect once you do. Feel free to reach out with any questions about our eligibility criteria.
-        </div>
-      </div>
-      
-      <!-- Step 2 -->
-      <div class="step-card">
-        <div class="step-number">2</div>
-        <div class="step-icon">
-          <i class="fas fa-file-alt"></i>
-        </div>
-        <h2 class="step-title">Submit Your Application</h2>
-        <div class="step-divider"></div>
-        <div class="step-content">Complete our quick application form to get started:</div>
-        
-        <form id="application-form">
-          <div class="form-group">
-            <input type="text" class="form-input" id="fullname" placeholder="Your Full Name" required>
-            <div class="error-message" id="name-error">Please enter your full name</div>
-          </div>
-          <div class="form-group">
-            <input type="email" class="form-input" id="email" placeholder="Your Email Address" required>
-            <div class="error-message" id="email-error">Please enter a valid email address</div>
-          </div>
-          <div class="form-group">
-            <input type="tel" class="form-input" id="phone" placeholder="+1 (___) ___-____" required>
-            <div class="error-message" id="phone-error">Please enter a valid phone number</div>
-          </div>
-          
-          <div class="checkbox-group">
-            <input type="checkbox" id="updates" required>
-            <label for="updates" class="checkbox-label">I agree to receive email updates, offers, and notifications from CoreTech Dispatch.</label>
-          </div>
-          
-          <div class="checkbox-group">
-            <input type="checkbox" id="textmsg" required>
-            <label for="textmsg" class="checkbox-label">By checking this box, you agree to receive text messages from CoreTech Dispatch for conversational purposes at the phone number provided above. You may reply STOP to opt-out at any time. Reply HELP for assistance. Message and data rates may apply. Message frequency will vary. Learn more on our </label>
-          </div>
-          
-          <div class="step-success-box" id="success-message">
-            <span class="step-success-check"><i class="fas fa-check-circle"></i></span>
-            Success! Your information has been received.
-          </div>
-          
-          
-          
-          <button type="submit" class="step-btn" id="submit-btn">Submit Application <i class="fas fa-arrow-right"></i></button>
-        </form>
-        
-        <div class="step-phone-row">
-          <span class="step-phone-icon"><i class="fas fa-phone"></i></span>
-            <a class="step-phone-link" href="tel:03132410680">(313) 241-0680</a>
-        </div>
-      </div>
-      
-      <!-- Step 3 -->
-      <div class="step-card">
-        <div class="step-number">3</div>
-        <div class="step-icon">
-          <i class="fas fa-folder-open"></i>
-        </div>
-        <h2 class="step-title">Prepare Your Documents</h2>
-        <div class="step-divider"></div>
-        <div class="step-content">After submitting your application, gather these essential documents:</div>
-        <ul class="step-list">
-          <li><span class="list-icon"><i class="fas fa-circle"></i></span>W9 Form - Request for Taxpayer Identification Number and Certification</li>
-          <li><span class="list-icon"><i class="fas fa-circle"></i></span>Insurance Certificate - With liability and cargo policies listing us as certificate holder</li>
-          <li><span class="list-icon"><i class="fas fa-circle"></i></span>MC Certificate - Proof of your active operating authority</li>
-        </ul>
-        <div class="step-content">Our support team will contact you to clarify specific requirements for each document.</div>
-        <div class="step-divider"></div>
-        <div class="step-note">
-          <strong>Tip:</strong> Having these documents ready will significantly speed up the onboarding process.
-        </div>
-      </div>
-      
-      <!-- Step 4 -->
-      <div class="step-card">
-        <div class="step-number">4</div>
-        <div class="step-icon">
-          <i class="fas fa-handshake"></i>
-        </div>
-        <h2 class="step-title">Finalize Partnership</h2>
-        <div class="step-divider"></div>
-        <div class="step-content">The final step is signing our dispatch agreement to formalize our partnership.</div>
-        <div class="step-content">
-          This comprehensive agreement includes limited Power of Attorney, authorizing us to represent your company in business interactions on your behalf.
-        </div>
-        <div class="step-divider"></div>
-        <div class="step-content">
-          Once signed, you'll gain access to our carrier portal and can start receiving loads immediately.
-        </div>
-        <div class="step-ready">
-          <i class="fas fa-check-circle"></i> Welcome to the CoreTech Dispatch family!
-        </div>
-      </div>
-    </section>
-  </section>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const form = document.getElementById('application-form');
-      const successMessage = document.getElementById('success-message');
-      const submitBtn = document.getElementById('submit-btn');
-      const progressBar = document.getElementById('form-progress');
-      
-      // Initialize progress bar
-      updateProgress();
-      
-      // Add event listeners to form inputs for validation
-      const inputs = form.querySelectorAll('input');
-      inputs.forEach(input => {
-        input.addEventListener('blur', function() {
-          validateField(this);
-          updateProgress();
-        });
-        
-        input.addEventListener('input', function() {
-          clearError(this);
-          updateProgress();
-        });
-      });
-      
-      // Form submission
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        let isValid = true;
-        
-        // Validate all fields
-        inputs.forEach(input => {
-          if (!validateField(input)) {
-            isValid = false;
-          }
-        });
-        
-        if (isValid) {
-          // Simulate form submission
-          submitBtn.disabled = true;
-          submitBtn.innerHTML = 'Processing <i class="fas fa-spinner fa-spin"></i>';
-          
-          setTimeout(() => {
-            successMessage.classList.add('show');
-            submitBtn.innerHTML = 'Application Submitted <i class="fas fa-check"></i>';
-            
-            // You would typically send the form data to a server here
-            console.log('Form submitted with:', {
-              name: document.getElementById('fullname').value,
-              email: document.getElementById('email').value,
-              phone: document.getElementById('phone').value,
-              updates: document.getElementById('updates').checked,
-              textmsg: document.getElementById('textmsg').checked
-            });
-          }, 1500);
-        }
-      });
-      
-      // Field validation functions
-      function validateField(field) {
-        let isValid = true;
-        const errorElement = document.getElementById(`${field.id}-error`);
-        
-        if (field.type === 'checkbox') {
-          if (!field.checked) {
-            isValid = false;
-            showError(field, errorElement, 'This agreement is required');
-          }
-        } else {
-          if (field.value.trim() === '') {
-            isValid = false;
-            showError(field, errorElement, 'This field is required');
-          } else if (field.type === 'email' && !isValidEmail(field.value)) {
-            isValid = false;
-            showError(field, errorElement, 'Please enter a valid email address');
-          } else if (field.type === 'tel' && !isValidPhone(field.value)) {
-            isValid = false;
-            showError(field, errorElement, 'Please enter a valid phone number');
-          }
-        }
-        
-        return isValid;
-      }
-      
-      function showError(field, errorElement, message) {
-        field.classList.add('error');
-        errorElement.textContent = message;
-        errorElement.classList.add('show');
-      }
-      
-      function clearError(field) {
-        field.classList.remove('error');
-        const errorElement = document.getElementById(`${field.id}-error`);
-        errorElement.classList.remove('show');
-      }
-      
-      function isValidEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-      }
-      
-      function isValidPhone(phone) {
-        // Simple phone validation - at least 10 digits
-        const digits = phone.replace(/\D/g, '');
-        return digits.length >= 10;
-      }
-      
-      function updateProgress() {
-        const inputs = form.querySelectorAll('input:not([type="checkbox"])');
-        let filledCount = 0;
-        
-        inputs.forEach(input => {
-          if (input.value.trim() !== '') {
-            filledCount++;
-          }
-        });
-        
-        // Checkboxes are required but not counted in progress
-        const progress = (filledCount / inputs.length) * 100;
-        progressBar.style.width = `${progress}%`;
-      }
-    });
-  </script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolute Logistics - Professional Dispatch Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/demo.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo-container">
+            <!-- <img src="assets/images/logo.webp.jpg" alt="CoreTech Dispatch Logo" class="logo-img"> -->
+            <div class="logo-text">
+                CORETECH <span>DISPATCH</span>
+            </div>
+        </a>
+
+        <ul class="nav-links">
+            <li>
+                <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
+                <ul class="dropdown">
+                    <li><a href="services-detail.html">Dispatching Services</a></li>
+                    <li><a href="services-detail.html">Rate Negotiation</a></li>
+                    <li><a href="services-detail.html">Freight Factoring</a></li>
+                    <li><a href="services-detail.html">Document Dispatch Services</a></li>
+                    <li><a href="services-detail.html">Trucking Documents & Management</a></li>
+                    <li><a href="services-detail.html">Trucking Accounting</a></li>
+                    <li><a href="services-detail.html">IFTA Reporting</a></li>
+                    <li><a href="services-detail.html">DOT Compliance & Safety Services</a></li>
+                    <li><a href="services-detail.html">Company Formation Services</a></li>
+                    <li><a href="services-detail.html">MC Lease Assistance </a></li>
+                    <li><a href="services-detail.html">Equipment-Specific Dispatch</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="truck.html">Trucks <i class="fas fa-chevron-down"></i></a>
+                <ul class="dropdown">
+                    <li><a href="trucks-details.html">Hotshot Truck Dispatching Service</a></li>
+                    <li><a href="trucks-details.html">Power Only Dispatching Service</a></li>
+                    <li><a href="trucks-details.html">Flatbed Truck Dispatching Service</a></li>
+                    <li><a href="trucks-details.html">Reefer Truck Dispatching Service</a></li>
+                    <li><a href="trucks-details.html">Step Deck Dispatching Service</a></li>
+                    <li><a href="trucks-details.html">Dry Van Dispatching Service</a></li>
+                    <li><a href="trucks-details.html">Conestoga Trailer Dispatching Service</a></li>
+                    <li><a href="trucks-details.html">Box Truck Dispatching Service</a></li>
+                </ul>
+            </li>
+
+            <li><a href="faq.html">FAQ</a></li>
+            <li>
+                <a href="#">Company <i class="fas fa-chevron-down"></i></a>
+                <ul class="dropdown">
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="How-to-start.html">How to Start</a></li>
+                    <li><a href="shippers.html">Shippers</a></li>
+                    <li><a href="drivers.html">Our Drivers</a></li>
+                </ul>
+            </li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+
+        <a href="tel:03132410680" class="contact-number">
+            <i class="fas fa-phone"></i> (313) 241-0680
+        </a>
+
+        <button class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Sidebar -->
+    <div class="mobile-sidebar" id="mobileSidebar">
+        <button class="close-btn" id="closeBtn">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <div class="mobile-nav-container">
+            <div class="mobile-logo-container">
+                <!-- <img src="https://via.placeholder.com/36x36/e63946/ffffff?text=CT" alt="CoreTech Dispatch Logo" class="mobile-logo-img"> -->
+                <div class="mobile-logo-text">
+                    CORETECH <span>DISPATCH</span>
+                </div>
+            </div>
+
+            <ul class="mobile-nav-links">
+                <li class="has-mobile-dropdown">
+
+                    <button class="mobile-dropdown-btn" aria-label="Show Services Menu" tabindex="0">
+                        <a href="/services.html" class="mobile-dropdown-link">
+                            Services
+                        </a>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="mobile-dropdown">
+                        <li><a href="services-detail.html">Dispatching Services</a></li>
+                        <li><a href="services-detail.html">Rate Negotiation</a></li>
+                        <li><a href="services-detail.html">Freight Factoring</a></li>
+                        <li><a href="services-detail.html">Document Dispatch Services</a></li>
+                        <li><a href="services-detail.html">Trucking Documents & Management</a></li>
+                        <li><a href="services-detail.html">Trucking Accounting</a></li>
+                        <li><a href="services-detail.html">IFTA Reporting</a></li>
+                        <li><a href="services-detail.html">DOT Compliance & Safety Services</a></li>
+                        <li><a href="services-detail.html">Company Formation Services</a></li>
+                        <li><a href="services-detail.html">MC Lease Assistance </a></li>
+                        <li><a href="services-detail.html">Equipment-Specific Dispatch</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-dropdown-btn" aria-label="Show Services Menu" tabindex="0">
+                        <a href="/truck.html" class="mobile-dropdown-link">
+                            Trucks
+                        </a>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="mobile-dropdown">
+                        <li><a href="trucks-details.html">Hotshot Truck Dispatching Service</a></li>
+                        <li><a href="trucks-details.html">Power Only Dispatching Service</a></li>
+                        <li><a href="trucks-details.html">Flatbed Truck Dispatching Service</a></li>
+                        <li><a href="trucks-details.html">Reefer Truck Dispatching Service</a></li>
+                        <li><a href="trucks-details.html">Step Deck Dispatching Service</a></li>
+                        <li><a href="trucks-details.html">Dry Van Dispatching Service</a></li>
+                        <li><a href="trucks-details.html">Conestoga Trailer Dispatching Service</a></li>
+                        <li><a href="trucks-details.html">Box Truck Dispatching Service</a></li>
+                    </ul>
+                </li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li>
+                    <button class="mobile-dropdown-btn" aria-label="Show Services Menu" tabindex="0">
+                        Company<i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="mobile-dropdown">
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="How-to-start.html">How to Start</a></li>
+                        <li><a href="shippers.html">Shippers</a></li>
+                        <li><a href="drivers.html">Our Drivers</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+            </ul>
+
+            <div class="mobile-contact">
+                <a href="tel:+03132410680" class="mobile-contact-number">
+                    <i class="fas fa-phone"></i> (313) 241-0680
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+    <section class="hero-section">
+        <video autoplay muted loop playsinline class="video-background">
+            <source src="https://resolute-logistics.com/uploads/videos/video_bg_rl_1920x1080.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="overlay"></div>
+
+        <div class="hero-content">
+            <h1 class="hero-title">Automate Your <span>Truck Business</span></h1>
+            <p class="hero-subtitle">
+                Professional dispatch services that maximize your profits while minimizing your stress.
+                We handle the logistics so you can focus on driving your business forward.
+            </p>
+
+            <div class="cta-container">
+                <a href="contact-us.html" class="cta-button">
+                    Get Started <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="faq.html" class="cta-button secondary-button">
+                    How It Works <i class="fas fa-play-circle"></i>
+                </a>
+            </div>
+
+            <div class="trust-container">
+                <div class="rating-container">
+                    <div class="stars">★★★★★</div>
+                    <div class="rating-text">Rated 4.6+ by 1000+ trucking professionals</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator" id="scrollIndicator">
+            <span class="scroll-text">Explore Partners</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <section class="broker-section" id="brokerSection">
+        <div class="broker-title">Partnerships with Major Brokers</div>
+        <div class="broker-slider">
+            <div class="broker-track">
+                <div class="broker-item">
+                    <img src="assets/images/CHR_Logo_Horz_2C_RGB-1-2.svg" alt="C.H. Robinson" class="broker-logo">
+                </div>
+                <div class="broker-item">
+                    <img src="assets/images/Frame-1984077419-1.svg" alt="Coyote Logistics"
+                        class="broker-logo logo-coyote">
+                </div>
+                <div class="broker-item">
+                    <img src="assets/images/Frame-1984077419.svg" alt="TQL" class="broker-logo logo-tql">
+                </div>
+                <div class="broker-item">
+                    <img src="assets/images/image-9.svg" alt="RXO" class="broker-logo logo-rxo">
+                </div>
+                <div class="broker-item">
+                    <img src="assets/images/pngegg-1-1.svg" alt="RXO" class="broker-logo logo-rxo">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="services-section" id="services-section">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+
+        <div class="services-container">
+            <div class="services-header">
+                <h2 class="services-title">Premium Dispatch Solutions</h2>
+                <p class="services-description">
+                    Streamline your logistics operations with our comprehensive suite of services designed
+                    to optimize efficiency, ensure compliance, and maximize profitability for your trucking business.
+                </p>
+            </div>
+
+            <div class="services-stats">
+                <p class="stat-text">
+                    Our clients experience an average <span class="stat-highlight">36% improvement</span> in operational
+                    efficiency
+                    within the first <span class="stat-highlight">90 days</span> of implementing our dispatch solutions.
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-image-container image-dark">
+                        <picture>
+                            <source srcset="assets/images/Compressed/image_22_11zon.webp" type="image/webp">
+                            <img src="assets/images/Compressed/image_22_11zon.webp" alt="Truck dispatching"
+                                class="service-image" loading="lazy">
+                        </picture>
+                        <div class="service-icon">
+                            <i class="fas fa-truck-moving"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-category">Logistics</div>
+                        <h3 class="service-title">Professional Truck Dispatching</h3>
+                        <p class="service-description">
+                            Comprehensive dispatch services that optimize routes, manage loads, and ensure timely
+                            deliveries.
+                        </p>
+                        <div class="service-features">
+                            <div class="service-feature"><i class="fas fa-check-circle"></i> Real-time tracking</div>
+                            <div class="service-feature"><i class="fas fa-check-circle"></i> Route optimization</div>
+                            <div class="service-feature"><i class="fas fa-check-circle"></i> Load management</div>
+                        </div>
+                        <a href="#" class="service-link">
+                            Learn more <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-image-container image-dark">
+                        <picture>
+                            <source srcset="assets/images/Compressed/photo-1551288049-bebda4e38f71_11zon.webp"
+                                type="image/webp">
+                            <img src="assets/images/Compressed/photo-1551288049-bebda4e38f71_11zon.webp"
+                                alt="Compliance services" class="service-image" loading="lazy">
+                        </picture>
+                        <div class="service-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-category">Compliance</div>
+                        <h3 class="service-title">DOT Compliance Management</h3>
+                        <p class="service-description">
+                            Stay compliant with all regulations through our expert documentation and reporting services.
+                        </p>
+                        <div class="service-features">
+                            <div class="service-feature"><i class="fas fa-check-circle"></i> Documentation handling
+                            </div>
+                            <div class="service-feature"><i class="fas fa-check-circle"></i> Regulatory updates</div>
+                            <div class="service-feature"><i class="fas fa-check-circle"></i> Audit preparation</div>
+                        </div>
+                        <a href="#" class="service-link">
+                            Learn more <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-image-container image-dark">
+                        <picture>
+                            <source srcset="assets/images/Compressed/photo-1600880292203-757bb62b4baf_11zon.webp"
+                                type="image/webp">
+                            <img src="assets/images/Compressed/photo-1600880292203-757bb62b4baf_11zon.webp"
+                                alt="Fleet management" class="service-image" loading="lazy">
+                        </picture>
+                        <div class="service-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-category">Operations</div>
+                        <h3 class="service-title">Fleet Management Solutions</h3>
+                        <p class="service-description">
+                            End-to-end management of your trucking operations with real-time tracking and analytics.
+                        </p>
+                        <div class="service-features">
+                            <div class="service-feature"><i class="fas fa-check-circle"></i> Real-time monitoring</div>
+                            <div class="service-feature"><i class="fas fa-check-circle"></i> Performance analytics</div>
+                            <div class="service-feature"><i class="fas fa-check-circle"></i> Maintenance scheduling
+                            </div>
+                        </div>
+                        <a href="#" class="service-link">
+                            Learn more <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-image-container image-dark">
+                        <picture>
+                            <source srcset="assets/images/Compressed/photo-1450101499163-c8848c66ca85_11zon.webp"
+                                type="image/webp">
+                            <img src="assets/images/Compressed/photo-1450101499163-c8848c66ca85_11zon.webp"
+                                alt="FTA reporting" class="service-image" loading="lazy">
+                        </picture>
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-category">Reporting</div>
+                        <h3 class="service-title">Automated FTA Reporting</h3>
+                        <p class="service-description">
+                            Accurate and timely Federal Transit Administration reporting to keep your business
+                            compliant.
+                        </p>
+                        <div class="service-features">
+                            <div class="service-feature"><i class="fas fa-check-circle"></i> Automated submissions</div>
+                            <div class="service-feature"><i class="fas fa-check-circle"></i> Compliance tracking</div>
+                            <div class="service-feature"><i class="fas fa-check-circle"></i> Error reduction</div>
+                        </div>
+                        <a href="#" class="service-link">
+                            Learn more <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-image-container image-dark">
+                        <picture>
+                            <source srcset="assets/images/Compressed/image-62_11zon.webp" type="image/webp">
+                            <img src="assets/images/Compressed/image-62_11zon.webp" alt="Document management"
+                                class="service-image" loading="lazy">
+                        </picture>
+                        <div class="service-icon">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-category">Documentation</div>
+                        <h3 class="service-title">Digital Document Management</h3>
+                        <p class="service-description">
+                            Secure, cloud-based document handling for all your bills of lading, invoices, and records.
+                        </p>
+                        <div class="service-features">
+                            <div class="service-feature"><i class="fas fa-check-circle"></i> Cloud storage</div>
+                            <div class="service-feature"><i class="fas fa-check-circle"></i> Secure access</div>
+                            <div class="service-feature"><i class="fas fa-check-circle"></i> Easy retrieval</div>
+                        </div>
+                        <a href="#" class="service-link">
+                            Learn more <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="service-image-container image-dark">
+                        <picture>
+                            <source srcset="assets/images/Compressed/photo-1554224155-6726b3ff858f_11zon.webp"
+                                type="image/webp">
+                            <img src="assets/images/Compressed/photo-1554224155-6726b3ff858f_11zon.webp"
+                                alt="Trucking accounting" class="service-image" loading="lazy">
+                        </picture>
+                        <div class="service-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-category">Finance</div>
+                        <h3 class="service-title">Trucking-Specific Accounting</h3>
+                        <p class="service-description">
+                            Specialized financial services tailored to the unique needs of transportation businesses.
+                        </p>
+                        <div class="service-features">
+                            <div class="service-feature"><i class="fas fa-check-circle"></i> Expense tracking</div>
+                            <div class="service-feature"><i class="fas fa-check-circle"></i> Tax preparation</div>
+                            <div class="service-feature"><i class="fas fa-check-circle"></i> Financial reporting</div>
+                        </div>
+                        <a href="#" class="service-link">
+                            Learn more <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 7 -->
+                <div class="service-card">
+                    <div class="service-image-container image-dark">
+                        <picture>
+                            <source srcset="assets/images/Compressed/photo-1542744173-8e7e53415bb0_11zon.webp"
+                                type="image/webp">
+                            <img src="assets/images/Compressed/photo-1542744173-8e7e53415bb0_11zon.webp"
+                                alt="Paperwork services" class="service-image" loading="lazy">
+                        </picture>
+                        <div class="service-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-category">Administration</div>
+                        <h3 class="service-title">Paperwork Processing</h3>
+                        <p class="service-description">
+                            Hassle-free handling of all permits, licenses, and regulatory paperwork.
+                        </p>
+                        <div class="service-features">
+                            <div class="service-feature"><i class="fas fa-check-circle"></i> Permit acquisition</div>
+                            <div class="service-feature"><i class="fas fa-check-circle"></i> License renewal</div>
+                            <div class="service-feature"><i class="fas fa-check-circle"></i> Regulatory filings</div>
+                        </div>
+                        <a href="#" class="service-link">
+                            Learn more <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 8 -->
+                <div class="service-card">
+                    <div class="service-image-container image-dark">
+                        <picture>
+                            <source srcset="assets/images/Compressed/photo-1460925895917-afdab827c52f_11zon.webp"
+                                type="image/webp">
+                            <img src="assets/images/Compressed/photo-1460925895917-afdab827c52f_11zon.webp"
+                                alt="Promotions services" class="service-image" loading="lazy">
+                        </picture>
+                        <div class="service-icon">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-category">Marketing</div>
+                        <h3 class="service-title">Digital Promotion Services</h3>
+                        <p class="service-description">
+                            Boost your online presence and attract more clients with our targeted marketing solutions.
+                        </p>
+                        <div class="service-features">
+                            <div class="service-feature"><i class="fas fa-check-circle"></i> Digital advertising</div>
+                            <div class="service-feature"><i class="fas fa-check-circle"></i> Social media management
+                            </div>
+                            <div class="service-feature"><i class="fas fa-check-circle"></i> Brand development</div>
+                        </div>
+                        <a href="#" class="service-link">
+                            Learn more <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <a href="services.html" class="all-services-link">
+                Explore All Services <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+    <section class="truck-section">
+        <div class="main-wrapper">
+            <div class="truck-content-flex">
+                <div class="truck-info-col">
+                    <h1 id="title">Choose Your<br><span>Truck Type</span></h1>
+                    <p id="description">Your trucks will stay loaded, your routes optimized, and your paperwork handled
+                        — so you can
+                        focus on what matters most: the road ahead.</p>
+                    <a href="contact-us.html"><button class="setup-btn" id="cta-button">Get a Free Setup</button></a>
+                </div>
+                <div class="truck-types-grid" id="truck-grid">
+                    <a href="trucks-details.html" class="truck-type-card"
+                        style="background-image: url('assets/images/Compressed/Step-deck-Trailer_11zon.webp')">
+                        <span>Step Deck</span>
+                    </a>
+                    <a href="trucks-details.html" class="truck-type-card"
+                        style="background-image: url('assets/images/Compressed/dry-van-sunset_11zon.webp')">
+                        <span>Dry Van</span>
+                    </a>
+                    <a href="trucks-details.html" class="truck-type-card"
+                        style="background-image: url('assets/images/Compressed/box-truck_11zon.webp')">
+                        <span> Box Truck</span>
+                    </a>
+                    <a href="trucks-details.html" class="truck-type-card"
+                        style="background-image: url('assets/images/Compressed/reefeer_11zon.webp')">
+                        <span> Reefer</span>
+                    </a>
+                    <a href="trucks-details.html" class="truck-type-card"
+                        style="background-image: url('assets/images/Compressed/power-only_11zon.webp')">
+                        <span> Power Only</span>
+                    </a>
+                    <a href="trucks-details.html" class="truck-type-card"
+                        style="background-image: url('assets/images/Compressed/hotshot-truck-1024x479-4_11zon.webp')">
+                        <span>Hot Shot</span>
+                    </a>
+                    <a href="trucks-details.html" class="truck-type-card"
+                        style="background-image: url('assets/images/Compressed/conestoga_11zon.webp')">
+                        <span> Conestoga Trailer</span>
+                    </a>
+                    <a href="trucks-details.html" class="truck-type-card"
+                        style="background-image: url('assets/images/Compressed/flatbed_11zon.webp')">
+                        <span> Flatbed</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="about-section">
+        <!-- Background decorative elements -->
+        <div class="about-bg-circle about-bg-circle-1"></div>
+        <div class="about-bg-circle about-bg-circle-2"></div>
+
+        <div class="about-container">
+            <div class="about-row">
+                <!-- Left Column -->
+                <div class="about-left" id="about-left">
+                    <h1 class="about-title">
+                        About <span>us</span>
+                    </h1>
+                    <div class="about-subtitle" id="about-subtitle">Our Impact in Numbers</div>
+                    <div class="about-desc" id="about-desc-1">
+                        <span class="about-highlight">CoreTech <span class="about-highlight-blue">Dispatch</span></span>
+                        is committed to empowering truck drivers, owner-operators, and small fleets by providing
+                        reliable dispatch solutions. Our team integrates seamlessly with your operations, allowing you
+                        to keep your focus on driving and growing your business.
+                    </div>
+                    <div class="about-desc" id="about-desc-2" style="margin-bottom: 32px;">
+                        What makes us different is our tailored approach. We understand that no two clients are the
+                        same, so we customize our services to match your specific needs, fleet size, and objectives.
+                        Whether you are launching a new venture or expanding your fleet,
+                        <span class="about-highlight">CoreTech <span class="about-highlight-blue">Dispatch</span></span>
+                        is your trusted partner for sustainable growth.
+                    </div>
+                    <a href="about-us.html" class="about-btn" id="about-btn">
+                        Learn more about us
+                        <span class="about-btn-arrow">&#8594;</span>
+                    </a>
+                </div>
+                <!-- Right Column (Video/Image) -->
+                <div class="about-right" id="about-right">
+                    <div class="about-video-thumb">
+                        <picture>
+                            <!-- Modern browsers (WebP) -->
+                            <source srcset="assets/images/Compressed/poster-2_11zon.webp" type="image/webp">
+
+                            <!-- Fallback for browsers without WebP -->
+                            <source srcset="assets/images/Compressed/poster-2_11zon.webp" type="image/jpeg">
+
+                            <!-- Default fallback -->
+                            <img src="assets/images/Compressed/poster-2_11zon.webp" alt="Dispatch Team at Work"
+                                class="service-image" loading="lazy">
+                        </picture>
+
+                        <a href="#" class="about-play-btn" tabindex="0">
+                            <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                                <path d="M10 6L22 14L10 22V6Z" fill="#ffffff" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Stats Row -->
+            <div class="about-stats-row" id="about-stats">
+                <div class="about-stat-box" id="stat-1">
+                    <div class="about-stat-label">YEARS<br>OF EXPERIENCE</div>
+                    <div class="about-stat-value"><span class="count" data-target="3">0</span><span
+                            class="about-stat-red">+</span></div>
+                </div>
+                <div class="about-stat-box" id="stat-2">
+                    <div class="about-stat-label">LBS<br>DISPATCHED</div>
+                    <div class="about-stat-value"><span class="count" data-target="4" data-suffix="m+">0</span></div>
+                </div>
+                <div class="about-stat-box" id="stat-3">
+                    <div class="about-stat-label">AVERAGE<br>GROSS REVENUE</div>
+                    <div class="about-stat-value about-stat-value-red"><span class="count" data-target="7.5"
+                            data-prefix="$" data-suffix="k">0</span></div>
+                </div>
+                <div class="about-stat-box" id="stat-4">
+                    <div class="about-stat-label">LOADS<br>BOOKED</div>
+                    <div class="about-stat-value"><span class="count" data-target="4" data-suffix="m+">0</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="partnership-section">
+        <!-- Decorative shapes -->
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+
+        <div class="partnership-overlay"></div>
+        <div class="partnership-content">
+            <h2 class="partnership-title" id="partnership-title">Transparent Partnership</h2>
+            <p class="partnership-desc" id="partnership-desc">
+                We provide you with all information on loads, rates, and work conditions
+            </p>
+            <a href="contact-us.html" class="partnership-btn" id="partnership-btn">Get your free setup</a>
+        </div>
+    </section>
+    <section class="dispatchers-section blue-theme">
+        <!-- Decorative background elements -->
+        <div class="bg-element bg-1"></div>
+        <div class="bg-element bg-2"></div>
+
+        <div class="dispatchers-container">
+            <div class="dispatchers-header" id="dispatchers-header">
+                <h2>
+                    CoreTech Dispatchers Who<br>
+                    Work <span class="blue-accent">as Hard as You Do</span>
+                </h2>
+            </div>
+            <div class="dispatchers-content-row">
+                <div class="dispatchers-features" id="dispatchers-features">
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-dot"></div>
+                            <div class="feature-content">
+                                <div class="feature-title">End-To-End Service</div>
+                                <div class="feature-desc">From freight sourcing and rate negotiation to invoicing and
+                                    reporting — we’ve got your back</div>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-dot"></div>
+                            <div class="feature-content">
+                                <div class="feature-title">Dedicated Dispatcher</div>
+                                <div class="feature-desc">Your personal dispatcher is available 24/7 to handle problems,
+                                    paperwork, or route changes.</div>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-dot"></div>
+                            <div class="feature-content">
+                                <div class="feature-title">You’re In Control</div>
+                                <div class="feature-desc">No forced dispatch. You choose the clients, loads, and
+                                    schedule. We handle the rest.</div>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-dot"></div>
+                            <div class="feature-content">
+                                <div class="feature-title">Nationwide Reach</div>
+                                <div class="feature-desc">Whether you’re doing regional hauls or nationwide runs, we’re
+                                    with you every mile.</div>
+                            </div>
+                        </div>
+                        <div class="feature-card wide">
+                            <div class="feature-dot"></div>
+                            <div class="feature-content">
+                                <div class="feature-title">Support For All Various Types</div>
+                                <div class="feature-desc">Box Trucks to Dry Vans, from Hot Shots to Step Decks — we keep
+                                    you moving.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dispatchers-info" id="dispatchers-info">
+                    <p>
+                        Turning a truck into a profit engine takes more than <b>just a driver</b> and a
+                        <b>destination</b>.
+                    </p>
+                    <p>
+                        You need smart logistics, strong negotiation, and 24/7 support.<br>
+                        That’s where <b>we come in.</b>
+                    </p>
+                    <p>
+                        We line up <b>top-paying loads, optimize routes</b>, and handle the <b>calls, forms</b>, and
+                        <b>reports</b> so you don’t have to.
+                    </p>
+                    <p>
+                        Approve what you want to haul and stay in control of your time and revenue.
+                    </p>
+                    <p>
+                        Need help with <b>accounting</b> or route <b>planning</b>?
+                    </p>
+                    <p>
+                        Avoid deadhead miles and lowball offers with the <b>smoothest dispatch</b> services for owner
+                        operators in the U.S.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="advantages">
+        <div class="advantages__container">
+            <div class="advantages__features">
+                <div class="advantages__feature">
+                    <div class="advantages__feature-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/map-pin.svg"
+                            alt="Route planning icon" />
+                    </div>
+                    <div class="advantages__feature-content">
+                        <h3 class="advantages__feature-title">Efficient Route Planning</h3>
+                        <p class="advantages__feature-desc">We optimize dispatching to cut empty miles, reduce fuel
+                            costs, and boost your profit.</p>
+                    </div>
+                </div>
+                <div class="advantages__feature">
+                    <div class="advantages__feature-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/users.svg"
+                            alt="Partnerships icon" />
+                    </div>
+                    <div class="advantages__feature-content">
+                        <h3 class="advantages__feature-title">Dedicated Runs and Partnerships</h3>
+                        <p class="advantages__feature-desc">Access high-volume freight from the most trusted brokers in
+                            the industry.</p>
+                    </div>
+                </div>
+                <div class="advantages__feature">
+                    <div class="advantages__feature-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/cpu.svg"
+                            alt="Automation icon" />
+                    </div>
+                    <div class="advantages__feature-content">
+                        <h3 class="advantages__feature-title">Automation & AI Tools</h3>
+                        <p class="advantages__feature-desc">Faster dispatching. Less downtime. Smarter work.</p>
+                    </div>
+                </div>
+                <div class="advantages__feature">
+                    <div class="advantages__feature-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/bar-chart-2.svg"
+                            alt="Analytics icon" />
+                    </div>
+                    <div class="advantages__feature-content">
+                        <h3 class="advantages__feature-title">Freight Rate Forecasting</h3>
+                        <p class="advantages__feature-desc">Stay ahead with real-time rate trends and predictive
+                            analytics.</p>
+                    </div>
+                </div>
+                <div class="advantages__feature">
+                    <div class="advantages__feature-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/user-check.svg"
+                            alt="Support icon" />
+                    </div>
+                    <div class="advantages__feature-content">
+                        <h3 class="advantages__feature-title">Personalized Support</h3>
+                        <p class="advantages__feature-desc">Dedicated account managers for personalized service.</p>
+                    </div>
+                </div>
+                <div class="advantages__feature">
+                    <div class="advantages__feature-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/truck.svg" alt="Truck icon" />
+                    </div>
+                    <div class="advantages__feature-content">
+                        <h3 class="advantages__feature-title">Full Truck Utilization</h3>
+                        <p class="advantages__feature-desc">Maximize revenue with optimized load matching.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="advantages__info">
+                <h2 class="advantages__title">
+                    The CoreTech <span class="advantages__title--accent">advantage</span>
+                </h2>
+                <p class="advantages__subtitle">Discover what sets us apart</p>
+                <p class="advantages__text">
+                    <span class="advantages__brand">CoreTech <span
+                            class="advantages__brand--accent">Dispatch</span></span> goes beyond dispatching. From
+                    negotiating rates to handling paperwork, our team is dedicated to helping owner-operators and small
+                    fleets grow with confidence and ease.
+                </p>
+                <p class="advantages__text">
+                    Full Loads, Both Ways: Don't waste miles driving empty! We arrange return freight to keep your truck
+                    loaded, ensuring higher profits and lower costs on every trip.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="reviews-section">
+        <div class="reviews-container">
+            <div class="reviews-header">
+                <h2>
+                    Trusted by our <span class="blue-accent">customers</span>
+                </h2>
+            </div>
+
+            <div class="reviews-carousel">
+                <button class="carousel-arrow prev">❮</button>
+                <button class="carousel-arrow next">❯</button>
+
+                <div class="reviews-track">
+                    <!-- Review summary card -->
+                    <div class="review-item">
+                        <div class="review-summary-card">
+                            <div class="review-summary-logo">
+                                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg"
+                                    alt="Google">
+                            </div>
+                            <div class="review-summary-details">
+                                <div class="review-summary-title">Dispatch Service</div>
+                                <div class="review-summary-rating">
+                                    <span class="review-summary-score">4.8</span>
+                                    <span class="review-summary-stars">★★★★★</span>
+                                </div>
+                                <div class="review-summary-reviews">Based on 23 reviews</div>
+                                <div class="review-summary-powered">
+                                    powered by <span>Google</span>
+                                </div>
+                                <a href="#" class="review-summary-btn">
+                                    Review us on
+                                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg"
+                                        alt="Google">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review Cards -->
+                    <div class="review-item">
+                        <div class="review-card">
+                            <div class="review-user">
+                                <span class="review-avatar" style="background: #4f8cff;">E</span>
+                                <div class="review-user-details">
+                                    <div class="review-user-name">Eddie Cole</div>
+                                    <div class="review-time">7 months ago</div>
+                                </div>
+                                <img class="review-g-icon"
+                                    src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg"
+                                    alt="Google">
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                            <div class="review-text">
+                                Colin Faber is Toni Kukoc & I'm Scottie Pipen. Together he is the very best teammate
+                                when it comes to dispatching loads. He knows the journey that I've been on and helps me
+                                navigate through it.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-item">
+                        <div class="review-card">
+                            <div class="review-user">
+                                <span class="review-avatar" style="background: #2940a8;">H</span>
+                                <div class="review-user-details">
+                                    <div class="review-user-name">Harjot Kaur</div>
+                                    <div class="review-time">8 months ago</div>
+                                </div>
+                                <img class="review-g-icon"
+                                    src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg"
+                                    alt="Google">
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                            <div class="review-text">
+                                I have been with this dispatch for more than 3 years, they have been very good, my
+                                dispatcher Max Roche is amazing, he goes above and beyond to get me good loads and keeps
+                                me moving.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-item">
+                        <div class="review-card">
+                            <div class="review-user">
+                                <span class="review-avatar" style="background: #6cbaff;">C</span>
+                                <div class="review-user-details">
+                                    <div class="review-user-name">C T</div>
+                                    <div class="review-time">10 months ago</div>
+                                </div>
+                                <img class="review-g-icon"
+                                    src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg"
+                                    alt="Google">
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                            <div class="review-text">
+                                Onyachik LLC Dispatch is hands down 5 stars!! Have only been working with Colin for 2
+                                days and never dreamed my owner operator business could be this profitable so quickly.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-item">
+                        <div class="review-card">
+                            <div class="review-user">
+                                <span class="review-avatar" style="background: #ff6b6b;">A</span>
+                                <div class="review-user-details">
+                                    <div class="review-user-name">Adam K.</div>
+                                    <div class="review-time">3 months ago</div>
+                                </div>
+                                <img class="review-g-icon"
+                                    src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg"
+                                    alt="Google">
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                            <div class="review-text">
+                                The team at CoreTech Dispatch has transformed my business. Their attention to detail
+                                and commitment to finding the best loads is unmatched in the industry.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-item">
+                        <div class="review-card">
+                            <div class="review-user">
+                                <span class="review-avatar" style="background: #ff6b6b;">J</span>
+                                <div class="review-user-details">
+                                    <div class="review-user-name">John D.</div>
+                                    <div class="review-time">3 months ago</div>
+                                </div>
+                                <img class="review-g-icon"
+                                    src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg"
+                                    alt="Google">
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                            <div class="review-text">
+                                Working with CoreTech Dispatch has been a game-changer for my operations. Their
+                                exceptional service and ability to consistently secure premium loads sets them apart
+                                from other dispatch services I've used.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-nav">
+                <div class="carousel-dot active"></div>
+                <div class="carousel-dot"></div>
+                <div class="carousel-dot"></div>
+                <div class="carousel-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/header.js"></script>
+    <script src="assets/js/animation.js"></script>
 </body>
+
 </html>

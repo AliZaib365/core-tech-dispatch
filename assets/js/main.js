@@ -267,4 +267,23 @@ document.querySelectorAll('.faq-question').forEach(btn => {
         alert('Video player would launch here in a real implementation');
       });
     });
-    
+    document.addEventListener('DOMContentLoaded', function () {
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            const brokerSection = document.getElementById('brokerSection');
+
+            scrollIndicator.addEventListener('click', function () {
+                brokerSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+
+            // Add video play error handling
+            const video = document.querySelector('.video-background');
+            video.addEventListener('error', function () {
+                console.error('Video failed to load, using fallback background');
+                document.querySelector('.hero-section').style.background = "linear-gradient(rgb(10 16 29 / 70%), rgb(10 16 29)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80')";
+                document.querySelector('.hero-section').style.backgroundSize = "cover";
+                document.querySelector('.hero-section').style.backgroundPosition = "center";
+            });
+        });
