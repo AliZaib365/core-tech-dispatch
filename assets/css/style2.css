@@ -624,7 +624,7 @@ body {
 }
 
 .services-description {
-    font-size: 18px;
+    font-size: 15px;
     line-height: 1.8;
     color: #b8c1e2;
     max-width: 700px;
@@ -647,7 +647,7 @@ body {
 }
 
 .stat-text {
-    font-size: 20px;
+    font-size: 16px;
     line-height: 1.6;
     color: #b6c4e6;
     text-align: center;
@@ -754,7 +754,7 @@ body {
 }
 
 .service-description {
-    font-size: 15px;
+    font-size: 12px;
     line-height: 1.6;
     color: #b8c1e2;
     margin-bottom: 20px;
@@ -978,7 +978,7 @@ body {
 }
 
 .truck-info-col p {
-    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-size: 15px;
     color: #b8c1e2;
     margin: 2rem 0;
     font-weight: 400;
@@ -1053,7 +1053,7 @@ body {
     position: relative;
     z-index: 2;
     color: var(--white);
-    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-size: 15px;
     font-weight: 700;
     text-shadow: 0 2px 4px rgba(79, 140, 255, 0.2);
     padding: 1.5rem;
@@ -1208,7 +1208,7 @@ body {
 }
 
 .about-desc {
-    font-size: 18px;
+    font-size: 15px;
     color: #23335a;
     margin-bottom: 18px;
     line-height: 1.7;
@@ -1659,7 +1659,7 @@ body {
 }
 
 .feature-desc {
-    font-size: 0.98rem;
+    font-size: 13px;
     color: #23335a;
     margin-bottom: 0;
     margin-top: 2px;
@@ -1672,7 +1672,7 @@ body {
     min-width: 340px;
     max-width: 680px;
     color: #1f2536;
-    font-size: 1.08rem;
+    font-size: 18px;
     font-weight: 600;
     line-height: 1.62;
     letter-spacing: .01em;
@@ -4329,7 +4329,7 @@ body {
 }
 
 .section-desc {
-    font-size: 1.1rem;
+    font-size: 15px;
     color: #232b44;
     margin-bottom: 25px;
     line-height: 1.7;
@@ -4490,7 +4490,7 @@ body {
 }
 
 .benefit-description {
-    font-size: 1.05rem;
+    font-size: 15px;
     color: #4a5568;
     margin: 0;
     font-weight: 400;
