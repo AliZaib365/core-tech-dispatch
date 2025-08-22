@@ -157,12 +157,17 @@
 
     <!-- Overlay -->
     <div class="overlay" id="overlay"></div>
-    <section class="hero-section">
-        <video autoplay muted loop playsinline class="video-background">
+        <section class="hero-section">
+        <div class="video-loading" id="videoLoading">
+            <div class="loader"></div>
+        </div>
+        
+        <video autoplay muted loop playsinline class="video-background" id="heroVideo" preload="auto">
             <source src="/assets/images/media/video_bg_rl_1920x1080.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <div class="overlay"></div>
+        
+        <div class="hero-overlay"></div>
 
         <div class="hero-content">
             <h1 class="hero-title">Automate Your <span>Truck Business</span></h1>
@@ -173,10 +178,10 @@
 
             <div class="cta-container">
                 <a href="contact-us.html" class="cta-button">
-                    Get Started <i class="fas fa-arrow-right"></i>
+                    Get Started
                 </a>
                 <a href="faq.html" class="cta-button secondary-button">
-                    How It Works <i class="fas fa-play-circle"></i>
+                    How It Works
                 </a>
             </div>
 
@@ -193,7 +198,7 @@
             <div class="scroll-arrow"></div>
         </div>
     </section>
-
+    
     <section class="broker-section" id="brokerSection">
         <div class="broker-title">Partnerships with Major Brokers</div>
         <div class="broker-slider">
@@ -217,6 +222,7 @@
             </div>
         </div>
     </section>
+
     <section class="services-section" id="services-section">
         <div class="floating-element"></div>
         <div class="floating-element"></div>
@@ -1200,7 +1206,7 @@
         </div>
     </footer>
 </body>
-<script src="assets/js/main.js"></script>
+<!-- <script src="assets/js/main.js"></script> -->
 <script src="assets/js/header.js"></script>
 <script src="assets/js/animation.js"></script>
 

@@ -157,6 +157,7 @@
 
     <!-- Overlay -->
     <div class="overlay" id="overlay"></div>
+
     <section class="contact-container" id="contact-section">
         <h1 class="contact-title">Contact Us</h1>
         <div class="contact-subtitle">
@@ -250,11 +251,6 @@
                     <h1 id="mainHeading">Get Your Free Setup Today</h1>
                     <span class="subtitle" id="subtitle">Premium Dispatch Services</span>
                     <h3 id="subHeading">Expert Setup Assistance at No Cost</h3>
-                    <p id="description">
-                        <strong>Dispatch Service</strong> is committed to connecting drivers with the highest-paying
-                        loads in the industry, regardless of location or experience level.
-                    </p>
-
                     <ul class="benefits-list">
                         <li id="benefit1">
                             <i class="fas fa-check-circle"></i>
@@ -509,39 +505,39 @@
 <script src="assets/js/animation.js"></script>
 <script>
     // Use Intersection Observer for better performance & smoother fade-in
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactSection = document.getElementById('contact-section');
-            if ('IntersectionObserver' in window) {
-                let observer = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if(entry.isIntersecting) {
-                            contactSection.classList.add('visible');
-                            observer.disconnect();
-                        }
-                    });
-                }, { threshold: 0.25 });
-                observer.observe(contactSection);
-            } else {
-                // fallback for browsers without IntersectionObserver
-                function isInViewport(element) {
-                    const rect = element.getBoundingClientRect();
-                    return (
-                        rect.top >= 0 &&
-                        rect.left >= 0 &&
-                        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-                    );
-                }
+    document.addEventListener('DOMContentLoaded', function () {
+        const contactSection = document.getElementById('contact-section');
+        if ('IntersectionObserver' in window) {
+            let observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        contactSection.classList.add('visible');
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.25 });
+            observer.observe(contactSection);
+        } else {
+            // fallback for browsers without IntersectionObserver
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+            if (isInViewport(contactSection)) {
+                contactSection.classList.add('visible');
+            }
+            window.addEventListener('scroll', function () {
                 if (isInViewport(contactSection)) {
                     contactSection.classList.add('visible');
                 }
-                window.addEventListener('scroll', function() {
-                    if (isInViewport(contactSection)) {
-                        contactSection.classList.add('visible');
-                    }
-                });
-            }
-        });
+            });
+        }
+    });
 </script>
 
 </html>
