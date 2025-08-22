@@ -1,4 +1,4 @@
-     .footer-premium-theme {
+        .footer-premium-theme {
             background: #0a0e1f;
             color: #f0f2ff;
             padding: 90px 0 50px;
@@ -40,6 +40,10 @@
             flex: 1;
             min-width: 320px;
             max-width: 380px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 0.2s;
         }
         
         .footer-logo-container {
@@ -125,6 +129,23 @@
             color: #a3b1d9;
             font-size: 1.08rem;
             transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        
+        .footer-contact-item:nth-child(1) {
+            animation: fadeInRight 0.6s ease forwards;
+            animation-delay: 0.4s;
+        }
+        
+        .footer-contact-item:nth-child(2) {
+            animation: fadeInRight 0.6s ease forwards;
+            animation-delay: 0.5s;
+        }
+        
+        .footer-contact-item:nth-child(3) {
+            animation: fadeInRight 0.6s ease forwards;
+            animation-delay: 0.6s;
         }
         
         .footer-contact-item:hover {
@@ -171,6 +192,10 @@
             display: flex;
             flex-wrap: wrap;
             gap: 80px 60px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 0.3s;
         }
         
         .footer-links-group {
@@ -216,7 +241,19 @@
             opacity: 0.9;
             position: relative;
             padding-left: 0;
+            opacity: 0;
+            transform: translateY(10px);
         }
+        
+        .footer-link:nth-child(1) { animation: fadeInUp 0.5s ease forwards; animation-delay: 0.4s; }
+        .footer-link:nth-child(2) { animation: fadeInUp 0.5s ease forwards; animation-delay: 0.45s; }
+        .footer-link:nth-child(3) { animation: fadeInUp 0.5s ease forwards; animation-delay: 0.5s; }
+        .footer-link:nth-child(4) { animation: fadeInUp 0.5s ease forwards; animation-delay: 0.55s; }
+        .footer-link:nth-child(5) { animation: fadeInUp 0.5s ease forwards; animation-delay: 0.6s; }
+        .footer-link:nth-child(6) { animation: fadeInUp 0.5s ease forwards; animation-delay: 0.65s; }
+        .footer-link:nth-child(7) { animation: fadeInUp 0.5s ease forwards; animation-delay: 0.7s; }
+        .footer-link:nth-child(8) { animation: fadeInUp 0.5s ease forwards; animation-delay: 0.75s; }
+        .footer-link:nth-child(9) { animation: fadeInUp 0.5s ease forwards; animation-delay: 0.8s; }
         
         .footer-link::before {
             content: '›';
@@ -244,6 +281,10 @@
             min-width: 240px;
             max-width: 260px;
             margin-left: auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 0.4s;
         }
         
         .footer-social-title {
@@ -276,7 +317,15 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.15);
             position: relative;
             overflow: hidden;
+            opacity: 0;
+            transform: scale(0.8);
         }
+        
+        .footer-social-icon:nth-child(1) { animation: fadeInScale 0.6s ease forwards; animation-delay: 0.5s; }
+        .footer-social-icon:nth-child(2) { animation: fadeInScale 0.6s ease forwards; animation-delay: 0.55s; }
+        .footer-social-icon:nth-child(3) { animation: fadeInScale 0.6s ease forwards; animation-delay: 0.6s; }
+        .footer-social-icon:nth-child(4) { animation: fadeInScale 0.6s ease forwards; animation-delay: 0.65s; }
+        .footer-social-icon:nth-child(5) { animation: fadeInScale 0.6s ease forwards; animation-delay: 0.7s; }
         
         .footer-social-icon::before {
             content: '';
@@ -316,6 +365,10 @@
             font-size: 1.02rem;
             position: relative;
             z-index: 2;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 0.5s;
         }
         
         .footer-bottom-links {
@@ -329,7 +382,14 @@
             font-weight: 500;
             transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             position: relative;
+            opacity: 0;
+            transform: translateY(10px);
         }
+        
+        .footer-bottom-link:nth-child(1) { animation: fadeInUp 0.5s ease forwards; animation-delay: 0.6s; }
+        .footer-bottom-link:nth-child(2) { animation: fadeInUp 0.5s ease forwards; animation-delay: 0.65s; }
+        .footer-bottom-link:nth-child(3) { animation: fadeInUp 0.5s ease forwards; animation-delay: 0.7s; }
+        .footer-bottom-link:nth-child(4) { animation: fadeInUp 0.5s ease forwards; animation-delay: 0.75s; }
         
         .footer-bottom-link::after {
             content: '';
@@ -358,6 +418,10 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeInUp 0.5s ease forwards;
+            animation-delay: 0.8s;
         }
         
         .footer-copyright i {
@@ -365,6 +429,92 @@
             color: #4f8cff;
         }
         
+        /* Animation keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        /* Floating elements animation */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-8px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        .floating-element {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(79, 140, 255, 0.15) 0%, transparent 70%);
+            filter: blur(5px);
+            z-index: 1;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 5%;
+            width: 120px;
+            height: 120px;
+            animation-delay: 0s;
+            animation-duration: 10s;
+        }
+        
+        .floating-element:nth-child(2) {
+            top: 60%;
+            right: 10%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 2s;
+            animation-duration: 12s;
+        }
+        
+        .floating-element:nth-child(3) {
+            bottom: 15%;
+            left: 15%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 4s;
+            animation-duration: 9s;
+        }
+        
+        /* Responsive styles */
         @media (max-width: 1200px) {
             .footer-container {
                 padding: 0 40px;

@@ -1,4 +1,51 @@
-        document.addEventListener('DOMContentLoaded', function() {
+          document.addEventListener('DOMContentLoaded', function() {
+      const videoImg1 = document.querySelector('.about-video-img1');
+      
+      if ('IntersectionObserver' in window) {
+        const observer1 = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img1 = entry.target;
+              if (img1.dataset.src) {
+                img1.src = img1.dataset.src;
+              }
+              observer1.unobserve(img1);
+            }
+          });
+        }, {
+          rootMargin: '200px'
+        });
+        
+        observer1.observe(videoImg1);
+      }
+      
+      // Play button functionality (placeholder)
+      document.querySelector('.about-video-play1').addEventListener('click', function() {
+        alert('Video player would launch here in a real implementation');
+      });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            const brokerSection = document.getElementById('brokerSection');
+
+            scrollIndicator.addEventListener('click', function () {
+                brokerSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+
+            // Add video play error handling
+            const video = document.querySelector('.video-background');
+            video.addEventListener('error', function () {
+                console.error('Video failed to load, using fallback background');
+                document.querySelector('.hero-section').style.background = "linear-gradient(rgb(10 16 29 / 70%), rgb(10 16 29)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80')";
+                document.querySelector('.hero-section').style.backgroundSize = "cover";
+                document.querySelector('.hero-section').style.backgroundPosition = "center";
+            });
+        });
+
+       document.addEventListener('DOMContentLoaded', function() {
             const section = document.getElementById('services-section');
             let animated = false;
             
@@ -645,3 +692,52 @@
             // Observe the hero section
             observer.observe(document.querySelector('.coretech-hero-section'));
         });
+         document.addEventListener('DOMContentLoaded', function() {
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const item = this.parentElement;
+                const isOpen = item.classList.contains('open');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(el => {
+                    el.classList.remove('open');
+                });
+                
+                // Open the clicked item if it wasn't already open
+                if (!isOpen) {
+                    item.classList.add('open');
+                }
+            });
+        });
+        
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe FAQ header and items
+        const faqHeader = document.querySelector('.faq-header h2');
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        if (faqHeader) observer.observe(faqHeader);
+        faqItems.forEach(item => observer.observe(item));
+        
+        // Add visible class to header immediately if it's already in view
+        setTimeout(() => {
+            const headerRect = faqHeader.getBoundingClientRect();
+            if (headerRect.top < window.innerHeight && headerRect.bottom > 0) {
+                faqHeader.classList.add('visible');
+            }
+        }, 100);
+    });
