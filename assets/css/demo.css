@@ -6142,9 +6142,7 @@
             }
         }
         @media (max-width: 768px) {
-            body {
-                padding: 20px 8px;
-            }
+           
             .contact-container {
                 padding: 28px 2px;
             }
