@@ -741,3 +741,28 @@
             }
         }, 100);
     });
+      document.addEventListener('DOMContentLoaded', function() {
+            const section = document.querySelector('.coretech-faq-section');
+            
+            // Add a slight delay to ensure initial animations play
+            setTimeout(() => {
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
+                section.style.transition = 'opacity 1s ease, transform 1s ease';
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            section.style.opacity = '1';
+                            section.style.transform = 'translateY(0)';
+                        } else {
+                            section.style.opacity = '0.8';
+                            section.style.transform = 'translateY(20px)';
+                        }
+                    });
+                }, { threshold: 0.1 });
+                
+                observer.observe(section);
+            }, 100);
+        });
+        
