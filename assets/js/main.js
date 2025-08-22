@@ -233,14 +233,7 @@ document.addEventListener('DOMContentLoaded', function () {
         el.classList.add('animate-fade-in');
     });
 });
-document.querySelectorAll('.faq-question').forEach(btn => {
-    btn.addEventListener('click', function () {
-        const item = btn.parentElement;
-        const open = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
-        if (!open) item.classList.add('open');
-    });
-});
+
    document.addEventListener('DOMContentLoaded', function() {
       const videoImg1 = document.querySelector('.about-video-img1');
       
