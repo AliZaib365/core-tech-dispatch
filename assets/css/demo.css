@@ -4211,6 +4211,9 @@
             .benefits-list li {
                 font-size: 0.95rem;
             }
+            .blue-setup-main{
+                height: 1500px;
+            }
         }
 
         /* Animation */
