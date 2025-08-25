@@ -776,3 +776,104 @@ document.addEventListener('DOMContentLoaded', function () {
         observer.observe(section);
     }, 100);
 });
+   document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (entry.target.classList.contains('stat-item')) {
+                            entry.target.classList.add('visible');
+                        }
+                        if (entry.target.classList.contains('process-step')) {
+                            // Add delay based on element's position
+                            const delay = Array.from(entry.target.parentElement.children).indexOf(entry.target) * 200;
+                            setTimeout(() => {
+                                entry.target.classList.add('visible');
+                            }, delay);
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Observe stat items
+            document.querySelectorAll('.stat-item').forEach(item => {
+                observer.observe(item);
+            });
+            
+            // Observe process steps
+            document.querySelectorAll('.process-step').forEach(item => {
+                observer.observe(item);
+            });
+        });
+ document.addEventListener('DOMContentLoaded', function () {
+        const section = document.getElementById('dispatch-section');
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        section.classList.add('visible');
+                        observer.unobserve(section);
+                    }
+                });
+            }, { threshold: 0.25 });
+            observer.observe(section);
+        } else {
+            // Fallback for older browsers
+            section.classList.add('visible');
+        }
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+      const section = document.getElementById('dispatch-section1');
+      let lastState = null;
+
+      function setVisibility(inView) {
+        if (inView && lastState !== true) {
+          section.classList.add('visible');
+          section.classList.remove('out');
+          lastState = true;
+        } else if (!inView && lastState !== false) {
+          section.classList.remove('visible');
+          section.classList.add('out');
+          lastState = false;
+        }
+      }
+
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            setVisibility(entry.isIntersecting);
+          });
+        }, { threshold: 0.2 });
+        observer.observe(section);
+        setVisibility(false);
+      } else {
+        section.classList.add('visible');
+      }
+    });
+      document.addEventListener('DOMContentLoaded', function() {
+      // Create Intersection Observer
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.2
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-visible');
+          }
+        });
+      }, observerOptions);
+      
+      // Observe all sections with animation classes
+      const sections = document.querySelectorAll('.animate-section, .animate-left, .animate-right');
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+    });
