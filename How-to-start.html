@@ -5,12 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CoreTech Dispatch - Logistics Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/demo.css">
     <link rel="stylesheet" href="assets/css/header1.css">
-    <link rel="stylesheet" href="assets/css/style2.css">
     <link rel="stylesheet" href="assets/css/footer.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
@@ -241,26 +243,26 @@
                 <div class="step-content">Complete our quick application form to get started:</div>
 
                 <form id="application-form">
-                    <div class="form-group">
+                    <div class="form-group1">
                         <input type="text" class="form-input" id="fullname" placeholder="Your Full Name" required>
                         <div class="error-message" id="name-error">Please enter your full name</div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group1">
                         <input type="email" class="form-input" id="email" placeholder="Your Email Address" required>
                         <div class="error-message" id="email-error">Please enter a valid email address</div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group1">
                         <input type="tel" class="form-input" id="phone" placeholder="+1 (___) ___-____" required>
                         <div class="error-message" id="phone-error">Please enter a valid phone number</div>
                     </div>
 
-                    <div class="checkbox-group">
+                    <div class="checkbox-group1">
                         <input type="checkbox" id="updates" required>
                         <label for="updates" class="checkbox-label">I agree to receive email updates, offers, and
                             notifications from CoreTech Dispatch.</label>
                     </div>
 
-                    <div class="checkbox-group">
+                    <div class="checkbox-group1">
                         <input type="checkbox" id="textmsg" required>
                         <label for="textmsg" class="checkbox-label">By checking this box, you agree to receive text
                             messages from CoreTech Dispatch for conversational purposes at the phone number provided
@@ -335,19 +337,24 @@
             </div>
         </section>
     </section>
-
     <section class="coretech-hero-section">
-        <div class="coretech-hero-bg"></div>
-        <div class="coretech-hero-content">
-            <h1>
-                Don’t drive empty<br>
-                Drive with <span class="coretech-blue-accent">CoreTech</span>
+        <div class="coretech-hero-bg" id="heroBg"></div>
+        <div class="particles" id="particlesContainer"></div>
+        <div class="coretech-hero-content" id="heroContent">
+            <h1 id="heroTitle">
+                Don't drive empty<br>
+                Drive with <span class="coretech-blue-accent" id="blueAccent">CoreTech</span>
             </h1>
-            <p>We’ll help you earn more — <span class="coretech-less-stress">and stress less</span></p>
-            <a href="contact-us.html" class="coretech-hero-btn">Get your free setup</a>
+            <p id="heroText">We'll help you earn more — <span class="coretech-less-stress">and stress less</span></p>
+            <a href="contact-us.html" class="coretech-hero-btn" id="heroBtn">Get your free setup</a>
         </div>
     </section>
     <footer class="footer-premium-theme">
+        <!-- Floating background elements -->
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+
         <div class="footer-container">
             <div class="footer-main">
                 <div class="footer-brand-column">
@@ -378,32 +385,25 @@
                 <div class="footer-links-container">
                     <div class="footer-links-group">
                         <div class="footer-links-title">Company</div>
-                        <a href="#" class="footer-link">About us</a>
-                        <a href="#" class="footer-link">Leadership</a>
-                        <a href="#" class="footer-link">Careers</a>
-                        <a href="#" class="footer-link">Press</a>
-                        <a href="#" class="footer-link">Contact us</a>
-                        <a href="#" class="footer-link">Locations</a>
+                        <a href="about-us.html" class="footer-link">About us</a>
+                        <a href="How-to-start.html" class="footer-link">How To Start</a>
+                        <a href="shippers.html" class="footer-link">Shippers</a>
+                        <a href="drivers.html" class="footer-link">Our Drivers</a>
+                        <a href="contact-us.html" class="footer-link">Contact us</a>
                     </div>
                     <div class="footer-links-group">
                         <div class="footer-links-title">Services</div>
-                        <a href="#" class="footer-link">Truck Dispatching</a>
-                        <a href="#" class="footer-link">Document Management</a>
-                        <a href="#" class="footer-link">Freight Negotiation</a>
-                        <a href="#" class="footer-link">DOT Compliance</a>
-                        <a href="#" class="footer-link">IFTA Reporting</a>
-                        <a href="#" class="footer-link">Factoring Services</a>
-                        <a href="#" class="footer-link">Company Formation</a>
-                        <a href="#" class="footer-link">Accounting Services</a>
-                    </div>
-                    <div class="footer-links-group">
-                        <div class="footer-links-title">Resources</div>
-                        <a href="#" class="footer-link">Blog</a>
-                        <a href="#" class="footer-link">Case Studies</a>
-                        <a href="#" class="footer-link">FAQ</a>
-                        <a href="#" class="footer-link">Getting Started</a>
-                        <a href="#" class="footer-link">Support Center</a>
-                        <a href="#" class="footer-link">Webinars</a>
+                        <a class="footer-link" href="services-detail.html">Dispatching Services</a>
+                        <a class="footer-link" href="services-detail.html">Rate Negotiation</a>
+                        <a class="footer-link" href="services-detail.html">Freight Factoring</a>
+                        <a class="footer-link" href="services-detail.html">Document Dispatch Services</a>
+                        <a class="footer-link" href="services-detail.html">Trucking Documents & Management</a>
+                        <a class="footer-link" href="services-detail.html">Trucking Accounting</a>
+                        <a class="footer-link" href="services-detail.html">IFTA Reporting</a>
+                        <a class="footer-link" href="services-detail.html">DOT Compliance & Safety Services</a>
+                        <a class="footer-link" href="services-detail.html">Company Formation Services</a>
+                        <a class="footer-link" href="services-detail.html">MC Lease Assistance </a>
+                        <a class="footer-link" href="services-detail.html">Equipment-Specific Dispatch</a>
                     </div>
                 </div>
                 <div class="footer-social-column">
@@ -428,8 +428,8 @@
                 <div class="footer-bottom-links">
                     <a href="#" class="footer-bottom-link">Privacy Policy</a>
                     <a href="#" class="footer-bottom-link">Terms of Service</a>
-                    <a href="#" class="footer-bottom-link">Cookie Policy</a>
-                    <a href="#" class="footer-bottom-link">Sitemap</a>
+                    <a href="#" class="footer-bottom-link">Terms of Service</a>
+
                 </div>
                 <div class="footer-copyright">
                     <i class="far fa-copyright"></i> 2025 CoreTech Dispatch. All rights reserved.
@@ -437,7 +437,81 @@
             </div>
         </div>
     </footer>
+   
+
 </body>
+<!-- <script src="assets/js/main.js"></script> -->
+<script src="assets/js/header.js"></script>
+<script src="assets/js/animation.js"></script>
+ <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Background image load simulation
+            const heroBg = document.getElementById('heroBg');
+            setTimeout(() => {
+                heroBg.classList.add('loaded');
+            }, 100);
+
+            // Create floating particles
+            const particlesContainer = document.getElementById('particlesContainer');
+            const particleCount = 20;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+
+                // Random properties
+                const size = Math.random() * 8 + 2;
+                const posX = Math.random() * 100;
+                const delay = Math.random() * 15;
+                const duration = Math.random() * 10 + 15;
+
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.animationDelay = `${delay}s`;
+                particle.style.animationDuration = `${duration}s`;
+
+                particlesContainer.appendChild(particle);
+            }
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Animate content container
+                        document.getElementById('heroContent').classList.add('visible');
+
+                        // Animate elements with staggered delays
+                        setTimeout(() => {
+                            document.getElementById('heroTitle').classList.add('visible');
+                        }, 300);
+
+                        setTimeout(() => {
+                            document.getElementById('blueAccent').classList.add('visible');
+                        }, 800);
+
+                        setTimeout(() => {
+                            document.getElementById('heroText').classList.add('visible');
+                        }, 500);
+
+                        setTimeout(() => {
+                            document.getElementById('heroBtn').classList.add('visible');
+                        }, 700);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe the hero section
+            observer.observe(document.querySelector('.coretech-hero-section'));
+        });
+    </script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const form = document.getElementById('application-form');
@@ -561,7 +635,5 @@
         }
     });
 </script>
-<script src="assets/js/header.js"></script>
-<script src="assets/js/main.js"></script>
 
 </html>

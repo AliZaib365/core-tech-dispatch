@@ -37,28 +37,14 @@
       padding: 0 30px;
     }
 
-    /* Animation Classes */
+    /* Animation Classes - Modified for fade-in only */
     .animate-section {
       opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .animate-left {
-      opacity: 0;
-      transform: translateX(-100px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .animate-right {
-      opacity: 0;
-      transform: translateX(100px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      transition: opacity 0.8s ease;
     }
 
     .animate-visible {
       opacity: 1;
-      transform: translate(0, 0);
     }
 
     /* First Section Styles */
@@ -586,7 +572,7 @@
     </section>
 
     <!-- Second Section -->
-    <section class="services-section2 animate-right" id="section2">
+    <section class="services-section2 animate-section" id="section2">
       <h1 class="services-title2">
         Services Our Dispatchers<br>
         Provide <span class="highlight2">to You</span>
@@ -623,7 +609,7 @@
     </section>
 
     <!-- Third Section -->
-    <section class="optimize-section animate-left" id="section3">
+    <section class="optimize-section animate-section" id="section3">
       <div class="optimize-title">
         Optimize Your 26ft Box Truck Operations with <span class="highlight">CoreTech Dispatch</span>
       </div>
@@ -666,7 +652,7 @@
       }, observerOptions);
       
       // Observe all sections with animation classes
-      const sections = document.querySelectorAll('.animate-section, .animate-left, .animate-right');
+      const sections = document.querySelectorAll('.animate-section');
       sections.forEach(section => {
         observer.observe(section);
       });

@@ -855,7 +855,7 @@ document.addEventListener('DOMContentLoaded', function () {
         section.classList.add('visible');
       }
     });
-      document.addEventListener('DOMContentLoaded', function() {
+       document.addEventListener('DOMContentLoaded', function() {
       // Create Intersection Observer
       const observerOptions = {
         root: null,
@@ -872,8 +872,9 @@ document.addEventListener('DOMContentLoaded', function () {
       }, observerOptions);
       
       // Observe all sections with animation classes
-      const sections = document.querySelectorAll('.animate-section, .animate-left, .animate-right');
+      const sections = document.querySelectorAll('.animate-section');
       sections.forEach(section => {
         observer.observe(section);
       });
     });
+    
