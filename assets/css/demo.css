@@ -5895,7 +5895,7 @@
         .contact-container {
             position: relative;
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 20px auto;
             padding: 60px 20px;
             opacity: 0;
             transform: translateY(40px) scale(0.98);

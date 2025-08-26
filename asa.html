@@ -1,0 +1,33 @@
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/13134820702" class="whatsapp-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Font Awesome CDN (for WhatsApp icon) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  z-index: 1000;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+</style>
