@@ -6624,6 +6624,12 @@
         }
 
         @media (max-width: 480px) {
+             .service-description1{
+                font-size: 13px;
+             }
+             .benefits-list1 li{
+                font-size: 13px;
+             }
             .page-wrapper {
                 padding: 0 20px;
             }
@@ -6910,7 +6916,7 @@
             }
 
             .section-desc {
-                font-size: 1rem;
+                font-size: 12px;
             }
 
             .cta-button {
@@ -8009,7 +8015,7 @@
 
             .optimize-card p {
                 padding-left: 30px;
-                font-size: 0.95rem;
+                font-size: 12px;
             }
         }
 
