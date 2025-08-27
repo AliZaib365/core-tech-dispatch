@@ -107,7 +107,8 @@
                         <li><a href="IFTA-services.html">IFTA Reporting</a></li>
                         <li><a href="Dot-services.html">DOT Compliance & Safety Services</a></li>
                         <li><a href="company-formation-services.html">Company Formation Services</a></li>
-                        <li><a href="document-management-services.html">Trucking Documents & Management Services </a></li>
+                        <li><a href="document-management-services.html">Trucking Documents & Management Services </a>
+                        </li>
 
                     </ul>
                 </li>
@@ -380,77 +381,81 @@
             </div>
         </div>
     </footer>
+    <a href="https://wa.me/13134820702" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
 </body>
 
 <script src="assets/js/header.js"></script>
 <script src="assets/js/animation.js"></script>
 <script>
-          document.addEventListener('DOMContentLoaded', function () {
-    // Background image load simulation
-    const heroBg = document.getElementById('heroBg');
-    setTimeout(() => {
-        heroBg.classList.add('loaded');
-    }, 100);
+    document.addEventListener('DOMContentLoaded', function () {
+        // Background image load simulation
+        const heroBg = document.getElementById('heroBg');
+        setTimeout(() => {
+            heroBg.classList.add('loaded');
+        }, 100);
 
-    // Create floating particles
-    const particlesContainer = document.getElementById('particlesContainer');
-    const particleCount = 20;
+        // Create floating particles
+        const particlesContainer = document.getElementById('particlesContainer');
+        const particleCount = 20;
 
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
 
-        // Random properties
-        const size = Math.random() * 8 + 2;
-        const posX = Math.random() * 100;
-        const delay = Math.random() * 15;
-        const duration = Math.random() * 10 + 15;
+            // Random properties
+            const size = Math.random() * 8 + 2;
+            const posX = Math.random() * 100;
+            const delay = Math.random() * 15;
+            const duration = Math.random() * 10 + 15;
 
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        particle.style.left = `${posX}%`;
-        particle.style.animationDelay = `${delay}s`;
-        particle.style.animationDuration = `${duration}s`;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${posX}%`;
+            particle.style.animationDelay = `${delay}s`;
+            particle.style.animationDuration = `${duration}s`;
 
-        particlesContainer.appendChild(particle);
-    }
+            particlesContainer.appendChild(particle);
+        }
 
-    // Intersection Observer for animations
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.2
-    };
+        // Intersection Observer for animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2
+        };
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Animate content container
-                document.getElementById('heroContent').classList.add('visible');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Animate content container
+                    document.getElementById('heroContent').classList.add('visible');
 
-                // Animate elements with staggered delays
-                setTimeout(() => {
-                    document.getElementById('heroTitle').classList.add('visible');
-                }, 300);
+                    // Animate elements with staggered delays
+                    setTimeout(() => {
+                        document.getElementById('heroTitle').classList.add('visible');
+                    }, 300);
 
-                setTimeout(() => {
-                    document.getElementById('blueAccent').classList.add('visible');
-                }, 800);
+                    setTimeout(() => {
+                        document.getElementById('blueAccent').classList.add('visible');
+                    }, 800);
 
-                setTimeout(() => {
-                    document.getElementById('heroText').classList.add('visible');
-                }, 500);
+                    setTimeout(() => {
+                        document.getElementById('heroText').classList.add('visible');
+                    }, 500);
 
-                setTimeout(() => {
-                    document.getElementById('heroBtn').classList.add('visible');
-                }, 700);
-            }
-        });
-    }, observerOptions);
+                    setTimeout(() => {
+                        document.getElementById('heroBtn').classList.add('visible');
+                    }, 700);
+                }
+            });
+        }, observerOptions);
 
-    // Observe the hero section
-    observer.observe(document.querySelector('.coretech-hero-section'));
-});
+        // Observe the hero section
+        observer.observe(document.querySelector('.coretech-hero-section'));
+    });
     function animateCounter1(elementId, targetValue, suffix = '', prefix = '', duration = 2000) {
         const element = document.getElementById(elementId);
         const startValue = 0;
