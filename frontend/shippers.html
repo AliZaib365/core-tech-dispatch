@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoreTech Dispatch - Logistics Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/demo.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo-container">
+            <!-- <img src="assets/images/logo.webp.jpg" alt="CoreTech Dispatch Logo" class="logo-img"> -->
+            <div class="logo-text">
+                CORETECH <span>DISPATCH</span>
+            </div>
+        </a>
+
+        <ul class="nav-links">
+            <li>
+                <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
+                <ul class="dropdown">
+                    <li><a href="Dispatching-services.html">Dispatching Services</a></li>
+                    <li><a href="Neogtiation-services.html">Rate Negotiation</a></li>
+                    <li><a href="Factoring-services.html">Freight Factoring</a></li>
+                    <li><a href="Document-dispatch-services.html">Document Dispatch Services</a></li>
+                    <li><a href="Trucking-document-services.html">Trucking Paperwork Services</a></li>
+                    <li><a href="Trucking-accounting-services.html">Trucking Accounting</a></li>
+                    <li><a href="IFTA-services.html">IFTA Reporting</a></li>
+                    <li><a href="Dot-services.html">DOT Compliance & Safety Services</a></li>
+                    <li><a href="company-formation-services.html">Company Formation Services</a></li>
+                    <li><a href="document-management-services.html">Trucking Documents & Management Services </a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="truck.html">Trucks <i class="fas fa-chevron-down"></i></a>
+                <ul class="dropdown">
+                    <li><a href="Hotshot-truck.html">Hotshot Truck Dispatching Service</a></li>
+                    <li><a href="power-truck.html">Power Only Dispatching Service</a></li>
+                    <li><a href="flatbed-truck.html">Flatbed Truck Dispatching Service</a></li>
+                    <li><a href="reefer-truck.html">Reefer Truck Dispatching Service</a></li>
+                    <li><a href="stepdeck-truck.html">Step Deck Dispatching Service</a></li>
+                    <li><a href="dryvan-truck.html">Dry Van Dispatching Service</a></li>
+                    <li><a href="conestoga-truck.html">Conestoga Trailer Dispatching Service</a></li>
+                    <li><a href="box-truck.html">Box Truck Dispatching Service</a></li>
+                </ul>
+            </li>
+
+            <li><a href="faq.html">FAQ</a></li>
+            <li>
+                <a href="#">Company <i class="fas fa-chevron-down"></i></a>
+                <ul class="dropdown">
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="How-to-start.html">How to Start</a></li>
+                    <li><a href="shippers.html">Shippers</a></li>
+                    <li><a href="drivers.html">Our Drivers</a></li>
+                </ul>
+            </li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+
+        <a href="tel:03132410680" class="contact-number">
+            <i class="fas fa-phone"></i> (313) 241-0680
+        </a>
+
+        <button class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <div class="mobile-sidebar" id="mobileSidebar">
+        <button class="close-btn" id="closeBtn">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <div class="mobile-nav-container">
+            <div class="mobile-logo-container">
+                <!-- <img src="https://via.placeholder.com/36x36/e63946/ffffff?text=CT" alt="CoreTech Dispatch Logo" class="mobile-logo-img"> -->
+                <div class="mobile-logo-text">
+                    CORETECH <span>DISPATCH</span>
+                </div>
+            </div>
+
+            <ul class="mobile-nav-links">
+                <li class="has-mobile-dropdown">
+
+                    <button class="mobile-dropdown-btn" aria-label="Show Services Menu" tabindex="0">
+                        <a href="/services.html" class="mobile-dropdown-link">
+                            Services
+                        </a>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="mobile-dropdown">
+                        <li><a href="Dispatching-services.html">Dispatching Services</a></li>
+                        <li><a href="Neogtiation-services.html">Rate Negotiation</a></li>
+                        <li><a href="Factoring-services.html">Freight Factoring</a></li>
+                        <li><a href="Document-dispatch-services.html">Document Dispatch Services</a></li>
+                        <li><a href="Trucking-document-services.html">Trucking Paperwork Services</a></li>
+                        <li><a href="Trucking-accounting-services.html">Trucking Accounting</a></li>
+                        <li><a href="IFTA-services.html">IFTA Reporting</a></li>
+                        <li><a href="Dot-services.html">DOT Compliance & Safety Services</a></li>
+                        <li><a href="company-formation-services.html">Company Formation Services</a></li>
+                        <li><a href="document-management-services.html">Trucking Documents & Management Services </a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <button class="mobile-dropdown-btn" aria-label="Show Services Menu" tabindex="0">
+                        <a href="/truck.html" class="mobile-dropdown-link">
+                            Trucks
+                        </a>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="mobile-dropdown">
+                        <li><a href="Hotshot-truck.html">Hotshot Truck Dispatching Service</a></li>
+                        <li><a href="power-truck.html">Power Only Dispatching Service</a></li>
+                        <li><a href="flatbed-truck.html">Flatbed Truck Dispatching Service</a></li>
+                        <li><a href="reefer-truck.html">Reefer Truck Dispatching Service</a></li>
+                        <li><a href="stepdeck-truck.html">Step Deck Dispatching Service</a></li>
+                        <li><a href="dryvan-truck.html">Dry Van Dispatching Service</a></li>
+                        <li><a href="conestoga-truck.html">Conestoga Trailer Dispatching Service</a></li>
+                        <li><a href="box-truck.html">Box Truck Dispatching Service</a></li>
+                    </ul>
+                </li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li>
+                    <button class="mobile-dropdown-btn" aria-label="Show Services Menu" tabindex="0">
+                        Company<i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="mobile-dropdown">
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="How-to-start.html">How to Start</a></li>
+                        <li><a href="shippers.html">Shippers</a></li>
+                        <li><a href="drivers.html">Our Drivers</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+            </ul>
+
+            <div class="mobile-contact">
+                <a href="tel:+03132410680" class="mobile-contact-number">
+                    <i class="fas fa-phone"></i> (313) 241-0680
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+    <section class="shippers-main">
+        <aside class="shippers-sidebar">
+            <div class="shippers-title"><span class="star">★</span>Shippers</div>
+            <ul>
+                <li>Dispatch Solutions for Shippers and Brokers</li>
+                <li>How we help freight brokers and shippers</li>
+                <li>Our truck dispatcher service benefits</li>
+                <li>Why rely on CoreTech Dispatch</li>
+            </ul>
+            <div class="ask-block">
+                <div class="ask-title">Have any questions?</div>
+                <a style="text-decoration: none;" href="contact-us.html"> <button class="ask-btn">
+                        <i class="fas fa-question-circle"></i> Ask a question
+                    </button></a>
+            </div>
+        </aside>
+        <div class="shippers-content">
+            <div class="section-block">
+                <h2>Dispatch Solutions for Shippers and Brokers</h2>
+                <p>
+                    <span class="blue">CoreTech Dispatch</span> is known for its excellent freight dispatch service. Our
+                    team has provided dispatching solutions for complex operations and trucking fleets since 2015. We
+                    help find the best fits, communicate with their customers, and prioritize all necessary paperwork so
+                    they can focus on the important work of transporting goods.
+                </p>
+                <p>
+                    When you choose CoreTech Dispatch as your freight dispatch service, you enjoy clear pricing devoid
+                    of hidden payments and termination fees. You can rest assured that the price you see is the price
+                    you pay.
+                </p>
+                <p>
+                    Our team believes in assisting both freight brokers and shippers to successfully transport loads. We
+                    can help make the process smoother for both parties.
+                </p>
+            </div>
+            <div class="section-block">
+                <h3>How we can help freight brokers and shippers</h3>
+                <p>
+                    One of the biggest advantages we provide freight brokers and shippers is our extensive pool of
+                    independent owner-operators eager to work with the best loads. Our dispatchers handle carrier
+                    approval processes and vet every job with your needs in mind.
+                </p>
+                <ul>
+                    <li><strong>Eliminate double brokering.</strong> Double brokering is illegal unless the shipper
+                        consents to a reassignment. However, that does not stop some companies from engaging in the
+                        practice without agreement. We work closely to bring reputable, independent dispatchers to
+                        drivers, which means we can provide all your loads with reliable carriers.</li>
+                    <li><strong>Offer transparency.</strong> From our pricing model to updates about the progress of
+                        your load, we offer full transparency to freight brokers and carriers. Dispatchers keep track of
+                        preferred carriers and maintain ongoing communication every step of the way.</li>
+                    <li><strong>Provide 24/7 updates.</strong> Our team never leaves freight brokers hanging. We provide
+                        timely updates and round-the-clock service for any problem. Potential delays or problems are
+                        communicated immediately. We are available 24/7 to track, broker, solve your questions and
+                        concerns, and ensure your shipments are all planned.</li>
+                </ul>
+            </div>
+            <div class="section-block">
+                <h3>Our truck dispatcher service benefits</h3>
+                <p>
+                    Working with CoreTech Dispatch ensures satisfaction for all parties involved in the shipping
+                    process. Whether you are a freight broker or a carrier, our team offers end-to-end and on-time
+                    dispatching for your loads. Here is what you get when you choose our robust dispatch service:
+                </p>
+                <div class="benefits-lists">
+                    <div class="benefits-col">
+                        <div class="benefits-col-title">
+                            <i class="fas fa-user-tie"></i> Benefits for Brokers
+                        </div>
+                        <ul>
+                            <li>Access to a large pool of reputable carriers</li>
+                            <li>Industry flexible carriers to meet every budget</li>
+                            <li>Transparent pricing model with no hidden payments</li>
+                            <li>Reputable carriers with satisfactory performance</li>
+                            <li>Comprehensive, timely and immediate communication for any transport issues or claims
+                            </li>
+                            <li>Follows relocation adjudications</li>
+                        </ul>
+                    </div>
+                    <div class="benefits-col">
+                        <div class="benefits-col-title">
+                            <i class="fas fa-truck"></i> Benefits for Carriers
+                        </div>
+                        <ul>
+                            <li>Dedicated dispatchers to help match loads to your profile</li>
+                            <li>Direct carrier-broker arrangements set with directly brokered loads</li>
+                            <li>Advanced carrierification for all rates</li>
+                            <li>Dispatch managers are available to supervise and solve problems</li>
+                            <li>Access to a network of freight brokers in good standing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="section-block">
+                <h3>Why rely on CoreTech Dispatch</h3>
+                <p>
+                    Shippers and brokers can eliminate the middleman when they work with <span class="blue">CoreTech
+                        Dispatch</span>. Our fleet of independent carriers ensures the right fit for every shipment. We
+                    provide 24/7 support and quick loads tracking and complete transparency in our operations. Our
+                    dispatchers communicate directly with brokers and carriers to ensure the best claims are completed
+                    within the haul time. With our commitment to service, you can trust our team. Contact us today to
+                    receive your no-obligation quote for service or to discuss options that meet your needs.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="reviews-section">
+        <div class="reviews-container">
+            <div class="reviews-header">
+                <h2>
+                    Trusted by our <span class="blue-accent">customers</span>
+                </h2>
+            </div>
+
+            <div class="reviews-carousel">
+                <button class="carousel-arrow prev">❮</button>
+                <button class="carousel-arrow next">❯</button>
+
+                <div class="reviews-track">
+                    <!-- Review summary card -->
+                    <div class="review-item">
+                        <div class="review-summary-card">
+                            <div class="review-summary-logo">
+                                <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg"
+                                    alt="Google">
+                            </div>
+                            <div class="review-summary-details">
+                                <div class="review-summary-title">Dispatch Service</div>
+                                <div class="review-summary-rating">
+                                    <span class="review-summary-score">4.8</span>
+                                    <span class="review-summary-stars">★★★★★</span>
+                                </div>
+                                <div class="review-summary-reviews">Based on 23 reviews</div>
+                                <div class="review-summary-powered">
+                                    powered by <span>Google</span>
+                                </div>
+                                <a href="#" class="review-summary-btn">
+                                    Review us on
+                                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg"
+                                        alt="Google">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review Cards -->
+                    <div class="review-item">
+                        <div class="review-card">
+                            <div class="review-user">
+                                <span class="review-avatar" style="background: #4f8cff;">E</span>
+                                <div class="review-user-details">
+                                    <div class="review-user-name">Eddie Cole</div>
+                                    <div class="review-time">7 months ago</div>
+                                </div>
+                                <img class="review-g-icon"
+                                    src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg"
+                                    alt="Google">
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                            <div class="review-text">
+                                Colin Faber is Toni Kukoc & I'm Scottie Pipen. Together he is the very best teammate
+                                when it comes to dispatching loads. He knows the journey that I've been on and helps me
+                                navigate through it.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-item">
+                        <div class="review-card">
+                            <div class="review-user">
+                                <span class="review-avatar" style="background: #2940a8;">H</span>
+                                <div class="review-user-details">
+                                    <div class="review-user-name">Harjot Kaur</div>
+                                    <div class="review-time">8 months ago</div>
+                                </div>
+                                <img class="review-g-icon"
+                                    src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg"
+                                    alt="Google">
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                            <div class="review-text">
+                                I have been with this dispatch for more than 3 years, they have been very good, my
+                                dispatcher Max Roche is amazing, he goes above and beyond to get me good loads and keeps
+                                me moving.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-item">
+                        <div class="review-card">
+                            <div class="review-user">
+                                <span class="review-avatar" style="background: #6cbaff;">C</span>
+                                <div class="review-user-details">
+                                    <div class="review-user-name">C T</div>
+                                    <div class="review-time">10 months ago</div>
+                                </div>
+                                <img class="review-g-icon"
+                                    src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg"
+                                    alt="Google">
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                            <div class="review-text">
+                                Onyachik LLC Dispatch is hands down 5 stars!! Have only been working with Colin for 2
+                                days and never dreamed my owner operator business could be this profitable so quickly.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-item">
+                        <div class="review-card">
+                            <div class="review-user">
+                                <span class="review-avatar" style="background: #ff6b6b;">A</span>
+                                <div class="review-user-details">
+                                    <div class="review-user-name">Adam K.</div>
+                                    <div class="review-time">3 months ago</div>
+                                </div>
+                                <img class="review-g-icon"
+                                    src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg"
+                                    alt="Google">
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                            <div class="review-text">
+                                The team at CoreTech Dispatch has transformed my business. Their attention to detail
+                                and commitment to finding the best loads is unmatched in the industry.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-item">
+                        <div class="review-card">
+                            <div class="review-user">
+                                <span class="review-avatar" style="background: #ff6b6b;">J</span>
+                                <div class="review-user-details">
+                                    <div class="review-user-name">John D.</div>
+                                    <div class="review-time">3 months ago</div>
+                                </div>
+                                <img class="review-g-icon"
+                                    src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/google.svg"
+                                    alt="Google">
+                            </div>
+                            <div class="review-stars">★★★★★</div>
+                            <div class="review-text">
+                                Working with CoreTech Dispatch has been a game-changer for my operations. Their
+                                exceptional service and ability to consistently secure premium loads sets them apart
+                                from other dispatch services I've used.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-nav">
+                <div class="carousel-dot active"></div>
+                <div class="carousel-dot"></div>
+                <div class="carousel-dot"></div>
+                <div class="carousel-dot"></div>
+            </div>
+        </div>
+    </section>
+    <section class="coretech-hero-section">
+        <div class="coretech-hero-bg" id="heroBg"></div>
+        <div class="particles" id="particlesContainer"></div>
+        <div class="coretech-hero-content" id="heroContent">
+            <h1 id="heroTitle">
+                Don't drive empty<br>
+                Drive with <span class="coretech-blue-accent" id="blueAccent">CoreTech</span>
+            </h1>
+            <p id="heroText">We'll help you earn more — <span class="coretech-less-stress">and stress less</span></p>
+            <a href="contact-us.html" class="coretech-hero-btn" id="heroBtn">Get your free setup</a>
+        </div>
+    </section>
+    <footer class="footer-premium-theme">
+        <!-- Floating background elements -->
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand-column">
+                    <div class="footer-logo-container">
+                        <span class="footer-logo">
+                            <span class="footer-logo-main">CORETECH</span>
+                            <span class="footer-logo-accent">Dispatch</span>
+                        </span>
+                    </div>
+                    <p class="footer-tagline">Premium logistics solutions with cutting-edge technology and exceptional
+                        service.</p>
+                    <div class="footer-contact-list">
+                        <div class="footer-contact-item">
+                            <span class="footer-contact-icon"><i class="fas fa-phone-alt"></i></span>
+                            <span class="footer-contact-text">(313) 241-0680</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <span class="footer-contact-icon"><i class="fas fa-envelope"></i></span>
+                            <span class="footer-contact-text">info@coretechdispatch.com</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <span class="footer-contact-icon"><i class="fas fa-clock"></i></span>
+                            <span class="footer-contact-text">Monday - Friday: 7AM - 5PM EST<br>Saturday - Sunday:
+                                Closed</span>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-links-container">
+                    <div class="footer-links-group">
+                        <div class="footer-links-title">Company</div>
+                        <a href="about-us.html" class="footer-link">About us</a>
+                        <a href="How-to-start.html" class="footer-link">How To Start</a>
+                        <a href="shippers.html" class="footer-link">Shippers</a>
+                        <a href="drivers.html" class="footer-link">Our Drivers</a>
+                        <a href="contact-us.html" class="footer-link">Contact us</a>
+                    </div>
+                    <div class="footer-links-group">
+                        <div class="footer-links-title">Services</div>
+                        <a class="footer-link" href="services-detail.html">Dispatching Services</a>
+                        <a class="footer-link" href="services-detail.html">Rate Negotiation</a>
+                        <a class="footer-link" href="services-detail.html">Freight Factoring</a>
+                        <a class="footer-link" href="services-detail.html">Document Dispatch Services</a>
+                        <a class="footer-link" href="services-detail.html">Trucking Documents & Management</a>
+                        <a class="footer-link" href="services-detail.html">Trucking Accounting</a>
+                        <a class="footer-link" href="services-detail.html">IFTA Reporting</a>
+                        <a class="footer-link" href="services-detail.html">DOT Compliance & Safety Services</a>
+                        <a class="footer-link" href="services-detail.html">Company Formation Services</a>
+                        <a class="footer-link" href="services-detail.html">MC Lease Assistance </a>
+                        <a class="footer-link" href="services-detail.html">Equipment-Specific Dispatch</a>
+                    </div>
+                </div>
+                <div class="footer-social-column">
+                    <div>
+                        <span class="footer-social-title">Connect With Us</span>
+                        <div class="footer-social-icons">
+                            <a href="#" class="footer-social-icon" aria-label="Facebook"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="footer-social-icon" aria-label="Twitter"><i
+                                    class="fab fa-twitter"></i></a>
+                            <a href="#" class="footer-social-icon" aria-label="LinkedIn"><i
+                                    class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="footer-social-icon" aria-label="Instagram"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="#" class="footer-social-icon" aria-label="YouTube"><i
+                                    class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-links">
+                    <a href="#" class="footer-bottom-link">Privacy Policy</a>
+                    <a href="#" class="footer-bottom-link">Terms of Service</a>
+                    <a href="#" class="footer-bottom-link">Terms of Service</a>
+
+                </div>
+                <div class="footer-copyright">
+                    <i class="far fa-copyright"></i> 2025 CoreTech Dispatch. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="https://wa.me/13134820702" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Background image load simulation
+        const heroBg = document.getElementById('heroBg');
+        setTimeout(() => {
+            heroBg.classList.add('loaded');
+        }, 100);
+
+        // Create floating particles
+        const particlesContainer = document.getElementById('particlesContainer');
+        const particleCount = 20;
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+
+            // Random properties
+            const size = Math.random() * 8 + 2;
+            const posX = Math.random() * 100;
+            const delay = Math.random() * 15;
+            const duration = Math.random() * 10 + 15;
+
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${posX}%`;
+            particle.style.animationDelay = `${delay}s`;
+            particle.style.animationDuration = `${duration}s`;
+
+            particlesContainer.appendChild(particle);
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Animate content container
+                    document.getElementById('heroContent').classList.add('visible');
+
+                    // Animate elements with staggered delays
+                    setTimeout(() => {
+                        document.getElementById('heroTitle').classList.add('visible');
+                    }, 300);
+
+                    setTimeout(() => {
+                        document.getElementById('blueAccent').classList.add('visible');
+                    }, 800);
+
+                    setTimeout(() => {
+                        document.getElementById('heroText').classList.add('visible');
+                    }, 500);
+
+                    setTimeout(() => {
+                        document.getElementById('heroBtn').classList.add('visible');
+                    }, 700);
+                }
+            });
+        }, observerOptions);
+
+        // Observe the hero section
+        observer.observe(document.querySelector('.coretech-hero-section'));
+    });
+</script>
+<script src="assets/js/header.js"></script>
+<script src="assets/js/animation.js"></script>
+
+</html>
