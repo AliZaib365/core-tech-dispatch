@@ -20,8 +20,8 @@
                         <!-- Fallback for older browsers -->
                         <source srcset="{{ asset('frontend/assets/images/dry-van-sunset.webp') }}" type="image/jpeg">
                         <!-- Default fallback -->
-                        <img src="{{ asset('frontend/assets/images/dry-van-sunset.webp') }}" alt="26ft Box Truck" class="truck-photo"
-                            loading="lazy">
+                        <img src="{{ asset('frontend/assets/images/dry-van-sunset.webp') }}" alt="26ft Box Truck"
+                            class="truck-photo" loading="lazy">
                     </picture>
                 </div>
 
@@ -89,7 +89,8 @@
                 <div class="image-container">
                     <picture>
                         <source srcset="{{ asset('frontend/assets/images/dryvan2.webp') }}" type="image/webp">
-                        <img src="{{ asset('frontend/assets/images/dryvan2.webp') }}" alt="26ft Box Truck on the road" loading="lazy">
+                        <img src="{{ asset('frontend/assets/images/dryvan2.webp') }}" alt="26ft Box Truck on the road"
+                            loading="lazy">
                     </picture>
                 </div>
             </div>
@@ -118,7 +119,7 @@
                 <div class="dispatch-card1">
                     <h3 class="dispatch-title1"><i class="fas fa-headset"></i>24/7 Support</h3>
                     <p class="dispatch-desc1">Our team is available around the clock to resolve issues and keep your
-                         Dry Van moving efficiently.</p>
+                        Dry Van moving efficiently.</p>
                 </div>
                 <div class="dispatch-card1">
                     <h3 class="dispatch-title1"><i class="fas fa-city"></i>Urban Delivery Expertise</h3>
@@ -143,7 +144,11 @@
                     <h3><span class="icon-check1">✓</span> <span class="accent-text1">Load sourcing & rate
                             negotiation</span></h3>
                     <p>
-                        We don’t settle for just any dry van load we find the ones that best fit your business. Our dispatchers utilize multiple platforms, including exclusive networks not available to most drivers, to secure the most profitable freight opportunities. We negotiate top rates so every mile delivers maximum value. Whether you’re searching for “dry van dispatch services near me” or the best dry van trucking dispatch services in Texas, CoreTech has you covered.
+                        We don’t settle for just any dry van load we find the ones that best fit your business. Our
+                        dispatchers utilize multiple platforms, including exclusive networks not available to most drivers,
+                        to secure the most profitable freight opportunities. We negotiate top rates so every mile delivers
+                        maximum value. Whether you’re searching for “dry van dispatch services near me” or the best dry van
+                        trucking dispatch services in Texas, CoreTech has you covered.
                     </p>
                 </div>
                 <div class="service-card1">
@@ -191,7 +196,8 @@
                         <!-- Fallback for older browsers -->
                         <source srcset="{{ asset('frontend/assets/images/image-86.webp') }}" type="image/jpeg">
                         <!-- Default fallback -->
-                        <img src="{{ asset('frontend/assets/images/image-86.webp') }}" alt="Dispatcher in Truck Stop" loading="lazy">
+                        <img src="{{ asset('frontend/assets/images/image-86.webp') }}" alt="Dispatcher in Truck Stop"
+                            loading="lazy">
                     </picture>
                 </div>
                 <div class="right-cards2">
@@ -248,95 +254,7 @@
         </section>
     </div>
 
-    <section class="blue-setup-section" id="mainSection">
-        <div class="blue-setup-main" id="mainContainer">
-            <div class="blue-setup-left" id="leftPanel">
-                <div class="blue-setup-info">
-                    <h1 id="mainHeading">Get Your Free Setup Today</h1>
-                    <span class="subtitle" id="subtitle">Premium Dispatch Services</span>
-                    <h3 id="subHeading">Expert Setup Assistance at No Cost</h3>
-
-
-                    <ul class="benefits-list">
-                        <li id="benefit1">
-                            <i class="fas fa-check-circle"></i>
-                            <span>24/7 access to premium loads in your area</span>
-                        </li>
-                        <li id="benefit2">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Dedicated support team for all your needs</span>
-                        </li>
-                        <li id="benefit3">
-                            <i class="fas fa-check-circle"></i>
-                            <span>No hidden fees or long-term contracts</span>
-                        </li>
-                        <li id="benefit4">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Customized load matching based on your preferences</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="blue-setup-right" id="rightPanel">
-                <form class="blue-setup-form-wrap" id="setupForm" autocomplete="off">
-                    <div id="successMessage" class="success-message" style="display: none;">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Thank you! Your request has been submitted successfully.</span>
-                    </div>
-
-                    <h2 class="blue-setup-form-title" id="formTitle">
-                        <span class="blue-star">★</span> Free Setup Request
-                    </h2>
-
-                    <div class="form-group" id="nameGroup">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" class="form-control" placeholder="John Smith" required>
-                        <i class="fas fa-user input-icon"></i>
-                        <div class="error-message" id="nameError">Please enter your full name</div>
-                    </div>
-
-                    <div class="form-group" id="emailGroup">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" class="form-control" placeholder="your@email.com"
-                            required>
-                        <i class="fas fa-envelope input-icon"></i>
-                        <div class="error-message" id="emailError">Please enter a valid email address</div>
-                    </div>
-
-                    <div class="form-group" id="phoneGroup">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="+1 (___) ___-____"
-                            required>
-                        <i class="fas fa-phone input-icon"></i>
-                        <div class="error-message" id="phoneError">Please enter a valid phone number</div>
-                    </div>
-
-                    <div class="checkbox-group" id="emailCheckGroup">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="email-updates" checked>
-                            <span>I agree to receive email updates, offers, and notifications from Dispatch
-                                Service.</span>
-                        </label>
-                    </div>
-
-                    <div class="checkbox-group" id="termsCheckGroup">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="sms-updates" required>
-                            <span>I agree to receive text messages for conversational purposes at the phone number
-                                provided. Message frequency varies. Reply STOP to opt-out. <a href="#"
-                                    target="_blank">Privacy Policy</a> and <a href="#" target="_blank">Terms of
-                                    Service</a> apply.</span>
-                        </label>
-                        <div class="error-message" id="termsError">You must agree to the terms to continue</div>
-                    </div>
-
-                    <button type="submit" class="btn pulse" id="submitBtn">
-                        <i class="fas fa-paper-plane"></i> Get Started Now
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
+    @include('frontend.contactus.form')
     <section class="coretech-hero-section">
         <div class="coretech-hero-bg" id="heroBg"></div>
         <div class="particles" id="particlesContainer"></div>

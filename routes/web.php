@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactusController;
 
 Route::get('/', function () {
     return view('frontend.main');
@@ -16,6 +17,8 @@ Route::group(['prefix' => 'info'], function () {
     Route::view('shipper', 'frontend.company.shipper');
     Route::view('all-trucks', 'frontend.trucks.index');
     Route::view('all-services', 'frontend.services.index');
+
+    Route::post('contact-us', [ContactusController::class, 'create'])->name('contactus.create');
 });
 
 

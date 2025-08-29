@@ -78,35 +78,35 @@
                                 Setup</button></a>
                     </div>
                     <div class="truck-types-grid" id="truck-grid">
-                        <a href="stepdeck-truck.html" class="truck-type-card"
+                        <a href="{{ url('truck-detail/stepdeck-truck') }}" class="truck-type-card"
                             style="background-image: url('{{ asset('frontend/assets/images/Compressed/Step-deck-Trailer_11zon.webp') }}')">
                             <span>Step Deck</span>
                         </a>
-                        <a href="dryvan-truck.html" class="truck-type-card"
+                        <a href="{{ url('truck-detail/dryvan-truck') }}" class="truck-type-card"
                             style="background-image: url('{{ asset('frontend/assets/images/Compressed/dry-van-sunset_11zon.webp') }}')">
                             <span>Dry Van</span>
                         </a>
-                        <a href="box-truck.html" class="truck-type-card"
+                        <a href="{{ url('truck-detail/box-truck') }}" class="truck-type-card"
                             style="background-image: url('{{ asset('frontend/assets/images/Compressed/box-truck_11zon.webp') }}')">
                             <span> Box Truck</span>
                         </a>
-                        <a href="reefer-truck.html" class="truck-type-card"
+                        <a href="{{ url('truck-detail/reefer-truck') }}" class="truck-type-card"
                             style="background-image: url('{{ asset('frontend/assets/images/Compressed/reefeer_11zon.webp') }}')">
                             <span> Reefer</span>
                         </a>
-                        <a href="power-truck.html" class="truck-type-card"
+                        <a href="{{ url('truck-detail/power-truck') }}" class="truck-type-card"
                             style="background-image: url('{{ asset('frontend/assets/images/Compressed/power-only_11zon.webp') }}')">
                             <span> Power Only</span>
                         </a>
-                        <a href="Hotshot-truck.html" class="truck-type-card"
+                        <a href="{{ url('truck-detail/hot-spot') }}" class="truck-type-card"
                             style="background-position: top; background-image: url('{{ asset('frontend/assets/images/Compressed/hotshot-truck-1024x479-4_11zon.webp') }}') ">
                             <span>Hot Shot</span>
                         </a>
-                        <a href="conestoga-truck.html" class="truck-type-card"
+                        <a href="{{ url('truck-detail/conestoga-truck') }}" class="truck-type-card"
                             style="background-image: url('{{ asset('frontend/assets/images/Compressed/conestoga_11zon.webp') }}')">
                             <span> Conestoga Trailer</span>
                         </a>
-                        <a href="flatbed-truck.html" class="truck-type-card"
+                        <a href="{{ url('truck-detail/flatbed-truck') }}" class="truck-type-card"
                             style="background-image: url('{{ asset('frontend/assets/images/Compressed/flatbed_11zon.webp') }}')">
                             <span> Flatbed</span>
                         </a>
@@ -166,95 +166,7 @@
         </section>
     </div>
 
-    <section class="blue-setup-section" id="mainSection">
-        <div class="blue-setup-main" id="mainContainer">
-            <div class="blue-setup-left" id="leftPanel">
-                <div class="blue-setup-info">
-                    <h1 id="mainHeading">Get Your Free Setup Today</h1>
-                    <span class="subtitle" id="subtitle">Premium Dispatch Services</span>
-                    <h3 id="subHeading">Expert Setup Assistance at No Cost</h3>
-
-
-                    <ul class="benefits-list">
-                        <li id="benefit1">
-                            <i class="fas fa-check-circle"></i>
-                            <span>24/7 access to premium loads in your area</span>
-                        </li>
-                        <li id="benefit2">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Dedicated support team for all your needs</span>
-                        </li>
-                        <li id="benefit3">
-                            <i class="fas fa-check-circle"></i>
-                            <span>No hidden fees or long-term contracts</span>
-                        </li>
-                        <li id="benefit4">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Customized load matching based on your preferences</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="blue-setup-right" id="rightPanel">
-                <form class="blue-setup-form-wrap" id="setupForm" autocomplete="off">
-                    <div id="successMessage" class="success-message" style="display: none;">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Thank you! Your request has been submitted successfully.</span>
-                    </div>
-
-                    <h2 class="blue-setup-form-title" id="formTitle">
-                        <span class="blue-star">★</span> Free Setup Request
-                    </h2>
-
-                    <div class="form-group" id="nameGroup">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" class="form-control" placeholder="John Smith" required>
-                        <i class="fas fa-user input-icon"></i>
-                        <div class="error-message" id="nameError">Please enter your full name</div>
-                    </div>
-
-                    <div class="form-group" id="emailGroup">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" class="form-control" placeholder="your@email.com"
-                            required>
-                        <i class="fas fa-envelope input-icon"></i>
-                        <div class="error-message" id="emailError">Please enter a valid email address</div>
-                    </div>
-
-                    <div class="form-group" id="phoneGroup">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="+1 (___) ___-____"
-                            required>
-                        <i class="fas fa-phone input-icon"></i>
-                        <div class="error-message" id="phoneError">Please enter a valid phone number</div>
-                    </div>
-
-                    <div class="checkbox-group" id="emailCheckGroup">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="email-updates" checked>
-                            <span>I agree to receive email updates, offers, and notifications from Dispatch
-                                Service.</span>
-                        </label>
-                    </div>
-
-                    <div class="checkbox-group" id="termsCheckGroup">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="sms-updates" required>
-                            <span>I agree to receive text messages for conversational purposes at the phone number
-                                provided. Message frequency varies. Reply STOP to opt-out. <a href="#"
-                                    target="_blank">Privacy Policy</a> and <a href="#" target="_blank">Terms of
-                                    Service</a> apply.</span>
-                        </label>
-                        <div class="error-message" id="termsError">You must agree to the terms to continue</div>
-                    </div>
-
-                    <button type="submit" class="btn pulse" id="submitBtn">
-                        <i class="fas fa-paper-plane"></i> Get Started Now
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
+@include('frontend.contactus.form')
     <section class="coretech-hero-section">
         <div class="coretech-hero-bg" id="heroBg"></div>
         <div class="particles" id="particlesContainer"></div>
