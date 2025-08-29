@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-
+@section('title', 'About Us - CoreTech Dispatch')
 @section('main-content')
     <section class="about-container1">
         <div class="about-header1">
@@ -135,7 +135,7 @@
                 Drive with <span class="coretech-blue-accent" id="blueAccent">CoreTech</span>
             </h1>
             <p id="heroText">We'll help you earn more — <span class="coretech-less-stress">and stress less</span></p>
-            <a href="{{ url('contact-us') }}" class="coretech-hero-btn" id="heroBtn">Get your free setup</a>
+            <a href="{{ url('info/contact-us') }}" class="coretech-hero-btn" id="heroBtn">Get your free setup</a>
         </div>
     </section>
 

@@ -1,4 +1,5 @@
 @extends('frontend.layouts.master')
+@section('title', 'Driver Opportunities - CoreTech Dispatch')
 @section('main-content')
     <section class="container23">
         <div class="driver-breadcrumb">
@@ -11,7 +12,7 @@
                 <h1 class="driver-title">Driver Opportunities</h1>
                 <p class="driver-subtitle">Drive, deliver, and maximize your earnings with our comprehensive support
                     system</p>
-                <a href="contact-us.html" class="cta-button1">Join Our Team Today</a>
+                <a href="{{ url('info/contact-us') }}" class="cta-button1">Join Our Team Today</a>
             </div>
 
             <div class="driver-col-mid" id="contact">
@@ -60,7 +61,7 @@
                 Drive with <span class="coretech-blue-accent" id="blueAccent">CoreTech</span>
             </h1>
             <p id="heroText">We'll help you earn more — <span class="coretech-less-stress">and stress less</span></p>
-            <a href="contact-us.html" class="coretech-hero-btn" id="heroBtn">Get your free setup</a>
+            <a href="{{ url('info/contact-us') }}" class="coretech-hero-btn" id="heroBtn">Get your free setup</a>
         </div>
     </section>
 

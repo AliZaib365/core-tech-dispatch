@@ -35,11 +35,11 @@
                 <div class="footer-links-container">
                     <div class="footer-links-group">
                         <div class="footer-links-title">Company</div>
-                        <a href="{{ url('about-us') }}" class="footer-link">About us</a>
-                        <a href="{{ url('how-to-start') }}" class="footer-link">How To Start</a>
-                        <a href="{{ url('shipper') }}" class="footer-link">Shippers</a>
-                        <a href="{{ url('ourdrivers') }}" class="footer-link">Our Drivers</a>
-                        <a href="{{ url('contact-us') }}" class="footer-link">Contact us</a>
+                        <a href="{{ url('info/about-us') }}" class="footer-link">About us</a>
+                        <a href="{{ url('info/how-to-start') }}" class="footer-link">How To Start</a>
+                        <a href="{{ url('info/shipper') }}" class="footer-link">Shippers</a>
+                        <a href="{{ url('info/ourdrivers') }}" class="footer-link">Our Drivers</a>
+                        <a href="{{ url('info/contact-us') }}" class="footer-link">Contact us</a>
                     </div>
                     <div class="footer-links-group">
                         <div class="footer-links-title">Services</div>

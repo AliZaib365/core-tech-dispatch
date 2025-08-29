@@ -1,4 +1,5 @@
 @extends('frontend.layouts.master')
+@section('title', 'Home - CoreTech Dispatch')
 @section('main-content')
     <section class="hero-section">
         <div class="video-loading" id="videoLoading">
@@ -20,7 +21,7 @@
             </p>
 
             <div class="cta-container2">
-                <a href="contact-us.html" class="cta-button2">
+                <a href="{{ url('info/contact-us') }}" class="cta-button2">
                     Get Started
                 </a>
                 <a href="faq.html" class="cta-button2 secondary-button">
@@ -363,7 +364,7 @@
                     <p id="description">Your trucks will stay loaded, your routes optimized, and your paperwork handled
                         — so you can
                         focus on what matters most: the road ahead.</p>
-                    <a href="contact-us.html"><button class="setup-btn" id="cta-button">Get a Free Setup</button></a>
+                    <a href="{{ url('info/contact-us') }}"><button class="setup-btn" id="cta-button">Get a Free Setup</button></a>
                 </div>
                 <div class="truck-types-grid" id="truck-grid">
                     <a href="stepdeck-truck.html" class="truck-type-card"
@@ -495,7 +496,7 @@
             <p class="partnership-desc" id="partnership-desc">
                 We provide you with all information on loads, rates, and work conditions
             </p>
-            <a href="contact-us.html" class="partnership-btn" id="partnership-btn">Get your free setup</a>
+            <a href="{{ url('info/contact-us') }}" class="partnership-btn" id="partnership-btn">Get your free setup</a>
         </div>
     </section>
     <section class="dispatchers-section blue-theme">
@@ -918,7 +919,7 @@
                 Drive with <span class="coretech-blue-accent" id="blueAccent">CoreTech</span>
             </h1>
             <p id="heroText">We'll help you earn more — <span class="coretech-less-stress">and stress less</span></p>
-            <a href="contact-us.html" class="coretech-hero-btn" id="heroBtn">Get your free setup</a>
+            <a href="{{ url('info/contact-us') }}" class="coretech-hero-btn" id="heroBtn">Get your free setup</a>
         </div>
     </section>
     <section class="faq-section blue-theme">

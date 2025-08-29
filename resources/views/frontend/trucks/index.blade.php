@@ -1,92 +1,114 @@
 @extends('frontend.layouts.master')
-@section('title', 'Contact Us - CoreTech Dispatch')
+@section('title', 'Our Trucks - CoreTech Dispatch')
 @section('main-content')
-    <section class="contact-container" id="contact-section">
-        <h1 class="contact-title">Contact Us</h1>
-        <div class="contact-subtitle">
-            If you have any questions or you'd like to find out more about our services, please get in touch. Our
-            team is ready to assist you with any inquiries.
+
+
+    <section class="coretech-trucks-section">
+        <div class="coretech-trucks-header">
+            <h2>
+                <h1 class="contact-title">Our Trucks</h1>
+            </h2>
+            <hr class="coretech-trucks-divider" />
         </div>
-        <div class="contact-content">
-            <div class="contact-hours">
-                <div class="contact-hours-title">
-                    <i class="fas fa-clock"></i> Operational Hours (EST Time)
+        <div class="coretech-trucks-grid">
+            <div class="coretech-truck-card"
+                style="background-image: url('{{ asset('frontend/assets/images/Compressed/box-truck_11zon.webp') }}');">
+                <div class="coretech-truck-info">
+                    <span class="coretech-truck-name">Box Truck</span>
+                    <a href="box-truck.html" class="coretech-truck-btn">View Details
+                        <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
+                            <path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 12l6-6m0 0V4m0 2h-2" />
+                        </svg>
+                    </a>
                 </div>
-                <table class="contact-hours-table">
-                    <tbody>
-                        <tr>
-                            <td>Monday</td>
-                            <td class="contact-hours-on">7:00 AM – 5:00 PM</td>
-                        </tr>
-                        <tr>
-                            <td>Tuesday</td>
-                            <td class="contact-hours-on">7:00 AM – 5:00 PM</td>
-                        </tr>
-                        <tr>
-                            <td>Wednesday</td>
-                            <td class="contact-hours-on">7:00 AM – 5:00 PM</td>
-                        </tr>
-                        <tr>
-                            <td>Thursday</td>
-                            <td class="contact-hours-on">7:00 AM – 5:00 PM</td>
-                        </tr>
-                        <tr>
-                            <td>Friday</td>
-                            <td class="contact-hours-on">7:00 AM – 5:00 PM</td>
-                        </tr>
-                        <tr>
-                            <td>Saturday</td>
-                            <td class="contact-hours-off">Closed</td>
-                        </tr>
-                        <tr>
-                            <td>Sunday</td>
-                            <td class="contact-hours-off">Closed</td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
-            <div class="contact-details">
-                <ul class="contact-list">
-                    <li>
-                        <span class="contact-bullet"><i class="fas fa-check"></i></span>
-                        <b>Ask your question:</b> Our specialists will dispel any doubts and provide all the
-                        necessary information for the best solution to your needs.
-                    </li>
-                    <li>
-                        <span class="contact-bullet"><i class="fas fa-check"></i></span>
-                        Fill out the short form below, and we will prepare a personalized load plan tailored to your
-                        specific requirements.
-                    </li>
-                    <li>
-                        <span class="contact-bullet"><i class="fas fa-check"></i></span>
-                        <b>Quick response:</b> Expect a call from our logistician soon. We will ensure clear
-                        communication at all stages of cooperation.
-                    </li>
-                </ul>
-                <div class="contact-social-title">
-                    <i class="fas fa-share-alt"></i> Connect With Us
+            <div class="coretech-truck-card"
+                style="background-image: url('{{ asset('frontend/assets/images/Compressed/hotshot-truck-1024x479-4_11zon.webp') }}');">
+                <div class="coretech-truck-info">
+                    <span class="coretech-truck-name">Hotshot Truck</span>
+                    <a href="Hotshot-truck.html" class="coretech-truck-btn">View Details
+                        <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
+                            <path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 12l6-6m0 0V4m0 2h-2" />
+                        </svg>
+                    </a>
                 </div>
-                <div class="contact-social-buttons">
-                    <a href="#" class="contact-social-btn facebook" aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
+            </div>
+            <div class="coretech-truck-card"
+                style="background-position: right; background-image: url('{{ asset('frontend/assets/images/Compressed/power-only_11zon.webp') }}');">
+                <div class="coretech-truck-info">
+                    <span class="coretech-truck-name">Power Only</span>
+                    <a href="power-truck.html" class="coretech-truck-btn">View Details
+                        <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
+                            <path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 12l6-6m0 0V4m0 2h-2" />
+                        </svg>
                     </a>
-                    <a href="#" class="contact-social-btn twitter" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
+                </div>
+            </div>
+            <div class="coretech-truck-card"
+                style="background-image: url('{{ asset('frontend/assets/images/Compressed/flatbed_11zon.webp') }}');">
+                <div class="coretech-truck-info">
+                    <span class="coretech-truck-name">Flatbed Truck</span>
+                    <a href="flatbed-truck.html" class="coretech-truck-btn">View Details
+                        <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
+                            <path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 12l6-6m0 0V4m0 2h-2" />
+                        </svg>
                     </a>
-                    <a href="#" class="contact-social-btn linkedin" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
+                </div>
+            </div>
+            <div class="coretech-truck-card"
+                style="background-image: url('{{ asset('frontend/assets/images/Compressed/reefeer_11zon.webp') }}');">
+                <div class="coretech-truck-info">
+                    <span class="coretech-truck-name">Reefer Truck</span>
+                    <a href="reefer-truck.html" class="coretech-truck-btn">View Details
+                        <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
+                            <path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 12l6-6m0 0V4m0 2h-2" />
+                        </svg>
                     </a>
-                    <a href="#" class="contact-social-btn instagram" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
+                </div>
+            </div>
+            <div class="coretech-truck-card"
+                style="background-image: url('{{ asset('frontend/assets/images/Compressed/Step-deck-Trailer_11zon.webp') }}');">
+                <div class="coretech-truck-info">
+                    <span class="coretech-truck-name">Step Deck</span>
+                    <a href="stepdeck-truck.html" class="coretech-truck-btn">View Details
+                        <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
+                            <path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 12l6-6m0 0V4m0 2h-2" />
+                        </svg>
                     </a>
-                    <a href="#" class="contact-social-btn youtube" aria-label="YouTube">
-                        <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+            <div class="coretech-truck-card"
+                style="background-image: url('{{ asset('frontend/assets/images/Compressed/dry-van-sunset_11zon.webp') }}');">
+                <div class="coretech-truck-info">
+                    <span class="coretech-truck-name">Dry Van</span>
+                    <a href="dryvan-truck.html" class="coretech-truck-btn">View Details
+                        <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
+                            <path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 12l6-6m0 0V4m0 2h-2" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="coretech-truck-card"
+                style="background-image: url('{{ asset('frontend/assets/images/Compressed/conestoga_11zon.webp') }}');">
+                <div class="coretech-truck-info">
+                    <span class="coretech-truck-name">Conestoga Trailer</span>
+                    <a href="conestoga-truck.html" class="coretech-truck-btn">View Details
+                        <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
+                            <path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 12l6-6m0 0V4m0 2h-2" />
+                        </svg>
                     </a>
                 </div>
             </div>
         </div>
     </section>
-
     <section class="blue-setup-section" id="mainSection">
         <div class="blue-setup-main" id="mainContainer">
             <div class="blue-setup-left" id="leftPanel">
@@ -94,6 +116,8 @@
                     <h1 id="mainHeading">Get Your Free Setup Today</h1>
                     <span class="subtitle" id="subtitle">Premium Dispatch Services</span>
                     <h3 id="subHeading">Expert Setup Assistance at No Cost</h3>
+
+
                     <ul class="benefits-list">
                         <li id="benefit1">
                             <i class="fas fa-check-circle"></i>
@@ -127,24 +151,23 @@
 
                     <div class="form-group" id="nameGroup">
                         <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" class="form-control" placeholder="John Smith"
-                            required>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="John Smith" required>
                         <i class="fas fa-user input-icon"></i>
                         <div class="error-message" id="nameError">Please enter your full name</div>
                     </div>
 
                     <div class="form-group" id="emailGroup">
                         <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" class="form-control"
-                            placeholder="your@email.com" required>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="your@email.com"
+                            required>
                         <i class="fas fa-envelope input-icon"></i>
                         <div class="error-message" id="emailError">Please enter a valid email address</div>
                     </div>
 
                     <div class="form-group" id="phoneGroup">
                         <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" class="form-control"
-                            placeholder="+1 (___) ___-____" required>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="+1 (___) ___-____"
+                            required>
                         <i class="fas fa-phone input-icon"></i>
                         <div class="error-message" id="phoneError">Please enter a valid phone number</div>
                     </div>
@@ -183,7 +206,7 @@
                 Don't drive empty<br>
                 Drive with <span class="coretech-blue-accent" id="blueAccent">CoreTech</span>
             </h1>
-            <p id="heroText">We'll help you earn more  <span class="coretech-less-stress">and stress less</span></p>
+            <p id="heroText">We'll help you earn more <span class="coretech-less-stress">and stress less</span></p>
             <a href="{{ url('info/contact-us') }}" class="coretech-hero-btn" id="heroBtn">Get your free setup</a>
         </div>
     </section>
@@ -204,7 +227,7 @@
                     <div class="faq-answer">
                         <div>
                             Our dispatch experts handle route planning, paperwork, and negotiations, so you can focus on
-                            driving and growing your businesssaving you valuable time.
+                            driving and growing your business—saving you valuable time.
                         </div>
                     </div>
                 </div>
@@ -217,7 +240,7 @@
                         <div>
                             We support a wide range of freight, including dry vans, reefers, flatbeds, box trucks, and
                             hot
-                            shotsno matter your equipment, we've got you covered.
+                            shots—no matter your equipment, we've got you covered.
                         </div>
                     </div>
                 </div>
@@ -230,7 +253,7 @@
                         <div>
                             Our pricing is transparent and competitive, with no hidden costs. You only pay for loads we
                             book
-                            for youreach out for a custom quote!
+                            for you—reach out for a custom quote!
                         </div>
                     </div>
                 </div>
@@ -242,7 +265,7 @@
                     <div class="faq-answer">
                         <div>
                             Absolutely! We work to secure top-paying loads, minimize empty miles, and optimize your
-                            schedulehelping maximize your revenue and efficiency.
+                            schedule—helping maximize your revenue and efficiency.
                         </div>
                     </div>
                 </div>
@@ -251,42 +274,4 @@
     </section>
 
 
-    <script>
-        // Use Intersection Observer for better performance & smoother fade-in
-        document.addEventListener('DOMContentLoaded', function() {
-            const contactSection = document.getElementById('contact-section');
-            if ('IntersectionObserver' in window) {
-                let observer = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            contactSection.classList.add('visible');
-                            observer.disconnect();
-                        }
-                    });
-                }, {
-                    threshold: 0.25
-                });
-                observer.observe(contactSection);
-            } else {
-                // fallback for browsers without IntersectionObserver
-                function isInViewport(element) {
-                    const rect = element.getBoundingClientRect();
-                    return (
-                        rect.top >= 0 &&
-                        rect.left >= 0 &&
-                        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-                    );
-                }
-                if (isInViewport(contactSection)) {
-                    contactSection.classList.add('visible');
-                }
-                window.addEventListener('scroll', function() {
-                    if (isInViewport(contactSection)) {
-                        contactSection.classList.add('visible');
-                    }
-                });
-            }
-        });
-    </script>
 @endsection

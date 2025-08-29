@@ -1,4 +1,5 @@
 @extends('frontend.layouts.master')
+@section('title', 'Faqs - CoreTech Dispatch')
 @section('main-content')
     <section class="coretech-faq-section">
         <!-- Floating elements for background -->
@@ -27,7 +28,7 @@
                     dedication to honesty and transparency.
                 </p>
                 <p>
-                    Feel free to <a href="{{ url('contact-us') }}" class="coretech-faq-link"><b>contact us</b> <i
+                    Feel free to <a href="{{ url('info/contact-us') }}" class="coretech-faq-link"><b>contact us</b> <i
                             class="fas fa-arrow-right"></i></a>,
                     or see if your question is
                     one we are frequently asked.
@@ -55,7 +56,7 @@
                         Feel free to contact us
                     </div>
                 </div>
-                <a href="{{ url('/contact-us') }}" class="coretech-faq-contact-btn">Ask a question</a>
+                <a href="{{ url('info/contact-us') }}" class="coretech-faq-contact-btn">Ask a question</a>
             </div>
         </div>
         <div class="coretech-faq-main">

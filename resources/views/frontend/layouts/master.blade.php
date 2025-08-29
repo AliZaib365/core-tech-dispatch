@@ -4,7 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoreTech Dispatch - Logistics Solutions</title>
+    <title>@yield('title', 'CoreTech Dispatch - Logistics Solutions')</title>
+    {{-- want to write dynamic description --}}
+    <meta name="description" content="@yield('meta_description', 'CoreTech Dispatch offers top-notch logistics solutions including dispatching services, rate negotiation, freight factoring, and more. Contact us today!')">
+    <meta name="keywords" content="@yield('meta_keywords', 'Logistics, Dispatching Services, Rate Negotiation, Freight Factoring, Trucking Accounting, IFTA Reporting, DOT Compliance, Company Formation, Trucking Documents')">
+    <meta name="author" content="CoreTech Dispatch">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap"

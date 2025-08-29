@@ -1,4 +1,5 @@
 @extends('frontend.layouts.master')
+@section('title', 'Shippers - CoreTech Dispatch')
 @section('main-content')
     <section class="shippers-main">
         <aside class="shippers-sidebar">
@@ -11,7 +12,7 @@
             </ul>
             <div class="ask-block">
                 <div class="ask-title">Have any questions?</div>
-                <a style="text-decoration: none;" href="{{ url('contact-us') }}"> <button class="ask-btn">
+                <a style="text-decoration: none;" href="{{ url('info/contact-us') }}"> <button class="ask-btn">
                         <i class="fas fa-question-circle"></i> Ask a question
                     </button></a>
             </div>
@@ -266,7 +267,7 @@
                 Drive with <span class="coretech-blue-accent" id="blueAccent">CoreTech</span>
             </h1>
             <p id="heroText">We'll help you earn more — <span class="coretech-less-stress">and stress less</span></p>
-            <a href="{{ url('contact-us') }}" class="coretech-hero-btn" id="heroBtn">Get your free setup</a>
+            <a href="{{ url('info/contact-us') }}" class="coretech-hero-btn" id="heroBtn">Get your free setup</a>
         </div>
     </section>
 
