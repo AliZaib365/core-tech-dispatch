@@ -1,153 +1,216 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all functionality
+    initVideoLoading();
+    initScrollAnimations();
+    initCarousels();
+    initFormValidation();
+    initFAQ();
+    initParticles();
+    initCounters();
+});
+
+// Video loading and fallback
+function initVideoLoading() {
     const video = document.getElementById('heroVideo');
     const videoLoading = document.getElementById('videoLoading');
     const scrollIndicator = document.getElementById('scrollIndicator');
     const brokerSection = document.getElementById('brokerSection');
+    
+    if (!video) return;
+    
+    // Handle broker track duplication if exists
     const track = document.querySelector('.broker-track');
     if (track) {
         const items = document.querySelectorAll('.broker-item');
         const totalWidth = Array.from(items).reduce((acc, item) => acc + item.offsetWidth, 0);
-
-        // Duplicate items for seamless scroll
         track.innerHTML += track.innerHTML;
-
-        // Adjust track width
         track.style.width = `${totalWidth * 2}px`;
     }
+    
+    // Scroll to broker section
+    if (scrollIndicator && brokerSection) {
+        scrollIndicator.addEventListener('click', function() {
+            brokerSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    }
+    
     // Preload and handle video loading
     function handleVideoLoad() {
-        // Force video preloading
         video.load();
-
-        // Show video when enough data is loaded
-        video.addEventListener('loadeddata', function () {
-            // Check if enough data is loaded to play
+        
+        video.addEventListener('loadeddata', function() {
             if (video.readyState >= 3) {
                 video.classList.add('loaded');
-                videoLoading.style.display = 'none';
+                if (videoLoading) videoLoading.style.display = 'none';
             }
         });
-
+        
         // Fallback if loadeddata doesn't fire
-        setTimeout(function () {
+        setTimeout(function() {
             video.classList.add('loaded');
-            videoLoading.style.display = 'none';
+            if (videoLoading) videoLoading.style.display = 'none';
         }, 2000);
-
+        
         // Handle video errors
-        video.addEventListener('error', function () {
+        video.addEventListener('error', function() {
             console.error('Video failed to load, using fallback background');
-            document.querySelector('.hero-section').style.background = "linear-gradient(rgb(10 16 29 / 70%), rgb(10 16 29)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80')";
-            document.querySelector('.hero-section').style.backgroundSize = "cover";
-            document.querySelector('.hero-section').style.backgroundPosition = "center";
-            videoLoading.style.display = 'none';
+            const heroSection = document.querySelector('.hero-section');
+            if (heroSection) {
+                heroSection.style.background = "linear-gradient(rgb(10 16 29 / 70%), rgb(10 16 29)), url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80')";
+                heroSection.style.backgroundSize = "cover";
+                heroSection.style.backgroundPosition = "center";
+            }
+            if (videoLoading) videoLoading.style.display = 'none';
         });
     }
-
-    // Scroll to broker section
-    scrollIndicator.addEventListener('click', function () {
-        brokerSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-    });
-
-    // Initialize video loading
+    
     handleVideoLoad();
-});
+}
 
-document.addEventListener('DOMContentLoaded', function () {
-    const section = document.getElementById('services-section');
-    let animated = false;
-
-    // Function to check if element is in viewport
-    function isInViewport(element) {
-        const rect = element.getBoundingClientRect();
-        return (
-            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.9 &&
-            rect.bottom >= 0
-        );
-    }
-
-    // Check on load
-    if (isInViewport(section) && !animated) {
-        section.classList.add('visible');
-        setTimeout(() => {
-            section.classList.add('animated');
-        }, 300);
-        animated = true;
-    }
-
-    // Check on scroll
-    window.addEventListener('scroll', function () {
-        if (isInViewport(section) && !animated) {
-            section.classList.add('visible');
-            setTimeout(() => {
-                section.classList.add('animated');
-            }, 300);
-            animated = true;
-        }
+// Scroll animations with Intersection Observer
+function initScrollAnimations() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Add visible class to animate element
+                entry.target.classList.add('visible');
+                
+                // Handle specific sections with additional animations
+                if (entry.target.id === 'services-section') {
+                    setTimeout(() => {
+                        entry.target.classList.add('animated');
+                    }, 300);
+                }
+                
+                // Stop observing after animation triggers (for performance)
+                if (!entry.target.classList.contains('keep-observing')) {
+                    observer.unobserve(entry.target);
+                }
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all elements that need scroll animation
+    const elementsToObserve = [
+        '#services-section',
+        '.truck-section',
+        '.about-section',
+        '.partnership-section',
+        '.dispatchers-section',
+        '.advantages',
+        '.reviews-header',
+        '.review-item',
+        '#mainSection',
+        '#leftPanel',
+        '#mainHeading',
+        '#mainContainer',
+        '#subHeading',
+        '#subtitle',
+        '#benefit1',
+        '#benefit2',
+        '#benefit3',
+        '#benefit4',
+        '#setupForm',
+        '#successMessage',
+        '#emailGroup',
+        '#nameGroup',
+        '#formTitle',
+        '#phoneError',
+        '#emailCheckGroup',
+        '#termsCheckGroup',
+        '#termsError',
+        '#submitBtn',
+        '#heroBg',
+        '#particlesContainer',
+        '#heroContent',
+        '#heroTitle',
+        '#blueAccent',
+        '#heroBtn',
+        '#heroText',
+        '#section3',
+        '#emailError',
+        '#phoneGroup',
+        '#rightPanel',
+        '.coretech-hero-section',
+        '.faq-header h2',
+        '.faq-item',
+        '.stat-item',
+        '.process-step',
+        '#dispatch-section',
+        '#dispatch-section1',
+        '.animate-section',
+        '.animate-visible',
+        '#section2'
+    ];
+    
+    elementsToObserve.forEach(selector => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(el => observer.observe(el));
     });
-});
-document.addEventListener('DOMContentLoaded', function () {
+    
+    // Handle specific animations that need special treatment
+    initTruckAnimations();
+    initAboutAnimations();
+    initPartnershipAnimations();
+    initDispatcherAnimations();
+    initAdvantagesAnimations();
+}
+
+// Truck section animations
+function initTruckAnimations() {
+    const truckSection = document.querySelector('.truck-section');
+    if (!truckSection) return;
+    
     const title = document.getElementById('title');
     const description = document.getElementById('description');
     const ctaButton = document.getElementById('cta-button');
     const truckGrid = document.getElementById('truck-grid');
     const truckCards = document.querySelectorAll('.truck-type-card');
-
+    
+    if (!title || !truckGrid) return;
+    
     // Reset animation state
-    title.classList.remove('animate');
-    description.classList.remove('animate');
-    ctaButton.classList.remove('animate');
-    truckGrid.classList.remove('animate');
+    [title, description, ctaButton, truckGrid].forEach(el => {
+        if (el) el.classList.remove('animate');
+    });
     truckCards.forEach(card => card.classList.remove('animate'));
-
-    // Create intersection observer
-    const observer = new IntersectionObserver((entries) => {
+    
+    const truckObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 // Animate text elements
-                title.classList.add('animate');
-                description.classList.add('animate');
-                ctaButton.classList.add('animate');
-
+                if (title) title.classList.add('animate');
+                if (description) description.classList.add('animate');
+                if (ctaButton) ctaButton.classList.add('animate');
+                
                 // Animate grid container
-                truckGrid.classList.add('animate');
-
+                if (truckGrid) truckGrid.classList.add('animate');
+                
                 // Animate individual cards with delays
                 truckCards.forEach(card => {
                     card.classList.add('animate');
                 });
-
-                // Stop observing after animation triggers
-                observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.3 }); // Trigger when 30% of section is visible
+    }, { threshold: 0.3 });
+    
+    truckObserver.observe(truckSection);
+}
 
-    // Observe the truck section
-    const truckSection = document.querySelector('.truck-section');
-    observer.observe(truckSection);
-
-    // Handle window resize to reset animations if needed
-    let resizeTimer;
-    window.addEventListener('resize', function () {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function () {
-            if (window.innerWidth <= 1024) {
-                // On mobile, show elements without animation
-                title.classList.add('animate');
-                description.classList.add('animate');
-                ctaButton.classList.add('animate');
-                truckGrid.classList.add('animate');
-                truckCards.forEach(card => card.classList.add('animate'));
-            }
-        }, 250);
-    });
-});
-document.addEventListener('DOMContentLoaded', function () {
-    // Elements to animate
+// About section animations
+function initAboutAnimations() {
+    const aboutSection = document.querySelector('.about-section');
+    if (!aboutSection) return;
+    
     const aboutLeft = document.getElementById('about-left');
     const aboutSubtitle = document.getElementById('about-subtitle');
     const aboutDesc1 = document.getElementById('about-desc-1');
@@ -161,275 +224,193 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('stat-3'),
         document.getElementById('stat-4')
     ];
-
+    
     // Reset animation state
-    aboutLeft.classList.remove('animate');
-    aboutSubtitle.classList.remove('animate');
-    aboutDesc1.classList.remove('animate');
-    aboutDesc2.classList.remove('animate');
-    aboutBtn.classList.remove('animate');
-    aboutRight.classList.remove('animate');
-    aboutStats.classList.remove('animate');
-    statBoxes.forEach(box => box.classList.remove('animate'));
-
-    // Create intersection observer
-    const observer = new IntersectionObserver((entries) => {
+    [aboutLeft, aboutSubtitle, aboutDesc1, aboutDesc2, aboutBtn, aboutRight, aboutStats].forEach(el => {
+        if (el) el.classList.remove('animate');
+    });
+    statBoxes.forEach(box => {
+        if (box) box.classList.remove('animate');
+    });
+    
+    const aboutObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 // Animate left content
-                aboutLeft.classList.add('animate');
-                aboutSubtitle.classList.add('animate');
-                aboutDesc1.classList.add('animate');
-                aboutDesc2.classList.add('animate');
-                aboutBtn.classList.add('animate');
-
+                if (aboutLeft) aboutLeft.classList.add('animate');
+                if (aboutSubtitle) aboutSubtitle.classList.add('animate');
+                if (aboutDesc1) aboutDesc1.classList.add('animate');
+                if (aboutDesc2) aboutDesc2.classList.add('animate');
+                if (aboutBtn) aboutBtn.classList.add('animate');
+                
                 // Animate right content
-                aboutRight.classList.add('animate');
-
+                if (aboutRight) aboutRight.classList.add('animate');
+                
                 // Animate stats with delay
                 setTimeout(() => {
-                    aboutStats.classList.add('animate');
-                    statBoxes.forEach(box => box.classList.add('animate'));
+                    if (aboutStats) aboutStats.classList.add('animate');
+                    statBoxes.forEach(box => {
+                        if (box) box.classList.add('animate');
+                    });
                 }, 300);
-
+                
                 // Animate counters
                 animateCounters();
-
-                // Stop observing after animation triggers
-                observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.3 });
+    
+    aboutObserver.observe(aboutSection);
+}
 
-    // Observe the about section
-    const aboutSection = document.querySelector('.about-section');
-    observer.observe(aboutSection);
+// Counter animation function
+function animateCounters() {
+    const counters = document.querySelectorAll('.count');
+    const speed = 200; // The lower the slower
 
-    // Counter animation function
-    function animateCounters() {
-        const counters = document.querySelectorAll('.count');
-        const speed = 200; // The lower the slower
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const suffix = counter.getAttribute('data-suffix') || '';
+        const prefix = counter.getAttribute('data-prefix') || '';
+        let count = 0;
 
-        counters.forEach(counter => {
-            const target = +counter.getAttribute('data-target');
-            const suffix = counter.getAttribute('data-suffix') || '';
-            const prefix = counter.getAttribute('data-prefix') || '';
-            let count = 0;
+        // Update counter function
+        const updateCount = () => {
+            const increment = target / speed;
 
-            // Update counter function
-            const updateCount = () => {
-                const increment = target / speed;
-
-                if (count < target) {
-                    count += increment;
-                    if (counter.getAttribute('data-target').includes('.')) {
-                        counter.innerText = prefix + count.toFixed(1) + suffix;
-                    } else {
-                        counter.innerText = prefix + Math.ceil(count) + suffix;
-                    }
-                    setTimeout(updateCount, 1);
+            if (count < target) {
+                count += increment;
+                if (counter.getAttribute('data-target').includes('.')) {
+                    counter.innerText = prefix + count.toFixed(1) + suffix;
                 } else {
-                    counter.innerText = prefix + target + suffix;
-                    counter.classList.add('animated');
+                    counter.innerText = prefix + Math.ceil(count) + suffix;
                 }
-            };
-
-            updateCount();
-        });
-    }
-
-    // Handle window resize to reset animations if needed
-    let resizeTimer;
-    window.addEventListener('resize', function () {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function () {
-            if (window.innerWidth <= 1024) {
-                // On mobile/tablet, show elements without animation
-                aboutLeft.classList.add('animate');
-                aboutSubtitle.classList.add('animate');
-                aboutDesc1.classList.add('animate');
-                aboutDesc2.classList.add('animate');
-                aboutBtn.classList.add('animate');
-                aboutRight.classList.add('animate');
-                aboutStats.classList.add('animate');
-                statBoxes.forEach(box => box.classList.add('animate'));
+                setTimeout(updateCount, 1);
+            } else {
+                counter.innerText = prefix + target + suffix;
+                counter.classList.add('animated');
             }
-        }, 250);
+        };
+
+        updateCount();
     });
-});
-document.addEventListener('DOMContentLoaded', function () {
+}
+
+// Partnership section animations
+function initPartnershipAnimations() {
+    const partnershipSection = document.querySelector('.partnership-section');
+    if (!partnershipSection) return;
+    
     const title = document.getElementById('partnership-title');
     const desc = document.getElementById('partnership-desc');
     const btn = document.getElementById('partnership-btn');
-
+    
     // Reset animation state
-    title.classList.remove('animate');
-    desc.classList.remove('animate');
-    btn.classList.remove('animate');
-
-    // Create intersection observer
-    const observer = new IntersectionObserver((entries) => {
+    [title, desc, btn].forEach(el => {
+        if (el) el.classList.remove('animate');
+    });
+    
+    const partnershipObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 // Animate elements with delays
-                title.classList.add('animate');
-                desc.classList.add('animate');
-                btn.classList.add('animate');
-
-                // Stop observing after animation triggers
-                observer.unobserve(entry.target);
+                if (title) title.classList.add('animate');
+                if (desc) desc.classList.add('animate');
+                if (btn) btn.classList.add('animate');
             }
         });
-    }, { threshold: 0.5 }); // Trigger when 50% of section is visible
+    }, { threshold: 0.5 });
+    
+    partnershipObserver.observe(partnershipSection);
+}
 
-    // Observe the partnership section
-    const partnershipSection = document.querySelector('.partnership-section');
-    observer.observe(partnershipSection);
-
-    // Handle window resize to reset animations if needed
-    let resizeTimer;
-    window.addEventListener('resize', function () {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function () {
-            // On mobile, show elements without animation delay
-            if (window.innerWidth <= 768) {
-                title.classList.add('animate');
-                desc.classList.add('animate');
-                btn.classList.add('animate');
-            }
-        }, 250);
-    });
-});
-document.addEventListener('DOMContentLoaded', function () {
+// Dispatchers section animations
+function initDispatcherAnimations() {
+    const dispatchersSection = document.querySelector('.dispatchers-section');
+    if (!dispatchersSection) return;
+    
     const header = document.getElementById('dispatchers-header');
     const features = document.getElementById('dispatchers-features');
     const info = document.getElementById('dispatchers-info');
-
+    
     // Reset animation state
-    header.classList.remove('animate');
-    features.classList.remove('animate');
-    info.classList.remove('animate');
-
-    // Create intersection observer
-    const observer = new IntersectionObserver((entries) => {
+    [header, features, info].forEach(el => {
+        if (el) el.classList.remove('animate');
+    });
+    
+    const dispatcherObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 // Animate elements with delays
-                header.classList.add('animate');
-                features.classList.add('animate');
-                info.classList.add('animate');
-
-                // Stop observing after animation triggers
-                observer.unobserve(entry.target);
+                if (header) header.classList.add('animate');
+                if (features) features.classList.add('animate');
+                if (info) info.classList.add('animate');
             }
         });
     }, { threshold: 0.3 });
+    
+    dispatcherObserver.observe(dispatchersSection);
+}
 
-    // Observe the dispatchers section
-    const dispatchersSection = document.querySelector('.dispatchers-section');
-    observer.observe(dispatchersSection);
-
-    // Handle window resize to reset animations if needed
-    let resizeTimer;
-    window.addEventListener('resize', function () {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function () {
-            if (window.innerWidth <= 900) {
-                // On mobile/tablet, show elements without animation
-                header.classList.add('animate');
-                features.classList.add('animate');
-                info.classList.add('animate');
-            }
-        }, 250);
-    });
-});
-document.addEventListener('DOMContentLoaded', function () {
+// Advantages section animations
+function initAdvantagesAnimations() {
     const advantagesSection = document.querySelector('.advantages');
+    if (!advantagesSection) return;
+    
     const features = document.querySelectorAll('.advantages__feature');
     const info = document.querySelector('.advantages__info');
-
-    // Function to check if element is in viewport
-    function isInViewport(element) {
-        const rect = element.getBoundingClientRect();
-        return (
+    
+    function handleScroll() {
+        const rect = advantagesSection.getBoundingClientRect();
+        const isInViewport = (
             rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.9 &&
             rect.bottom >= 0
         );
-    }
-
-    // Function to handle scroll events
-    function handleScroll() {
-        if (isInViewport(advantagesSection)) {
+        
+        if (isInViewport) {
             // Animate features with staggered delay
             features.forEach((feature, index) => {
                 setTimeout(() => {
                     feature.classList.add('animate');
                 }, index * 100);
             });
-
+            
             // Animate info section
             setTimeout(() => {
-                info.classList.add('animate');
+                if (info) info.classList.add('animate');
             }, 600);
-
+            
             // Remove event listener after animation
             window.removeEventListener('scroll', handleScroll);
         }
     }
-
+    
     // Initial check on page load
     handleScroll();
-
+    
     // Add scroll event listener
     window.addEventListener('scroll', handleScroll);
-});
-document.addEventListener('DOMContentLoaded', function () {
+}
+
+// Carousel functionality
+function initCarousels() {
     const track = document.querySelector('.reviews-track');
+    if (!track) return;
+    
     const items = document.querySelectorAll('.review-item');
     const dots = document.querySelectorAll('.carousel-dot');
     const prevBtn = document.querySelector('.carousel-arrow.prev');
     const nextBtn = document.querySelector('.carousel-arrow.next');
-    const header = document.querySelector('.reviews-header');
-
+    
     let currentIndex = 0;
     let itemWidth = items[0].offsetWidth;
     let visibleItems = window.innerWidth < 768 ? 1 : (window.innerWidth < 1200 ? 2 : 3);
-
-    // Intersection Observer for fade-in animations
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.2
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                if (entry.target.classList.contains('reviews-header')) {
-                    entry.target.classList.add('visible');
-                } else if (entry.target.classList.contains('review-item')) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, 100 * parseInt(entry.target.dataset.index));
-                }
-            }
-        });
-    }, observerOptions);
-
-    // Observe header
-    observer.observe(header);
-
-    // Observe each review item
-    items.forEach((item, index) => {
-        item.dataset.index = index;
-        observer.observe(item);
-    });
-
+    
     function updateItemWidth() {
         itemWidth = items[0].offsetWidth;
         visibleItems = window.innerWidth < 768 ? 1 : (window.innerWidth < 1200 ? 2 : 3);
     }
-
+    
     function updateCarousel() {
         const offset = -currentIndex * itemWidth;
         track.style.transform = `translateX(${offset}px)`;
@@ -438,10 +419,10 @@ document.addEventListener('DOMContentLoaded', function () {
             dot.classList.toggle('active', index === currentIndex);
         });
         // Show/hide arrows
-        prevBtn.style.display = currentIndex === 0 ? 'none' : 'flex';
-        nextBtn.style.display = currentIndex >= items.length - visibleItems ? 'none' : 'flex';
+        if (prevBtn) prevBtn.style.display = currentIndex === 0 ? 'none' : 'flex';
+        if (nextBtn) nextBtn.style.display = currentIndex >= items.length - visibleItems ? 'none' : 'flex';
     }
-
+    
     function nextSlide() {
         if (currentIndex < items.length - visibleItems) {
             currentIndex++;
@@ -450,7 +431,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         updateCarousel();
     }
-
+    
     function prevSlide() {
         if (currentIndex > 0) {
             currentIndex--;
@@ -459,11 +440,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         updateCarousel();
     }
-
+    
     // Button events
-    nextBtn.addEventListener('click', nextSlide);
-    prevBtn.addEventListener('click', prevSlide);
-
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    
     // Dot navigation
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
@@ -471,390 +452,164 @@ document.addEventListener('DOMContentLoaded', function () {
             updateCarousel();
         });
     });
-
+    
     // Auto-advance (faster)
     let autoSlide = setInterval(nextSlide, 2500);
-
+    
     // Pause on hover
     const carousel = document.querySelector('.reviews-carousel');
-    carousel.addEventListener('mouseenter', () => {
-        clearInterval(autoSlide);
-    });
-    carousel.addEventListener('mouseleave', () => {
-        autoSlide = setInterval(nextSlide, 2500);
-    });
-
+    if (carousel) {
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(autoSlide);
+        });
+        carousel.addEventListener('mouseleave', () => {
+            autoSlide = setInterval(nextSlide, 2500);
+        });
+    }
+    
     // Handle window resize
-    window.addEventListener('resize', function () {
+    window.addEventListener('resize', function() {
         updateItemWidth();
         if (currentIndex > items.length - visibleItems) {
             currentIndex = items.length - visibleItems;
         }
         updateCarousel();
     });
-
+    
     // Initialize
     updateItemWidth();
     updateCarousel();
-});
-// Form validation function
-document.getElementById('setupForm').addEventListener('submit', function (e) {
-    e.preventDefault();
+}
 
-    // Reset error messages
-    document.querySelectorAll('.error-message').forEach(el => {
-        el.style.display = 'none';
-    });
-
-    // Validate form
-    let isValid = true;
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const termsChecked = document.querySelector('input[name="sms-updates"]').checked;
-
-    if (name === '') {
-        document.getElementById('nameError').style.display = 'block';
-        isValid = false;
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        document.getElementById('emailError').style.display = 'block';
-        isValid = false;
-    }
-
-    if (phone === '' || phone.length < 10) {
-        document.getElementById('phoneError').style.display = 'block';
-        isValid = false;
-    }
-
-    if (!termsChecked) {
-        document.getElementById('termsError').style.display = 'block';
-        isValid = false;
-    }
-
-    if (isValid) {
-        // Simulate form submission
-        const successMessage = document.getElementById('successMessage');
-        successMessage.style.display = 'flex';
-        successMessage.classList.add('animate-fade-in');
-
-        // Reset form
-        this.reset();
-
-        // Scroll to success message
-        successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
-        // Hide success message after 5 seconds
-        setTimeout(() => {
-            successMessage.style.display = 'none';
-            successMessage.classList.remove('animate-fade-in');
-        }, 5000);
-    }
-});
-
-// Intersection Observer for scroll animations
-document.addEventListener('DOMContentLoaded', function () {
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.15
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-
-                // If it's the main section, animate the container too
-                if (entry.target.id === 'mainSection') {
-                    setTimeout(() => {
-                        document.getElementById('mainContainer').classList.add('animate');
-                    }, 300);
-                }
-
-                // If it's the left panel, animate its children with delays
-                if (entry.target.id === 'leftPanel') {
-                    setTimeout(() => {
-                        document.getElementById('mainHeading').classList.add('visible');
-                    }, 200);
-                    setTimeout(() => {
-                        document.getElementById('subtitle').classList.add('visible');
-                    }, 400);
-                    setTimeout(() => {
-                        document.getElementById('subHeading').classList.add('visible');
-                    }, 600);
-                    setTimeout(() => {
-                        document.getElementById('description').classList.add('visible');
-                    }, 800);
-
-                    // Animate benefits list items with staggered delay
-                    const benefits = ['benefit1', 'benefit2', 'benefit3', 'benefit4'];
-                    benefits.forEach((benefit, index) => {
-                        setTimeout(() => {
-                            document.getElementById(benefit).classList.add('visible');
-                        }, 1000 + (index * 150));
-                    });
-                }
-
-                // If it's the right panel, animate its children with delays
-                if (entry.target.id === 'rightPanel') {
-                    setTimeout(() => {
-                        document.getElementById('formTitle').classList.add('visible');
-                    }, 200);
-
-                    const formGroups = ['nameGroup', 'emailGroup', 'phoneGroup', 'emailCheckGroup', 'termsCheckGroup'];
-                    formGroups.forEach((group, index) => {
-                        setTimeout(() => {
-                            document.getElementById(group).classList.add('visible');
-                        }, 400 + (index * 100));
-                    });
-
-                    setTimeout(() => {
-                        document.getElementById('submitBtn').classList.add('visible');
-                    }, 1000);
-                }
+// Form validation
+function initFormValidation() {
+    const form = document.getElementById('setupForm');
+    if (!form) return;
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Reset error messages
+        document.querySelectorAll('.error-message').forEach(el => {
+            el.style.display = 'none';
+        });
+        
+        // Validate form
+        let isValid = true;
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const termsChecked = document.querySelector('input[name="sms-updates"]').checked;
+        
+        if (name === '') {
+            document.getElementById('nameError').style.display = 'block';
+            isValid = false;
+        }
+        
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            document.getElementById('emailError').style.display = 'block';
+            isValid = false;
+        }
+        
+        if (phone === '' || phone.length < 10) {
+            document.getElementById('phoneError').style.display = 'block';
+            isValid = false;
+        }
+        
+        if (!termsChecked) {
+            document.getElementById('termsError').style.display = 'block';
+            isValid = false;
+        }
+        
+        if (isValid) {
+            // Simulate form submission
+            const successMessage = document.getElementById('successMessage');
+            if (successMessage) {
+                successMessage.style.display = 'flex';
+                successMessage.classList.add('animate-fade-in');
+                
+                // Reset form
+                this.reset();
+                
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                    successMessage.classList.remove('animate-fade-in');
+                }, 5000);
             }
-        });
-    }, observerOptions);
-
-    // Observe elements for animation
-    const elementsToObserve = [
-        document.getElementById('mainSection'),
-        document.getElementById('leftPanel'),
-        document.getElementById('rightPanel')
-    ];
-
-    elementsToObserve.forEach(el => {
-        if (el) observer.observe(el);
+        }
     });
+}
 
-    // Add floating animation to some elements after a delay
-    setTimeout(() => {
-        const floatingEls = document.querySelectorAll('.blue-star, .benefits-list i');
-        floatingEls.forEach(el => {
-            el.classList.add('floating');
-        });
-    }, 2000);
-});
-document.addEventListener('DOMContentLoaded', function () {
-    // Background image load simulation
-    const heroBg = document.getElementById('heroBg');
-    setTimeout(() => {
-        heroBg.classList.add('loaded');
-    }, 100);
-
-    // Create floating particles
-    const particlesContainer = document.getElementById('particlesContainer');
-    const particleCount = 20;
-
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-
-        // Random properties
-        const size = Math.random() * 8 + 2;
-        const posX = Math.random() * 100;
-        const delay = Math.random() * 15;
-        const duration = Math.random() * 10 + 15;
-
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        particle.style.left = `${posX}%`;
-        particle.style.animationDelay = `${delay}s`;
-        particle.style.animationDuration = `${duration}s`;
-
-        particlesContainer.appendChild(particle);
-    }
-
-    // Intersection Observer for animations
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.2
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Animate content container
-                document.getElementById('heroContent').classList.add('visible');
-
-                // Animate elements with staggered delays
-                setTimeout(() => {
-                    document.getElementById('heroTitle').classList.add('visible');
-                }, 300);
-
-                setTimeout(() => {
-                    document.getElementById('blueAccent').classList.add('visible');
-                }, 800);
-
-                setTimeout(() => {
-                    document.getElementById('heroText').classList.add('visible');
-                }, 500);
-
-                setTimeout(() => {
-                    document.getElementById('heroBtn').classList.add('visible');
-                }, 700);
-            }
-        });
-    }, observerOptions);
-
-    // Observe the hero section
-    observer.observe(document.querySelector('.coretech-hero-section'));
-});
-document.addEventListener('DOMContentLoaded', function () {
+// FAQ functionality
+function initFAQ() {
     // FAQ toggle functionality
     document.querySelectorAll('.faq-question').forEach(btn => {
-        btn.addEventListener('click', function () {
+        btn.addEventListener('click', function() {
             const item = this.parentElement;
             const isOpen = item.classList.contains('open');
-
+            
             // Close all FAQ items
             document.querySelectorAll('.faq-item').forEach(el => {
                 el.classList.remove('open');
             });
-
+            
             // Open the clicked item if it wasn't already open
             if (!isOpen) {
                 item.classList.add('open');
             }
         });
     });
-
-    // Intersection Observer for fade-in animations
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver(function (entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
-
-    // Observe FAQ header and items
-    const faqHeader = document.querySelector('.faq-header h2');
-    const faqItems = document.querySelectorAll('.faq-item');
-
-    if (faqHeader) observer.observe(faqHeader);
-    faqItems.forEach(item => observer.observe(item));
-
+    
     // Add visible class to header immediately if it's already in view
     setTimeout(() => {
-        const headerRect = faqHeader.getBoundingClientRect();
-        if (headerRect.top < window.innerHeight && headerRect.bottom > 0) {
-            faqHeader.classList.add('visible');
+        const faqHeader = document.querySelector('.faq-header h2');
+        if (faqHeader) {
+            const headerRect = faqHeader.getBoundingClientRect();
+            if (headerRect.top < window.innerHeight && headerRect.bottom > 0) {
+                faqHeader.classList.add('visible');
+            }
         }
     }, 100);
-});
-document.addEventListener('DOMContentLoaded', function () {
-    const section = document.querySelector('.coretech-faq-section');
+}
 
-    // Add a slight delay to ensure initial animations play
-    setTimeout(() => {
-        section.style.opacity = '1';
-        section.style.transform = 'translateY(0)';
-        section.style.transition = 'opacity 1s ease, transform 1s ease';
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    section.style.opacity = '1';
-                    section.style.transform = 'translateY(0)';
-                } else {
-                    section.style.opacity = '0.8';
-                    section.style.transform = 'translateY(20px)';
-                }
-            });
-        }, { threshold: 0.1 });
-
-        observer.observe(section);
-    }, 100);
-});
-   document.addEventListener('DOMContentLoaded', function() {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        if (entry.target.classList.contains('stat-item')) {
-                            entry.target.classList.add('visible');
-                        }
-                        if (entry.target.classList.contains('process-step')) {
-                            // Add delay based on element's position
-                            const delay = Array.from(entry.target.parentElement.children).indexOf(entry.target) * 200;
-                            setTimeout(() => {
-                                entry.target.classList.add('visible');
-                            }, delay);
-                        }
-                    }
-                });
-            }, observerOptions);
-
-            // Observe stat items
-            document.querySelectorAll('.stat-item').forEach(item => {
-                observer.observe(item);
-            });
-            
-            // Observe process steps
-            document.querySelectorAll('.process-step').forEach(item => {
-                observer.observe(item);
-            });
-        });
- document.addEventListener('DOMContentLoaded', function () {
-        const section = document.getElementById('dispatch-section');
-        if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        section.classList.add('visible');
-                        observer.unobserve(section);
-                    }
-                });
-            }, { threshold: 0.25 });
-            observer.observe(section);
-        } else {
-            // Fallback for older browsers
-            section.classList.add('visible');
-        }
-    });
-    document.addEventListener('DOMContentLoaded', function () {
-      const section = document.getElementById('dispatch-section1');
-      let lastState = null;
-
-      function setVisibility(inView) {
-        if (inView && lastState !== true) {
-          section.classList.add('visible');
-          section.classList.remove('out');
-          lastState = true;
-        } else if (!inView && lastState !== false) {
-          section.classList.remove('visible');
-          section.classList.add('out');
-          lastState = false;
-        }
-      }
-
-      if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            setVisibility(entry.isIntersecting);
-          });
-        }, { threshold: 0.2 });
-        observer.observe(section);
-        setVisibility(false);
-      } else {
-        section.classList.add('visible');
-      }
-    });
+// Particle animation
+function initParticles() {
+    const particlesContainer = document.getElementById('particlesContainer');
+    if (!particlesContainer) return;
+    
+    const particleCount = 20;
+    
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Random properties
+        const size = Math.random() * 8 + 2;
+        const posX = Math.random() * 100;
+        const delay = Math.random() * 15;
+        const duration = Math.random() * 10 + 15;
+        
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.left = `${posX}%`;
+        particle.style.animationDelay = `${delay}s`;
+        particle.style.animationDuration = `${duration}s`;
+        
+        particlesContainer.appendChild(particle);
+    }
+    
+    // Background image load simulation
+    const heroBg = document.getElementById('heroBg');
+    if (heroBg) {
+        setTimeout(() => {
+            heroBg.classList.add('loaded');
+        }, 100);
+    }
+}
        document.addEventListener('DOMContentLoaded', function() {
       // Create Intersection Observer
       const observerOptions = {
@@ -878,3 +633,8 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
     
+// Initialize counters
+function initCounters() {
+    // This is handled in the about section animation
+    // The animateCounters function is called when the about section comes into view
+}
