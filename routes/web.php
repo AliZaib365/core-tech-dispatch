@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\ContactusController;
 
 Route::get('/', function () {
@@ -46,4 +47,17 @@ Route::group(['prefix' => 'service-detail'], function () {
     Route::view('dot-services', 'frontend.services.dot');
     Route::view('company-formation-services', 'frontend.services.company_formation');
     Route::view('document-management-services', 'frontend.services.document_management');
+});
+
+
+// Admin dashboard route
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+    Route::view('dashboard', 'admin.layouts.master')->name('admin.dashboard');
+    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+});
+
+// Authentication routes
+Route::middleware(['guest'])->group(function () {
+    Route::view('admin/login', 'admin.auth.login')->name('login');
+    Route::post('login', [AuthController::class, 'login'])->name('login.perform');
 });
