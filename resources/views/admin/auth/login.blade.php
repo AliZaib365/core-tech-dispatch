@@ -110,7 +110,7 @@
                     <label class="coretech-remember">
                         <input type="checkbox" id="coretech-remember" name="remembered"> Remember me
                     </label>
-                    <a href="forget-password.html" class="coretech-forgot">Forgot Password?</a>
+                    {{-- <a href="forget-password.html" class="coretech-forgot">Forgot Password?</a> --}}
                 </div>
 
                 <button class="coretech-login-btn" type="submit">

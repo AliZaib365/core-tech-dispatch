@@ -39,7 +39,7 @@
                     <div class="form-group" id="nameGroup">
                         <label for="name">Full Name</label>
                         <input type="text" id="name" name="name" class="form-control"
-                            placeholder="John Smith"  >
+                            placeholder="John Smith">
                         <i class="fas fa-user input-icon"></i>
                         <div class="error-message" id="nameError">Please enter your full name</div>
                     </div>
@@ -47,7 +47,7 @@
                     <div class="form-group" id="emailGroup">
                         <label for="email">Email Address</label>
                         <input type="email" id="email" name="email" class="form-control"
-                            placeholder="your@email.com"  >
+                            placeholder="your@email.com">
                         <i class="fas fa-envelope input-icon"></i>
                         <div class="error-message" id="emailError">Please enter a valid email address</div>
                     </div>
@@ -55,7 +55,7 @@
                     <div class="form-group" id="phoneGroup">
                         <label for="phone">Phone Number</label>
                         <input type="tel" id="phone" name="phone" class="form-control"
-                            placeholder="+1 (___) ___-____"  >
+                            placeholder="+1 (___) ___-____">
                         <i class="fas fa-phone input-icon"></i>
                         <div class="error-message" id="phoneError">Please enter a valid phone number</div>
                     </div>
@@ -70,7 +70,7 @@
 
                     <div class="checkbox-group" id="termsCheckGroup">
                         <label class="checkbox-label">
-                            <input type="checkbox" name="sms-updates"  >
+                            <input type="checkbox" name="sms-updates">
                             <span>I agree to receive text messages for conversational purposes at the phone number
                                 provided. Message frequency varies. Reply STOP to opt-out. <a href="#"
                                     target="_blank">Privacy Policy</a> and <a href="#" target="_blank">Terms of
@@ -110,6 +110,7 @@
                 const email = $('#email').val().trim();
                 const phone = $('#phone').val().trim();
                 const termsChecked = $('input[name="sms-updates"]').is(':checked');
+
 
                 if (name === '') {
                     $('#nameError').show();
@@ -151,6 +152,9 @@
             const email = $('#email').val().trim();
             const phone = $('#phone').val().trim();
             const termsChecked = $('input[name="sms-updates"]').is(':checked');
+            const emailChecked = $('input[name="email-updates"]').is(':checked');
+
+
             if (name === '') {
                 $('#nameError').show();
                 isValid = false;
@@ -177,6 +181,8 @@
                         name: name,
                         email: email,
                         phone: phone,
+                        send_email: emailChecked ? 1 : 0,
+                        agree: termsChecked ? 1 : 0,
                         _token: '{{ csrf_token() }}'
                     },
                     success: function(response) {

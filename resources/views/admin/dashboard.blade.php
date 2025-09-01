@@ -36,7 +36,7 @@
                     <i class="fas fa-inbox"></i>
                 </div>
                 <div class="stat-info">
-                    <h3 id="total-messages">142</h3>
+                    <h3 id="total-messages">{{ $total }}</h3>
                     <p>Total Messages</p>
                 </div>
                 <div class="stat-trend trend-up">
@@ -48,7 +48,7 @@
                     <i class="fas fa-clock"></i>
                 </div>
                 <div class="stat-info">
-                    <h3 id="unread-messages">24</h3>
+                    <h3 id="unread-messages">{{ $unread }}</h3>
                     <p>Unread Messages</p>
                 </div>
                 <div class="stat-trend trend-down">
@@ -60,7 +60,7 @@
                     <i class="fas fa-reply"></i>
                 </div>
                 <div class="stat-info">
-                    <h3 id="replied-messages">87</h3>
+                    <h3 id="replied-messages">{{ $replied }}</h3>
                     <p>Replied Messages</p>
                 </div>
                 <div class="stat-trend trend-up">
@@ -72,7 +72,7 @@
                     <i class="fas fa-exclamation-circle"></i>
                 </div>
                 <div class="stat-info">
-                    <h3 id="urgent-messages">5</h3>
+                    <h3 id="urgent-messages">{{ $urgent }}</h3>
                     <p>Urgent Messages</p>
                 </div>
                 <div class="stat-trend trend-up">
@@ -128,26 +128,51 @@
                         <tr>
                             <th data-sort="name">Name <i class="fas fa-sort"></i></th>
                             <th data-sort="email">Email <i class="fas fa-sort"></i></th>
-                            <th>Message Preview</th>
-                            <th data-sort="date">Date <i class="fas fa-sort"></i></th>
                             <th data-sort="status">Status <i class="fas fa-sort"></i></th>
+                            <th data-sort="date">Date <i class="fas fa-sort"></i></th>
+                            <th>Message Preview</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody id="messagesBody">
-                        <!-- Table content will be populated by JavaScript -->
+                        @foreach ($messages as $msg)
+                            <tr @if ($msg->read_or_not == 0) style="background:#f9f9f9" @endif>
+                                <td>{{ $msg->name }}</td>
+                                <td>{{ $msg->email }}</td>
+                                <td>
+                                    @if ($msg->read_or_not == 0)
+                                    <span class="badge badge-warning">Unread</span>
+                                    @else
+                                    <span class="badge badge-success">Read</span>
+                                    @endif
+                                </td>
+                                <td>{{ $msg->created_at->format('d M Y H:i') }}</td>
+                                <td>
+                                    <button class="action-btn view-btn" data-id="{{ $msg->id }}"
+                                        data-name="{{ $msg->name }}" data-email="{{ $msg->email }}"
+                                        data-message="{{ $msg->message }}"
+                                        data-date="{{ $msg->created_at->format('d M Y H:i') }}"
+                                        data-status="{{ $msg->read_or_not ? 'Read' : 'Unread' }}">
+                                        <i class="fas fa-eye"></i> View
+                                    </button>
+                                </td>
+                                <td>
+                                    <button class="action-btn delete-btn" data-id="{{ $msg->id }}">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </button>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
+
                 </table>
             </div>
 
             <!-- Pagination -->
             <div class="card-footer">
                 <div class="pagination-info">
-                    Showing <span id="startItem">1</span> to <span id="endItem">10</span> of <span
-                        id="totalItems">50</span> entries
-                </div>
-                <div class="pagination" id="pagination">
-                    <!-- Pagination buttons will be populated by JavaScript -->
+                    Showing <span id="startItem">5</span> to <span id="endItem">5</span> of <span
+                        id="totalItems">{{ $total }}</span> entries
                 </div>
             </div>
         </div>

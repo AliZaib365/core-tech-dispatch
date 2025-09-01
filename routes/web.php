@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\ContactusController;
+use App\Http\Controllers\Admin\DashboardManage;
 
 Route::get('/', function () {
     return view('frontend.main');
@@ -18,7 +19,6 @@ Route::group(['prefix' => 'info'], function () {
     Route::view('shipper', 'frontend.company.shipper');
     Route::view('all-trucks', 'frontend.trucks.index');
     Route::view('all-services', 'frontend.services.index');
-
     Route::post('contact-us', [ContactusController::class, 'create'])->name('contactus.create');
 });
 
@@ -52,8 +52,16 @@ Route::group(['prefix' => 'service-detail'], function () {
 
 // Admin dashboard route
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
-    Route::view('dashboard', 'admin.layouts.master')->name('admin.dashboard');
-    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+    Route::get('dashboard', [DashboardManage::class, 'dashboard'])->name('admin.dashboard');
+    Route::view('admin-profile', 'admin.profile.admin-profile')->name('admin.profile');
+
+    // Admin Dashboard Routes
+    Route::get('/notifications', [ContactusController::class, 'notifications']);
+    Route::patch('/notifications/{id}/read', [ContactusController::class, 'markAsRead']);
+
+    Route::post('profile-update', [AuthController::class, 'profileUpdate'])->name('admin.profile.update');
+    Route::get('logout', [AuthController::class, 'logout'])->name('admin.logout');
 });
 
 // Authentication routes

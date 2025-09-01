@@ -162,6 +162,7 @@
     </div>
 
     @include('frontend.contactus.form')
+    
     <section class="coretech-hero-section">
         <div class="coretech-hero-bg" id="heroBg"></div>
         <div class="particles" id="particlesContainer"></div>

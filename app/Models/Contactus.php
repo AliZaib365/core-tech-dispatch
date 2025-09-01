@@ -10,8 +10,12 @@ class Contactus extends Model
         'name',
         'email',
         'phone',
+        'subject',
         'message',
         'agree',
         'send_email',
+        'read_or_not',
+        'ip_address',
+        'status',
     ];
 }
