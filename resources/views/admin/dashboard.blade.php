@@ -3,218 +3,285 @@
     <div class="main-content">
 
         @if (Session::has('success'))
-            <div id="coretech-success" class="coretech-alert-success">
+            <div id="coretech-success"
+                class="coretech-alert-success bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4 rounded-r-lg">
                 <i class="fas fa-check-circle"></i>
                 <span id="success-message">Login Successful</span>
-                <button class="close-btn"
+                <button class="close-btn float-right text-green-700 hover:text-green-900"
                     onclick="document.getElementById('coretech-success').style.display='none'">&times;</button>
             </div>
         @endif
 
-        <div class="dashboard-header">
+        <div class="dashboard-header flex justify-between items-center mb-6">
             <div class="page-title">
-                <h2>Contact Messages</h2>
-                <p>Manage and respond to customer inquiries</p>
+                <h2 class="text-2xl font-bold text-gray-800">Contact Messages</h2>
+                <p class="text-gray-500">Manage and respond to customer inquiries</p>
             </div>
-            <div class="header-actions">
-                <div class="menu-toggle">
-                    <i class="fas fa-bars"></i>
+            <div class="header-actions flex space-x-4">
+                <div class="menu-toggle text-gray-600 hover:text-gray-800 cursor-pointer">
+                    <i class="fas fa-bars text-lg"></i>
                 </div>
-                <div class="search-toggle">
-                    <i class="fas fa-search"></i>
+                <div class="search-toggle text-gray-600 hover:text-gray-800 cursor-pointer">
+                    <i class="fas fa-search text-lg"></i>
                 </div>
-                <div class="notification-btn">
-                    <i class="fas fa-bell"></i>
+                <div class="notification-btn text-gray-600 hover:text-gray-800 cursor-pointer">
+                    <i class="fas fa-bell text-lg"></i>
                 </div>
             </div>
         </div>
 
         <!-- Stats -->
-        <div class="stats">
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-inbox"></i>
+        <div class="stats grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+            <div class="stat-card bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <div class="stat-icon text-blue-500">
+                    <i class="fas fa-inbox text-2xl"></i>
                 </div>
                 <div class="stat-info">
-                    <h3 id="total-messages">{{ $total }}</h3>
-                    <p>Total Messages</p>
-                </div>
-                <div class="stat-trend trend-up">
-                    <i class="fas fa-arrow-up"></i> 12%
+                    <h3 id="total-messages" class="text-xl font-semibold">{{ $total }}</h3>
+                    <p class="text-gray-500">Total Messages</p>
                 </div>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-clock"></i>
+            <div class="stat-card bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <div class="stat-icon text-yellow-500">
+                    <i class="fas fa-clock text-2xl"></i>
                 </div>
                 <div class="stat-info">
-                    <h3 id="unread-messages">{{ $unread }}</h3>
-                    <p>Unread Messages</p>
-                </div>
-                <div class="stat-trend trend-down">
-                    <i class="fas fa-arrow-down"></i> 8%
+                    <h3 id="unread-messages" class="text-xl font-semibold">{{ $unread }}</h3>
+                    <p class="text-gray-500">Unread Messages</p>
                 </div>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-reply"></i>
+            <div class="stat-card bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <div class="stat-icon text-green-500">
+                    <i class="fas fa-reply text-2xl"></i>
                 </div>
                 <div class="stat-info">
-                    <h3 id="replied-messages">{{ $replied }}</h3>
-                    <p>Replied Messages</p>
-                </div>
-                <div class="stat-trend trend-up">
-                    <i class="fas fa-arrow-up"></i> 16%
+                    <h3 id="replied-messages" class="text-xl font-semibold">{{ $replied }}</h3>
+                    <p class="text-gray-500">Replied Messages</p>
                 </div>
             </div>
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <i class="fas fa-exclamation-circle"></i>
+            <div class="stat-card bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                <div class="stat-icon text-red-500">
+                    <i class="fas fa-exclamation-circle text-2xl"></i>
                 </div>
                 <div class="stat-info">
-                    <h3 id="urgent-messages">{{ $urgent }}</h3>
-                    <p>Urgent Messages</p>
-                </div>
-                <div class="stat-trend trend-up">
-                    <i class="fas fa-arrow-up"></i> 3%
+                    <h3 id="urgent-messages" class="text-xl font-semibold">{{ $urgent }}</h3>
+                    <p class="text-gray-500">Urgent Messages</p>
                 </div>
             </div>
         </div>
 
         <!-- Messages Card -->
-        <div class="dashboard-card">
-            <div class="card-header">
-                <h3>All Messages</h3>
-                <div class="card-tools">
-                    <button class="action-btn">
-                        <i class="fas fa-download"></i> Export
-                    </button>
-                    <button class="action-btn">
-                        <i class="fas fa-plus"></i> Add Filter
-                    </button>
-                </div>
+        <div class="dashboard-card bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="card-header flex justify-between items-center p-4 border-b">
+                <h3 class="text-lg font-semibold text-gray-800">All Messages</h3>
             </div>
 
             <!-- Controls -->
-            <div class="controls">
-                <div class="search-bar">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="searchInput" placeholder="Search messages...">
+            <form method="GET" class="controls flex flex-col md:flex-row justify-between p-4 border-b">
+                <div class="search-bar relative flex-1 md:mr-4">
+                    <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    <input type="text" name="search" placeholder="Search messages..." value="{{ request('search') }}"
+                        class="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
-                <div class="filters">
-                    <select id="statusFilter" class="filter-select">
-                        <option value="all">All Statuses</option>
-                        <option value="new">New</option>
-                        <option value="replied">Replied</option>
-                        <option value="urgent">Urgent</option>
+                <div class="filters flex space-x-2 mt-2 md:mt-0">
+                    <select name="status"
+                        class="filter-select border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="all" {{ request('status') == 'all' ? 'selected' : '' }}>All Statuses</option>
+                        <option value="new" {{ request('status') == 'new' ? 'selected' : '' }}>New</option>
+                        <option value="replied" {{ request('status') == 'replied' ? 'selected' : '' }}>Replied</option>
+                        <option value="urgent" {{ request('status') == 'urgent' ? 'selected' : '' }}>Urgent</option>
                     </select>
-                    <select id="dateFilter" class="filter-select">
-                        <option value="newest">Newest First</option>
-                        <option value="oldest">Oldest First</option>
+                    <select name="dir"
+                        class="filter-select border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="desc" {{ request('dir') == 'desc' ? 'selected' : '' }}>Newest First</option>
+                        <option value="asc" {{ request('dir') == 'asc' ? 'selected' : '' }}>Oldest First</option>
                     </select>
-                    <select id="itemsPerPage" class="filter-select">
-                        <option value="5">5 per page</option>
-                        <option value="10" selected>10 per page</option>
-                        <option value="20">20 per page</option>
-                        <option value="50">50 per page</option>
+                    <select name="per_page"
+                        class="filter-select border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="5" {{ request('per_page') == 5 ? 'selected' : '' }}>5 per page</option>
+                        <option value="10" {{ request('per_page') == 10 ? 'selected' : '' }}>10 per page</option>
+                        <option value="20" {{ request('per_page') == 20 ? 'selected' : '' }}>20 per page</option>
+                        <option value="50" {{ request('per_page') == 50 ? 'selected' : '' }}>50 per page</option>
                     </select>
+                    <button type="submit"
+                        class="action-btn bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+                        Apply
+                    </button>
                 </div>
-            </div>
+            </form>
 
             <!-- Messages Table -->
-            <div class="card-body">
-                <table id="messagesTable">
-                    <thead>
+            <div class="card-body overflow-x-auto">
+                <table id="messagesTable" class="w-full">
+                    <thead class="bg-gray-100">
                         <tr>
-                            <th data-sort="name">Name <i class="fas fa-sort"></i></th>
-                            <th data-sort="email">Email <i class="fas fa-sort"></i></th>
-                            <th data-sort="status">Status <i class="fas fa-sort"></i></th>
-                            <th data-sort="date">Date <i class="fas fa-sort"></i></th>
-                            <th>Message Preview</th>
-                            <th>Actions</th>
+                            <th class="p-3 text-left">
+                                <a href="?{{ http_build_query(array_merge(request()->query(), ['sort_by' => 'name', 'dir' => request('sort_by') == 'name' && request('dir') == 'asc' ? 'desc' : 'asc'])) }}"
+                                    class="flex items-center space-x-1">
+                                    <span>Name</span>
+                                    <i
+                                        class="fas fa-sort{{ request('sort_by') == 'name' ? (request('dir') == 'asc' ? '-up' : '-down') : '' }}"></i>
+                                </a>
+                            </th>
+                            <th class="p-3 text-left">
+                                <a href="?{{ http_build_query(array_merge(request()->query(), ['sort_by' => 'email', 'dir' => request('sort_by') == 'email' && request('dir') == 'asc' ? 'desc' : 'asc'])) }}"
+                                    class="flex items-center space-x-1">
+                                    <span>Email</span>
+                                    <i
+                                        class="fas fa-sort{{ request('sort_by') == 'email' ? (request('dir') == 'asc' ? '-up' : '-down') : '' }}"></i>
+                                </a>
+                            </th>
+                            <th class="p-3 text-left">Status</th>
+                            <th class="p-3 text-left">
+                                <a href="?{{ http_build_query(array_merge(request()->query(), ['sort_by' => 'created_at', 'dir' => request('sort_by') == 'created_at' && request('dir') == 'asc' ? 'desc' : 'asc'])) }}"
+                                    class="flex items-center space-x-1">
+                                    <span>Date</span>
+                                    <i
+                                        class="fas fa-sort{{ request('sort_by') == 'created_at' ? (request('dir') == 'asc' ? '-up' : '-down') : '' }}"></i>
+                                </a>
+                            </th>
+                            <th class="p-3 text-left">Message Preview</th>
+                            <th class="p-3 text-left">Actions</th>
                         </tr>
                     </thead>
                     <tbody id="messagesBody">
                         @foreach ($messages as $msg)
-                            <tr @if ($msg->read_or_not == 0) style="background:#f9f9f9" @endif>
-                                <td>{{ $msg->name }}</td>
-                                <td>{{ $msg->email }}</td>
-                                <td>
+                            <tr class="hover:bg-gray-50 transition @if ($msg->read_or_not == 0) bg-gray-50 @endif">
+                                <td class="p-3">{{ $msg->name }}</td>
+                                <td class="p-3">{{ $msg->email }}</td>
+                                <td class="p-3">
                                     @if ($msg->read_or_not == 0)
-                                    <span class="badge badge-warning">Unread</span>
+                                        <span class="badge bg-yellow-200 text-yellow-800 px-2 py-1 rounded">Unread</span>
                                     @else
-                                    <span class="badge badge-success">Read</span>
+                                        <span class="badge bg-green-200 text-green-800 px-2 py-1 rounded">Read</span>
                                     @endif
                                 </td>
-                                <td>{{ $msg->created_at->format('d M Y H:i') }}</td>
-                                <td>
-                                    <button class="action-btn view-btn" data-id="{{ $msg->id }}"
-                                        data-name="{{ $msg->name }}" data-email="{{ $msg->email }}"
-                                        data-message="{{ $msg->message }}"
+                                <td class="p-3">{{ $msg->created_at->format('d M Y H:i') }}</td>
+                                <td class="p-3 flex space-x-2">
+                                    <button type="button"
+                                        class="action-btn bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 transition view-btn"
+                                        data-id="{{ $msg->id }}" data-name="{{ $msg->name }}"
+                                        data-email="{{ $msg->email }}" data-message="{{ $msg->message }}"
                                         data-date="{{ $msg->created_at->format('d M Y H:i') }}"
                                         data-status="{{ $msg->read_or_not ? 'Read' : 'Unread' }}">
                                         <i class="fas fa-eye"></i> View
                                     </button>
+
                                 </td>
-                                <td>
-                                    <button class="action-btn delete-btn" data-id="{{ $msg->id }}">
+
+                                <td class="p-3">
+                                    <button type="button"
+                                        class="action-btn bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition delete-btn"
+                                        data-id="{{ $msg->id }}">
                                         <i class="fas fa-trash"></i> Delete
                                     </button>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
-
                 </table>
             </div>
 
-            <!-- Pagination -->
-            <div class="card-footer">
-                <div class="pagination-info">
-                    Showing <span id="startItem">5</span> to <span id="endItem">5</span> of <span
-                        id="totalItems">{{ $total }}</span> entries
+            <!-- Pagination (Enhanced Modern Design with Gradient Icons) -->
+            <div class="card-footer flex justify-between items-center p-4 border-t">
+                <div class="pagination-info text-gray-600 text-sm">
+                    Showing {{ $messages->firstItem() }} to {{ $messages->lastItem() }} of {{ $messages->total() }}
+                    entries
+                </div>
+                <div class="pagination flex items-center space-x-2">
+                    <!-- First Page Button -->
+                    @if ($messages->onFirstPage())
+                        <span
+                            class="w-10 h-10 flex items-center justify-center bg-gray-200 text-gray-400 rounded-full cursor-not-allowed shadow-sm transition-all duration-300">
+                            <i class="fas fa-angle-double-left text-base"></i>
+                        </span>
+                    @else
+                        <a href="{{ $messages->url(1) }}"
+                            class="w-10 h-10 flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full hover:from-blue-600 hover:to-indigo-700 shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-110">
+                            <i class="fas fa-angle-double-left text-base"></i>
+                        </a>
+                    @endif
+
+                    <!-- Previous Button -->
+                    @if ($messages->onFirstPage())
+                        <span
+                            class="w-10 h-10 flex items-center justify-center bg-gray-200 text-gray-400 rounded-full cursor-not-allowed shadow-sm transition-all duration-300">
+                            <i class="fas fa-chevron-left text-base"></i>
+                        </span>
+                    @else
+                        <a href="{{ $messages->previousPageUrl() }}"
+                            class="w-10 h-10 flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full hover:from-blue-600 hover:to-indigo-700 shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-110">
+                            <i class="fas fa-chevron-left text-base"></i>
+                        </a>
+                    @endif
+
+                    <!-- Page Numbers -->
+                    @php
+                        $start = max(1, $messages->currentPage() - 2);
+                        $end = min($messages->lastPage(), $messages->currentPage() + 2);
+                    @endphp
+                    @if ($start > 1)
+                        <a href="{{ $messages->url(1) }}"
+                            class="w-10 h-10 flex items-center justify-center text-gray-700 bg-white border border-gray-200 rounded-full hover:bg-blue-50 hover:border-blue-500 shadow-sm transition-all duration-300 transform hover:scale-105">
+                            1
+                        </a>
+                        @if ($start > 2)
+                            <span class="px-3 py-1 text-gray-500 select-none">...</span>
+                        @endif
+                    @endif
+                    @for ($i = $start; $i <= $end; $i++)
+                        <a href="{{ $messages->url($i) }}"
+                            class="w-10 h-10 flex items-center justify-center {{ $messages->currentPage() == $i ? 'bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow-md' : 'text-gray-700 bg-white border border-gray-200' }} rounded-full hover:bg-blue-50 hover:border-blue-500 transition-all duration-300 transform hover:scale-105">
+                            {{ $i }}
+                        </a>
+                    @endfor
+                    @if ($end < $messages->lastPage())
+                        @if ($end < $messages->lastPage() - 1)
+                            <span class="px-3 py-1 text-gray-500 select-none">...</span>
+                        @endif
+                        <a href="{{ $messages->url($messages->lastPage()) }}"
+                            class="w-10 h-10 flex items-center justify-center text-gray-700 bg-white border border-gray-200 rounded-full hover:bg-blue-50 hover:border-blue-500 shadow-sm transition-all duration-300 transform hover:scale-105">
+                            {{ $messages->lastPage() }}
+                        </a>
+                    @endif
+
+                    <!-- Next Button -->
+                    @if ($messages->hasMorePages())
+                        <a href="{{ $messages->nextPageUrl() }}"
+                            class="w-10 h-10 flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full hover:from-blue-600 hover:to-indigo-700 shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-110">
+                            <i class="fas fa-chevron-right text-base"></i>
+                        </a>
+                    @else
+                        <span
+                            class="w-10 h-10 flex items-center justify-center bg-gray-200 text-gray-400 rounded-full cursor-not-allowed shadow-sm transition-all duration-300">
+                            <i class="fas fa-chevron-right text-base"></i>
+                        </span>
+                    @endif
+
+                    <!-- Last Page Button -->
+                    @if ($messages->currentPage() == $messages->lastPage())
+                        <span
+                            class="w-10 h-10 flex items-center justify-center bg-gray-200 text-gray-400 rounded-full cursor-not-allowed shadow-sm transition-all duration-300">
+                            <i class="fas fa-angle-double-right text-base"></i>
+                        </span>
+                    @else
+                        <a href="{{ $messages->url($messages->lastPage()) }}"
+                            class="w-10 h-10 flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-full hover:from-blue-600 hover:to-indigo-700 shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-110">
+                            <i class="fas fa-angle-double-right text-base"></i>
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Message Detail Modal -->
-    <div class="modal" id="messageModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Message Details</h2>
-                <button class="close-btn">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="message-detail">
-                    <span class="detail-label">From:</span>
-                    <span class="detail-value" id="modal-name"></span>
-                </div>
-                <div class="message-detail">
-                    <span class="detail-label">Email:</span>
-                    <span class="detail-value" id="modal-email"></span>
-                </div>
-                <div class="message-detail">
-                    <span class="detail-label">Date:</span>
-                    <span class="detail-value" id="modal-date"></span>
-                </div>
-                <div class="message-detail">
-                    <span class="detail-label">Status:</span>
-                    <span class="detail-value" id="modal-status"></span>
-                </div>
-                <div class="message-detail">
-                    <span class="detail-label">Message:</span>
-                    <div class="full-message" id="modal-message"></div>
-                </div>
-            </div>
-            <div class="modal-actions">
-                <button class="modal-btn reply-btn">
-                    <i class="fas fa-reply"></i> Reply
-                </button>
-                <button class="modal-btn close-modal-btn">
-                    <i class="fas fa-times"></i> Close
-                </button>
-            </div>
-        </div>
-    </div>
+    @push('scripts')
+        <script>
+            document.querySelectorAll('.filter-select').forEach(el => {
+                el.addEventListener('change', () => el.form.submit());
+            });
+        </script>
+    @endpush
+
+
 @endsection
