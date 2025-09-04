@@ -166,14 +166,15 @@
                                         data-status="{{ $msg->read_or_not ? 'Read' : 'Unread' }}">
                                         <i class="fas fa-eye"></i> View
                                     </button>
-
                                 </td>
-
                                 <td class="p-3">
                                     <button type="button"
-                                        class="action-btn bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition delete-btn"
-                                        data-id="{{ $msg->id }}">
-                                        <i class="fas fa-trash"></i> Delete
+                                        class="action-btn bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition detail-btn"
+                                        data-id="{{ $msg->id }}" data-name="{{ $msg->name }}"
+                                        data-email="{{ $msg->email }}" data-message="{{ $msg->message }}"
+                                        data-date="{{ $msg->created_at->format('d M Y H:i') }}"
+                                        data-status="{{ $msg->read_or_not ? 'Read' : 'Unread' }}">
+                                        <i class="fas fa-info-circle"></i> Detail
                                     </button>
                                 </td>
                             </tr>
@@ -275,13 +276,88 @@
         </div>
     </div>
 
+    <!-- Modal -->
+    <div id="messageModal" class="modal hidden fixed inset-0 z-50 justify-center items-center bg-black bg-opacity-40" style="display:none;">
+        <div class="modal-content bg-white rounded-lg shadow-xl w-full max-w-lg mx-auto">
+            <div class="modal-header flex justify-between items-center bg-blue-600 text-white p-4 rounded-t-lg">
+                <h2 class="text-lg font-semibold">Message Details</h2>
+                <button id="closeModalBtn" class="close-btn text-2xl font-bold">&times;</button>
+            </div>
+            <div class="modal-body p-4">
+                <div class="mb-2">
+                    <span class="font-semibold">Name:</span>
+                    <span id="modalName"></span>
+                </div>
+                <div class="mb-2">
+                    <span class="font-semibold">Email:</span>
+                    <span id="modalEmail"></span>
+                </div>
+                <div class="mb-2">
+                    <span class="font-semibold">Date:</span>
+                    <span id="modalDate"></span>
+                </div>
+                <div class="mb-2">
+                    <span class="font-semibold">Status:</span>
+                    <span id="modalStatus"></span>
+                </div>
+                <div class="mb-2">
+                    <span class="font-semibold">Message:</span>
+                    <div id="modalMessage" class="bg-gray-100 rounded p-2 mt-1"></div>
+                </div>
+            </div>
+            <div class="modal-actions flex justify-end gap-2 p-4 border-t">
+                <button id="closeModalBtnFooter" class="action-btn bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300 transition">Close</button>
+            </div>
+        </div>
+    </div>
+
     @push('scripts')
         <script>
             document.querySelectorAll('.filter-select').forEach(el => {
                 el.addEventListener('change', () => el.form.submit());
             });
-        </script>
-    @endpush
 
+            // Modal logic for View and Detail
+            function showModal(data) {
+                document.getElementById('modalName').textContent = data.name;
+                document.getElementById('modalEmail').textContent = data.email;
+                document.getElementById('modalDate').textContent = data.date;
+                document.getElementById('modalStatus').textContent = data.status;
+                document.getElementById('modalMessage').textContent = data.message;
+                document.getElementById('messageModal').classList.remove('hidden');
+                document.getElementById('messageModal').style.display = 'flex';
+            }
+            function closeModal() {
+                document.getElementById('messageModal').classList.add('hidden');
+                document.getElementById('messageModal').style.display = 'none';
+            }
+            document.querySelectorAll('.view-btn, .detail-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    showModal({
+                        name: btn.getAttribute('data-name'),
+                        email: btn.getAttribute('data-email'),
+                        date: btn.getAttribute('data-date'),
+                        status: btn.getAttribute('data-status'),
+                        message: btn.getAttribute('data-message')
+                    });
+                });
+            });
+            document.getElementById('closeModalBtn').addEventListener('click', closeModal);
+            document.getElementById('closeModalBtnFooter').addEventListener('click', closeModal);
+
+            // Optional: close modal when clicking outside modal content
+            document.getElementById('messageModal').addEventListener('click', function(e) {
+                if (e.target === this) closeModal();
+            });
+        </script>
+        <style>
+            .modal {align-items: center;}
+            .modal-content {animation: modalFadeIn 0.2s;}
+            @keyframes modalFadeIn {
+                from {opacity: 0; transform: translateY(-20px);}
+                to {opacity: 1; transform: translateY(0);}
+            }
+        </style>
+    @endpush
 
 @endsection
