@@ -1,40 +1,54 @@
-    <div class="sidebar">
-        <div class="sidebar-header">
-            <div class="logo">
-                <i class="fas fa-envelope-open-text"></i>
-                <h1>CoreTech Dashboard</h1>
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <img class="logo-img" src="https://ui-avatars.com/api/?name=A&background=3f37c9&color=fff"
+                    alt="Admin Logo">
+                <h3>Admin Panel</h3>
             </div>
-        </div>
 
-        <div class="sidebar-nav">
-            <a href="{{ route('admin.dashboard') }}" class="nav-item">
-                <i class="fas fa-home"></i>
-                <span class="nav-label">Home</span>
-            </a>
-            <a href="{{ route('admin.profile') }}" class="nav-item">
-                <i class="fas fa-user"></i>
-                <span class="nav-label">Profile</span>
-            </a>
-        </div>
-
-        <div class="sidebar-footer">
-            <div class="user-info">
-                <img src="https://ui-avatars.com/api/?name=Admin+User&background=4361ee&color=fff" alt="User">
-                <div class="user-details">
-                    <h4>{{ auth()->check() ? auth()->user()->name : 'Login first' }}</h4>
-                    <p>Administrator</p>
-                </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li class="active">
+                        <a href="#" data-view="dashboard">
+                            <i class="bi bi-speedometer2"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-view="users">
+                            <i class="bi bi-people"></i>
+                            <span>Users</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-view="products">
+                            <i class="bi bi-cart"></i>
+                            <span>Products</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-view="analytics">
+                            <i class="bi bi-graph-up"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-view="orders">
+                            <i class="bi bi-table"></i>
+                            <span>Orders</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-view="settings">
+                            <i class="bi bi-gear"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-view="profile">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <div style="margin-top: 16px; text-align: center; width: 100%;">
-                <a href="#" id="logout-btn"
-                    style="text-decoration: none; width: 90%; padding: 10px 0; background: #3a56d4; border: 1px solid #2a42b8; color: #fff; font-size: 14px; font-weight: 600; border-radius: 4px; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
-                    <i class="fas fa-sign-out-alt"></i> Logout
-                </a>
-                <form id="logout-form" action="{{ route('admin.logout') }}" method="GET" style="display: none;">
-                    @csrf
-                </form>
-            </div>
- 
-        </div>
-
-    </div>
+        </nav>

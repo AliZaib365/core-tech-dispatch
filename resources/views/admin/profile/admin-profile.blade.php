@@ -1,88 +1,107 @@
 @extends('admin.layouts.master')
 
 @push('css')
-    <link rel="stylesheet" href="{{ asset('admin/css/Admin-profile.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/admin-profile.css') }}">
 @endpush
 
 
 
 @section('main-content')
-    <div class="main-content" id="mainContent">
-        <div class="profile-header">
-            <div style="position: relative;">
-                <img src="https://ui-avatars.com/api/?name=Admin+User&background=4361ee&color=fff&size=128" alt="Profile"
-                    class="profile-avatar">
-                <div class="avatar-edit" title="Change profile picture">
-                    <i class="fas fa-camera"></i>
-                </div>
+    <section class="profile-hero mb-4">
+        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+            <div>
+                <h2 class="mb-1">Your Profile</h2>
+                <p class="text-muted mb-0">Manage your personal information and account security</p>
             </div>
-            <div class="profile-info">
-                <h2>{{ auth()->check() ? auth()->user()->name : 'Login first' }}</h2>
-                <p>Manage your profile details and credentials securely</p>
+            <div>
+                <a href="index.html" class="btn btn-outline-secondary"><i class="bi bi-arrow-left me-1"></i> Back to
+                    Dashboard</a>
             </div>
-
         </div>
-
-        <div class="profile-settings-card">
-            <div class="settings-title">
-                <i class="fas fa-user-edit"></i> Profile Settings
+    </section>
+    <div>
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                <div class="card">
+                    <div class="card-header bg-white d-flex align-items-center justify-content-between">
+                        <h5 class="card-title mb-0">Edit Profile</h5>
+                        <span class="text-muted small">Update your account details</span>
+                    </div>
+                    <div class="card-body">
+                        <form id="profileForm" novalidate>
+                            <div class="mb-3">
+                                <label for="profileName" class="form-label">Full Name</label>
+                                <div class="input-group input-with-icon">
+                                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                    <input type="text" class="form-control" id="profileName"
+                                        placeholder="Enter your full name" required>
+                                </div>
+                                <div class="invalid-feedback">Please enter your name.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="profileEmail" class="form-label">Email address</label>
+                                <div class="input-group input-with-icon">
+                                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                    <input type="email" class="form-control" id="profileEmail"
+                                        placeholder="name@example.com" required>
+                                </div>
+                                <div class="invalid-feedback">Please enter a valid email.</div>
+                            </div>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="profilePassword" class="form-label">New Password</label>
+                                    <div class="input-group input-with-icon">
+                                        <span class="input-group-text"><i class="bi bi-shield-lock"></i></span>
+                                        <input type="password" class="form-control" id="profilePassword"
+                                            placeholder="Enter new password" minlength="8">
+                                        <button type="button" class="btn password-toggle-btn" aria-label="Show password"
+                                            data-target="#profilePassword"><i class="bi bi-eye"></i></button>
+                                    </div>
+                                    <div class="form-text">Minimum 8 characters.</div>
+                                    <div class="password-strength mt-2" id="passwordStrength" aria-live="polite"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="profileConfirm" class="form-label">Confirm Password</label>
+                                    <div class="input-group input-with-icon">
+                                        <span class="input-group-text"><i class="bi bi-check2-circle"></i></span>
+                                        <input type="password" class="form-control" id="profileConfirm"
+                                            placeholder="Re-enter new password" minlength="8">
+                                        <button type="button" class="btn password-toggle-btn" aria-label="Show password"
+                                            data-target="#profileConfirm"><i class="bi bi-eye"></i></button>
+                                    </div>
+                                    <div class="invalid-feedback">Passwords must match.</div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end mt-4">
+                                <button type="button" id="resetProfile"
+                                    class="btn btn-outline-secondary me-2">Reset</button>
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <form class="settings-form" id="profileForm" autocomplete="off">
-                <div class="form-group">
-                    <label for="fullName"><i class="fas fa-user"></i> Full Name</label>
-                    <input type="text" id="fullName" name="fullName"
-                        value="{{ auth()->check() ? auth()->user()->name : 'Login first' }}" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
-                    <input type="email" id="email" name="email"
-                        value="{{ auth()->check() ? auth()->user()->email : 'Login first' }}" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="currentPassword"><i class="fas fa-lock"></i> Current Password</label>
-                    <input type="password" id="currentPassword" name="currentPassword" required
-                        autocomplete="current-password">
-                    <button type="button" class="password-toggle" id="toggleCurrentPassword">
-                        <i class="far fa-eye"></i>
-                    </button>
-                </div>
-
-                <div class="form-group">
-                    <label for="newPassword"><i class="fas fa-key"></i> New Password</label>
-                    <input type="password" id="newPassword" name="newPassword" autocomplete="new-password">
-                    <button type="button" class="password-toggle" id="toggleNewPassword">
-                        <i class="far fa-eye"></i>
-                    </button>
-                    <div class="password-strength">
-                        <div class="password-strength-bar" id="passwordStrengthBar"></div>
-                    </div>
-                    <div class="password-hints" id="passwordHints">
-                        Password must be at least 8 characters with uppercase, lowercase, number, and special character.
+            <div class="col-12 col-lg-4">
+                <div class="card h-100">
+                    <div class="card-body d-flex flex-column align-items-center justify-content-center text-center">
+                        <div class="avatar-uploader mb-3">
+                            <img src="https://ui-avatars.com/api/?name=Admin+User&background=random"
+                                class="rounded-circle profile-avatar-img" alt="Avatar" id="profileAvatarPreview">
+                            <button class="btn btn-sm btn-primary change-avatar-btn" type="button"
+                                aria-label="Change profile picture" title="Change profile picture"><i class="bi bi-camera"
+                                    aria-hidden="true"></i></button>
+                            <input type="file" id="profileAvatarInput" class="visually-hidden"
+                                accept="image/png, image/jpeg" aria-label="Upload profile picture">
+                            <label for="profileAvatarInput" class="visually-hidden">Upload profile picture</label>
+                        </div>
+                        <small class="text-muted" id="avatarHelp">Click the image to upload a new picture</small>
+                        <h6 class="mb-1">Profile Picture</h6>
+                        <p class="text-muted small mb-3">JPG or PNG, max 2MB</p>
+                        <h6 class="mb-1">Profile Tips</h6>
+                        <p class="text-muted small mb-0">Use a strong password and keep your email up to date.</p>
                     </div>
                 </div>
-
-                <div class="form-group">
-                    <label for="confirmPassword"><i class="fas fa-key"></i> Confirm New Password</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" autocomplete="new-password">
-                    <button type="button" class="password-toggle" id="toggleConfirmPassword">
-                        <i class="far fa-eye"></i>
-                    </button>
-                </div>
-
-                <div class="form-actions">
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-save"></i> Save Changes
-                    </button>
-                    <button type="reset" class="btn btn-secondary">
-                        <i class="fas fa-undo"></i> Reset
-                    </button>
-                </div>
-            </form>
-            <div id="settingsAlert" class="custom-alert success"></div>
-            <div id="settingsError" class="custom-alert error"></div>
-
+            </div>
         </div>
     </div>
 

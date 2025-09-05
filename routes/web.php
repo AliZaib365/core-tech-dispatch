@@ -60,6 +60,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/notifications', [ContactusController::class, 'notifications']);
     Route::patch('/notifications/{id}/read', [ContactusController::class, 'markAsRead']);
 
+    
+
     Route::post('profile-update', [AuthController::class, 'profileUpdate'])->name('admin.profile.update');
     Route::get('logout', [AuthController::class, 'logout'])->name('admin.logout');
 });
