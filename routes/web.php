@@ -60,6 +60,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/notifications', [ContactusController::class, 'notifications']);
     Route::patch('/notifications/{id}/read', [ContactusController::class, 'markAsRead']);
 
+    //Contact Us Messages
+    Route::get('contact-messages', [ContactusController::class, 'index'])->name('contactus.index');
+    Route::delete('contact-messages/{id}', [ContactusController::class, 'destroy'])->name('contactus.destroy');
+
 
 
     Route::post('profile-update', [AuthController::class, 'profileUpdate'])->name('admin.profile.update');

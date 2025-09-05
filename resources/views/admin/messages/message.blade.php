@@ -195,16 +195,7 @@
         background: rgba(22, 26, 46, 0.6);
     }
 </style>
-<script>
-    (function() {
-        const saved = localStorage.getItem('theme');
-        if (!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-        } else if (saved) {
-            document.documentElement.setAttribute('data-theme', saved);
-        }
-    })();
-</script>
+
 
 @section('main-content')
     <section class="messages-hero mb-3">
@@ -214,159 +205,61 @@
                 <p class="text-muted mb-0">View and manage your recent communications</p>
             </div>
             <div class="d-flex gap-2">
-                <button class="btn btn-outline-secondary"><i class="bi bi-funnel me-1"></i> Filters</button>
-                <button class="btn btn-primary"><i class="bi bi-pencil-square me-1"></i> New Message</button>
+                <button class="btn btn-primary">
+                    <i class="bi bi-envelope"></i> {{ $unreadCount ?? 0 }} New Message
+                </button>
             </div>
         </div>
     </section>
 
     <div class="messages-list">
-        <!-- Message 1 -->
-        <div class="card message-card unread" data-message-id="m1" data-message-title="Order Updates"
-            data-message-sender="Alex Johnson" data-message-time="Today, 10:24 AM"
-            data-message-body="Your recent order #3245 has been shipped and is on its way. Expected delivery by Friday between 1pm-4pm. You can track your shipment in the Orders section.">
-            <div class="message-item">
-                <img class="message-avatar" src="https://i.pravatar.cc/88?img=1" alt="Sender">
-                <div class="flex-grow-1">
-                    <div class="d-flex justify-content-between align-items-start">
-                        <div>
-                            <div class="message-meta">
-                                <span class="badge bg-primary">New</span>
-                                <span class="text-muted">Order Updates</span>
-                            </div>
-                            <h6 class="message-title">Alex Johnson</h6>
-                        </div>
-                        <div class="text-end">
-                            <div class="message-time">Today, 10:24 AM</div>
-                            <div class="message-actions">
-                                <button class="btn btn-sm btn-outline-secondary" title="Archive"><i
-                                        class="bi bi-archive"></i></button>
-                                <button class="btn btn-sm btn-outline-secondary" title="Delete"><i
-                                        class="bi bi-trash3"></i></button>
-                                <button class="btn btn-sm btn-primary view-message" title="View"><i class="bi bi-eye"></i>
-                                    View</button>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="message-snippet mb-0">Your recent order #3245 has been shipped and is on its way. Expected
-                        delivery by Friday...</p>
-                </div>
-            </div>
-        </div>
+        @forelse($messages as $msg)
+            <div class="card message-card {{ $msg->read_or_not == 0 ? 'unread' : '' }}"
+                data-message-id="{{ $msg->id }}" data-message-title="{{ $msg->subject }}"
+                data-message-sender="{{ $msg->name }}" data-message-time="{{ $msg->created_at->format('M d, Y h:i A') }}"
+                data-message-body="{{ $msg->message }}">
 
-        <!-- Message 2 -->
-        <div class="card message-card" data-message-id="m2" data-message-title="Marketing Brief"
-            data-message-sender="Sophie Turner" data-message-time="Yesterday, 4:12 PM"
-            data-message-body="We’re launching a new campaign next week. Please review the brief attached and share your thoughts by Monday. We value your feedback on the targeting and creatives.">
-            <div class="message-item">
-                <img class="message-avatar" src="https://i.pravatar.cc/88?img=5" alt="Sender">
-                <div class="flex-grow-1">
-                    <div class="d-flex justify-content-between align-items-start">
-                        <div>
-                            <div class="message-meta">
-                                <span class="text-muted">Marketing</span>
+                <div class="message-item">
+                    <img class="message-avatar"
+                        src="https://ui-avatars.com/api/?name={{ urlencode($msg->name) }}&background=random" alt="Sender">
+                    <div class="flex-grow-1">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <div class="message-meta">
+                                    @if ($msg->read_or_not == 0)
+                                        <span class="badge bg-primary">New</span>
+                                    @endif
+                                    <span class="text-muted">{{ $msg->subject }}</span>
+                                </div>
+                                <h6 class="message-title">{{ $msg->name }}</h6>
                             </div>
-                            <h6 class="message-title">Sophie Turner</h6>
-                        </div>
-                        <div class="text-end">
-                            <div class="message-time">Yesterday, 4:12 PM</div>
-                            <div class="message-actions">
-                                <button class="btn btn-sm btn-outline-secondary" title="Archive"><i
-                                        class="bi bi-archive"></i></button>
-                                <button class="btn btn-sm btn-outline-secondary" title="Delete"><i
-                                        class="bi bi-trash3"></i></button>
-                                <button class="btn btn-sm btn-primary view-message" title="View"><i class="bi bi-eye"></i>
-                                    View</button>
+                            <div class="text-end">
+                                <div class="message-time">{{ $msg->created_at->diffForHumans() }}</div>
+                                <div class="message-actions">
+                                    <form action="" method="POST" class="d-inline">
+                                        @csrf @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-outline-secondary" title="Delete"><i
+                                                class="bi bi-trash3"></i></button>
+                                    </form>
+                                    <button type="button" class="btn btn-sm btn-primary view-message" title="View"><i
+                                            class="bi bi-eye"></i> View</button>
+                                </div>
                             </div>
                         </div>
+                        <p class="message-snippet mb-0">{{ Str::limit($msg->message, 120) }}</p>
                     </div>
-                    <p class="message-snippet mb-0">We’re launching a new campaign next week. Could you review the brief and
-                        share your thoughts by Monday?</p>
                 </div>
             </div>
-        </div>
-
-        <!-- Message 3 -->
-        <div class="card message-card" data-message-id="m3" data-message-title="Ticket Update"
-            data-message-sender="Customer Support" data-message-time="Aug 28, 2025"
-            data-message-body="Ticket #98231 has been updated. The user confirmed the bug is fixed after the recent patch. We will monitor for 48 hours.">
-            <div class="message-item">
-                <img class="message-avatar" src="https://i.pravatar.cc/88?img=12" alt="Sender">
-                <div class="flex-grow-1">
-                    <div class="d-flex justify-content-between align-items-start">
-                        <div>
-                            <div class="message-meta">
-                                <span class="text-muted">Support</span>
-                            </div>
-                            <h6 class="message-title">Customer Support</h6>
-                        </div>
-                        <div class="text-end">
-                            <div class="message-time">Aug 28, 2025</div>
-                            <div class="message-actions">
-                                <button class="btn btn-sm btn-outline-secondary" title="Archive"><i
-                                        class="bi bi-archive"></i></button>
-                                <button class="btn btn-sm btn-outline-secondary" title="Delete"><i
-                                        class="bi bi-trash3"></i></button>
-                                <button class="btn btn-sm btn-primary view-message" title="View"><i
-                                        class="bi bi-eye"></i>
-                                    View</button>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="message-snippet mb-0">Ticket #98231 has been updated. The user confirmed the bug is fixed
-                        after the recent patch.</p>
-                </div>
-            </div>
-        </div>
+        @empty
+            <div class="alert alert-info">No messages found.</div>
+        @endforelse
     </div>
 
     <!-- Pagination -->
-    <nav class="mt-4" aria-label="Messages pagination">
-        <ul class="pagination pagination-modern justify-content-center gap-2">
-            <li class="page-item disabled">
-                <button class="page-link" data-action="prev" data-page="1" tabindex="-1"
-                    aria-disabled="true">Previous</button>
-            </li>
-            <li class="page-item active"><button class="page-link" data-page="1">1</button></li>
-            <li class="page-item"><button class="page-link" data-page="2">2</button></li>
-            <li class="page-item"><button class="page-link" data-page="3">3</button></li>
-            <li class="page-item">
-                <button class="page-link" data-action="next" data-page="2">Next</button>
-            </li>
-        </ul>
-    </nav>
+    <div class="mt-4">
+        {{ $messages->links('vendor.pagination.messages') }}
+    </div>
 
-
-    <script>
-        $(function() {
-            // Simple pagination click handlers (ready for backend integration)
-            $('.pagination').on('click', '.page-link', function() {
-                const page = $(this).data('page');
-                const action = $(this).data('action');
-                if (!page && !action) return;
-                // Replace with backend call, e.g., window.location or fetch
-                // console.log('Load page', action || page);
-            });
-
-            // View message modal
-            $(document).on('click', '.view-message', function() {
-                const $card = $(this).closest('.message-card');
-                const data = {
-                    title: $card.data('message-title'),
-                    sender: $card.data('message-sender'),
-                    time: $card.data('message-time'),
-                    body: $card.data('message-body')
-                };
-                $('#messageModalLabel').text(data.title);
-                $('#messageModalSender').text(data.sender);
-                $('#messageModalTime').text(data.time);
-                $('#messageModalBody').text(data.body);
-                const modal = new bootstrap.Modal(document.getElementById('messageModal'));
-                modal.show();
-                $card.removeClass('unread');
-            });
-        });
-    </script>
 
     <!-- Message Details Modal -->
     <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
@@ -374,17 +267,17 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="messageModalLabel">Message</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
                     <div class="d-flex align-items-start justify-content-between flex-wrap gap-2 mb-2">
                         <div>
                             <div class="small text-muted">From</div>
-                            <div class="fw-semibold" id="messageModalSender">Sender</div>
+                            <div class="fw-semibold" id="messageModalSender"></div>
                         </div>
                         <div class="text-end">
                             <div class="small text-muted">Received</div>
-                            <div class="fw-semibold" id="messageModalTime">Time</div>
+                            <div class="fw-semibold" id="messageModalTime"></div>
                         </div>
                     </div>
                     <hr>
@@ -399,4 +292,23 @@
             </div>
         </div>
     </div>
+
+    @push('scripts')
+        <script>
+            $(function() {
+                // Open modal
+                $(document).on('click', '.view-message', function() {
+                    const $card = $(this).closest('.message-card');
+                    $('#messageModalLabel').text($card.data('message-title'));
+                    $('#messageModalSender').text($card.data('message-sender'));
+                    $('#messageModalTime').text($card.data('message-time'));
+                    $('#messageModalBody').text($card.data('message-body'));
+
+                    new bootstrap.Modal(document.getElementById('messageModal')).show();
+
+                    $card.removeClass('unread');
+                });
+            });
+        </script>
+    @endpush
 @endsection

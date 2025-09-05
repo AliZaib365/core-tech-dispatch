@@ -7,6 +7,15 @@ use Illuminate\Http\Request;
 
 class ContactusController extends Controller
 {
+
+    public function index()
+    {
+        $messages = Contactus::latest()->paginate(5);
+        $unreadCount = Contactus::where('read_or_not', 0)->count();
+        return view('admin.messages.message', compact('messages', 'unreadCount'));
+    }
+
+
     public function create(Request $request)
     {
         $request->validate([

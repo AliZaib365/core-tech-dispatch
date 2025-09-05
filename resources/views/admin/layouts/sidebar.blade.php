@@ -1,28 +1,25 @@
         <nav id="sidebar">
             <div class="sidebar-header">
-                <img class="logo-img" src="https://ui-avatars.com/api/?name=A&background=3f37c9&color=fff"
-                    alt="Admin Logo">
+                <a href="{{ route('dashboard') }}">
+                    <img class="logo-img"
+                        src="{{ auth()->user()->avatar ? asset(auth()->user()->avatar) : 'https://ui-avatars.com/api/?name=' . urlencode(auth()->user()->name) . '&background=random' }}"
+                        alt="Admin Logo">
+                </a>
                 <h3>Admin Panel</h3>
             </div>
 
             <div class="sidebar-menu">
                 <ul>
                     <li class="active">
-                        <a href="#" data-view="dashboard">
+                        <a href="{{ route('dashboard') }}">
                             <i class="bi bi-speedometer2"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" data-view="users">
-                            <i class="bi bi-people"></i>
-                            <span>Users</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" data-view="products">
-                            <i class="bi bi-cart"></i>
-                            <span>Products</span>
+                        <a href="{{ route('contactus.index') }}">
+                            <i class="bi bi-envelope"></i>
+                            <span>Messages</span>
                         </a>
                     </li>
                     <li>
@@ -32,21 +29,15 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" data-view="orders">
-                            <i class="bi bi-table"></i>
-                            <span>Orders</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" data-view="settings">
+                        <a href="{{ route('admin.profile') }}">
                             <i class="bi bi-gear"></i>
-                            <span>Settings</span>
+                            <span>Profile Settings</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" data-view="profile">
+                        <a href="{{ route('admin.logout') }}">
                             <i class="bi bi-box-arrow-right"></i>
-                            <span>Profile</span>
+                            <span>Logout</span>
                         </a>
                     </li>
                 </ul>

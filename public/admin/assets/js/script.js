@@ -67,13 +67,13 @@
                 $('#sidebar, #content, .overlay').toggleClass('active');
             }
         });
-        
+
         // Close sidebar when clicking on overlay
         $('.overlay').on('click', function() {
             $('#sidebar, #content, .overlay').removeClass('active');
             $('#content').removeClass('mobile-spaced');
         });
-        
+
         // Adjust sidebar on resize
         $(window).resize(function() {
             if ($(window).width() > 767.98) {
@@ -151,46 +151,9 @@
                 };
                 reader.readAsDataURL(file);
             });
-            $form.on('submit', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                const name = $('#profileName').val().trim();
-                const email = $('#profileEmail').val().trim();
-                const pass = $('#profilePassword').val();
-                const confirm = $('#profileConfirm').val();
-
-                let valid = true;
-                if (!name) { valid = false; $('#profileName')[0].setCustomValidity('invalid'); } else { $('#profileName')[0].setCustomValidity(''); }
-                if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { valid = false; $('#profileEmail')[0].setCustomValidity('invalid'); } else { $('#profileEmail')[0].setCustomValidity(''); }
-                if (pass || confirm) {
-                    if (pass.length < 8 || pass !== confirm) {
-                        valid = false;
-                        $('#profileConfirm')[0].setCustomValidity('invalid');
-                    } else {
-                        $('#profileConfirm')[0].setCustomValidity('');
-                    }
-                } else {
-                    $('#profileConfirm')[0].setCustomValidity('');
-                }
-
-                $form.addClass('was-validated');
-                if (valid) {
-                    const btn = $(this).find('button[type="submit"]');
-                    const original = btn.text();
-                    btn.prop('disabled', true).text('Saving...');
-                    setTimeout(() => { btn.prop('disabled', false).text(original); }, 900);
-                }
-            });
-
-            $('#resetProfile').on('click', function() {
-                $('#profileForm')[0].reset();
-                $('#profileForm').removeClass('was-validated');
-                $('#profileName')[0].setCustomValidity('');
-                $('#profileEmail')[0].setCustomValidity('');
-                $('#profileConfirm')[0].setCustomValidity('');
-            });
+       
         }
-        
+
         // Charts: instantiate only if elements exist
         const salesCanvas = document.getElementById('salesChart');
         if (salesCanvas) {
