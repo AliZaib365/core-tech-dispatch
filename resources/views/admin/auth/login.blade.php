@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login • Admin Dashboard</title>
+    <title>Login Core-Tech • Admin Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('admin/assets/css/login.css') }}">
@@ -12,7 +12,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <link rel="icon" href="data:,">
-    <title>Login</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 
@@ -52,7 +51,7 @@
                             <input type="password" class="form-control" id="loginPassword"
                                 placeholder="Enter your password" required>
                             <button type="button" class="btn password-toggle-btn" aria-label="Show password"
-                                data-target="#loginPassword"><i class="bi bi-eye"></i></button>
+                                data-target="#loginPassword"><i class="bi bi-eye" id="eye"></i></button>
                         </div>
                         <div class="invalid-feedback">Please enter your password.</div>
                     </div>
@@ -77,6 +76,20 @@
 
     <script>
         $(function() {
+            // Password visibility toggle
+            $('.password-toggle-btn').on('click', function() {
+                const target = $($(this).data('target'));
+                const icon = $(this).find('i');
+                if (target.attr('type') === 'password') {
+                    target.attr('type', 'text');
+                    icon.removeClass('bi-eye').addClass('bi-eye-slash');
+                } else {
+                    target.attr('type', 'password');
+                    icon.removeClass('bi-eye-slash').addClass('bi-eye');
+                }
+            });
+
+
             // Simple login validation
             $('#loginForm').on('submit', function(e) {
                 e.preventDefault();
@@ -100,10 +113,27 @@
                     const btn = $(this).find('button[type="submit"]');
                     const original = btn.text();
                     btn.prop('disabled', true).text('Signing in...');
-                    setTimeout(() => {
-                        btn.prop('disabled', false).text(original);
-                        window.location.href = 'index.html';
-                    }, 900);
+                    $.ajax({
+                        url: "{{ route('login.perform') }}",
+                        method: 'POST',
+                        data: {
+                            email: email,
+                            password: pass,
+                            remember: $('#rememberMe').is(':checked') ? $('#rememberMe').is(
+                                ':checked') : null,
+                            _token: '{{ csrf_token() }}'
+                        },
+                        success: function(response) {
+                            // Redirect to dashboard on success
+                            $('#loginForm').addClass('was-validated');
+                            window.location.href = "{{ route('admin.dashboard') }}";
+
+                        },
+                        error: function(xhr) {
+                            $('#loginForm').addClass('was-invalid');
+                            btn.prop('disabled', false).text(original);
+                        }
+                    });
                 }
             });
         });
