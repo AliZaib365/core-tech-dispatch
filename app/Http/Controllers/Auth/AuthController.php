@@ -15,7 +15,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials, $request->remember)) {
             $user = Auth::user()->name;
-            return redirect('admin/dashboard')->with('success', "Welcome back $user");
+            return response()->json(['success' => 'Login successful. Welcome ' . $user]);
         }
 
         return response()->json(['error' => 'Invalid credentials please enter valid credentials'], 401);

@@ -39,7 +39,7 @@
                         <label for="loginEmail" class="form-label">Email or Username</label>
                         <div class="input-group input-with-icon">
                             <span class="input-group-text"><i class="bi bi-at"></i></span>
-                            <input type="text" class="form-control" id="loginEmail" placeholder="name@example.com"
+                            <input type="email" class="form-control" id="loginEmail" placeholder="name@example.com"
                                 required>
                         </div>
                         <div class="invalid-feedback">Please enter your email or username.</div>
@@ -126,11 +126,13 @@
                         success: function(response) {
                             // Redirect to dashboard on success
                             $('#loginForm').addClass('was-validated');
-                            window.location.href = "{{ route('admin.dashboard') }}";
+
+                            window.location.href = "{{ route('dashboard') }}";
 
                         },
                         error: function(xhr) {
-                            $('#loginForm').addClass('was-invalid');
+                            $('#loginEmail')[0].setCustomValidity('invalid');
+                            $('#loginPassword')[0].setCustomValidity('invalid');
                             btn.prop('disabled', false).text(original);
                         }
                     });

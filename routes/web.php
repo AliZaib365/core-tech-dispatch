@@ -53,14 +53,14 @@ Route::group(['prefix' => 'service-detail'], function () {
 // Admin dashboard route
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
-    Route::get('dashboard', [DashboardManage::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('dashboard', [DashboardManage::class, 'dashboard'])->name('dashboard');
     Route::view('admin-profile', 'admin.profile.admin-profile')->name('admin.profile');
 
     // Admin Dashboard Routes
     Route::get('/notifications', [ContactusController::class, 'notifications']);
     Route::patch('/notifications/{id}/read', [ContactusController::class, 'markAsRead']);
 
-    
+
 
     Route::post('profile-update', [AuthController::class, 'profileUpdate'])->name('admin.profile.update');
     Route::get('logout', [AuthController::class, 'logout'])->name('admin.logout');

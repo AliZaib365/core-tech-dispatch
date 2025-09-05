@@ -34,7 +34,8 @@
                                 <div class="input-group input-with-icon">
                                     <span class="input-group-text"><i class="bi bi-person"></i></span>
                                     <input type="text" class="form-control" id="profileName"
-                                        placeholder="Enter your full name" required>
+                                        placeholder="Enter your full name" value="{{ auth()->user()->name ?? '' }}"
+                                        required>
                                 </div>
                                 <div class="invalid-feedback">Please enter your name.</div>
                             </div>
@@ -43,7 +44,7 @@
                                 <div class="input-group input-with-icon">
                                     <span class="input-group-text"><i class="bi bi-envelope"></i></span>
                                     <input type="email" class="form-control" id="profileEmail"
-                                        placeholder="name@example.com" required>
+                                        placeholder="name@example.com" value="{{ auth()->user()->email ?? '' }}" required>
                                 </div>
                                 <div class="invalid-feedback">Please enter a valid email.</div>
                             </div>
