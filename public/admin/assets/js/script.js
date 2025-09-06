@@ -151,60 +151,8 @@
                 };
                 reader.readAsDataURL(file);
             });
-       
+
         }
 
-        // Charts: instantiate only if elements exist
-        const salesCanvas = document.getElementById('salesChart');
-        if (salesCanvas) {
-            const salesChart = new Chart(
-                salesCanvas,
-                {
-                    type: 'line',
-                    data: {
-                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                        datasets: [{
-                            label: 'Sales ($)',
-                            data: [8500, 12500, 9800, 11200, 15600, 18200, 14500, 16800, 19200, 21500, 18500, 23800],
-                            borderColor: '#4361ee',
-                            tension: 0.3,
-                            fill: true,
-                            backgroundColor: 'rgba(67, 97, 238, 0.1)'
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: { legend: { display: false } },
-                        scales: {
-                            y: { beginAtZero: true, grid: { drawBorder: false } },
-                            x: { grid: { display: false } }
-                        }
-                    }
-                }
-            );
-        }
-        const trafficCanvas = document.getElementById('trafficChart');
-        if (trafficCanvas) {
-            const trafficChart = new Chart(
-                trafficCanvas,
-                {
-                    type: 'doughnut',
-                    data: {
-                        labels: ['Direct', 'Social', 'Referral', 'Organic'],
-                        datasets: [{
-                            data: [35, 25, 20, 20],
-                            backgroundColor: ['#4361ee','#4cc9f0','#f72585','#3f37c9'],
-                            borderWidth: 0
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: { legend: { position: 'bottom' } },
-                        cutout: '70%'
-                    }
-                }
-            );
-        }
+
     });

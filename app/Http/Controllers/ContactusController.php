@@ -10,7 +10,7 @@ class ContactusController extends Controller
 
     public function index()
     {
-        $messages = Contactus::latest()->paginate(5);
+        $messages = Contactus::orderBy('read_or_not', 'asc')->latest()->paginate(6);
         $unreadCount = Contactus::where('read_or_not', 0)->count();
         return view('admin.messages.message', compact('messages', 'unreadCount'));
     }
@@ -56,5 +56,17 @@ class ContactusController extends Controller
         $contact->update(['read_or_not' => 1]);
 
         return response()->json(['message' => 'Marked as read']);
+    }
+
+    public function destroy(Request $request)
+    {
+        if (!$request->has('id')) {
+            return response()->json(['error' => 'Message ID is required.'], 400);
+        }
+        
+        $contact = Contactus::findOrFail($request->id);
+        $contact->delete();
+
+        return response()->json(['message' => 'Message deleted successfully.']);
     }
 }

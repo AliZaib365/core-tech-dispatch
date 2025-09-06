@@ -5,49 +5,47 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Contactus;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Visitor;
+use Illuminate\Support\Facades\DB;
 
 class DashboardManage extends Controller
 {
     public function dashboard(Request $request)
     {
-        // Build the query dynamically for server-side filtering, sorting, and pagination
-        $query = Contactus::query();
 
-        // Search filter
-        if ($search = $request->input('search')) {
-            $query->where(function ($q) use ($search) {
-                $q->where('name', 'like', "%{$search}%")
-                    ->orWhere('email', 'like', "%{$search}%")
-                    ->orWhere('message', 'like', "%{$search}%")
-                    ->orWhere('subject', 'like', "%{$search}%");
-            });
-        }
+        // Stats
+        $totalVisitors   = Visitor::count();
+        $activeVisitors  = Visitor::where('status', 'active')->count();
+        $totalMessages   = Contactus::count();
+        $unreadMessages  = Contactus::where('read_or_not', 'unread')->count();
 
-        // Status filter
-        $status = $request->input('status', 'all');
-        if ($status === 'new') {
-            $query->where('read_or_not', 0);
-        } elseif ($status === 'replied') {
-            $query->where('status', 0); // Assuming status=0 means replied based on your original code
-        } elseif ($status === 'urgent') {
-            $query->where('subject', 'like', '%urgent%');
-        }
+        // Visitors per month
+        $visitorStats = Visitor::select(
+            DB::raw('MONTH(created_at) as month'),
+            DB::raw('COUNT(*) as total')
+        )->groupBy('month')
+            ->pluck('total', 'month')
+            ->toArray();
 
-        // Sorting
-        $sortBy = $request->input('sort_by', 'created_at');
-        $dir = $request->input('dir', 'desc');
-        $query->orderBy($sortBy, $dir);
+        // Messages per month
+        $messageStats = Contactus::select(
+            DB::raw('MONTH(created_at) as month'),
+            DB::raw('COUNT(*) as total')
+        )->groupBy('month')
+            ->pluck('total', 'month')
+            ->toArray();
 
-        // Pagination with customizable per_page
-        $perPage = (int) $request->input('per_page', 5);
-        $messages = $query->paginate($perPage)->withQueryString(); // Appends query params to pagination links
+        // Recent Messages
+        $recentMessages = Contactus::latest()->take(5)->get();
 
-        // Counts (kept as totals; if you want filtered counts, you can clone $query and count)
-        $total = Contactus::count();
-        $unread = Contactus::where('read_or_not', 0)->count();
-        $replied = Contactus::where('status', 0)->count();
-        $urgent = Contactus::where('subject', 'like', '%urgent%')->count();
-
-        return view('admin.dashboard', compact('total', 'unread', 'replied', 'urgent', 'messages'));
+        return view('admin.dashboard', compact(
+            'totalVisitors',
+            'activeVisitors',
+            'totalMessages',
+            'unreadMessages',
+            'visitorStats',
+            'messageStats',
+            'recentMessages'
+        ));
     }
 }

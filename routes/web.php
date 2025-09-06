@@ -58,13 +58,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     // Admin Dashboard Routes
     Route::get('/notifications', [ContactusController::class, 'notifications']);
-    Route::patch('/notifications/{id}/read', [ContactusController::class, 'markAsRead']);
+    Route::any('/message/{id}/mark-read', [ContactusController::class, 'markAsRead']);
 
     //Contact Us Messages
     Route::get('contact-messages', [ContactusController::class, 'index'])->name('contactus.index');
     Route::delete('contact-messages/{id}', [ContactusController::class, 'destroy'])->name('contactus.destroy');
 
 
+    // Delete message
+    Route::delete('messages/delete', [ContactusController::class, 'destroy'])->name('messages.delete');
 
     Route::post('profile-update', [AuthController::class, 'profileUpdate'])->name('admin.profile.update');
     Route::get('logout', [AuthController::class, 'logout'])->name('admin.logout');

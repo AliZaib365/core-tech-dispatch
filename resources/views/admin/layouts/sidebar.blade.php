@@ -10,31 +10,31 @@
 
             <div class="sidebar-menu">
                 <ul>
-                    <li class="active">
+                    <li class="{{ request()->is('admin/dashboard') ? 'active' : '' }}">
                         <a href="{{ route('dashboard') }}">
                             <i class="bi bi-speedometer2"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="{{ request()->is('admin/contact-messages') ? 'active' : '' }}">
                         <a href="{{ route('contactus.index') }}">
                             <i class="bi bi-envelope"></i>
                             <span>Messages</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="{{ request()->is('admin/analytics') ? 'active' : '' }}">
                         <a href="#" data-view="analytics">
                             <i class="bi bi-graph-up"></i>
                             <span>Analytics</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="{{ request()->is('admin/admin-profile') ? 'active' : '' }}">
                         <a href="{{ route('admin.profile') }}">
                             <i class="bi bi-gear"></i>
                             <span>Profile Settings</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="{{ request()->is('admin/logout') ? 'active' : '' }}">
                         <a href="{{ route('admin.logout') }}">
                             <i class="bi bi-box-arrow-right"></i>
                             <span>Logout</span>

@@ -1,202 +1,201 @@
 @extends('admin.layouts.master')
 
+@push('styles')
+    <style>
+        .messages-hero h2 {
+            font-weight: 700;
+        }
 
-<style>
-    .messages-hero h2 {
-        font-weight: 700;
-    }
+        .message-card {
+            border: none;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+            background: #fff;
+            overflow: hidden;
+            animation: msgFade .35s ease both;
+        }
 
-    .message-card {
-        border: none;
-        border-radius: var(--border-radius);
-        box-shadow: var(--card-shadow);
-        transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
-        background: #fff;
-        overflow: hidden;
-        animation: msgFade .35s ease both;
-    }
+        .message-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, .12);
+        }
 
-    .message-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 14px 30px rgba(0, 0, 0, .12);
-    }
+        .message-card.unread {
+            box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.12) inset;
+        }
 
-    .message-card.unread {
-        box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.12) inset;
-    }
+        .message-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 16px 18px;
+        }
 
-    .message-item {
-        display: flex;
-        gap: 14px;
-        align-items: flex-start;
-        padding: 16px 18px;
-    }
+        .message-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, .12);
+        }
 
-    .message-avatar {
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        object-fit: cover;
-        box-shadow: 0 6px 16px rgba(0, 0, 0, .12);
-    }
+        .message-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-    .message-meta {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
+        .message-title {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
 
-    .message-title {
-        margin: 0;
-        font-size: 1rem;
-        font-weight: 600;
-    }
+        .message-snippet {
+            margin: 2px 0 0 0;
+            color: #6c757d;
+        }
 
-    .message-snippet {
-        margin: 2px 0 0 0;
-        color: #6c757d;
-    }
+        .message-time {
+            color: #6c757d;
+            font-size: .85rem;
+            white-space: nowrap;
+        }
 
-    .message-time {
-        color: #6c757d;
-        font-size: .85rem;
-        white-space: nowrap;
-    }
-
-    .message-actions {
-        opacity: 0;
-        transition: opacity .2s ease;
-    }
-
-    .message-card:hover .message-actions {
-        opacity: 1;
-    }
-
-    .messages-list {
-        display: grid;
-        gap: 14px;
-    }
-
-    @keyframes msgFade {
-        from {
+        .message-actions {
             opacity: 0;
-            transform: translateY(6px);
+            transition: opacity .2s ease;
         }
 
-        to {
+        .message-card:hover .message-actions {
             opacity: 1;
-            transform: translateY(0);
         }
-    }
 
-    /* Dark mode adjustments */
-    html[data-theme="dark"] .message-card {
-        background: #161a2e;
-        color: #e2e6f3;
-    }
-
-    html[data-theme="dark"] .message-snippet,
-    html[data-theme="dark"] .message-time {
-        color: rgba(226, 230, 243, 0.7);
-    }
-
-    html[data-theme="dark"] .message-card.unread {
-        box-shadow: 0 0 0 2px rgba(226, 230, 243, 0.12) inset;
-    }
-
-    /* Pagination */
-    .pagination-modern .page-link {
-        border: none;
-        color: var(--primary);
-        border-radius: 10px;
-        padding: 10px 14px;
-        transition: background-color .2s ease, transform .15s ease, box-shadow .2s ease;
-        background: rgba(67, 97, 238, 0.08);
-    }
-
-    .pagination-modern .page-link:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 8px 20px rgba(67, 97, 238, 0.18);
-        background: rgba(67, 97, 238, 0.12);
-    }
-
-    .pagination-modern .page-item.active .page-link {
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        color: #fff;
-        box-shadow: 0 10px 28px rgba(67, 97, 238, 0.28);
-    }
-
-    .pagination-modern .page-link:focus {
-        box-shadow: 0 0 0 0.2rem rgba(67, 97, 238, 0.2);
-    }
-
-    .pagination-modern .page-item.disabled .page-link {
-        opacity: .6;
-    }
-
-    html[data-theme="dark"] .pagination-modern .page-link {
-        background: rgba(226, 230, 243, 0.08);
-        color: #e2e6f3;
-    }
-
-    html[data-theme="dark"] .pagination-modern .page-link:hover {
-        background: rgba(226, 230, 243, 0.12);
-    }
-
-    /* Modal polish */
-    .modal-content {
-        border: 1px solid rgba(0, 0, 0, 0.06);
-        border-radius: var(--border-radius);
-        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
-    }
-
-    .modal-header,
-    .modal-footer {
-        background: rgba(255, 255, 255, 0.6);
-    }
-
-    .modal-title {
-        font-weight: 700;
-    }
-
-    .modal-body {
-        line-height: 1.6;
-    }
-
-    #messageModalBody {
-        white-space: pre-wrap;
-        word-wrap: break-word;
-    }
-
-    .modal.fade .modal-dialog {
-        transform: translateY(10px);
-        transition: transform .25s ease;
-    }
-
-    .modal.show .modal-dialog {
-        transform: none;
-    }
-
-    @media (max-width: 575.98px) {
-        .modal-dialog {
-            margin: .75rem;
+        .messages-list {
+            display: grid;
+            gap: 14px;
         }
-    }
 
-    html[data-theme="dark"] .modal-content {
-        background: #161a2e;
-        color: #e2e6f3;
-        border-color: rgba(255, 255, 255, 0.08);
-        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
-    }
+        @keyframes msgFade {
+            from {
+                opacity: 0;
+                transform: translateY(6px);
+            }
 
-    html[data-theme="dark"] .modal-header,
-    html[data-theme="dark"] .modal-footer {
-        background: rgba(22, 26, 46, 0.6);
-    }
-</style>
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
+        /* Dark mode adjustments */
+        html[data-theme="dark"] .message-card {
+            background: #161a2e;
+            color: #e2e6f3;
+        }
 
+        html[data-theme="dark"] .message-snippet,
+        html[data-theme="dark"] .message-time {
+            color: rgba(226, 230, 243, 0.7);
+        }
+
+        html[data-theme="dark"] .message-card.unread {
+            box-shadow: 0 0 0 2px rgba(226, 230, 243, 0.12) inset;
+        }
+
+        /* Pagination */
+        .pagination-modern .page-link {
+            border: none;
+            color: var(--primary);
+            border-radius: 10px;
+            padding: 10px 14px;
+            transition: background-color .2s ease, transform .15s ease, box-shadow .2s ease;
+            background: rgba(67, 97, 238, 0.08);
+        }
+
+        .pagination-modern .page-link:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.18);
+            background: rgba(67, 97, 238, 0.12);
+        }
+
+        .pagination-modern .page-item.active .page-link {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            box-shadow: 0 10px 28px rgba(67, 97, 238, 0.28);
+        }
+
+        .pagination-modern .page-link:focus {
+            box-shadow: 0 0 0 0.2rem rgba(67, 97, 238, 0.2);
+        }
+
+        .pagination-modern .page-item.disabled .page-link {
+            opacity: .6;
+        }
+
+        html[data-theme="dark"] .pagination-modern .page-link {
+            background: rgba(226, 230, 243, 0.08);
+            color: #e2e6f3;
+        }
+
+        html[data-theme="dark"] .pagination-modern .page-link:hover {
+            background: rgba(226, 230, 243, 0.12);
+        }
+
+        /* Modal polish */
+        .modal-content {
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: var(--border-radius);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-header,
+        .modal-footer {
+            background: rgba(255, 255, 255, 0.6);
+        }
+
+        .modal-title {
+            font-weight: 700;
+        }
+
+        .modal-body {
+            line-height: 1.6;
+        }
+
+        #messageModalBody {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .modal.fade .modal-dialog {
+            transform: translateY(10px);
+            transition: transform .25s ease;
+        }
+
+        .modal.show .modal-dialog {
+            transform: none;
+        }
+
+        @media (max-width: 575.98px) {
+            .modal-dialog {
+                margin: .75rem;
+            }
+        }
+
+        html[data-theme="dark"] .modal-content {
+            background: #161a2e;
+            color: #e2e6f3;
+            border-color: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+        }
+
+        html[data-theme="dark"] .modal-header,
+        html[data-theme="dark"] .modal-footer {
+            background: rgba(22, 26, 46, 0.6);
+        }
+    </style>
+@endpush
 @section('main-content')
     <section class="messages-hero mb-3">
         <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
@@ -227,7 +226,7 @@
                             <div>
                                 <div class="message-meta">
                                     @if ($msg->read_or_not == 0)
-                                        <span class="badge bg-primary">New</span>
+                                        <span id="{{ $msg->id . 'new_badge' }}" class="badge bg-primary">New</span>
                                     @endif
                                     <span class="text-muted">{{ $msg->subject }}</span>
                                 </div>
@@ -236,9 +235,11 @@
                             <div class="text-end">
                                 <div class="message-time">{{ $msg->created_at->diffForHumans() }}</div>
                                 <div class="message-actions">
-                                    <form action="" method="POST" class="d-inline">
-                                        @csrf @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-outline-secondary" title="Delete"><i
+                                    <form id="{{ $msg->id . 'delete-form' }}" class="d-inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <input type="hidden" name="id" value="{{ $msg->id }}">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary" title="Delete"><i
                                                 class="bi bi-trash3"></i></button>
                                     </form>
                                     <button type="button" class="btn btn-sm btn-primary view-message" title="View"><i
@@ -296,6 +297,37 @@
     @push('scripts')
         <script>
             $(function() {
+
+                // Delete message
+                $(document).on('click', 'form button[title="Delete"]', function(event) {
+                    event.preventDefault();
+                    const $form = $(this).closest('form');
+                    if (confirm('Are you sure you want to delete this message?')) {
+                        $.ajax({
+                            url: '{{ route('messages.delete') }}',
+                            method: 'DELETE',
+                            data: $form.serialize(),
+                            success: function() {
+                                $form.closest('.message-card').fadeOut(300, function() {
+                                    $(this).remove();
+                                });
+                                $('<div class="alert alert-info mt-3">Message deleted successfully.</div>')
+                                    .insertBefore('.messages-list').delay(3000).fadeOut(300,
+                                        function() {
+                                            $(this).remove();
+                                        });
+                            },
+                            error: function(error) {
+                                $('<div class="alert alert-danger mt-3">Failed to delete message. Please try again.</div>')
+                                    .insertBefore('.messages-list').delay(3000).fadeOut(300,
+                                        function() {
+                                            $(this).remove();
+                                        });
+                            }
+                        });
+                    }
+                });
+
                 // Open modal
                 $(document).on('click', '.view-message', function() {
                     const $card = $(this).closest('.message-card');
@@ -307,6 +339,29 @@
                     new bootstrap.Modal(document.getElementById('messageModal')).show();
 
                     $card.removeClass('unread');
+
+                    $.ajax({
+                        url: '/admin/message/' + $card.data('message-id') + '/mark-read',
+                        method: 'POST',
+                        data: {
+                            _token: '{{ csrf_token() }}'
+                        },
+                        success: function() {
+                            $('#' + $card.data('message-id') + 'new_badge').remove();
+                            let unreadCount = parseInt($('.btn-primary').text()) - 1;
+                            $('.btn-primary').html('<i class="bi bi-envelope"></i> ' + unreadCount +
+                                ' New Message');
+                            if (unreadCount <= 0) {
+                                $('.btn-primary').html(
+                                    '<i class="bi bi-envelope"></i> 0 New Message');
+                            }
+                        },
+                        error: function() {
+                            console.error('Failed to mark message as read.');
+                        }
+
+                    });
+
                 });
             });
         </script>

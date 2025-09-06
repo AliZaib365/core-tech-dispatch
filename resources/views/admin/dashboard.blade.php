@@ -3,62 +3,65 @@
     <div id="view-dashboard">
         <!-- Dashboard Stats -->
         <div class="row">
+            <!-- Total Visitors -->
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 mb-4">
-                <div class="card stat-card bg-primary">
+                <div class="card stat-card bg-primary text-white">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <h6 class="card-title">Total Users</h6>
-                                <h2 class="card-text">5,248</h2>
-                                <p class="card-text"><small><i class="bi bi-arrow-up"></i> 18% since last
-                                        month</small></p>
+                                <h6 class="card-title">Total Visitors</h6>
+                                <h2 class="card-text">{{ $totalVisitors }}</h2>
+                                <p class="card-text"><small><i class="bi bi-people"></i> Total number of site visitors</small></p>
                             </div>
-                            <i class="bi bi-people"></i>
+                            <i class="bi bi-people fs-2"></i>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Active Visitors -->
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 mb-4">
-                <div class="card stat-card bg-success">
+                <div class="card stat-card bg-success text-white">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <h6 class="card-title">Revenue</h6>
-                                <h2 class="card-text">$24,981</h2>
-                                <p class="card-text"><small><i class="bi bi-arrow-up"></i> 12% since last
-                                        month</small></p>
+                                <h6 class="card-title">Active Visitors</h6>
+                                <h2 class="card-text">{{ $activeVisitors }}</h2>
+                                <p class="card-text"><small><i class="bi bi-check-circle"></i> Currently active</small></p>
                             </div>
-                            <i class="bi bi-currency-dollar"></i>
+                            <i class="bi bi-person-check fs-2"></i>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Total Messages -->
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 mb-4">
-                <div class="card stat-card bg-warning">
+                <div class="card stat-card bg-warning text-white">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <h6 class="card-title">Orders</h6>
-                                <h2 class="card-text">1,428</h2>
-                                <p class="card-text"><small><i class="bi bi-arrow-up"></i> 8% since last
-                                        month</small></p>
+                                <h6 class="card-title">Total Messages</h6>
+                                <h2 class="card-text">{{ $totalMessages }}</h2>
+                                <p class="card-text"><small><i class="bi bi-envelope"></i> Messages received</small></p>
                             </div>
-                            <i class="bi bi-cart"></i>
+                            <i class="bi bi-envelope fs-2"></i>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Unread Messages -->
             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 mb-4">
-                <div class="card stat-card bg-info">
+                <div class="card stat-card bg-danger text-white">
                     <div class="card-body">
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <h6 class="card-title">Conversion Rate</h6>
-                                <h2 class="card-text">4.25%</h2>
-                                <p class="card-text"><small><i class="bi bi-arrow-down"></i> 2% since last
-                                        month</small></p>
+                                <h6 class="card-title">Unread Messages</h6>
+                                <h2 class="card-text">{{ $unreadMessages }}</h2>
+                                <p class="card-text"><small><i class="bi bi-envelope-exclamation"></i> Need attention</small></p>
                             </div>
-                            <i class="bi bi-graph-up"></i>
+                            <i class="bi bi-envelope-exclamation fs-2"></i>
                         </div>
                     </div>
                 </div>
@@ -67,121 +70,105 @@
 
         <!-- Charts Row -->
         <div class="row">
+            <!-- Visitors per Month -->
             <div class="col-xl-8 col-lg-7 mb-4">
                 <div class="card">
                     <div class="card-header bg-white">
-                        <h5 class="card-title mb-0">Sales Overview</h5>
+                        <h5 class="card-title mb-0">Visitors Per Month</h5>
                     </div>
                     <div class="card-body">
-                        <div class="chart-container">
-                            <canvas id="salesChart"></canvas>
+                        <div class="chart-container" style="height:300px">
+                            <canvas id="visitorsChart"></canvas>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Messages per Month -->
             <div class="col-xl-4 col-lg-5 mb-4">
                 <div class="card">
                     <div class="card-header bg-white">
-                        <h5 class="card-title mb-0">Traffic Sources</h5>
+                        <h5 class="card-title mb-0">Messages Per Month</h5>
                     </div>
                     <div class="card-body">
-                        <div class="chart-container">
-                            <canvas id="trafficChart"></canvas>
+                        <div class="chart-container" style="height:300px">
+                            <canvas id="messagesChart"></canvas>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Recent Activity & Top Products -->
+        <!-- Recent Messages -->
         <div class="row">
-            <div class="col-lg-6 mb-4">
+            <div class="col-lg-12 mb-4">
                 <div class="card">
                     <div class="card-header bg-white">
-                        <h5 class="card-title mb-0">Recent Activity</h5>
+                        <h5 class="card-title mb-0">Recent Messages</h5>
                     </div>
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h6 class="mb-1">New order received</h6>
-                                    <small class="text-muted">Order #3245 for $128.90</small>
-                                </div>
-                                <span class="badge bg-primary rounded-pill">2m ago</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h6 class="mb-1">Customer registered</h6>
-                                    <small class="text-muted">John Doe joined the platform</small>
-                                </div>
-                                <span class="badge bg-primary rounded-pill">1h ago</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h6 class="mb-1">Payment processed</h6>
-                                    <small class="text-muted">Payment of $59.20 was processed</small>
-                                </div>
-                                <span class="badge bg-primary rounded-pill">3h ago</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h6 class="mb-1">New review received</h6>
-                                    <small class="text-muted">Product "Wireless Headphones" got 5
-                                        stars</small>
-                                </div>
-                                <span class="badge bg-primary rounded-pill">1d ago</span>
-                            </li>
+                            @forelse ($recentMessages as $message)
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="mb-1">{{ $message->subject ?? 'No Subject' }}</h6>
+                                        <small class="text-muted">{{ $message->name }} ({{ $message->email }})</small><br>
+                                        <small>{{ Str::limit($message->message, 80) }}</small>
+                                    </div>
+                                    <span class="badge {{ $message->read_or_not == 'unread' ? 'bg-danger' : 'bg-success' }} rounded-pill">
+                                        {{ ucfirst($message->read_or_not) }}
+                                    </span>
+                                </li>
+                            @empty
+                                <li class="list-group-item text-center">No recent messages found.</li>
+                            @endforelse
                         </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 mb-4">
-                <div class="card">
-                    <div class="card-header bg-white">
-                        <h5 class="card-title mb-0">Top Products</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Product</th>
-                                        <th>Price</th>
-                                        <th>Sold</th>
-                                        <th>Profit</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Wireless Headphones</td>
-                                        <td>$189.99</td>
-                                        <td>142</td>
-                                        <td>$12,342</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Smart Watch</td>
-                                        <td>$279.99</td>
-                                        <td>98</td>
-                                        <td>$10,987</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Bluetooth Speaker</td>
-                                        <td>$89.99</td>
-                                        <td>214</td>
-                                        <td>$8,542</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Phone Charger</td>
-                                        <td>$29.99</td>
-                                        <td>387</td>
-                                        <td>$5,432</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        const monthLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+        // Visitors Chart
+        const visitorsCanvas = document.getElementById('visitorsChart');
+        if (visitorsCanvas) {
+            new Chart(visitorsCanvas, {
+                type: 'line',
+                data: {
+                    labels: monthLabels,
+                    datasets: [{
+                        label: 'Visitors',
+                        data: @json(array_values($visitorStats)),
+                        borderColor: '#4361ee',
+                        backgroundColor: 'rgba(67, 97, 238, 0.1)',
+                        tension: 0.3,
+                        fill: true
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+        }
+
+        // Messages Chart
+        const messagesCanvas = document.getElementById('messagesChart');
+        if (messagesCanvas) {
+            new Chart(messagesCanvas, {
+                type: 'bar',
+                data: {
+                    labels: monthLabels,
+                    datasets: [{
+                        label: 'Messages',
+                        data: @json(array_values($messageStats)),
+                        backgroundColor: '#f72585'
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+        }
+    </script>
+@endpush
