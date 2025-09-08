@@ -138,10 +138,11 @@
             $avatarInput.on('change', function(e) {
                 const file = e.target.files && e.target.files[0];
                 if (!file) return;
-                const isValidType = /image\/(jpeg|png)/.test(file.type);
-                const isValidSize = file.size <= 2 * 1024 * 1024; // 2MB
+                const isValidType = /image\/(jpeg|png|webp|jpeg)/.test(file.type);
+                const isValidSize = file.size <= 5 * 1024 * 1024;
+
                 if (!isValidType || !isValidSize) {
-                    alert('Please select a JPG or PNG image up to 2MB.');
+                    alert('Please select a JPG or PNG or Webp and jpeg image up to 5MB.');
                     $(this).val('');
                     return;
                 }

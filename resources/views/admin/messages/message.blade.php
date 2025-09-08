@@ -160,6 +160,13 @@
         }
 
         /* Pagination */
+        .pagination-modern {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px;
+        }
+
         .pagination-modern .page-link {
             border: none;
             color: var(--primary);
@@ -249,8 +256,120 @@
         html[data-theme="dark"] .modal-footer {
             background: rgba(22, 26, 46, 0.6);
         }
+
+        /* ================== Mobile Responsiveness Fixes ================== */
+        body,
+        html {
+            overflow-x: hidden;
+        }
+
+        /* Fix for Messages header */
+        .messages-hero .d-flex {
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .messages-hero .d-flex>div {
+            flex: 1 1 auto;
+        }
+
+        .messages-hero .btn {
+            white-space: nowrap;
+        }
+
+        @media (max-width: 767.98px) {
+            .messages-hero .d-flex {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .messages-hero .d-flex>div:last-child {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin-top: 10px;
+            }
+
+            .messages-hero .btn {
+                width: auto;
+                font-size: 0.9rem;
+                padding: 8px 14px;
+            }
+
+            .messages-list {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .message-item {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 14px;
+            }
+
+            .message-avatar {
+                width: 40px;
+                height: 40px;
+            }
+
+            .message-meta {
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+
+            .message-title {
+                font-size: 0.95rem;
+            }
+
+            .message-snippet {
+                font-size: 0.9rem;
+            }
+
+            .message-actions {
+                margin-top: 8px;
+                opacity: 1 !important;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+            }
+
+            .message-actions .btn {
+                flex: 1 1 auto;
+                min-width: 90px;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .pagination-modern .page-link {
+                font-size: 0.8rem;
+                padding: 6px 10px;
+                min-width: 32px;
+            }
+
+            .modal-dialog {
+                margin: 10px;
+                width: auto;
+            }
+
+            .modal-body {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .messages-hero .btn {
+                width: 100%;
+            }
+
+            .message-actions .btn {
+                width: 100%;
+            }
+        }
     </style>
 @endpush
+
+
 @section('main-content')
     <section class="messages-hero mb-3">
         <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
@@ -258,10 +377,11 @@
                 <h2 class="mb-1">Messages</h2>
                 <p class="text-muted mb-0">View and manage your recent communications</p>
             </div>
-            <div class="d-flex gap-2">
-                <button class="btn btn-primary">
+            <div class="d-flex gap-2 *:flex-wrap justify-content-end">
+                <button id="unreadMessageBtn" class="btn btn-primary">
                     <i class="bi bi-envelope"></i> {{ $unreadCount ?? 0 }} New Message
                 </button>
+
             </div>
         </div>
     </section>
@@ -421,13 +541,14 @@
                         },
                         success: function() {
                             $('#' + $card.data('message-id') + 'new_badge').remove();
-                            let unreadCount = parseInt($('.btn-primary').text()) - 1;
-                            $('.btn-primary').html('<i class="bi bi-envelope"></i> ' + unreadCount +
+
+                            let $unreadBtn = $(
+                            '#unreadMessageBtn'); // only unread button target karo
+                            let unreadCount = parseInt($unreadBtn.text()) - 1;
+
+                            unreadCount = unreadCount < 0 ? 0 : unreadCount; // negative fix
+                            $unreadBtn.html('<i class="bi bi-envelope"></i> ' + unreadCount +
                                 ' New Message');
-                            if (unreadCount <= 0) {
-                                $('.btn-primary').html(
-                                    '<i class="bi bi-envelope"></i> 0 New Message');
-                            }
                         },
                         error: function() {
                             console.error('Failed to mark message as read.');

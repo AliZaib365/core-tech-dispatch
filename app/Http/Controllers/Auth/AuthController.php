@@ -29,7 +29,7 @@ class AuthController extends Controller
             'currentPassword' => 'required|string',
             'newPassword' => 'nullable|string|min:8',
             'confirmPassword' => 'nullable|string|same:newPassword',
-            'avatar' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'avatar' => 'nullable|image|mimes:jpg,jpeg,png|max:5120',
         ], [
             'confirmPassword.same' => 'The new password and confirm password must match.',
             'avatar.max' => 'The avatar must not be greater than 2MB.',
