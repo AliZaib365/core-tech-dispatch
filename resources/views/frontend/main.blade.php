@@ -24,7 +24,7 @@
                 <a href="{{ url('info/contact-us') }}" class="cta-button2">
                     Get Started
                 </a>
-                <a href="faq.html" class="cta-button2 secondary-button">
+                <a href="{{ url('info/faqs') }}" class="cta-button2 secondary-button">
                     How It Works
                 </a>
             </div>
@@ -119,7 +119,7 @@
                             <div class="service-feature"><i class="fas fa-check-circle"></i> Route optimization</div>
                             <div class="service-feature"><i class="fas fa-check-circle"></i> Load management</div>
                         </div>
-                        <a href="Dispatching-services.html" class="service-link">
+                        <a href="{{ url('service-detail/dispatching-services') }}" class="service-link">
                             Learn more <i class="fas fa-chevron-right"></i>
                         </a>
                     </div>
@@ -151,7 +151,7 @@
                             <div class="service-feature"><i class="fas fa-check-circle"></i> Regulatory updates</div>
                             <div class="service-feature"><i class="fas fa-check-circle"></i> Audit preparation</div>
                         </div>
-                        <a href="Dot-services.html" class="service-link">
+                        <a href="{{ url('/service-detail/dot-services') }}" class="service-link">
                             Learn more <i class="fas fa-chevron-right"></i>
                         </a>
                     </div>
@@ -187,7 +187,7 @@
                                 scheduling</div>
 
                         </div>
-                        <a href="Neogtiation-services.html" class="service-link">
+                        <a href="{{ url('/service-detail/neogtiation-services') }}" class="service-link">
                             Learn more <i class="fas fa-chevron-right"></i>
                         </a>
                     </div>
@@ -220,7 +220,7 @@
                             <div class="service-feature"><i class="fas fa-check-circle"></i> Compliance tracking</div>
                             <div class="service-feature"><i class="fas fa-check-circle"></i> Error reduction</div>
                         </div>
-                        <a href="IFTA-services.html" class="service-link">
+                        <a href="{{ url('/service-detail/ifta-services') }}" class="service-link">
                             Learn more <i class="fas fa-chevron-right"></i>
                         </a>
                     </div>
@@ -250,7 +250,7 @@
                             <div class="service-feature"><i class="fas fa-check-circle"></i> Secure access</div>
                             <div class="service-feature"><i class="fas fa-check-circle"></i> Easy retrieval</div>
                         </div>
-                        <a href="Document-dispatch-services.html" class="service-link">
+                        <a href="{{ url('/service-detail/document-dispatch-services') }}" class="service-link">
                             Learn more <i class="fas fa-chevron-right"></i>
                         </a>
                     </div>
@@ -281,7 +281,7 @@
                             <div class="service-feature"><i class="fas fa-check-circle"></i> Tax preparation</div>
                             <div class="service-feature"><i class="fas fa-check-circle"></i> Financial reporting</div>
                         </div>
-                        <a href="Trucking-accounting-services.html" class="service-link">
+                        <a href="{{ url('/service-detail/trucking-accounting-services') }}" class="service-link">
                             Learn more <i class="fas fa-chevron-right"></i>
                         </a>
                     </div>
@@ -312,7 +312,7 @@
                             <div class="service-feature"><i class="fas fa-check-circle"></i> License renewal</div>
                             <div class="service-feature"><i class="fas fa-check-circle"></i> Regulatory filings</div>
                         </div>
-                        <a href="Trucking-document-services.html" class="service-link">
+                        <a href="{{ url('/service-detail/trucking-document-services') }}" class="service-link">
                             Learn more <i class="fas fa-chevron-right"></i>
                         </a>
                     </div>
@@ -344,14 +344,14 @@
                             </div>
                             <div class="service-feature"><i class="fas fa-check-circle"></i> Brand development</div>
                         </div>
-                        <a href="company-formation-services.html" class="service-link">
+                        <a href="{{ url('/service-detail/company-formation-services') }}" class="service-link">
                             Learn more <i class="fas fa-chevron-right"></i>
                         </a>
                     </div>
                 </div>
             </div>
 
-            <a href="services.html" class="all-services-link">
+            <a href="{{ url('/info/all-services') }}" class="all-services-link">
                 Explore All Services <i class="fas fa-arrow-right"></i>
             </a>
         </div>
@@ -368,35 +368,35 @@
                             Setup</button></a>
                 </div>
                 <div class="truck-types-grid" id="truck-grid">
-                    <a href="stepdeck-truck.html" class="truck-type-card"
+                    <a href="{{ url('/truck-detail/stepdeck-truck') }}" class="truck-type-card"
                         style="background-image: url('{{ asset('frontend/assets/images/Compressed/Step-deck-Trailer_11zon.webp') }}')">
                         <span>Step Deck</span>
                     </a>
-                    <a href="dryvan-truck.html" class="truck-type-card"
+                    <a href="{{ url('/truck-detail/dryvan-truck') }}" class="truck-type-card"
                         style="background-image: url('{{ asset('frontend/assets/images/Compressed/dry-van-sunset_11zon.webp') }}')">
                         <span>Dry Van</span>
                     </a>
-                    <a href="box-truck.html" class="truck-type-card"
+                    <a href="{{ url('/truck-detail/box-truck') }}" class="truck-type-card"
                         style="background-image: url('{{ asset('frontend/assets/images/Compressed/box-truck_11zon.webp') }}')">
                         <span> Box Truck</span>
                     </a>
-                    <a href="reefer-truck.html" class="truck-type-card"
+                    <a href="{{ url('/truck-detail/reefer-truck') }}" class="truck-type-card"
                         style="background-image: url('{{ asset('frontend/assets/images/Compressed/reefeer_11zon.webp') }}')">
                         <span> Reefer</span>
                     </a>
-                    <a href="power-truck.html" class="truck-type-card"
+                    <a href="{{ url('/truck-detail/power-truck') }}" class="truck-type-card"
                         style="background-image: url('{{ asset('frontend/assets/images/Compressed/power-only_11zon.webp') }}')">
                         <span> Power Only</span>
                     </a>
-                    <a href="Hotshot-truck.html" class="truck-type-card"
+                    <a href="{{ url('truck-detail/hot-spot') }}" class="truck-type-card"
                         style="background-position: top; background-image: url('{{ asset('frontend/assets/images/Compressed/hotshot-truck-1024x479-4_11zon.webp') }}') ">
                         <span>Hot Shot</span>
                     </a>
-                    <a href="conestoga-truck.html" class="truck-type-card"
+                    <a href="{{url('/truck-detail/conestoga-truck')}}" class="truck-type-card"
                         style="background-image: url('{{ asset('frontend/assets/images/Compressed/conestoga_11zon.webp') }}')">
                         <span> Conestoga Trailer</span>
                     </a>
-                    <a href="flatbed-truck.html" class="truck-type-card"
+                    <a href="{{ url('/truck-detail/flatbed-truck') }}" class="truck-type-card"
                         style="background-image: url('{{ asset('frontend/assets/images/Compressed/flatbed_11zon.webp') }}')">
                         <span> Flatbed</span>
                     </a>
@@ -430,7 +430,7 @@
                         <span class="about-highlight">CoreTech <span class="about-highlight-blue">Dispatch</span></span>
                         is your trusted partner for sustainable growth.
                     </div>
-                    <a href="about-us.html" class="about-btn" id="about-btn">
+                    <a href="{{ url('/info/about-us') }}" class="about-btn" id="about-btn">
                         Learn more about us
                         <span class="about-btn-arrow">&#8594;</span>
                     </a>

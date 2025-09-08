@@ -51,7 +51,7 @@
                             <div class="service-feature"><i class="fas fa-check-circle"></i> Route optimization</div>
                             <div class="service-feature"><i class="fas fa-check-circle"></i> Load management</div>
                         </div>
-                        <a href="Dispatching-services.html" class="service-link">
+                        <a href="{{ url('service-detail/dispatching-services') }}" class="service-link">
                             Learn more <i class="fas fa-chevron-right"></i>
                         </a>
                     </div>
@@ -83,7 +83,7 @@
                             <div class="service-feature"><i class="fas fa-check-circle"></i> Regulatory updates</div>
                             <div class="service-feature"><i class="fas fa-check-circle"></i> Audit preparation</div>
                         </div>
-                        <a href="Dot-services.html" class="service-link">
+                        <a href="{{ url('/service-detail/dot-services') }}" class="service-link">
                             Learn more <i class="fas fa-chevron-right"></i>
                         </a>
                     </div>
@@ -118,7 +118,7 @@
                                 scheduling</div>
 
                         </div>
-                        <a href="Neogtiation-services.html" class="service-link">
+                        <a href="{{url('/service-detail/neogtiation-services')}}" class="service-link">
                             Learn more <i class="fas fa-chevron-right"></i>
                         </a>
                     </div>
@@ -150,7 +150,7 @@
                             <div class="service-feature"><i class="fas fa-check-circle"></i> Compliance tracking</div>
                             <div class="service-feature"><i class="fas fa-check-circle"></i> Error reduction</div>
                         </div>
-                        <a href="IFTA-services.html" class="service-link">
+                        <a href="{{ url('/service-detail/ifta-services') }}" class="service-link">
                             Learn more <i class="fas fa-chevron-right"></i>
                         </a>
                     </div>
@@ -180,7 +180,7 @@
                             <div class="service-feature"><i class="fas fa-check-circle"></i> Secure access</div>
                             <div class="service-feature"><i class="fas fa-check-circle"></i> Easy retrieval</div>
                         </div>
-                        <a href="Document-dispatch-services.html" class="service-link">
+                        <a href="{{ url('/service-detail/document-dispatch-services') }}" class="service-link">
                             Learn more <i class="fas fa-chevron-right"></i>
                         </a>
                     </div>
@@ -211,7 +211,7 @@
                             <div class="service-feature"><i class="fas fa-check-circle"></i> Tax preparation</div>
                             <div class="service-feature"><i class="fas fa-check-circle"></i> Financial reporting</div>
                         </div>
-                        <a href="Trucking-accounting-services.html" class="service-link">
+                        <a href="{{ url('/service-detail/trucking-accounting-services') }}" class="service-link">
                             Learn more <i class="fas fa-chevron-right"></i>
                         </a>
                     </div>
@@ -242,7 +242,7 @@
                             <div class="service-feature"><i class="fas fa-check-circle"></i> License renewal</div>
                             <div class="service-feature"><i class="fas fa-check-circle"></i> Regulatory filings</div>
                         </div>
-                        <a href="Trucking-document-services.html" class="service-link">
+                        <a href="{{ url('/service-detail/document-dispatch-services') }}" class="service-link">
                             Learn more <i class="fas fa-chevron-right"></i>
                         </a>
                     </div>
@@ -274,7 +274,7 @@
                             </div>
                             <div class="service-feature"><i class="fas fa-check-circle"></i> Brand development</div>
                         </div>
-                        <a href="company-formation-services.html" class="service-link">
+                        <a href="{{ url('/service-detail/company-formation-services') }}" class="service-link">
                             Learn more <i class="fas fa-chevron-right"></i>
                         </a>
                     </div>
@@ -306,7 +306,7 @@
                             </div>
                             <div class="service-feature"><i class="fas fa-check-circle"></i> No hidden fees</div>
                         </div>
-                        <a href="Factoring-services.html" class="service-link">
+                        <a href="{{ url('/service-detail/factoring-services') }}" class="service-link">
                             Learn more <i class="fas fa-chevron-right"></i>
                         </a>
                     </div>
@@ -340,7 +340,7 @@
                             <div class="service-feature"><i class="fas fa-check-circle"></i> Document tracking & renewal
                             </div>
                         </div>
-                        <a href="document-management-services.html" class="service-link">
+                        <a href={{ url('/service-detail/document-management-services') }} class="service-link">
                             Learn more <i class="fas fa-chevron-right"></i>
                         </a>
                     </div>
