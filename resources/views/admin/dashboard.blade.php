@@ -11,7 +11,8 @@
                             <div>
                                 <h6 class="card-title">Total Visitors</h6>
                                 <h2 class="card-text">{{ $totalVisitors }}</h2>
-                                <p class="card-text"><small><i class="bi bi-people"></i> Total number of site visitors</small></p>
+                                <p class="card-text"><small><i class="bi bi-people"></i> Total number of site visitors</small>
+                                </p>
                             </div>
                             <i class="bi bi-people fs-2"></i>
                         </div>
@@ -59,7 +60,8 @@
                             <div>
                                 <h6 class="card-title">Unread Messages</h6>
                                 <h2 class="card-text">{{ $unreadMessages }}</h2>
-                                <p class="card-text"><small><i class="bi bi-envelope-exclamation"></i> Need attention</small></p>
+                                <p class="card-text"><small><i class="bi bi-envelope-exclamation"></i> Need
+                                        attention</small></p>
                             </div>
                             <i class="bi bi-envelope-exclamation fs-2"></i>
                         </div>
@@ -115,8 +117,9 @@
                                         <small class="text-muted">{{ $message->name }} ({{ $message->email }})</small><br>
                                         <small>{{ Str::limit($message->message, 80) }}</small>
                                     </div>
-                                    <span class="badge {{ $message->read_or_not == 'unread' ? 'bg-danger' : 'bg-success' }} rounded-pill">
-                                        {{ ucfirst($message->read_or_not) }}
+                                    <span
+                                        class="badge {{ $message->read_or_not == 0 ? 'bg-danger' : 'bg-success' }} rounded-pill">
+                                        {{ $message->read_or_not == 0 ? 'Unread' : 'Read' }}
                                     </span>
                                 </li>
                             @empty
@@ -134,6 +137,7 @@
     <script>
         const monthLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
+
         // Visitors Chart
         const visitorsCanvas = document.getElementById('visitorsChart');
         if (visitorsCanvas) {
@@ -150,7 +154,10 @@
                         fill: true
                     }]
                 },
-                options: { responsive: true, maintainAspectRatio: false }
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
             });
         }
 
@@ -167,7 +174,10 @@
                         backgroundColor: '#f72585'
                     }]
                 },
-                options: { responsive: true, maintainAspectRatio: false }
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
             });
         }
     </script>

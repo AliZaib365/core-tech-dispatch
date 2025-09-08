@@ -22,12 +22,13 @@
                             <span>Messages</span>
                         </a>
                     </li>
-                    <li class="{{ request()->is('admin/analytics') ? 'active' : '' }}">
-                        <a href="#" data-view="analytics">
+                    <li class="{{ request()->is('admin/visitors') ? 'active' : '' }}">
+                        <a href="{{ route('visitors.index') }}">
                             <i class="bi bi-graph-up"></i>
-                            <span>Analytics</span>
+                            <span>Visitor</span>
                         </a>
                     </li>
+
                     <li class="{{ request()->is('admin/admin-profile') ? 'active' : '' }}">
                         <a href="{{ route('admin.profile') }}">
                             <i class="bi bi-gear"></i>

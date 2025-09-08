@@ -19,21 +19,34 @@ class DashboardManage extends Controller
         $totalMessages   = Contactus::count();
         $unreadMessages  = Contactus::where('read_or_not', 'unread')->count();
 
-        // Visitors per month
-        $visitorStats = Visitor::select(
+        $visitorStatsRaw = Visitor::select(
             DB::raw('MONTH(created_at) as month'),
             DB::raw('COUNT(*) as total')
-        )->groupBy('month')
+        )
+            ->groupBy('month')
             ->pluck('total', 'month')
             ->toArray();
 
+        // Fill all 12 months
+        $visitorStats = [];
+        for ($i = 1; $i <= 12; $i++) {
+            $visitorStats[$i] = $visitorStatsRaw[$i] ?? 0;
+        }
+
         // Messages per month
-        $messageStats = Contactus::select(
+        $messageStatsRaw = Contactus::select(
             DB::raw('MONTH(created_at) as month'),
             DB::raw('COUNT(*) as total')
-        )->groupBy('month')
+        )
+            ->groupBy('month')
             ->pluck('total', 'month')
             ->toArray();
+
+        $messageStats = [];
+        for ($i = 1; $i <= 12; $i++) {
+            $messageStats[$i] = $messageStatsRaw[$i] ?? 0;
+        }
+
 
         // Recent Messages
         $recentMessages = Contactus::latest()->take(5)->get();

@@ -32,7 +32,7 @@
         <li>
             <a href="{{ url('info/all-trucks') }}">Trucks <i class="fas fa-chevron-down"></i></a>
             <ul class="dropdown">
-                <li><a href="{{ url('truck-detail/hot-spot') }}">Hotshot Truck Dispatching Service</a></li>
+                <li><a href="{{ url('truck-detail/hot-shot') }}">Hotshot Truck Dispatching Service</a></li>
                 <li><a href="{{ url('truck-detail/power-truck') }}">Power Only Dispatching Service</a></li>
                 <li><a href="{{ url('truck-detail/flatbed-truck') }}">Flatbed Truck Dispatching Service</a></li>
                 <li><a href="{{ url('truck-detail/reefer-truck') }}">Reefer Truck Dispatching Service</a></li>
@@ -116,7 +116,7 @@
                     <i class="fas fa-chevron-down"></i>
                 </button>
                 <ul class="mobile-dropdown">
-                    <li><a href="{{ url('truck-detail/hot-spot') }}">Hotshot Truck Dispatching Service</a></li>
+                    <li><a href="{{ url('truck-detail/hot-shot') }}">Hotshot Truck Dispatching Service</a></li>
                     <li><a href="{{ url('truck-detail/power-truck') }}">Power Only Dispatching Service</a></li>
                     <li><a href="{{ url('truck-detail/flatbed-truck') }}">Flatbed Truck Dispatching Service</a>
                     </li>

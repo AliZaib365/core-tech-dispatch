@@ -101,7 +101,7 @@
                             style="background-image: url('{{ asset('frontend/assets/images/Compressed/power-only_11zon.webp') }}')">
                             <span> Power Only</span>
                         </a>
-                        <a href="{{ url('truck-detail/hot-spot') }}" class="truck-type-card"
+                        <a href="{{ url('truck-detail/hot-shot') }}" class="truck-type-card"
                             style="background-position: top; background-image: url('{{ asset('frontend/assets/images/Compressed/hotshot-truck-1024x479-4_11zon.webp') }}') ">
                             <span>Hot Shot</span>
                         </a>
@@ -162,7 +162,7 @@
     </div>
 
     @include('frontend.contactus.form')
-    
+
     <section class="coretech-hero-section">
         <div class="coretech-hero-bg" id="heroBg"></div>
         <div class="particles" id="particlesContainer"></div>

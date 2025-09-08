@@ -2,6 +2,61 @@
 
 @push('styles')
     <style>
+        .flash-alert {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1055;
+            min-width: 280px;
+            max-width: 360px;
+            padding: 14px 18px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+            animation: slideInRight 0.5s ease, fadeOut 0.5s ease 2.5s forwards;
+        }
+
+        .flash-alert i {
+            font-size: 1.2rem;
+        }
+
+        .flash-alert.success {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: #fff;
+        }
+
+        .flash-alert.error {
+            background: linear-gradient(135deg, #dc3545, #e55353);
+            color: #fff;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(120%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+                transform: translateX(120%);
+            }
+        }
+
         .messages-hero h2 {
             font-weight: 700;
         }
@@ -316,8 +371,11 @@
                                         function() {
                                             $(this).remove();
                                         });
+
+                                showFlash('Message deleted successfully.', 'success');
                             },
                             error: function(error) {
+                                showFlash('Failed to delete message. Please try again.', 'error');
                                 $('<div class="alert alert-danger mt-3">Failed to delete message. Please try again.</div>')
                                     .insertBefore('.messages-list').delay(3000).fadeOut(300,
                                         function() {
@@ -327,6 +385,21 @@
                         });
                     }
                 });
+
+                // Function to show beautiful flash alerts
+                function showFlash(message, type) {
+                    const icon = type === 'success' ? '<i class="fas fa-check-circle"></i>' :
+                        '<i class="fas fa-times-circle"></i>';
+                    const $alert = $(`<div class="flash-alert ${type}">${icon} ${message}</div>`);
+
+                    $('body').append($alert);
+
+                    setTimeout(() => {
+                        $alert.fadeOut(400, function() {
+                            $(this).remove();
+                        });
+                    }, 3000);
+                }
 
                 // Open modal
                 $(document).on('click', '.view-message', function() {

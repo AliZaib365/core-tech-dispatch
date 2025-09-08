@@ -27,7 +27,7 @@
                 style="background-image: url('{{ asset('frontend/assets/images/Compressed/hotshot-truck-1024x479-4_11zon.webp') }}');">
                 <div class="coretech-truck-info">
                     <span class="coretech-truck-name">Hotshot Truck</span>
-                    <a href="{{ url('truck-detail/hot-spot') }}" class="coretech-truck-btn">View Details
+                    <a href="{{ url('truck-detail/hot-shot') }}" class="coretech-truck-btn">View Details
                         <svg width="16" height="16" fill="none" viewBox="0 0 16 16">
                             <path stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 d="M4 12l6-6m0 0V4m0 2h-2" />

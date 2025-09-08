@@ -15,9 +15,30 @@ class VisitorCounter
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
+
+    public function generateRandomIpV4()
+    {
+        $octets = [];
+        for ($i = 0; $i < 4; $i++) {
+            $octets[] = rand(0, 255);
+        }
+        return implode('.', $octets);
+    }
+
+
     public function handle(Request $request, Closure $next): Response
     {
-        $ip = $request->ip();
+        $ip = $this->generateRandomIpV4();
+        // $ip = $request->ip();
+
+        $find_ip = Visitor::where('ip', $ip)->first();
+
+        if ($find_ip) {
+            if ($find_ip->status !== "active") {
+                return response()->json(['error' => "You are not allowed to access my website so get away from my site....."]);
+            }
+        }
+
         $userAgent = $request->userAgent();
         $referrer = $request->headers->get('referer');
 
