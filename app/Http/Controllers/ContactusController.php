@@ -18,12 +18,15 @@ class ContactusController extends Controller
 
     public function create(Request $request)
     {
+
+        
+
         $request->validate([
             'name' => 'nullable|string|max:255',
             'email' => 'nullable|email|max:255',
             'phone' => 'nullable|string|max:20',
-            'message' => 'nullable|string',
             'agree' => 'boolean',
+            'message' => 'required|string|min:5|max:500',
             'send_email' => 'boolean',
         ]);
 

@@ -139,6 +139,8 @@ function initScrollAnimations() {
         '#section3',
         '#emailError',
         '#phoneGroup',
+        '#messageGroup',
+        '#messageGroup',
         '#rightPanel',
         '.coretech-hero-section',
         '.faq-header h2',

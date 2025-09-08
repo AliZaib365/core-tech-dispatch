@@ -1,6 +1,6 @@
 <nav class="navbar">
     <a href="{{ url('/') }}" class="logo-container">
-        <!-- <img src="assets/images/logo.webp.jpg" alt="CoreTech Dispatch Logo" class="logo-img"> -->
+        <img src="assets/images/logo.webp.jpg" alt="CoreTech Dispatch Logo" class="logo-img">
         <div class="logo-text">
             CORETECH <span>DISPATCH</span>
         </div>
