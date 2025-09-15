@@ -23,7 +23,7 @@
                 </div>
                 <div class="driver-contact-row">
                     <span class="driver-contact-icon">&#9993;</span>
-                    <a class="driver-contact-link" href="mailto:info@logitydispatch.com">info@logitydispatch.com</a>
+                    <a class="driver-contact-link" href="mailto:info@logitydispatch.com">info@coretechdispatch.com</a>
                 </div>
                 <div class="driver-contact-row">
                     <span class="driver-contact-icon">&#128205;</span>

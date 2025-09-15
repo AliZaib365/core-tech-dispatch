@@ -1,7 +1,8 @@
 <nav class="navbar">
     <a href="{{ url('/') }}" class="logo-container">
-        <img src="" alt="CoreTech Dispatch Logo" class="logo-img">
-        <div class="logo-text">
+        <!-- <img src="{{ asset('/frontend/assets/images/logo.webp.jpg') }}" alt="CoreTech Dispatch Logo"
+            class="logo-img"> -->
+        <div style="text-align: center;" class="logo-text">
             CORETECH <span>DISPATCH</span>
         </div>
     </a>
@@ -89,17 +90,17 @@
                     <i class="fas fa-chevron-down"></i>
                 </button>
                 <ul class="mobile-dropdown">
-                    <li><a href="{{ url('service-detail/Dispatching-services') }}">Dispatching Services</a></li>
-                    <li><a href="{{ url('service-detail/Neogtiation-services') }}">Rate Negotiation</a></li>
-                    <li><a href="{{ url('service-detail/Factoring-services') }}">Freight Factoring</a></li>
-                    <li><a href="{{ url('service-detail/Document-dispatch-services') }}">Document Dispatch
+                    <li><a href="{{ url('/service-detail/dispatching-services') }}">Dispatching Services</a></li>
+                    <li><a href="{{ url('service-detail/neogtiation-services') }}">Rate Negotiation</a></li>
+                    <li><a href="{{ url('service-detail/factoring-services') }}">Freight Factoring</a></li>
+                    <li><a href="{{ url('service-detail/document-dispatch-services') }}">Document Dispatch
                             Services</a></li>
-                    <li><a href="{{ url('service-detail/Trucking-document-services') }}">Trucking Paperwork
+                    <li><a href="{{ url('service-detail/trucking-document-services') }}">Trucking Paperwork
                             Services</a></li>
-                    <li><a href="{{ url('service-detail/Trucking-accounting-services') }}">Trucking Accounting</a>
+                    <li><a href="{{ url('service-detail/trucking-accounting-services') }}">Trucking Accounting</a>
                     </li>
-                    <li><a href="{{ url('service-detail/IFTA-services') }}">IFTA Reporting</a></li>
-                    <li><a href="{{ url('service-detail/Dot-services') }}">DOT Compliance & Safety Services</a>
+                    <li><a href="{{ url('service-detail/ifta-services') }}">IFTA Reporting</a></li>
+                    <li><a href="{{ url('service-detail/dot-services') }}">DOT Compliance & Safety Services</a>
                     </li>
                     <li><a href="{{ url('service-detail/company-formation-services') }}">Company Formation
                             Services</a></li>
@@ -128,7 +129,7 @@
                     <li><a href="{{ url('truck-detail/box-truck') }}">Box Truck Dispatching Service</a></li>
                 </ul>
             </li>
-            <li><a href="{{ url('/faqs') }}">FAQ</a></li>
+            <li><a href="{{ url('/info/faqs') }}">FAQ</a></li>
             <li>
                 <button class="mobile-dropdown-btn" aria-label="Show Services Menu" tabindex="0">
                     Company<i class="fas fa-chevron-down"></i>

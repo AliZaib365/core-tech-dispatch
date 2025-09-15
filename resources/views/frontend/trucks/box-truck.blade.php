@@ -13,11 +13,11 @@
                     <div class="photo-decoration"></div>
                     <picture>
                         <!-- Modern browsers (WebP) -->
-                        <source srcset="{{ asset('frontend/assets/images/box-truck.webp') }}" type="image/webp">
+                        <source srcset="{{ asset('frontend/assets/images/box-truck2.webp') }}" type="image/webp">
                         <!-- Fallback for older browsers -->
-                        <source srcset="{{ asset('frontend/assets/images/box-truck.webp') }}" type="image/jpeg">
+                        <source srcset="{{ asset('frontend/assets/images/box-truck2.webp') }}" type="image/jpeg">
                         <!-- Default fallback -->
-                        <img src="{{ asset('frontend/assets/images/box-truck.webp') }}" alt="26ft Box Truck"
+                        <img src="{{ asset('frontend/assets/images/box-truck2.webp') }}" alt="26ft Box Truck"
                             class="truck-photo" loading="lazy">
                     </picture>
                 </div>

@@ -35,7 +35,7 @@
                     <ul class="benefits-list1">
                         <li><i class="fas fa-check"></i> No forced dispatch and clear pricing with no surprises</li>
                         <li><i class="fas fa-headset"></i> Your personal dispatcher available 24/7</li>
-                        <li><i class="fas fa-percentage"></i> Only <span class="emphasis-blue">10% of gross</span> -
+                        <li><i class="fas fa-percentage"></i> Only <span class="emphasis-blue">5-7% of gross</span> -
                             industry-low rates</li>
                         <li><i class="fas fa-bolt"></i> Priority access to high-paying loads</li>
                         <li><i class="fas fa-shield-alt"></i> <span class="emphasis-pink">100% satisfaction
@@ -108,7 +108,7 @@
                 </div>
                 <div class="dispatch-card1">
                     <h3 class="dispatch-title1"><i class="fas fa-chart-line"></i>Transparent Pricing</h3>
-                    <p class="dispatch-desc1">Only 10% commission on gross no hidden charges, no upfront payments.
+                    <p class="dispatch-desc1">Only 5-7% commission on gross no hidden charges, no upfront payments.
                         What you see is what you pay.</p>
                 </div>
                 <div class="dispatch-card1">

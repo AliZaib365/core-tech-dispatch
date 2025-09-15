@@ -982,12 +982,12 @@
             position: relative;
             overflow: hidden;
             opacity: 0;
-            transform: translateY(30px);
+            /* transform: translateY(30px); */
         }
 
         .services-section.visible {
             opacity: 1;
-            transform: translateY(0);
+            /* transform: translateY(0); */
         }
 
         .services-container {
@@ -5991,7 +5991,7 @@
         }
 
         .contact-hours-title {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 30px;
             color: #14213d;
@@ -6001,6 +6001,7 @@
 
         .contact-hours-title i {
             margin-right: 12px;
+            margin-left: 12px;
             color: #4361ee;
             font-size: 1.3rem;
         }
@@ -6008,7 +6009,7 @@
         .contact-hours-table {
             width: 100%;
             border-collapse: separate;
-            border-spacing: 0 14px;
+            border-spacing: 15px 14px;
             font-size: 1.05rem;
         }
 
@@ -6275,7 +6276,7 @@
             }
 
             .contact-container {
-                padding: 12px 1px;
+                padding: 12px 10px;
             }
 
             .contact-hours,
