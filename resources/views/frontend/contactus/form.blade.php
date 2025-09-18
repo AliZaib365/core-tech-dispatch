@@ -58,7 +58,8 @@
                 </div>
                 <div class="form-group" id="messageGroup">
                     <label for="message">Message</label>
-                    <textarea type="text" id="message" name="message" class="form-control" placeholder="Your message here"></textarea>
+                    <textarea type="text" id="message" name="message" class="form-control"
+                        placeholder="Your message here"></textarea>
                     <i class="fas fa-message input-icon"></i>
                     <div class="error-message" id="messageError">Please enter a valid message</div>
                 </div>
@@ -92,126 +93,126 @@
 
 @push('js')
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"
-    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-<script>
-    $(document).ready(function () {
-        // Apply input mask to phone number field
-        $('#phone').mask('+1 (000) 000-0000');
+    <script>
+        $(document).ready(function () {
+            // Apply input mask to phone number field
+            $('#phone').mask('+1 (000) 000-0000');
 
-        // Form submission handler
+            // Form submission handler
+            $('#setupForm').on('submit', function (event) {
+                event.preventDefault();
+
+                // Clear previous error messages
+                $('.error-message').hide();
+
+                // Validate form fields
+                let isValid = true;
+
+                const name = $('#name').val().trim();
+                const email = $('#email').val().trim();
+                const phone = $('#phone').val().trim();
+                const message = $('#message').val().trim();
+                const termsChecked = $('input[name="sms-updates"]').is(':checked');
+
+
+                if (name === '') {
+                    $('#nameError').show();
+                    isValid = false;
+                }
+
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(email)) {
+                    $('#emailError').show();
+                    isValid = false;
+                }
+
+                if (phone === '') {
+                    $('#phoneError').show();
+                    isValid = false;
+                }
+
+                const messagePattern = /^[a-zA-Z0-9\s.,!?'"-]{5,500}$/;
+                if (!messagePattern.test(message)) {
+                    $('#messageError').show();
+                    isValid = false;
+                }
+
+                if (!termsChecked) {
+                    $('#termsError').show();
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    // Simulate form submission success
+                    $('#successMessage').show();
+                    $('#setupForm')[0].reset();
+                }
+            });
+        });
+
+        // submit form with ajax
         $('#setupForm').on('submit', function (event) {
             event.preventDefault();
-
             // Clear previous error messages
             $('.error-message').hide();
-
-            // Validate form fields
             let isValid = true;
-
             const name = $('#name').val().trim();
             const email = $('#email').val().trim();
             const phone = $('#phone').val().trim();
             const message = $('#message').val().trim();
             const termsChecked = $('input[name="sms-updates"]').is(':checked');
+            const emailChecked = $('input[name="email-updates"]').is(':checked');
 
 
             if (name === '') {
                 $('#nameError').show();
                 isValid = false;
             }
-
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailPattern.test(email)) {
                 $('#emailError').show();
                 isValid = false;
             }
-
-            const phonePattern = /^\+1 \(\d{3}\) \d{3}-\d{4}$/;
-            if (!phonePattern.test(phone)) {
+            if (phone === '') {
                 $('#phoneError').show();
                 isValid = false;
             }
+
             const messagePattern = /^[a-zA-Z0-9\s.,!?'"-]{5,500}$/;
             if (!messagePattern.test(message)) {
                 $('#messageError').show();
                 isValid = false;
             }
-
             if (!termsChecked) {
                 $('#termsError').show();
                 isValid = false;
             }
-
             if (isValid) {
-                // Simulate form submission success
-                $('#successMessage').show();
-                $('#setupForm')[0].reset();
+                $.ajax({
+                    url: "{{ route('contactus.create') }}",
+                    method: 'POST',
+                    data: {
+                        name: name,
+                        email: email,
+                        phone: phone,
+                        message: message,
+                        send_email: emailChecked ? 1 : 0,
+                        agree: termsChecked ? 1 : 0,
+                        _token: '{{ csrf_token() }}'
+                    },
+                    success: function (response) {
+                        $('#successMessage').show();
+                        $('#setupForm')[0].reset();
+                    },
+                    error: function (xhr, status, error) {
+                        alert('An error occurred. Please try again later.');
+                    }
+                });
             }
         });
-    });
-
-    // submit form with ajax
-    $('#setupForm').on('submit', function (event) {
-        event.preventDefault();
-        // Clear previous error messages
-        $('.error-message').hide();
-        let isValid = true;
-        const name = $('#name').val().trim();
-        const email = $('#email').val().trim();
-        const phone = $('#phone').val().trim();
-        const message = $('#message').val().trim();
-        const termsChecked = $('input[name="sms-updates"]').is(':checked');
-        const emailChecked = $('input[name="email-updates"]').is(':checked');
-
-
-        if (name === '') {
-            $('#nameError').show();
-            isValid = false;
-        }
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(email)) {
-            $('#emailError').show();
-            isValid = false;
-        }
-        const phonePattern = /^\+1 \(\d{3}\) \d{3}-\d{4}$/;
-        if (!phonePattern.test(phone)) {
-            $('#phoneError').show();
-            isValid = false;
-        }
-        const messagePattern = /^[a-zA-Z0-9\s.,!?'"-]{5,500}$/;
-        if (!messagePattern.test(message)) {
-            $('#messageError').show();
-            isValid = false;
-        }
-        if (!termsChecked) {
-            $('#termsError').show();
-            isValid = false;
-        }
-        if (isValid) {
-            $.ajax({
-                url: "{{ route('contactus.create') }}",
-                method: 'POST',
-                data: {
-                    name: name,
-                    email: email,
-                    phone: phone,
-                    message: message,
-                    send_email: emailChecked ? 1 : 0,
-                    agree: termsChecked ? 1 : 0,
-                    _token: '{{ csrf_token() }}'
-                },
-                success: function (response) {
-                    $('#successMessage').show();
-                    $('#setupForm')[0].reset();
-                },
-                error: function (xhr, status, error) {
-                    alert('An error occurred. Please try again later.');
-                }
-            });
-        }
-    });
-</script>
+    </script>
 
 @endpush
