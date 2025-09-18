@@ -60,13 +60,13 @@
                     <div>
                         <span class="footer-social-title">Connect With Us</span>
                         <div class="footer-social-icons">
-                            <a href="#" class="footer-social-icon" aria-label="Facebook"><i
+                            <a href="https://www.facebook.com/share/1B3773gTPo/" class="footer-social-icon" aria-label="Facebook"><i
                                     class="fab fa-facebook-f"></i></a>
                             <a href="#" class="footer-social-icon" aria-label="Twitter"><i
                                     class="fab fa-twitter"></i></a>
                             <a href="#" class="footer-social-icon" aria-label="LinkedIn"><i
                                     class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="footer-social-icon" aria-label="Instagram"><i
+                            <a href="https://www.instagram.com/coretechdispatch?igsh=YWZvYnB4Y3J4ajYy" class="footer-social-icon" aria-label="Instagram"><i
                                     class="fab fa-instagram"></i></a>
                             <a href="#" class="footer-social-icon" aria-label="YouTube"><i
                                     class="fab fa-youtube"></i></a>
